@@ -1,0 +1,106 @@
+# Dockerfile for ROS2 Humble on Ubuntu 22.04
+# Based on extraction from ROS2 Foxy container
+# This will be updated after extracting information from the old Foxy container
+
+FROM ubuntu:22.04
+
+# Avoid interactive prompts during package installation
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=UTC
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+# Set locale
+ENV LANG=en_US.UTF-8
+ENV LC_ALL=en_US.UTF-8
+RUN apt-get update && apt-get install -y \
+    locales \
+    && locale-gen en_US.UTF-8 \
+    && update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+
+# Install basic utilities
+RUN apt-get update && apt-get install -y \
+    curl \
+    gnupg2 \
+    lsb-release \
+    wget \
+    git \
+    vim \
+    nano \
+    build-essential \
+    cmake \
+    python3-pip \
+    python3-colcon-common-extensions \
+    python3-rosdep \
+    python3-vcstool \
+    sudo \
+    net-tools \
+    iputils-ping \
+    && rm -rf /var/lib/apt/lists/*
+
+# Setup ROS2 Humble repository
+RUN curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | apt-key add - \
+    && echo "deb [arch=$(dpkg --print-architecture)] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/ros2-latest.list
+
+# Install ROS2 Humble
+RUN apt-get update && apt-get install -y \
+    ros-humble-desktop \
+    ros-humble-ros-base \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install additional ROS2 packages (will be updated based on Foxy extraction)
+# Common packages for robotics
+RUN apt-get update && apt-get install -y \
+    ros-humble-cv-bridge \
+    ros-humble-image-transport \
+    ros-humble-image-transport-plugins \
+    ros-humble-camera-info-manager \
+    ros-humble-compressed-image-transport \
+    ros-humble-image-geometry \
+    ros-humble-pcl-ros \
+    ros-humble-pcl-conversions \
+    ros-humble-laser-filters \
+    ros-humble-robot-localization \
+    ros-humble-robot-state-publisher \
+    ros-humble-joint-state-publisher \
+    ros-humble-xacro \
+    ros-humble-urdf \
+    ros-humble-tf2-ros \
+    ros-humble-tf2-tools \
+    ros-humble-nav2-bringup \
+    ros-humble-nav2-common \
+    ros-humble-slam-toolbox \
+    ros-humble-cartographer-ros \
+    ros-humble-cartographer \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install system dependencies (will be updated based on Foxy extraction)
+RUN apt-get update && apt-get install -y \
+    libopencv-dev \
+    libeigen3-dev \
+    libboost-all-dev \
+    libusb-1.0-0-dev \
+    udev \
+    usbutils \
+    && rm -rf /var/lib/apt/lists/*
+
+# Initialize rosdep (will be updated with custom rules from Foxy if needed)
+RUN rosdep init || true \
+    && rosdep update || true
+
+# Create workspace directory (will be mounted from host)
+RUN mkdir -p /root/yahboomcar_ros2_ws
+
+# Setup environment
+RUN echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc
+
+# Copy entrypoint script (will be created/updated based on Foxy extraction)
+COPY docker_entrypoint.sh /ros_entrypoint.sh
+RUN chmod +x /ros_entrypoint.sh
+
+# Set working directory
+WORKDIR /root
+
+# Default command
+ENTRYPOINT ["/ros_entrypoint.sh"]
+CMD ["bash"]
+
