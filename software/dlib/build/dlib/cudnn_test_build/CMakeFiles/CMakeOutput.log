@@ -1,0 +1,48 @@
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/dlib/build/dlib/cudnn_test_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_f5912/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_f5912.dir/build.make CMakeFiles/cmTC_f5912.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/dlib/build/dlib/cudnn_test_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f5912.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -fPIC  -o CMakeFiles/cmTC_f5912.dir/CheckIncludeFile.c.o -c /home/jetson/yahboomcar_ros2_ws/software/dlib/build/dlib/cudnn_test_build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_f5912
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f5912.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC  CMakeFiles/cmTC_f5912.dir/CheckIncludeFile.c.o -o cmTC_f5912 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/dlib/build/dlib/cudnn_test_build/CMakeFiles/CMakeTmp'
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/dlib/build/dlib/cudnn_test_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_9672c/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_9672c.dir/build.make CMakeFiles/cmTC_9672c.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/dlib/build/dlib/cudnn_test_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9672c.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -fPIC  -o CMakeFiles/cmTC_9672c.dir/src.c.o -c /home/jetson/yahboomcar_ros2_ws/software/dlib/build/dlib/cudnn_test_build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_9672c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9672c.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC  CMakeFiles/cmTC_9672c.dir/src.c.o -o cmTC_9672c 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/dlib/build/dlib/cudnn_test_build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+

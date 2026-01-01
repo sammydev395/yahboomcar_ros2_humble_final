@@ -1,0 +1,19 @@
+{
+  "package_name": "yahboom_web_savmap_interfaces",
+  "output_dir": "/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboom_web_savmap_interfaces/rosidl_typesupport_introspection_c/yahboom_web_savmap_interfaces",
+  "template_dir": "/opt/ros/humble/share/rosidl_typesupport_introspection_c/resource",
+  "idl_tuples": [
+    "/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboom_web_savmap_interfaces/rosidl_adapter/yahboom_web_savmap_interfaces:srv/WebSaveMap.idl"
+  ],
+  "target_dependencies": [
+    "/opt/ros/humble/lib/rosidl_typesupport_introspection_c/rosidl_typesupport_introspection_c",
+    "/opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_typesupport_introspection_c/__init__.py",
+    "/opt/ros/humble/share/rosidl_typesupport_introspection_c/resource/idl__rosidl_typesupport_introspection_c.h.em",
+    "/opt/ros/humble/share/rosidl_typesupport_introspection_c/resource/idl__type_support.c.em",
+    "/opt/ros/humble/share/rosidl_typesupport_introspection_c/resource/msg__rosidl_typesupport_introspection_c.h.em",
+    "/opt/ros/humble/share/rosidl_typesupport_introspection_c/resource/msg__type_support.c.em",
+    "/opt/ros/humble/share/rosidl_typesupport_introspection_c/resource/srv__rosidl_typesupport_introspection_c.h.em",
+    "/opt/ros/humble/share/rosidl_typesupport_introspection_c/resource/srv__type_support.c.em",
+    "/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboom_web_savmap_interfaces/rosidl_adapter/yahboom_web_savmap_interfaces/srv/WebSaveMap.idl"
+  ]
+}

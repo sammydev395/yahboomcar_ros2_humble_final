@@ -1,0 +1,4 @@
+source;share/yahboom_web_savmap_interfaces/environment/ament_prefix_path.sh
+source;share/yahboom_web_savmap_interfaces/environment/library_path.sh
+source;share/yahboom_web_savmap_interfaces/environment/path.sh
+source;share/yahboom_web_savmap_interfaces/environment/pythonpath.sh

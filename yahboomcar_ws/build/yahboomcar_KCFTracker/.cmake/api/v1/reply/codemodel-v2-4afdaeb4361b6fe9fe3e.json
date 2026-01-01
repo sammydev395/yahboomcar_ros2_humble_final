@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-88f6116c42db5fbabad7.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "yahboomcar_KCFTracker",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "KCF_Tracker_Node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-KCF_Tracker_Node-4094d3a4e884ca3c7da1.json",
+					"name" : "KCF_Tracker_Node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-bc7728463c2867f61267.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "yahboomcar_KCFTracker_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-yahboomcar_KCFTracker_uninstall-bc1eb8951af01e69e9a9.json",
+					"name" : "yahboomcar_KCFTracker_uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_KCFTracker",
+		"source" : "/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/src/yahboomcar_KCFTracker"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

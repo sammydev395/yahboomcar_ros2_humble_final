@@ -1,0 +1,9 @@
+** WARNING ** io features related to pcap will be disabled
+In file included from /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/src/yahboomcar_point/src/pub_point.cpp:3:
+/opt/ros/humble/include/sensor_msgs/sensor_msgs/point_cloud_conversion.hpp:47:6: warning: #warning POINT_CLOUD_DEPRECATION_MESSAGE [-Wcpp]
+   47 | #    warning POINT_CLOUD_DEPRECATION_MESSAGE
+      |      ^~~~~~~
+/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/src/yahboomcar_point/src/pub_point.cpp: In member function ‘void mediapipeCloud::handle_point(std::shared_ptr<yahboomcar_msgs::msg::PointArray_<std::allocator<void> > >)’:
+/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/src/yahboomcar_point/src/pub_point.cpp:45:31: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<geometry_msgs::msg::Point_<std::allocator<void> >, std::allocator<geometry_msgs::msg::Point_<std::allocator<void> > > >::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+   45 |             for (int i = 0; i < msg->points.size(); i++)
+      |                             ~~^~~~~~~~~~~~~~~~~~~~

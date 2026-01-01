@@ -1,0 +1,85 @@
+[1.156s] Invoking command in '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_KCFTracker': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/src/yahboomcar_KCFTracker -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_KCFTracker
+[1.318s] -- The C compiler identification is GNU 11.4.0
+[1.465s] -- The CXX compiler identification is GNU 11.4.0
+[1.479s] -- Detecting C compiler ABI info
+[1.689s] -- Detecting C compiler ABI info - done
+[1.701s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.701s] -- Detecting C compile features
+[1.702s] -- Detecting C compile features - done
+[1.708s] -- Detecting CXX compiler ABI info
+[1.929s] -- Detecting CXX compiler ABI info - done
+[1.941s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.942s] -- Detecting CXX compile features
+[1.944s] -- Detecting CXX compile features - done
+[1.953s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[3.069s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[3.345s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[3.463s] -- Found geometry_msgs: 4.8.0 (/opt/ros/humble/share/geometry_msgs/cmake)
+[3.571s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[3.590s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[3.614s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[3.649s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[3.706s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.790s] -- Found sensor_msgs: 4.8.0 (/opt/ros/humble/share/sensor_msgs/cmake)
+[3.856s] -- Found rclcpp: 16.0.12 (/opt/ros/humble/share/rclcpp/cmake)
+[3.963s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[3.974s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[4.217s] -- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[4.296s] -- Found FastRTPS: /opt/ros/humble/include  
+[4.406s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[4.434s] -- Looking for pthread.h
+[4.594s] -- Looking for pthread.h - found
+[4.594s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[4.833s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[4.835s] -- Found Threads: TRUE  
+[4.923s] -- Found image_transport: 3.1.12 (/opt/ros/humble/share/image_transport/cmake)
+[5.037s] -- Found OpenCV: /usr (found suitable version "4.5.4", minimum required is "4") 
+[5.040s] -- Found cv_bridge: 3.2.1 (/home/jetson/yahboomcar_ws/install/cv_bridge/share/cv_bridge/cmake)
+[5.102s] -- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[5.687s] WARNING: Package name "yahboomcar_KCFTracker" does not follow the naming conventions. It should start with a lower case letter and only contain lower case letters, digits, underscores, and dashes.
+[5.688s] -- Added test 'copyright' to check source files copyright and LICENSE
+[5.688s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[5.688s] -- Configured cppcheck include dirs: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/src/yahboomcar_KCFTracker/include;/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/src/yahboomcar_KCFTracker/include/yahboomcar_KCFTracker
+[5.688s] -- Configured cppcheck exclude dirs and/or files: 
+[5.688s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[5.688s] -- Configured cpplint exclude dirs and/or files: 
+[5.688s] -- Added test 'flake8' to check Python code syntax and style conventions
+[5.688s] -- Added test 'lint_cmake' to check CMake code style
+[5.688s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[5.689s] -- Added test 'uncrustify' to check C / C++ code style
+[5.689s] -- Configured uncrustify additional arguments: 
+[5.689s] -- Added test 'xmllint' to check XML markup files
+[5.689s] -- Configuring done
+[5.690s] -- Generating done
+[5.692s] -- Build files have been written to: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_KCFTracker
+[5.716s] Invoked command in '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_KCFTracker' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/src/yahboomcar_KCFTracker -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_KCFTracker
+[5.717s] Invoking command in '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_KCFTracker': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_KCFTracker -- -j6 -l6
+[5.897s] [ 16%] Building CXX object CMakeFiles/KCF_Tracker_Node.dir/src/KCF_Tracker_main.cpp.o
+[5.897s] [ 33%] Building CXX object CMakeFiles/KCF_Tracker_Node.dir/src/KCF_Tracker.cpp.o
+[5.907s] [ 50%] Building CXX object CMakeFiles/KCF_Tracker_Node.dir/include/yahboomcar_KCFTracker/fhog.cpp.o
+[5.912s] [ 66%] Building CXX object CMakeFiles/KCF_Tracker_Node.dir/include/yahboomcar_KCFTracker/kcftracker.cpp.o
+[5.929s] [ 83%] Building CXX object CMakeFiles/KCF_Tracker_Node.dir/include/yahboomcar_KCFTracker/PID.cpp.o
+[59.966s] [100%] Linking CXX executable KCF_Tracker_Node
+[62.394s] [100%] Built target KCF_Tracker_Node
+[62.422s] Invoked command in '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_KCFTracker' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_KCFTracker -- -j6 -l6
+[62.424s] Invoking command in '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_KCFTracker': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_KCFTracker
+[62.442s] -- Install configuration: ""
+[62.443s] -- Execute custom install script
+[62.444s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_KCFTracker/lib/yahboomcar_KCFTracker/KCF_Tracker_Node
+[62.466s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_KCFTracker/share/yahboomcar_KCFTracker/launch/KCFTracker_X3.launch.py
+[62.488s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_KCFTracker/share/ament_index/resource_index/package_run_dependencies/yahboomcar_KCFTracker
+[62.510s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_KCFTracker/share/ament_index/resource_index/parent_prefix_path/yahboomcar_KCFTracker
+[62.531s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_KCFTracker/share/yahboomcar_KCFTracker/environment/ament_prefix_path.sh
+[62.562s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_KCFTracker/share/yahboomcar_KCFTracker/environment/ament_prefix_path.dsv
+[62.587s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_KCFTracker/share/yahboomcar_KCFTracker/environment/path.sh
+[62.617s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_KCFTracker/share/yahboomcar_KCFTracker/environment/path.dsv
+[62.643s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_KCFTracker/share/yahboomcar_KCFTracker/local_setup.bash
+[62.668s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_KCFTracker/share/yahboomcar_KCFTracker/local_setup.sh
+[62.692s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_KCFTracker/share/yahboomcar_KCFTracker/local_setup.zsh
+[62.716s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_KCFTracker/share/yahboomcar_KCFTracker/local_setup.dsv
+[62.740s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_KCFTracker/share/yahboomcar_KCFTracker/package.dsv
+[62.764s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_KCFTracker/share/ament_index/resource_index/packages/yahboomcar_KCFTracker
+[62.797s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_KCFTracker/share/yahboomcar_KCFTracker/cmake/yahboomcar_KCFTrackerConfig.cmake
+[62.823s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_KCFTracker/share/yahboomcar_KCFTracker/cmake/yahboomcar_KCFTrackerConfig-version.cmake
+[62.844s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_KCFTracker/share/yahboomcar_KCFTracker/package.xml
+[62.871s] Invoked command in '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_KCFTracker' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_KCFTracker

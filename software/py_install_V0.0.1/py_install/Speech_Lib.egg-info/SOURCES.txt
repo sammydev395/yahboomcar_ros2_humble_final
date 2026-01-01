@@ -1,0 +1,8 @@
+README.md
+setup.py
+Speech_Lib/Speech_Lib.py
+Speech_Lib/__init__.py
+Speech_Lib.egg-info/PKG-INFO
+Speech_Lib.egg-info/SOURCES.txt
+Speech_Lib.egg-info/dependency_links.txt
+Speech_Lib.egg-info/top_level.txt

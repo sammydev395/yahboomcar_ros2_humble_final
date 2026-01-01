@@ -1,0 +1,7 @@
+[console_scripts]
+01_HandDetector = yahboomcar_mediapipe.01_HandDetector:main
+02_PoseDetector = yahboomcar_mediapipe.02_PoseDetector:main
+03_Holistic = yahboomcar_mediapipe.03_Holistic:main
+04_FaceMesh = yahboomcar_mediapipe.04_FaceMesh:main
+05_FaceEyeDetection = yahboomcar_mediapipe.05_FaceEyeDetection:main
+test_msg = yahboomcar_mediapipe.test_msg:main

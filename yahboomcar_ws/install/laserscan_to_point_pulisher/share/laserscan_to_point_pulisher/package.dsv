@@ -1,0 +1,9 @@
+source;share/laserscan_to_point_pulisher/hook/pythonpath.ps1
+source;share/laserscan_to_point_pulisher/hook/pythonpath.dsv
+source;share/laserscan_to_point_pulisher/hook/pythonpath.sh
+source;share/laserscan_to_point_pulisher/hook/ament_prefix_path.ps1
+source;share/laserscan_to_point_pulisher/hook/ament_prefix_path.dsv
+source;share/laserscan_to_point_pulisher/hook/ament_prefix_path.sh
+source;../../build/laserscan_to_point_pulisher/share/laserscan_to_point_pulisher/hook/pythonpath_develop.ps1
+source;../../build/laserscan_to_point_pulisher/share/laserscan_to_point_pulisher/hook/pythonpath_develop.dsv
+source;../../build/laserscan_to_point_pulisher/share/laserscan_to_point_pulisher/hook/pythonpath_develop.sh

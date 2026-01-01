@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/stacktrace_unittest.dir/src/stacktrace_unittest.cc.o -o stacktrace_unittest  libglogtest.a /usr/lib/aarch64-linux-gnu/libgtest.a /usr/lib/aarch64-linux-gnu/libunwind.so 

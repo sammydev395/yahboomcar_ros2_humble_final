@@ -1,0 +1,50 @@
+[5.465s] Invoking command in '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz': PYTHONPATH=/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/build --no-deps symlink_data
+[7.144s] running develop
+[8.814s] running egg_info
+[8.814s] creating yahboomcar_rviz.egg-info
+[8.815s] writing yahboomcar_rviz.egg-info/PKG-INFO
+[8.816s] writing dependency_links to yahboomcar_rviz.egg-info/dependency_links.txt
+[8.816s] writing requirements to yahboomcar_rviz.egg-info/requires.txt
+[8.816s] writing top-level names to yahboomcar_rviz.egg-info/top_level.txt
+[8.816s] writing manifest file 'yahboomcar_rviz.egg-info/SOURCES.txt'
+[8.816s] reading manifest file 'yahboomcar_rviz.egg-info/SOURCES.txt'
+[8.816s] writing manifest file 'yahboomcar_rviz.egg-info/SOURCES.txt'
+[8.816s] running build_ext
+[8.817s] Creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/lib/python3.10/site-packages/yahboomcar-rviz.egg-link (link to .)
+[8.818s] 
+[8.818s] Installed /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz
+[8.819s] running symlink_data
+[8.820s] creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/ament_index/resource_index/packages
+[8.820s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/resource/yahboomcar_rviz -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/ament_index/resource_index/packages
+[8.822s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/package.xml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz
+[8.822s] creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/launch
+[8.822s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/launch/yahboomcar_mapping_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/launch
+[8.823s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/launch/yahboomcar_laser_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/launch
+[8.823s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/launch/display_multi_nav_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/launch
+[8.823s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/launch/yahboomcar_urdf_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/launch
+[8.823s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/launch/yahboomcar_nav_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/launch
+[8.824s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/launch/display_nav_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/launch
+[8.825s] creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/urdf
+[8.825s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/urdf/yahboomcar.urdf -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/urdf
+[8.825s] creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/meshes
+[8.826s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/meshes/right front_Link.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/meshes
+[8.827s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/meshes/left back_Link.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/meshes
+[8.827s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/meshes/right back_Link.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/meshes
+[8.827s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/meshes/left_front_wheel.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/meshes
+[8.828s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/meshes/base_link.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/meshes
+[8.828s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/meshes/camera2_link.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/meshes
+[8.832s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/meshes/right_front_wheel.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/meshes
+[8.834s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/meshes/lidar_link.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/meshes
+[8.834s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/meshes/left Front_Link.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/meshes
+[8.834s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/meshes/camera_link.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/meshes
+[8.834s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/meshes/left_back_wheel.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/meshes
+[8.835s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/meshes/imu_link.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/meshes
+[8.835s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/meshes/right_back_wheel.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/meshes
+[8.835s] creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/rviz
+[8.836s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/rviz/nav.rviz -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/rviz
+[8.836s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/rviz/mapping.rviz -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/rviz
+[8.837s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/rviz/navigation.rviz -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/rviz
+[8.837s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/rviz/yahboomcar.rviz -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/rviz
+[8.837s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/rviz/nav_multi.rviz -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/rviz
+[8.837s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/rviz/laser_scan.rviz -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/rviz
+[8.838s] Invoked command in '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz' returned '0': PYTHONPATH=/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/build --no-deps symlink_data

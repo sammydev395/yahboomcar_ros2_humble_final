@@ -1,0 +1,72 @@
+[6.087s] Invoking command in '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav': PYTHONPATH=/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/build --no-deps symlink_data
+[7.653s] running develop
+[9.062s] running egg_info
+[9.063s] creating yahboomcar_nav.egg-info
+[9.063s] writing yahboomcar_nav.egg-info/PKG-INFO
+[9.063s] writing dependency_links to yahboomcar_nav.egg-info/dependency_links.txt
+[9.063s] writing entry points to yahboomcar_nav.egg-info/entry_points.txt
+[9.063s] writing requirements to yahboomcar_nav.egg-info/requires.txt
+[9.063s] writing top-level names to yahboomcar_nav.egg-info/top_level.txt
+[9.063s] writing manifest file 'yahboomcar_nav.egg-info/SOURCES.txt'
+[9.100s] reading manifest file 'yahboomcar_nav.egg-info/SOURCES.txt'
+[9.100s] writing manifest file 'yahboomcar_nav.egg-info/SOURCES.txt'
+[9.155s] running build_ext
+[9.156s] Creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/lib/python3.10/site-packages/yahboomcar-nav.egg-link (link to .)
+[9.160s] Installing scan_filter script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/lib/yahboomcar_nav
+[9.164s] 
+[9.164s] Installed /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav
+[9.165s] running symlink_data
+[9.169s] creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/ament_index/resource_index/packages
+[9.173s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/resource/yahboomcar_nav -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/ament_index/resource_index/packages
+[9.176s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/package.xml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav
+[9.179s] creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+[9.181s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/map_rtabmap_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+[9.183s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/occupancy_grid_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+[9.185s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/display_rtabmap_nav_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+[9.188s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/map_gmapping_a1_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+[9.190s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/map_gmapping_s2_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+[9.192s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/laser_bringup_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+[9.194s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/navigation_cartodwb_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+[9.196s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/display_map_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+[9.198s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/cartographer_localization_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+[9.199s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/map_gmapping_4ros_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+[9.202s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/map_gmapping_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+[9.205s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/localization_imu_odom.launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+[9.206s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/display_rtabmap_map_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+[9.208s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/map_cartographer_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+[9.210s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/cartographer_bringup_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+[9.211s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/navigation_rtabmap_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+[9.213s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/navigation_teb_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+[9.216s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/cartographer_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+[9.219s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/save_map_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+[9.220s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/rtabmap_nav_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+[9.223s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/display_nav_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+[9.225s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/rtabmap_sync_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+[9.227s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/laser_bringup_no_odom_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+[9.228s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/rtabmap_viz_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+[9.230s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/navigation_dwa_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+[9.233s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/rtabmap_localization_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+[9.235s] creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/rviz
+[9.237s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/rviz/nav.rviz -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/rviz
+[9.240s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/rviz/rtabmap_map.rviz -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/rviz
+[9.242s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/rviz/map.rviz -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/rviz
+[9.243s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/rviz/rtabmap_nav.rviz -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/rviz
+[9.245s] creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/params
+[9.247s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/params/dwa_nav_params.yaml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/params
+[9.249s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/params/teb_nav_params.yaml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/params
+[9.250s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/params/lds_2d.lua -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/params
+[9.253s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/params/cartoteb_nav_params.yaml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/params
+[9.255s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/params/rtabmap_nav_params.yaml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/params
+[9.258s] creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/maps
+[9.260s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/maps/Test .yaml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/maps
+[9.262s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/maps/test1.pgm -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/maps
+[9.264s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/maps/yahboomcar.pbstream -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/maps
+[9.265s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/maps/yahboomcar.yaml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/maps
+[9.268s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/maps/Test .pgm -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/maps
+[9.270s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/maps/h h h h.pgm -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/maps
+[9.272s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/maps/yahboomcar2.pgm -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/maps
+[9.275s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/maps/yahboomcar2.yaml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/maps
+[9.278s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/maps/test1.yaml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/maps
+[9.279s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/maps/h h h h.yaml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/maps
+[9.281s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/maps/yahboomcar.pgm -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/maps
+[9.635s] Invoked command in '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav' returned '0': PYTHONPATH=/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/build --no-deps symlink_data

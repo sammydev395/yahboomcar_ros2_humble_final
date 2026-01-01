@@ -1,0 +1,48 @@
+running develop
+running egg_info
+creating yahboomcar_rviz.egg-info
+writing yahboomcar_rviz.egg-info/PKG-INFO
+writing dependency_links to yahboomcar_rviz.egg-info/dependency_links.txt
+writing requirements to yahboomcar_rviz.egg-info/requires.txt
+writing top-level names to yahboomcar_rviz.egg-info/top_level.txt
+writing manifest file 'yahboomcar_rviz.egg-info/SOURCES.txt'
+reading manifest file 'yahboomcar_rviz.egg-info/SOURCES.txt'
+writing manifest file 'yahboomcar_rviz.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/lib/python3.10/site-packages/yahboomcar-rviz.egg-link (link to .)
+
+Installed /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz
+running symlink_data
+creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/ament_index/resource_index/packages
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/resource/yahboomcar_rviz -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/ament_index/resource_index/packages
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/package.xml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz
+creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/launch/yahboomcar_mapping_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/launch/yahboomcar_laser_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/launch/display_multi_nav_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/launch/yahboomcar_urdf_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/launch/yahboomcar_nav_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/launch/display_nav_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/launch
+creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/urdf
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/urdf/yahboomcar.urdf -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/urdf
+creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/meshes
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/meshes/right front_Link.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/meshes
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/meshes/left back_Link.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/meshes
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/meshes/right back_Link.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/meshes
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/meshes/left_front_wheel.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/meshes
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/meshes/base_link.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/meshes
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/meshes/camera2_link.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/meshes
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/meshes/right_front_wheel.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/meshes
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/meshes/lidar_link.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/meshes
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/meshes/left Front_Link.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/meshes
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/meshes/camera_link.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/meshes
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/meshes/left_back_wheel.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/meshes
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/meshes/imu_link.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/meshes
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/meshes/right_back_wheel.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/meshes
+creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/rviz
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/rviz/nav.rviz -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/rviz
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/rviz/mapping.rviz -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/rviz
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/rviz/navigation.rviz -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/rviz
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/rviz/yahboomcar.rviz -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/rviz
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/rviz/nav_multi.rviz -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/rviz
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_rviz/rviz/laser_scan.rviz -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_rviz/share/yahboomcar_rviz/rviz

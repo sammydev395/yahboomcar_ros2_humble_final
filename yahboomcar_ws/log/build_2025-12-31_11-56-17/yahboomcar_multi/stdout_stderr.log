@@ -1,0 +1,67 @@
+running develop
+running egg_info
+creating yahboomcar_multi.egg-info
+writing yahboomcar_multi.egg-info/PKG-INFO
+writing dependency_links to yahboomcar_multi.egg-info/dependency_links.txt
+writing entry points to yahboomcar_multi.egg-info/entry_points.txt
+writing requirements to yahboomcar_multi.egg-info/requires.txt
+writing top-level names to yahboomcar_multi.egg-info/top_level.txt
+writing manifest file 'yahboomcar_multi.egg-info/SOURCES.txt'
+reading manifest file 'yahboomcar_multi.egg-info/SOURCES.txt'
+writing manifest file 'yahboomcar_multi.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/lib/python3.10/site-packages/yahboomcar-multi.egg-link (link to .)
+Installing listenline script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/lib/yahboomcar_multi
+Installing queue script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/lib/yahboomcar_multi
+Installing yahboomcar_R2_ctrl script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/lib/yahboomcar_multi
+Installing yahboomcar_X3_ctrl script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/lib/yahboomcar_multi
+
+Installed /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi
+running symlink_data
+creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/ament_index/resource_index/packages
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/resource/yahboomcar_multi -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/ament_index/resource_index/packages
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/package.xml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi
+creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/launch/multi_queue_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/launch/R2_nav_robot1_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/launch/R2_amcl_robot1_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/launch/X3_A1_bringup_multi.launch.xml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/launch/X3_amcl_robot2_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/launch/X3_bringup_multi_ctrl.launch.xml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/launch/R2_4ROS_bringup_multi.launch.xml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/launch/S2_multi.launch.xml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/launch/X3_amcl_robot1_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/launch/X3_bringup_multi.launch.xml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/launch/bringup_multi.launch.xml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/launch/R2_amcl_robot2_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/launch/map_server.launch.xml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/launch/R2_nav_robot2_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/launch/R2_bringup_multi_ctrl.launch.xml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/launch/X3_nav_robot1_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/launch/R2_A1_bringup_multi.launch.xml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/launch/bringup_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/launch/X3_nav_robot2_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/launch/navigation_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/launch/X3_joy_ctrl.launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/launch/map_server_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/launch/A1_multi.launch.xml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/launch/R2_bringup_multi.launch.xml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/launch/X3_S2_bringup_multi.launch.xml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/launch/R2_joy_ctrl.launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/launch/4ROS_multi.launch.xml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/launch
+creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/param
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/param/X3_ekf_robot1.yaml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/param
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/param/R2_ekf_robot1.yaml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/param
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/param/X3_ekf_robot2.yaml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/param
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/param/R2_amcl_robot2.yaml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/param
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/param/R2_ekf_robot2.yaml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/param
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/param/R2_nav_robot1.yaml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/param
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/param/X3_nav_robot1.yaml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/param
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/param/X3_amcl_robot2.yaml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/param
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/param/R2_nav_robot2.yaml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/param
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/param/X3_amcl_robot1.yaml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/param
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/param/X3_nav_robot2.yaml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/param
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/param/R2_amcl_robot1.yaml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/param
+creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/maps
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/maps/yahboomcar.yaml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/maps
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_multi/maps/yahboomcar.pgm -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_multi/share/yahboomcar_multi/maps

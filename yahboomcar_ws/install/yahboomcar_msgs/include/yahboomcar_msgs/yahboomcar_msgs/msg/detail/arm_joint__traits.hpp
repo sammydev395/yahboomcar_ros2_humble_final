@@ -1,0 +1,1 @@
+/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_msgs/rosidl_generator_cpp/yahboomcar_msgs/msg/detail/arm_joint__traits.hpp

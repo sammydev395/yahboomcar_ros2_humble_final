@@ -1,0 +1,156 @@
+[0.100s] Invoking command in '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_slam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/src/yahboomcar_slam -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam
+[0.614s] -- The C compiler identification is GNU 11.4.0
+[0.928s] -- The CXX compiler identification is GNU 11.4.0
+[1.004s] -- Detecting C compiler ABI info
+[1.630s] -- Detecting C compiler ABI info - done
+[1.630s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.630s] -- Detecting C compile features
+[1.630s] -- Detecting C compile features - done
+[1.631s] -- Detecting CXX compiler ABI info
+[1.997s] -- Detecting CXX compiler ABI info - done
+[2.006s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[2.006s] -- Detecting CXX compile features
+[2.007s] -- Detecting CXX compile features - done
+[2.031s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[3.594s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[4.588s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[4.588s] -- Found rclcpp: 16.0.12 (/opt/ros/humble/share/rclcpp/cmake)
+[4.588s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[4.588s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[4.588s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[4.588s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[4.588s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[4.814s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[4.842s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[6.282s] -- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[6.283s] -- Found FastRTPS: /opt/ros/humble/include  
+[6.283s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[6.283s] -- Looking for pthread.h
+[6.499s] -- Looking for pthread.h - found
+[6.500s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[7.006s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[7.006s] -- Found Threads: TRUE  
+[7.249s] -- Found pcl_conversions: 2.4.5 (/opt/ros/humble/share/pcl_conversions/cmake)
+[7.522s] -- Checking for module 'eigen3'
+[7.595s] --   Found eigen3, version 3.4.0
+[7.909s] -- Found Eigen: /usr/include/eigen3 (Required is at least version "3.1") 
+[7.909s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[8.085s] -- Checking for module 'flann'
+[8.192s] --   Found flann, version 1.9.1
+[8.432s] -- Found FLANN: /usr/lib/aarch64-linux-gnu/libflann_cpp.so  
+[8.432s] -- FLANN found (include: /usr/include, lib: /usr/lib/aarch64-linux-gnu/libflann_cpp.so)
+[12.231s] -- Checking for module 'libusb-1.0'
+[12.266s] --   Found libusb-1.0, version 1.0.25
+[12.359s] -- Found libusb: /usr/lib/aarch64-linux-gnu/libusb-1.0.so  
+[12.360s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[12.483s] -- OpenNI2 found (version: 2.3.0.85, include: /home/jetson/yahboomcar_ws/install/yahboomcar_astra/include/openni2, lib: /home/jetson/yahboomcar_ros2_ws/software/library_ws/install/astra_camera/lib/libOpenNI2.so;libusb::libusb)
+[12.815s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[12.832s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[12.847s] -- OpenNI2 found (version: 2.3.0.85, include: /home/jetson/yahboomcar_ws/install/yahboomcar_astra/include/openni2, lib: /home/jetson/yahboomcar_ros2_ws/software/library_ws/install/astra_camera/lib/libOpenNI2.so;libusb::libusb)
+[13.173s] -- Found Qhull version 8.0.2
+[13.472s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[13.735s] -- Found PCL_COMMON: /usr/lib/aarch64-linux-gnu/libpcl_common.so  
+[13.737s] -- Found PCL_KDTREE: /usr/lib/aarch64-linux-gnu/libpcl_kdtree.so  
+[13.738s] -- Found PCL_OCTREE: /usr/lib/aarch64-linux-gnu/libpcl_octree.so  
+[13.741s] -- Found PCL_SEARCH: /usr/lib/aarch64-linux-gnu/libpcl_search.so  
+[13.742s] -- Found PCL_SAMPLE_CONSENSUS: /usr/lib/aarch64-linux-gnu/libpcl_sample_consensus.so  
+[13.744s] -- Found PCL_FILTERS: /usr/lib/aarch64-linux-gnu/libpcl_filters.so  
+[13.745s] -- Found PCL_2D: /usr/include/pcl-1.12  
+[13.745s] -- Found PCL_GEOMETRY: /usr/include/pcl-1.12  
+[13.747s] -- Found PCL_IO: /usr/lib/aarch64-linux-gnu/libpcl_io.so  
+[13.749s] -- Found PCL_FEATURES: /usr/lib/aarch64-linux-gnu/libpcl_features.so  
+[13.751s] -- Found PCL_ML: /usr/lib/aarch64-linux-gnu/libpcl_ml.so  
+[13.753s] -- Found PCL_SEGMENTATION: /usr/lib/aarch64-linux-gnu/libpcl_segmentation.so  
+[13.755s] -- Found PCL_VISUALIZATION: /usr/lib/aarch64-linux-gnu/libpcl_visualization.so  
+[13.756s] -- Found PCL_SURFACE: /usr/lib/aarch64-linux-gnu/libpcl_surface.so  
+[13.758s] -- Found PCL_REGISTRATION: /usr/lib/aarch64-linux-gnu/libpcl_registration.so  
+[13.760s] -- Found PCL_KEYPOINTS: /usr/lib/aarch64-linux-gnu/libpcl_keypoints.so  
+[13.762s] -- Found PCL_TRACKING: /usr/lib/aarch64-linux-gnu/libpcl_tracking.so  
+[13.764s] -- Found PCL_RECOGNITION: /usr/lib/aarch64-linux-gnu/libpcl_recognition.so  
+[13.766s] -- Found PCL_STEREO: /usr/lib/aarch64-linux-gnu/libpcl_stereo.so  
+[13.767s] -- Found PCL_APPS: /usr/lib/aarch64-linux-gnu/libpcl_apps.so  
+[13.769s] -- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.12  
+[13.770s] -- Found PCL_MODELER: /usr/include/pcl-1.12  
+[13.771s] -- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.12  
+[13.772s] -- Found PCL_OUTOFCORE: /usr/lib/aarch64-linux-gnu/libpcl_outofcore.so  
+[13.774s] -- Found PCL_PEOPLE: /usr/lib/aarch64-linux-gnu/libpcl_people.so  
+[13.785s] -- Found pcl_ros: 2.4.5 (/opt/ros/humble/share/pcl_ros/cmake)
+[13.879s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[13.882s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[13.882s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[14.097s] -- Found cv_bridge: 3.2.1 (/home/jetson/yahboomcar_ws/install/cv_bridge/share/cv_bridge/cmake)
+[14.131s] -- Found image_transport: 3.1.12 (/opt/ros/humble/share/image_transport/cmake)
+[14.183s] CMake Warning (dev) at CMakeLists.txt:31 (find_package):
+[14.183s]   Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.
+[14.183s]   Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy
+[14.183s]   command to set the policy and suppress this warning.
+[14.183s] 
+[14.183s]   CMake variable PCL_ROOT is set to:
+[14.183s] 
+[14.183s]     /usr
+[14.183s] 
+[14.184s]   For compatibility, CMake is ignoring the variable.
+[14.184s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[14.184s] 
+[14.238s] -- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[14.465s] -- Added test 'copyright' to check source files copyright and LICENSE
+[14.470s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[14.471s] -- Configured cppcheck include dirs: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/src/yahboomcar_slam/include/yahboomcar_slam;$<BUILD_INTERFACE:/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/src/yahboomcar_slam/include>
+[14.471s] -- Configured cppcheck exclude dirs and/or files: 
+[14.475s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[14.475s] -- Configured cpplint exclude dirs and/or files: 
+[14.477s] -- Added test 'flake8' to check Python code syntax and style conventions
+[14.480s] -- Added test 'lint_cmake' to check CMake code style
+[14.482s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[14.487s] -- Added test 'uncrustify' to check C / C++ code style
+[14.487s] -- Configured uncrustify additional arguments: 
+[14.488s] -- Added test 'xmllint' to check XML markup files
+[14.494s] -- Configuring done
+[14.609s] -- Generating done
+[14.634s] -- Build files have been written to: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_slam
+[14.684s] Invoked command in '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_slam' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/src/yahboomcar_slam -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam
+[14.686s] Invoking command in '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_slam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_slam -- -j6 -l6
+[14.806s] [ 33%] Building CXX object CMakeFiles/pointcloud_mapping.dir/src/point_cloud_main.cpp.o
+[41.609s] [ 66%] Building CXX object CMakeFiles/pointcloud_mapping.dir/src/point_cloud.cpp.o
+[93.421s] [100%] Linking CXX executable pointcloud_mapping
+[98.991s] [100%] Built target pointcloud_mapping
+[99.019s] Invoked command in '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_slam' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_slam -- -j6 -l6
+[99.024s] Invoking command in '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_slam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_slam
+[99.047s] -- Install configuration: ""
+[99.048s] -- Execute custom install script
+[99.049s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/lib/yahboomcar_slam/pointcloud_mapping
+[99.075s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/yahboomcar_slam/launch/camera_octomap_launch.py
+[99.097s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/yahboomcar_slam/launch/display_octomap_launch.py
+[99.119s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/yahboomcar_slam/launch/display_pcl_launch.py
+[99.142s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/yahboomcar_slam/launch/octomap_server_launch.py
+[99.166s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/yahboomcar_slam/launch/orbslam_base_launch.py
+[99.189s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/yahboomcar_slam/launch/orbslam_pcl_map_launch.py
+[99.211s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/yahboomcar_slam/launch/orbslam_pcl_octomap_launch.py
+[99.233s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/yahboomcar_slam/launch/orbslam_pose_launch.py
+[99.255s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/yahboomcar_slam/launch/orbslam_ros_launch.py
+[99.278s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/yahboomcar_slam/params/ORBvoc.txt
+[99.301s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/yahboomcar_slam/params/astra.yaml
+[99.323s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/yahboomcar_slam/params/mono.yaml
+[99.346s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/yahboomcar_slam/params/pointcloud_map.yaml
+[99.367s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/yahboomcar_slam/params/pointcloud_octomap.yaml
+[99.388s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/yahboomcar_slam/params/rgbd.yaml
+[99.410s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/yahboomcar_slam/params/usb_cam_param.yaml
+[99.432s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/yahboomcar_slam/pcl/resultPointCloudFile.pcd
+[99.454s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/yahboomcar_slam/rviz/cotomap.rviz
+[99.476s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/yahboomcar_slam/rviz/orbslam_pcl.rviz
+[99.499s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/ament_index/resource_index/package_run_dependencies/yahboomcar_slam
+[99.524s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/ament_index/resource_index/parent_prefix_path/yahboomcar_slam
+[99.546s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/yahboomcar_slam/environment/ament_prefix_path.sh
+[99.569s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/yahboomcar_slam/environment/ament_prefix_path.dsv
+[99.591s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/yahboomcar_slam/environment/path.sh
+[99.614s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/yahboomcar_slam/environment/path.dsv
+[99.636s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/yahboomcar_slam/local_setup.bash
+[99.658s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/yahboomcar_slam/local_setup.sh
+[99.681s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/yahboomcar_slam/local_setup.zsh
+[99.702s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/yahboomcar_slam/local_setup.dsv
+[99.724s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/yahboomcar_slam/package.dsv
+[99.746s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/ament_index/resource_index/packages/yahboomcar_slam
+[99.769s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/yahboomcar_slam/cmake/yahboomcar_slamConfig.cmake
+[99.791s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/yahboomcar_slam/cmake/yahboomcar_slamConfig-version.cmake
+[99.812s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_slam/share/yahboomcar_slam/package.xml
+[99.840s] Invoked command in '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_slam' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_slam

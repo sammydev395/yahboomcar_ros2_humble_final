@@ -1,0 +1,48 @@
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/dlib/build/dlib/cuda_test_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_57233/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_57233.dir/build.make CMakeFiles/cmTC_57233.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/dlib/build/dlib/cuda_test_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_57233.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -fPIC  -o CMakeFiles/cmTC_57233.dir/CheckIncludeFile.c.o -c /home/jetson/yahboomcar_ros2_ws/software/dlib/build/dlib/cuda_test_build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_57233
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_57233.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC  CMakeFiles/cmTC_57233.dir/CheckIncludeFile.c.o -o cmTC_57233 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/dlib/build/dlib/cuda_test_build/CMakeFiles/CMakeTmp'
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/dlib/build/dlib/cuda_test_build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_5764b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_5764b.dir/build.make CMakeFiles/cmTC_5764b.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/dlib/build/dlib/cuda_test_build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5764b.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -fPIC  -o CMakeFiles/cmTC_5764b.dir/src.c.o -c /home/jetson/yahboomcar_ros2_ws/software/dlib/build/dlib/cuda_test_build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_5764b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5764b.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC  CMakeFiles/cmTC_5764b.dir/src.c.o -o cmTC_5764b 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/dlib/build/dlib/cuda_test_build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+

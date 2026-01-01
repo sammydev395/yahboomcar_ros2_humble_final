@@ -1,0 +1,8 @@
+{
+  "package_name": "teb_msgs",
+  "non_idl_tuples": [
+    "/home/jetson/yahboomcar_ros2_ws/software/library_ws/src/teb_local_planner-humble-devel/teb_msgs:msg/FeedbackMsg.msg",
+    "/home/jetson/yahboomcar_ros2_ws/software/library_ws/src/teb_local_planner-humble-devel/teb_msgs:msg/TrajectoryMsg.msg",
+    "/home/jetson/yahboomcar_ros2_ws/software/library_ws/src/teb_local_planner-humble-devel/teb_msgs:msg/TrajectoryPointMsg.msg"
+  ]
+}

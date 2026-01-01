@@ -1,0 +1,4 @@
+[console_scripts]
+follow_line_4ROS_R2 = yahboomcar_linefollow.follow_line_4ROS_R2:main
+follow_line_a1_R2 = yahboomcar_linefollow.follow_line_a1_R2:main
+follow_line_a1_X3 = yahboomcar_linefollow.follow_line_a1_X3:main

@@ -1,0 +1,32 @@
+[3.783s] Invoking command in '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_laser': PYTHONPATH=/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_laser/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_laser/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_laser/build --no-deps symlink_data
+[5.384s] running develop
+[6.757s] running egg_info
+[7.057s] creating yahboomcar_laser.egg-info
+[7.066s] writing yahboomcar_laser.egg-info/PKG-INFO
+[7.077s] writing dependency_links to yahboomcar_laser.egg-info/dependency_links.txt
+[7.080s] writing entry points to yahboomcar_laser.egg-info/entry_points.txt
+[7.089s] writing requirements to yahboomcar_laser.egg-info/requires.txt
+[7.098s] writing top-level names to yahboomcar_laser.egg-info/top_level.txt
+[7.100s] writing manifest file 'yahboomcar_laser.egg-info/SOURCES.txt'
+[8.439s] reading manifest file 'yahboomcar_laser.egg-info/SOURCES.txt'
+[8.440s] writing manifest file 'yahboomcar_laser.egg-info/SOURCES.txt'
+[8.440s] running build_ext
+[8.441s] Creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_laser/lib/python3.10/site-packages/yahboomcar-laser.egg-link (link to .)
+[8.441s] Installing laser_Avoidance_4ROS_R2 script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_laser/lib/yahboomcar_laser
+[8.441s] Installing laser_Avoidance_a1_R2 script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_laser/lib/yahboomcar_laser
+[8.441s] Installing laser_Avoidance_a1_X3 script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_laser/lib/yahboomcar_laser
+[8.441s] Installing laser_Tracker_4ROS_R2 script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_laser/lib/yahboomcar_laser
+[8.441s] Installing laser_Tracker_a1_R2 script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_laser/lib/yahboomcar_laser
+[8.441s] Installing laser_Tracker_a1_X3 script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_laser/lib/yahboomcar_laser
+[8.441s] Installing laser_Warning_a1_X3 script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_laser/lib/yahboomcar_laser
+[8.442s] 
+[8.442s] Installed /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_laser
+[8.442s] running symlink_data
+[8.442s] creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_laser/share/ament_index/resource_index/packages
+[8.442s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_laser/resource/yahboomcar_laser -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_laser/share/ament_index/resource_index/packages
+[8.442s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_laser/package.xml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_laser/share/yahboomcar_laser
+[8.442s] creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_laser/share/yahboomcar_laser/launch
+[8.443s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_laser/launch/laser_Tracker_a1_X3.launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_laser/share/yahboomcar_laser/launch
+[8.444s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_laser/launch/laser_Avoidance_a1_X3.launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_laser/share/yahboomcar_laser/launch
+[8.444s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_laser/launch/laser_Warning_a1_X3.launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_laser/share/yahboomcar_laser/launch
+[8.447s] Invoked command in '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_laser' returned '0': PYTHONPATH=/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_laser/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_laser/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_laser/build --no-deps symlink_data

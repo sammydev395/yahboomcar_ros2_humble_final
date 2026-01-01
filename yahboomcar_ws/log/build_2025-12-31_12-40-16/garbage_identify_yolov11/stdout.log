@@ -1,0 +1,68 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found rclpy: 3.3.16 (/opt/ros/humble/share/rclpy/cmake)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/garbage_identify_yolov11
+Built target ament_cmake_python_symlink_garbage_identify_yolov11
+running egg_info
+creating garbage_identify_yolov11.egg-info
+writing garbage_identify_yolov11.egg-info/PKG-INFO
+writing dependency_links to garbage_identify_yolov11.egg-info/dependency_links.txt
+writing top-level names to garbage_identify_yolov11.egg-info/top_level.txt
+writing manifest file 'garbage_identify_yolov11.egg-info/SOURCES.txt'
+reading manifest file 'garbage_identify_yolov11.egg-info/SOURCES.txt'
+writing manifest file 'garbage_identify_yolov11.egg-info/SOURCES.txt'
+Built target ament_cmake_python_build_garbage_identify_yolov11_egg
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/share/garbage_identify_yolov11/environment/pythonpath.sh
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/share/garbage_identify_yolov11/environment/pythonpath.dsv
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/local/lib/python3.10/dist-packages/garbage_identify_yolov11-0.3.0-py3.10.egg-info/PKG-INFO
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/local/lib/python3.10/dist-packages/garbage_identify_yolov11-0.3.0-py3.10.egg-info/SOURCES.txt
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/local/lib/python3.10/dist-packages/garbage_identify_yolov11-0.3.0-py3.10.egg-info/dependency_links.txt
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/local/lib/python3.10/dist-packages/garbage_identify_yolov11-0.3.0-py3.10.egg-info/top_level.txt
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/local/lib/python3.10/dist-packages/garbage_identify_yolov11/__init__.py
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/local/lib/python3.10/dist-packages/garbage_identify_yolov11/garbage_identify_node.py
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/local/lib/python3.10/dist-packages/garbage_identify_yolov11/garbage_library.py
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/local/lib/python3.10/dist-packages/garbage_identify_yolov11/transport_common.py
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/local/lib/python3.10/dist-packages/garbage_identify_yolov11/voice_ctrl_garbage.py
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/lib/garbage_identify_yolov11/garbage_identify_node.py
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/lib/garbage_identify_yolov11/voice_ctrl_garbage.py
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/share/garbage_identify_yolov11/launch/garbage_identify.launch.py
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/share/garbage_identify_yolov11/launch/voice_ctrl_garbage.launch.py
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/share/garbage_identify_yolov11/config/XYT_config.txt
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/share/ament_index/resource_index/package_run_dependencies/garbage_identify_yolov11
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/share/ament_index/resource_index/parent_prefix_path/garbage_identify_yolov11
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/share/garbage_identify_yolov11/environment/ament_prefix_path.sh
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/share/garbage_identify_yolov11/environment/ament_prefix_path.dsv
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/share/garbage_identify_yolov11/environment/path.sh
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/share/garbage_identify_yolov11/environment/path.dsv
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/share/garbage_identify_yolov11/local_setup.bash
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/share/garbage_identify_yolov11/local_setup.sh
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/share/garbage_identify_yolov11/local_setup.zsh
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/share/garbage_identify_yolov11/local_setup.dsv
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/share/garbage_identify_yolov11/package.dsv
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/share/ament_index/resource_index/packages/garbage_identify_yolov11
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/share/garbage_identify_yolov11/cmake/garbage_identify_yolov11Config.cmake
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/share/garbage_identify_yolov11/cmake/garbage_identify_yolov11Config-version.cmake
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/share/garbage_identify_yolov11/package.xml
+Listing '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/local/lib/python3.10/dist-packages/garbage_identify_yolov11'...
+Compiling '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/local/lib/python3.10/dist-packages/garbage_identify_yolov11/__init__.py'...
+Compiling '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/local/lib/python3.10/dist-packages/garbage_identify_yolov11/garbage_identify_node.py'...
+Compiling '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/local/lib/python3.10/dist-packages/garbage_identify_yolov11/garbage_library.py'...
+Compiling '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/local/lib/python3.10/dist-packages/garbage_identify_yolov11/transport_common.py'...
+Compiling '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/garbage_identify_yolov11/local/lib/python3.10/dist-packages/garbage_identify_yolov11/voice_ctrl_garbage.py'...

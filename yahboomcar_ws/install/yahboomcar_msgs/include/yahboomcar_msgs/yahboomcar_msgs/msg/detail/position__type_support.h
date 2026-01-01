@@ -1,0 +1,1 @@
+/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_msgs/rosidl_generator_c/yahboomcar_msgs/msg/detail/position__type_support.h

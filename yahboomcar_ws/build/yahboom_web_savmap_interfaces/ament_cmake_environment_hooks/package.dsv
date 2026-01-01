@@ -1,0 +1,4 @@
+source;share/yahboom_web_savmap_interfaces/local_setup.bash
+source;share/yahboom_web_savmap_interfaces/local_setup.dsv
+source;share/yahboom_web_savmap_interfaces/local_setup.sh
+source;share/yahboom_web_savmap_interfaces/local_setup.zsh

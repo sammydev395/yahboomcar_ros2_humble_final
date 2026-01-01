@@ -1,0 +1,10 @@
+/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_point/CMakeFiles/uninstall.dir
+/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_point/CMakeFiles/yahboomcar_point_uninstall.dir
+/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_point/CMakeFiles/pub_point.dir
+/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_point/CMakeFiles/test.dir
+/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_point/CMakeFiles/edit_cache.dir
+/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_point/CMakeFiles/rebuild_cache.dir
+/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_point/CMakeFiles/list_install_components.dir
+/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_point/CMakeFiles/install.dir
+/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_point/CMakeFiles/install/local.dir
+/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_point/CMakeFiles/install/strip.dir

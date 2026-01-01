@@ -1,0 +1,90 @@
+[0.042s] Invoking command in '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_base_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/src/yahboomcar_base_node -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_base_node
+[0.323s] -- The C compiler identification is GNU 11.4.0
+[0.567s] -- The CXX compiler identification is GNU 11.4.0
+[0.582s] -- Detecting C compiler ABI info
+[0.992s] -- Detecting C compiler ABI info - done
+[1.002s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.006s] -- Detecting C compile features
+[1.010s] -- Detecting C compile features - done
+[1.017s] -- Detecting CXX compiler ABI info
+[1.528s] -- Detecting CXX compiler ABI info - done
+[1.540s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.549s] -- Detecting CXX compile features
+[1.550s] -- Detecting CXX compile features - done
+[1.572s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[4.627s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[5.457s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[5.815s] -- Found tf2: 0.25.13 (/opt/ros/humble/share/tf2/cmake)
+[6.258s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[6.299s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[6.397s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[6.520s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[6.662s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[7.068s] -- Found tf2_ros: 0.25.13 (/opt/ros/humble/share/tf2_ros/cmake)
+[7.267s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[7.289s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[8.115s] -- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[8.351s] -- Found FastRTPS: /opt/ros/humble/include  
+[8.725s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[8.809s] -- Looking for pthread.h
+[9.528s] -- Looking for pthread.h - found
+[9.528s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[10.154s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[10.154s] -- Found Threads: TRUE  
+[12.147s] -- Found nav_msgs: 4.8.0 (/opt/ros/humble/share/nav_msgs/cmake)
+[12.147s] -- Found turtlesim: 1.4.2 (/opt/ros/humble/share/turtlesim/cmake)
+[12.147s] -- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[12.147s] -- Added test 'copyright' to check source files copyright and LICENSE
+[12.147s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[12.147s] -- Configured cppcheck include dirs: 
+[12.147s] -- Configured cppcheck exclude dirs and/or files: 
+[12.147s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[12.147s] -- Configured cpplint exclude dirs and/or files: 
+[12.147s] -- Added test 'lint_cmake' to check CMake code style
+[12.148s] -- Added test 'uncrustify' to check C / C++ code style
+[12.148s] -- Configured uncrustify additional arguments: 
+[12.148s] -- Added test 'xmllint' to check XML markup files
+[12.148s] -- Configuring done
+[12.148s] -- Generating done
+[12.149s] -- Build files have been written to: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_base_node
+[12.149s] Invoked command in '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_base_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/src/yahboomcar_base_node -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_base_node
+[12.153s] Invoking command in '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_base_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_base_node -- -j6 -l6
+[12.632s] [ 16%] Building CXX object CMakeFiles/base_node_X3.dir/src/base_node_X3.cpp.o
+[12.655s] [ 33%] Building CXX object CMakeFiles/base_node_x1.dir/src/base_node_x1.cpp.o
+[12.663s] [ 50%] Building CXX object CMakeFiles/base_node_R2.dir/src/base_node_R2.cpp.o
+[24.963s] /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/src/yahboomcar_base_node/src/base_node_X3.cpp: In member function ‘void OdomPublisher::handle_vel(std::shared_ptr<geometry_msgs::msg::Twist_<std::allocator<void> > >)’:
+[24.964s] /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/src/yahboomcar_base_node/src/base_node_X3.cpp:91:32: warning: unused variable ‘steer_angle’ [-Wunused-variable]
+[24.964s]    91 |                         double steer_angle = linear_velocity_y_;
+[24.965s]       |                                ^~~~~~~~~~~
+[24.968s] /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/src/yahboomcar_base_node/src/base_node_X3.cpp:92:32: warning: unused variable ‘MI_PI’ [-Wunused-variable]
+[24.968s]    92 |                         double MI_PI = 3.1416;
+[24.968s]       |                                ^~~~~
+[51.121s] [ 66%] Linking CXX executable base_node_R2
+[51.172s] [ 83%] Linking CXX executable base_node_x1
+[51.924s] [100%] Linking CXX executable base_node_X3
+[53.019s] [100%] Built target base_node_x1
+[53.024s] [100%] Built target base_node_R2
+[53.094s] [100%] Built target base_node_X3
+[53.123s] Invoked command in '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_base_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_base_node -- -j6 -l6
+[53.129s] Invoking command in '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_base_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_base_node
+[53.146s] -- Install configuration: ""
+[53.147s] -- Execute custom install script
+[53.148s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_base_node/lib/yahboomcar_base_node/base_node_X3
+[53.170s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_base_node/lib/yahboomcar_base_node/base_node_x1
+[53.192s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_base_node/lib/yahboomcar_base_node/base_node_R2
+[53.214s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_base_node/share/ament_index/resource_index/package_run_dependencies/yahboomcar_base_node
+[53.237s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_base_node/share/ament_index/resource_index/parent_prefix_path/yahboomcar_base_node
+[53.266s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_base_node/share/yahboomcar_base_node/environment/ament_prefix_path.sh
+[53.287s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_base_node/share/yahboomcar_base_node/environment/ament_prefix_path.dsv
+[53.314s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_base_node/share/yahboomcar_base_node/environment/path.sh
+[53.350s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_base_node/share/yahboomcar_base_node/environment/path.dsv
+[53.373s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_base_node/share/yahboomcar_base_node/local_setup.bash
+[53.398s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_base_node/share/yahboomcar_base_node/local_setup.sh
+[53.422s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_base_node/share/yahboomcar_base_node/local_setup.zsh
+[53.448s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_base_node/share/yahboomcar_base_node/local_setup.dsv
+[53.483s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_base_node/share/yahboomcar_base_node/package.dsv
+[53.507s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_base_node/share/ament_index/resource_index/packages/yahboomcar_base_node
+[53.526s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_base_node/share/yahboomcar_base_node/cmake/yahboomcar_base_nodeConfig.cmake
+[53.549s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_base_node/share/yahboomcar_base_node/cmake/yahboomcar_base_nodeConfig-version.cmake
+[53.575s] -- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_base_node/share/yahboomcar_base_node/package.xml
+[53.602s] Invoked command in '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_base_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_base_node

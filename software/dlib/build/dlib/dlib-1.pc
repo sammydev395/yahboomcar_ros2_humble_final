@@ -1,0 +1,8 @@
+libdir=/usr/local/lib
+includedir=/usr/local/include
+
+Name: dlib
+Description: Numerical and networking C++ library
+Version: 19.24.99
+Libs: -L${libdir} -ldlib /usr/lib/aarch64-linux-gnu/libgif.so /usr/lib/aarch64-linux-gnu/libsqlite3.so
+Cflags: -I${includedir}  -I/usr/include -I/usr/include

@@ -1,0 +1,36 @@
+running develop
+running egg_info
+creating yahboomcar_description_x1.egg-info
+writing yahboomcar_description_x1.egg-info/PKG-INFO
+writing dependency_links to yahboomcar_description_x1.egg-info/dependency_links.txt
+writing requirements to yahboomcar_description_x1.egg-info/requires.txt
+writing top-level names to yahboomcar_description_x1.egg-info/top_level.txt
+writing manifest file 'yahboomcar_description_x1.egg-info/SOURCES.txt'
+reading manifest file 'yahboomcar_description_x1.egg-info/SOURCES.txt'
+writing manifest file 'yahboomcar_description_x1.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_description_x1/lib/python3.10/site-packages/yahboomcar-description-x1.egg-link (link to .)
+
+Installed /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_description_x1
+running symlink_data
+creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_description_x1/share/ament_index/resource_index/packages
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_description_x1/resource/yahboomcar_description_x1 -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_description_x1/share/ament_index/resource_index/packages
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_description_x1/package.xml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_description_x1/share/yahboomcar_description_x1
+creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_description_x1/share/yahboomcar_description_x1/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_description_x1/launch/display.launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_description_x1/share/yahboomcar_description_x1/launch
+creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_description_x1/share/yahboomcar_description_x1/urdf
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_description_x1/urdf/yahboomcar_X1.urdf.xacro -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_description_x1/share/yahboomcar_description_x1/urdf
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_description_x1/urdf/yahboomcar_X3.urdf -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_description_x1/share/yahboomcar_description_x1/urdf
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_description_x1/urdf/yahboomcar_X1.urdf -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_description_x1/share/yahboomcar_description_x1/urdf
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_description_x1/urdf/yahboomcar_X3.urdf.xacro -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_description_x1/share/yahboomcar_description_x1/urdf
+creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_description_x1/share/yahboomcar_description_x1/meshes/mecanum
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_description_x1/meshes/mecanum/base_link.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_description_x1/share/yahboomcar_description_x1/meshes/mecanum
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_description_x1/meshes/mecanum/back_right_wheel.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_description_x1/share/yahboomcar_description_x1/meshes/mecanum
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_description_x1/meshes/mecanum/front_right_wheel.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_description_x1/share/yahboomcar_description_x1/meshes/mecanum
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_description_x1/meshes/mecanum/front_left_wheel.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_description_x1/share/yahboomcar_description_x1/meshes/mecanum
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_description_x1/meshes/mecanum/back_left_wheel.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_description_x1/share/yahboomcar_description_x1/meshes/mecanum
+creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_description_x1/share/yahboomcar_description_x1/meshes/sensor
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_description_x1/meshes/sensor/laser_link.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_description_x1/share/yahboomcar_description_x1/meshes/sensor
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_description_x1/meshes/sensor/camera_link.STL -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_description_x1/share/yahboomcar_description_x1/meshes/sensor
+creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_description_x1/share/yahboomcar_description_x1/rviz
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_description_x1/rviz/yahboomcar.rviz -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_description_x1/share/yahboomcar_description_x1/rviz

@@ -1,0 +1,24 @@
+running develop
+running egg_info
+creating yahboomcar_linefollow.egg-info
+writing yahboomcar_linefollow.egg-info/PKG-INFO
+writing dependency_links to yahboomcar_linefollow.egg-info/dependency_links.txt
+writing entry points to yahboomcar_linefollow.egg-info/entry_points.txt
+writing requirements to yahboomcar_linefollow.egg-info/requires.txt
+writing top-level names to yahboomcar_linefollow.egg-info/top_level.txt
+writing manifest file 'yahboomcar_linefollow.egg-info/SOURCES.txt'
+reading manifest file 'yahboomcar_linefollow.egg-info/SOURCES.txt'
+writing manifest file 'yahboomcar_linefollow.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_linefollow/lib/python3.10/site-packages/yahboomcar-linefollow.egg-link (link to .)
+Installing follow_line_4ROS_R2 script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_linefollow/lib/yahboomcar_linefollow
+Installing follow_line_a1_R2 script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_linefollow/lib/yahboomcar_linefollow
+Installing follow_line_a1_X3 script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_linefollow/lib/yahboomcar_linefollow
+
+Installed /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_linefollow
+running symlink_data
+creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_linefollow/share/ament_index/resource_index/packages
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_linefollow/resource/yahboomcar_linefollow -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_linefollow/share/ament_index/resource_index/packages
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_linefollow/package.xml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_linefollow/share/yahboomcar_linefollow
+creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_linefollow/share/yahboomcar_linefollow/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_linefollow/launch/linefollow_X3.launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_linefollow/share/yahboomcar_linefollow/launch

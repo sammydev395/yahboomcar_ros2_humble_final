@@ -1,0 +1,8 @@
+source;share/yahboomcar_KCFTracker/hook/cmake_prefix_path.ps1
+source;share/yahboomcar_KCFTracker/hook/cmake_prefix_path.dsv
+source;share/yahboomcar_KCFTracker/hook/cmake_prefix_path.sh
+source;share/yahboomcar_KCFTracker/local_setup.bash
+source;share/yahboomcar_KCFTracker/local_setup.dsv
+source;share/yahboomcar_KCFTracker/local_setup.ps1
+source;share/yahboomcar_KCFTracker/local_setup.sh
+source;share/yahboomcar_KCFTracker/local_setup.zsh

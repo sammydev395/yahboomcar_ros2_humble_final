@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "yahboomcar_msgs__py",
+		"source" : "/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_msgs/yahboomcar_msgs__py"
+	}
+}

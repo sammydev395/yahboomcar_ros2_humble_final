@@ -1,0 +1,12 @@
+/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_base_node/CMakeFiles/uninstall.dir
+/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_base_node/CMakeFiles/yahboomcar_base_node_uninstall.dir
+/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_base_node/CMakeFiles/base_node_X3.dir
+/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_base_node/CMakeFiles/base_node_x1.dir
+/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_base_node/CMakeFiles/base_node_R2.dir
+/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_base_node/CMakeFiles/test.dir
+/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_base_node/CMakeFiles/edit_cache.dir
+/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_base_node/CMakeFiles/rebuild_cache.dir
+/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_base_node/CMakeFiles/list_install_components.dir
+/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_base_node/CMakeFiles/install.dir
+/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_base_node/CMakeFiles/install/local.dir
+/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_base_node/CMakeFiles/install/strip.dir

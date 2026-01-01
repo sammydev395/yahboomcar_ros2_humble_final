@@ -1,0 +1,26 @@
+{
+  "package_name": "cartographer_ros_msgs",
+  "non_idl_tuples": [
+    "/home/jetson/yahboomcar_ros2_ws/software/library_ws/src/slam/cartographer_ros/cartographer_ros_msgs:msg/BagfileProgress.msg",
+    "/home/jetson/yahboomcar_ros2_ws/software/library_ws/src/slam/cartographer_ros/cartographer_ros_msgs:msg/HistogramBucket.msg",
+    "/home/jetson/yahboomcar_ros2_ws/software/library_ws/src/slam/cartographer_ros/cartographer_ros_msgs:msg/LandmarkEntry.msg",
+    "/home/jetson/yahboomcar_ros2_ws/software/library_ws/src/slam/cartographer_ros/cartographer_ros_msgs:msg/LandmarkList.msg",
+    "/home/jetson/yahboomcar_ros2_ws/software/library_ws/src/slam/cartographer_ros/cartographer_ros_msgs:msg/MetricFamily.msg",
+    "/home/jetson/yahboomcar_ros2_ws/software/library_ws/src/slam/cartographer_ros/cartographer_ros_msgs:msg/MetricLabel.msg",
+    "/home/jetson/yahboomcar_ros2_ws/software/library_ws/src/slam/cartographer_ros/cartographer_ros_msgs:msg/Metric.msg",
+    "/home/jetson/yahboomcar_ros2_ws/software/library_ws/src/slam/cartographer_ros/cartographer_ros_msgs:msg/StatusCode.msg",
+    "/home/jetson/yahboomcar_ros2_ws/software/library_ws/src/slam/cartographer_ros/cartographer_ros_msgs:msg/StatusResponse.msg",
+    "/home/jetson/yahboomcar_ros2_ws/software/library_ws/src/slam/cartographer_ros/cartographer_ros_msgs:msg/SubmapEntry.msg",
+    "/home/jetson/yahboomcar_ros2_ws/software/library_ws/src/slam/cartographer_ros/cartographer_ros_msgs:msg/SubmapList.msg",
+    "/home/jetson/yahboomcar_ros2_ws/software/library_ws/src/slam/cartographer_ros/cartographer_ros_msgs:msg/SubmapTexture.msg",
+    "/home/jetson/yahboomcar_ros2_ws/software/library_ws/src/slam/cartographer_ros/cartographer_ros_msgs:msg/RobotPose.msg",
+    "/home/jetson/yahboomcar_ros2_ws/software/library_ws/src/slam/cartographer_ros/cartographer_ros_msgs:msg/TrajectoryStates.msg",
+    "/home/jetson/yahboomcar_ros2_ws/software/library_ws/src/slam/cartographer_ros/cartographer_ros_msgs:srv/FinishTrajectory.srv",
+    "/home/jetson/yahboomcar_ros2_ws/software/library_ws/src/slam/cartographer_ros/cartographer_ros_msgs:srv/GetTrajectoryStates.srv",
+    "/home/jetson/yahboomcar_ros2_ws/software/library_ws/src/slam/cartographer_ros/cartographer_ros_msgs:srv/ReadMetrics.srv",
+    "/home/jetson/yahboomcar_ros2_ws/software/library_ws/src/slam/cartographer_ros/cartographer_ros_msgs:srv/StartTrajectory.srv",
+    "/home/jetson/yahboomcar_ros2_ws/software/library_ws/src/slam/cartographer_ros/cartographer_ros_msgs:srv/TrajectoryQuery.srv",
+    "/home/jetson/yahboomcar_ros2_ws/software/library_ws/src/slam/cartographer_ros/cartographer_ros_msgs:srv/SubmapQuery.srv",
+    "/home/jetson/yahboomcar_ros2_ws/software/library_ws/src/slam/cartographer_ros/cartographer_ros_msgs:srv/WriteState.srv"
+  ]
+}

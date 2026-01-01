@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/root/yahboomcar_ros2_ws/software/orbslam2/Pangolin-0.6/examples/HelloPangolin/main.cpp
+pangolin/pangolin.h
+-
+

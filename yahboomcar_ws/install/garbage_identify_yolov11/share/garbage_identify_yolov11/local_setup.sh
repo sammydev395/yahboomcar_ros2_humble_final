@@ -1,0 +1,1 @@
+/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/garbage_identify_yolov11/ament_cmake_environment_hooks/local_setup.sh

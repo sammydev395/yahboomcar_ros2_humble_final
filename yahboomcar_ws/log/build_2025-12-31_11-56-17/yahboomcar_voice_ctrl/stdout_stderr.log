@@ -1,0 +1,27 @@
+running develop
+running egg_info
+creating yahboomcar_voice_ctrl.egg-info
+writing yahboomcar_voice_ctrl.egg-info/PKG-INFO
+writing dependency_links to yahboomcar_voice_ctrl.egg-info/dependency_links.txt
+writing entry points to yahboomcar_voice_ctrl.egg-info/entry_points.txt
+writing requirements to yahboomcar_voice_ctrl.egg-info/requires.txt
+writing top-level names to yahboomcar_voice_ctrl.egg-info/top_level.txt
+writing manifest file 'yahboomcar_voice_ctrl.egg-info/SOURCES.txt'
+reading manifest file 'yahboomcar_voice_ctrl.egg-info/SOURCES.txt'
+writing manifest file 'yahboomcar_voice_ctrl.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_voice_ctrl/lib/python3.10/site-packages/yahboomcar-voice-ctrl.egg-link (link to .)
+Installing Voice_Ctrl_Ackman_driver_R2 script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_voice_ctrl/lib/yahboomcar_voice_ctrl
+Installing Voice_Ctrl_Mcnamu_driver_X3 script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_voice_ctrl/lib/yahboomcar_voice_ctrl
+Installing Voice_Ctrl_colorHSV script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_voice_ctrl/lib/yahboomcar_voice_ctrl
+Installing Voice_Ctrl_colorTracker script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_voice_ctrl/lib/yahboomcar_voice_ctrl
+Installing Voice_Ctrl_follow_line_4ROS_R2 script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_voice_ctrl/lib/yahboomcar_voice_ctrl
+Installing Voice_Ctrl_follow_line_a1_R2 script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_voice_ctrl/lib/yahboomcar_voice_ctrl
+Installing Voice_Ctrl_follow_line_a1_X3 script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_voice_ctrl/lib/yahboomcar_voice_ctrl
+Installing voice_Ctrl_send_mark script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_voice_ctrl/lib/yahboomcar_voice_ctrl
+
+Installed /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_voice_ctrl
+running symlink_data
+creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_voice_ctrl/share/ament_index/resource_index/packages
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_voice_ctrl/resource/yahboomcar_voice_ctrl -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_voice_ctrl/share/ament_index/resource_index/packages
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_voice_ctrl/package.xml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_voice_ctrl/share/yahboomcar_voice_ctrl

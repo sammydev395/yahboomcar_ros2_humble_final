@@ -1,0 +1,3 @@
+/home/jetson/yahboomcar_ros2_ws/software/dlib/build/dlib/test_for_libwebp_build/CMakeFiles/libwebp_test.dir
+/home/jetson/yahboomcar_ros2_ws/software/dlib/build/dlib/test_for_libwebp_build/CMakeFiles/edit_cache.dir
+/home/jetson/yahboomcar_ros2_ws/software/dlib/build/dlib/test_for_libwebp_build/CMakeFiles/rebuild_cache.dir

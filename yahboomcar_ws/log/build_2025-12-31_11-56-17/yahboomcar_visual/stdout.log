@@ -1,0 +1,26 @@
+running develop
+running egg_info
+creating yahboomcar_visual.egg-info
+writing yahboomcar_visual.egg-info/PKG-INFO
+writing dependency_links to yahboomcar_visual.egg-info/dependency_links.txt
+writing entry points to yahboomcar_visual.egg-info/entry_points.txt
+writing requirements to yahboomcar_visual.egg-info/requires.txt
+writing top-level names to yahboomcar_visual.egg-info/top_level.txt
+writing manifest file 'yahboomcar_visual.egg-info/SOURCES.txt'
+reading manifest file 'yahboomcar_visual.egg-info/SOURCES.txt'
+writing manifest file 'yahboomcar_visual.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_visual/lib/python3.10/site-packages/yahboomcar-visual.egg-link (link to .)
+Installing astra_color_point script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_visual/lib/yahboomcar_visual
+Installing astra_depth_image script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_visual/lib/yahboomcar_visual
+Installing astra_image_flip script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_visual/lib/yahboomcar_visual
+Installing astra_rgb_image script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_visual/lib/yahboomcar_visual
+Installing laser_to_image script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_visual/lib/yahboomcar_visual
+Installing pub_image script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_visual/lib/yahboomcar_visual
+Installing simple_AR script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_visual/lib/yahboomcar_visual
+
+Installed /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_visual
+running symlink_data
+creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_visual/share/ament_index/resource_index/packages
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_visual/resource/yahboomcar_visual -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_visual/share/ament_index/resource_index/packages
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_visual/package.xml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_visual/share/yahboomcar_visual

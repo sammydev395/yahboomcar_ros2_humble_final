@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>arm_moveit_demo</name>
+  <version>0.3.0</version>
+  <description>
+    MoveIt2 demo scripts for X3plus arm control
+  </description>
+  <author email="yahboom@163.com">yahboom</author>
+  <maintainer email="yahboom@163.com">yahboom</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
+
+  <depend>rclpy</depend>
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>moveit_ros_planning_interface</depend>
+  <depend>moveit_msgs</depend>
+  <depend>yahboomcar_msgs</depend>
+  <depend>x3plus_moveit_config</depend>
+  <depend>tf2_ros</depend>
+  <depend>tf_transformations</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
+

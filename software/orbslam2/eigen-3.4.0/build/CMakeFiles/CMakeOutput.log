@@ -1,0 +1,1371 @@
+The system is: Linux - 5.15.148-tegra - aarch64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/cc 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/3.16.3/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/3.16.3/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_9db18/fast && /usr/bin/gmake -f CMakeFiles/cmTC_9db18.dir/build.make CMakeFiles/cmTC_9db18.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9db18.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_9db18.dir/testCCompiler.c.o   -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_9db18
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9db18.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_9db18.dir/testCCompiler.c.o  -o cmTC_9db18 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_0150b/fast && /usr/bin/gmake -f CMakeFiles/cmTC_0150b.dir/build.make CMakeFiles/cmTC_0150b.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0150b.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc   -v -o CMakeFiles/cmTC_0150b.dir/CMakeCCompilerABI.c.o   -c /usr/local/cmake-3.16.3/share/cmake-3.16/Modules/CMakeCCompilerABI.c
+Using built-in specs.
+COLLECT_GCC=/usr/bin/cc
+Target: aarch64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.5.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=aarch64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --enable-fix-cortex-a53-843419 --disable-werror --enable-checking=release --build=aarch64-linux-gnu --host=aarch64-linux-gnu --target=aarch64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-mutex
+Thread model: posix
+gcc version 9.5.0 (Ubuntu 9.5.0-1ubuntu1~22.04) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0150b.dir/CMakeCCompilerABI.c.o' '-c' '-mlittle-endian' '-mabi=lp64'
+ /usr/lib/gcc/aarch64-linux-gnu/9/cc1 -quiet -v -imultiarch aarch64-linux-gnu /usr/local/cmake-3.16.3/share/cmake-3.16/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mlittle-endian -mabi=lp64 -auxbase-strip CMakeFiles/cmTC_0150b.dir/CMakeCCompilerABI.c.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -o /tmp/ccGZb6PR.s
+GNU C17 (Ubuntu 9.5.0-1ubuntu1~22.04) version 9.5.0 (aarch64-linux-gnu)
+	compiled by GNU C version 9.5.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/usr/local/include/aarch64-linux-gnu"
+ignoring nonexistent directory "/usr/lib/gcc/aarch64-linux-gnu/9/include-fixed"
+ignoring nonexistent directory "/usr/lib/gcc/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/lib/gcc/aarch64-linux-gnu/9/include
+ /usr/local/include
+ /usr/include/aarch64-linux-gnu
+ /usr/include
+End of search list.
+GNU C17 (Ubuntu 9.5.0-1ubuntu1~22.04) version 9.5.0 (aarch64-linux-gnu)
+	compiled by GNU C version 9.5.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 143c1e64093de9d46a97090b85738ff4
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0150b.dir/CMakeCCompilerABI.c.o' '-c' '-mlittle-endian' '-mabi=lp64'
+ as -v -EL -mabi=lp64 -o CMakeFiles/cmTC_0150b.dir/CMakeCCompilerABI.c.o /tmp/ccGZb6PR.s
+GNU assembler version 2.38 (aarch64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38
+COMPILER_PATH=/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/9/../../../../lib/:/lib/aarch64-linux-gnu/:/lib/../lib/:/usr/lib/aarch64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/aarch64-linux-gnu/9/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0150b.dir/CMakeCCompilerABI.c.o' '-c' '-mlittle-endian' '-mabi=lp64'
+Linking C executable cmTC_0150b
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0150b.dir/link.txt --verbose=1
+/usr/bin/cc     -v CMakeFiles/cmTC_0150b.dir/CMakeCCompilerABI.c.o  -o cmTC_0150b 
+Using built-in specs.
+COLLECT_GCC=/usr/bin/cc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/aarch64-linux-gnu/9/lto-wrapper
+Target: aarch64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.5.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=aarch64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --enable-fix-cortex-a53-843419 --disable-werror --enable-checking=release --build=aarch64-linux-gnu --host=aarch64-linux-gnu --target=aarch64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-mutex
+Thread model: posix
+gcc version 9.5.0 (Ubuntu 9.5.0-1ubuntu1~22.04) 
+COMPILER_PATH=/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/9/../../../../lib/:/lib/aarch64-linux-gnu/:/lib/../lib/:/usr/lib/aarch64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/aarch64-linux-gnu/9/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0150b' '-mlittle-endian' '-mabi=lp64'
+ /usr/lib/gcc/aarch64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/aarch64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/aarch64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccNadueV.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu --as-needed -dynamic-linker /lib/ld-linux-aarch64.so.1 -X -EL -maarch64linux --fix-cortex-a53-843419 -pie -z now -z relro -o cmTC_0150b /usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu/Scrt1.o /usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu/crti.o /usr/lib/gcc/aarch64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/aarch64-linux-gnu/9 -L/usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu -L/usr/lib/gcc/aarch64-linux-gnu/9/../../../../lib -L/lib/aarch64-linux-gnu -L/lib/../lib -L/usr/lib/aarch64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/aarch64-linux-gnu/9/../../.. CMakeFiles/cmTC_0150b.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/aarch64-linux-gnu/9/crtendS.o /usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0150b' '-mlittle-endian' '-mabi=lp64'
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Parsed C implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/usr/lib/gcc/aarch64-linux-gnu/9/include]
+    add: [/usr/local/include]
+    add: [/usr/include/aarch64-linux-gnu]
+    add: [/usr/include]
+  end of search list found
+  collapse include dir [/usr/lib/gcc/aarch64-linux-gnu/9/include] ==> [/usr/lib/gcc/aarch64-linux-gnu/9/include]
+  collapse include dir [/usr/local/include] ==> [/usr/local/include]
+  collapse include dir [/usr/include/aarch64-linux-gnu] ==> [/usr/include/aarch64-linux-gnu]
+  collapse include dir [/usr/include] ==> [/usr/include]
+  implicit include dirs: [/usr/lib/gcc/aarch64-linux-gnu/9/include;/usr/local/include;/usr/include/aarch64-linux-gnu;/usr/include]
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/gmake cmTC_0150b/fast && /usr/bin/gmake -f CMakeFiles/cmTC_0150b.dir/build.make CMakeFiles/cmTC_0150b.dir/build]
+  ignore line: [gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_0150b.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_0150b.dir/CMakeCCompilerABI.c.o   -c /usr/local/cmake-3.16.3/share/cmake-3.16/Modules/CMakeCCompilerABI.c]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/cc]
+  ignore line: [Target: aarch64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.5.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c ada c++ go d fortran objc obj-c++ gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=aarch64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --enable-fix-cortex-a53-843419 --disable-werror --enable-checking=release --build=aarch64-linux-gnu --host=aarch64-linux-gnu --target=aarch64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-mutex]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 9.5.0 (Ubuntu 9.5.0-1ubuntu1~22.04) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0150b.dir/CMakeCCompilerABI.c.o' '-c' '-mlittle-endian' '-mabi=lp64']
+  ignore line: [ /usr/lib/gcc/aarch64-linux-gnu/9/cc1 -quiet -v -imultiarch aarch64-linux-gnu /usr/local/cmake-3.16.3/share/cmake-3.16/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mlittle-endian -mabi=lp64 -auxbase-strip CMakeFiles/cmTC_0150b.dir/CMakeCCompilerABI.c.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -o /tmp/ccGZb6PR.s]
+  ignore line: [GNU C17 (Ubuntu 9.5.0-1ubuntu1~22.04) version 9.5.0 (aarch64-linux-gnu)]
+  ignore line: [	compiled by GNU C version 9.5.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring nonexistent directory "/usr/local/include/aarch64-linux-gnu"]
+  ignore line: [ignoring nonexistent directory "/usr/lib/gcc/aarch64-linux-gnu/9/include-fixed"]
+  ignore line: [ignoring nonexistent directory "/usr/lib/gcc/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /usr/lib/gcc/aarch64-linux-gnu/9/include]
+  ignore line: [ /usr/local/include]
+  ignore line: [ /usr/include/aarch64-linux-gnu]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C17 (Ubuntu 9.5.0-1ubuntu1~22.04) version 9.5.0 (aarch64-linux-gnu)]
+  ignore line: [	compiled by GNU C version 9.5.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: 143c1e64093de9d46a97090b85738ff4]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0150b.dir/CMakeCCompilerABI.c.o' '-c' '-mlittle-endian' '-mabi=lp64']
+  ignore line: [ as -v -EL -mabi=lp64 -o CMakeFiles/cmTC_0150b.dir/CMakeCCompilerABI.c.o /tmp/ccGZb6PR.s]
+  ignore line: [GNU assembler version 2.38 (aarch64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/9/../../../../lib/:/lib/aarch64-linux-gnu/:/lib/../lib/:/usr/lib/aarch64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/aarch64-linux-gnu/9/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0150b.dir/CMakeCCompilerABI.c.o' '-c' '-mlittle-endian' '-mabi=lp64']
+  ignore line: [Linking C executable cmTC_0150b]
+  ignore line: [/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0150b.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc     -v CMakeFiles/cmTC_0150b.dir/CMakeCCompilerABI.c.o  -o cmTC_0150b ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/cc]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/aarch64-linux-gnu/9/lto-wrapper]
+  ignore line: [Target: aarch64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.5.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c ada c++ go d fortran objc obj-c++ gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=aarch64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --enable-fix-cortex-a53-843419 --disable-werror --enable-checking=release --build=aarch64-linux-gnu --host=aarch64-linux-gnu --target=aarch64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-mutex]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 9.5.0 (Ubuntu 9.5.0-1ubuntu1~22.04) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/9/../../../../lib/:/lib/aarch64-linux-gnu/:/lib/../lib/:/usr/lib/aarch64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/aarch64-linux-gnu/9/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0150b' '-mlittle-endian' '-mabi=lp64']
+  link line: [ /usr/lib/gcc/aarch64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/aarch64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/aarch64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccNadueV.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu --as-needed -dynamic-linker /lib/ld-linux-aarch64.so.1 -X -EL -maarch64linux --fix-cortex-a53-843419 -pie -z now -z relro -o cmTC_0150b /usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu/Scrt1.o /usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu/crti.o /usr/lib/gcc/aarch64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/aarch64-linux-gnu/9 -L/usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu -L/usr/lib/gcc/aarch64-linux-gnu/9/../../../../lib -L/lib/aarch64-linux-gnu -L/lib/../lib -L/usr/lib/aarch64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/aarch64-linux-gnu/9/../../.. CMakeFiles/cmTC_0150b.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/aarch64-linux-gnu/9/crtendS.o /usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu/crtn.o]
+    arg [/usr/lib/gcc/aarch64-linux-gnu/9/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/lib/gcc/aarch64-linux-gnu/9/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/usr/lib/gcc/aarch64-linux-gnu/9/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccNadueV.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib/ld-linux-aarch64.so.1] ==> ignore
+    arg [-X] ==> ignore
+    arg [-EL] ==> ignore
+    arg [-maarch64linux] ==> ignore
+    arg [--fix-cortex-a53-843419] ==> ignore
+    arg [-pie] ==> ignore
+    arg [-znow] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_0150b] ==> ignore
+    arg [/usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu/Scrt1.o] ==> ignore
+    arg [/usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu/crti.o] ==> ignore
+    arg [/usr/lib/gcc/aarch64-linux-gnu/9/crtbeginS.o] ==> ignore
+    arg [-L/usr/lib/gcc/aarch64-linux-gnu/9] ==> dir [/usr/lib/gcc/aarch64-linux-gnu/9]
+    arg [-L/usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu] ==> dir [/usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu]
+    arg [-L/usr/lib/gcc/aarch64-linux-gnu/9/../../../../lib] ==> dir [/usr/lib/gcc/aarch64-linux-gnu/9/../../../../lib]
+    arg [-L/lib/aarch64-linux-gnu] ==> dir [/lib/aarch64-linux-gnu]
+    arg [-L/lib/../lib] ==> dir [/lib/../lib]
+    arg [-L/usr/lib/aarch64-linux-gnu] ==> dir [/usr/lib/aarch64-linux-gnu]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/usr/lib/gcc/aarch64-linux-gnu/9/../../..] ==> dir [/usr/lib/gcc/aarch64-linux-gnu/9/../../..]
+    arg [CMakeFiles/cmTC_0150b.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--push-state] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--pop-state] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--push-state] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--pop-state] ==> ignore
+    arg [/usr/lib/gcc/aarch64-linux-gnu/9/crtendS.o] ==> ignore
+    arg [/usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu/crtn.o] ==> ignore
+  collapse library dir [/usr/lib/gcc/aarch64-linux-gnu/9] ==> [/usr/lib/gcc/aarch64-linux-gnu/9]
+  collapse library dir [/usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu] ==> [/usr/lib/aarch64-linux-gnu]
+  collapse library dir [/usr/lib/gcc/aarch64-linux-gnu/9/../../../../lib] ==> [/usr/lib]
+  collapse library dir [/lib/aarch64-linux-gnu] ==> [/lib/aarch64-linux-gnu]
+  collapse library dir [/lib/../lib] ==> [/lib]
+  collapse library dir [/usr/lib/aarch64-linux-gnu] ==> [/usr/lib/aarch64-linux-gnu]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/usr/lib/gcc/aarch64-linux-gnu/9/../../..] ==> [/usr/lib]
+  implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+  implicit dirs: [/usr/lib/gcc/aarch64-linux-gnu/9;/usr/lib/aarch64-linux-gnu;/usr/lib;/lib/aarch64-linux-gnu;/lib]
+  implicit fwks: []
+
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_144d5/fast && /usr/bin/gmake -f CMakeFiles/cmTC_144d5.dir/build.make CMakeFiles/cmTC_144d5.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_144d5.dir/testCXXCompiler.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTC_144d5.dir/testCXXCompiler.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_144d5
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_144d5.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_144d5.dir/testCXXCompiler.cxx.o  -o cmTC_144d5 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_d8f04/fast && /usr/bin/gmake -f CMakeFiles/cmTC_d8f04.dir/build.make CMakeFiles/cmTC_d8f04.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d8f04.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++    -v -o CMakeFiles/cmTC_d8f04.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/cmake-3.16.3/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp
+Using built-in specs.
+COLLECT_GCC=/usr/bin/c++
+Target: aarch64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.5.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=aarch64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --enable-fix-cortex-a53-843419 --disable-werror --enable-checking=release --build=aarch64-linux-gnu --host=aarch64-linux-gnu --target=aarch64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-mutex
+Thread model: posix
+gcc version 9.5.0 (Ubuntu 9.5.0-1ubuntu1~22.04) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d8f04.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64'
+ /usr/lib/gcc/aarch64-linux-gnu/9/cc1plus -quiet -v -imultiarch aarch64-linux-gnu -D_GNU_SOURCE /usr/local/cmake-3.16.3/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mlittle-endian -mabi=lp64 -auxbase-strip CMakeFiles/cmTC_d8f04.dir/CMakeCXXCompilerABI.cpp.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -o /tmp/ccrE5EZZ.s
+GNU C++14 (Ubuntu 9.5.0-1ubuntu1~22.04) version 9.5.0 (aarch64-linux-gnu)
+	compiled by GNU C version 9.5.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring duplicate directory "/usr/include/aarch64-linux-gnu/c++/9"
+ignoring nonexistent directory "/usr/local/include/aarch64-linux-gnu"
+ignoring nonexistent directory "/usr/lib/gcc/aarch64-linux-gnu/9/include-fixed"
+ignoring nonexistent directory "/usr/lib/gcc/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/include/c++/9
+ /usr/include/aarch64-linux-gnu/c++/9
+ /usr/include/c++/9/backward
+ /usr/lib/gcc/aarch64-linux-gnu/9/include
+ /usr/local/include
+ /usr/include/aarch64-linux-gnu
+ /usr/include
+End of search list.
+GNU C++14 (Ubuntu 9.5.0-1ubuntu1~22.04) version 9.5.0 (aarch64-linux-gnu)
+	compiled by GNU C version 9.5.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: ecd2b769d3a50ea71f459cea19b45fc8
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d8f04.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64'
+ as -v -EL -mabi=lp64 -o CMakeFiles/cmTC_d8f04.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccrE5EZZ.s
+GNU assembler version 2.38 (aarch64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38
+COMPILER_PATH=/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/9/../../../../lib/:/lib/aarch64-linux-gnu/:/lib/../lib/:/usr/lib/aarch64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/aarch64-linux-gnu/9/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d8f04.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64'
+Linking CXX executable cmTC_d8f04
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d8f04.dir/link.txt --verbose=1
+/usr/bin/c++      -v CMakeFiles/cmTC_d8f04.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_d8f04 
+Using built-in specs.
+COLLECT_GCC=/usr/bin/c++
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/aarch64-linux-gnu/9/lto-wrapper
+Target: aarch64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.5.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=aarch64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --enable-fix-cortex-a53-843419 --disable-werror --enable-checking=release --build=aarch64-linux-gnu --host=aarch64-linux-gnu --target=aarch64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-mutex
+Thread model: posix
+gcc version 9.5.0 (Ubuntu 9.5.0-1ubuntu1~22.04) 
+COMPILER_PATH=/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/9/../../../../lib/:/lib/aarch64-linux-gnu/:/lib/../lib/:/usr/lib/aarch64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/aarch64-linux-gnu/9/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_d8f04' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64'
+ /usr/lib/gcc/aarch64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/aarch64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/aarch64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccw2Qbuj.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu --as-needed -dynamic-linker /lib/ld-linux-aarch64.so.1 -X -EL -maarch64linux --fix-cortex-a53-843419 -pie -z now -z relro -o cmTC_d8f04 /usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu/Scrt1.o /usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu/crti.o /usr/lib/gcc/aarch64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/aarch64-linux-gnu/9 -L/usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu -L/usr/lib/gcc/aarch64-linux-gnu/9/../../../../lib -L/lib/aarch64-linux-gnu -L/lib/../lib -L/usr/lib/aarch64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/aarch64-linux-gnu/9/../../.. CMakeFiles/cmTC_d8f04.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/aarch64-linux-gnu/9/crtendS.o /usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_d8f04' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64'
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Parsed CXX implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/usr/include/c++/9]
+    add: [/usr/include/aarch64-linux-gnu/c++/9]
+    add: [/usr/include/c++/9/backward]
+    add: [/usr/lib/gcc/aarch64-linux-gnu/9/include]
+    add: [/usr/local/include]
+    add: [/usr/include/aarch64-linux-gnu]
+    add: [/usr/include]
+  end of search list found
+  collapse include dir [/usr/include/c++/9] ==> [/usr/include/c++/9]
+  collapse include dir [/usr/include/aarch64-linux-gnu/c++/9] ==> [/usr/include/aarch64-linux-gnu/c++/9]
+  collapse include dir [/usr/include/c++/9/backward] ==> [/usr/include/c++/9/backward]
+  collapse include dir [/usr/lib/gcc/aarch64-linux-gnu/9/include] ==> [/usr/lib/gcc/aarch64-linux-gnu/9/include]
+  collapse include dir [/usr/local/include] ==> [/usr/local/include]
+  collapse include dir [/usr/include/aarch64-linux-gnu] ==> [/usr/include/aarch64-linux-gnu]
+  collapse include dir [/usr/include] ==> [/usr/include]
+  implicit include dirs: [/usr/include/c++/9;/usr/include/aarch64-linux-gnu/c++/9;/usr/include/c++/9/backward;/usr/lib/gcc/aarch64-linux-gnu/9/include;/usr/local/include;/usr/include/aarch64-linux-gnu;/usr/include]
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/gmake cmTC_d8f04/fast && /usr/bin/gmake -f CMakeFiles/cmTC_d8f04.dir/build.make CMakeFiles/cmTC_d8f04.dir/build]
+  ignore line: [gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_d8f04.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++    -v -o CMakeFiles/cmTC_d8f04.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/cmake-3.16.3/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/c++]
+  ignore line: [Target: aarch64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.5.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c ada c++ go d fortran objc obj-c++ gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=aarch64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --enable-fix-cortex-a53-843419 --disable-werror --enable-checking=release --build=aarch64-linux-gnu --host=aarch64-linux-gnu --target=aarch64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-mutex]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 9.5.0 (Ubuntu 9.5.0-1ubuntu1~22.04) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d8f04.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64']
+  ignore line: [ /usr/lib/gcc/aarch64-linux-gnu/9/cc1plus -quiet -v -imultiarch aarch64-linux-gnu -D_GNU_SOURCE /usr/local/cmake-3.16.3/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mlittle-endian -mabi=lp64 -auxbase-strip CMakeFiles/cmTC_d8f04.dir/CMakeCXXCompilerABI.cpp.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -o /tmp/ccrE5EZZ.s]
+  ignore line: [GNU C++14 (Ubuntu 9.5.0-1ubuntu1~22.04) version 9.5.0 (aarch64-linux-gnu)]
+  ignore line: [	compiled by GNU C version 9.5.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring duplicate directory "/usr/include/aarch64-linux-gnu/c++/9"]
+  ignore line: [ignoring nonexistent directory "/usr/local/include/aarch64-linux-gnu"]
+  ignore line: [ignoring nonexistent directory "/usr/lib/gcc/aarch64-linux-gnu/9/include-fixed"]
+  ignore line: [ignoring nonexistent directory "/usr/lib/gcc/aarch64-linux-gnu/9/../../../../aarch64-linux-gnu/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /usr/include/c++/9]
+  ignore line: [ /usr/include/aarch64-linux-gnu/c++/9]
+  ignore line: [ /usr/include/c++/9/backward]
+  ignore line: [ /usr/lib/gcc/aarch64-linux-gnu/9/include]
+  ignore line: [ /usr/local/include]
+  ignore line: [ /usr/include/aarch64-linux-gnu]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C++14 (Ubuntu 9.5.0-1ubuntu1~22.04) version 9.5.0 (aarch64-linux-gnu)]
+  ignore line: [	compiled by GNU C version 9.5.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: ecd2b769d3a50ea71f459cea19b45fc8]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d8f04.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64']
+  ignore line: [ as -v -EL -mabi=lp64 -o CMakeFiles/cmTC_d8f04.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccrE5EZZ.s]
+  ignore line: [GNU assembler version 2.38 (aarch64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/9/../../../../lib/:/lib/aarch64-linux-gnu/:/lib/../lib/:/usr/lib/aarch64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/aarch64-linux-gnu/9/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d8f04.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64']
+  ignore line: [Linking CXX executable cmTC_d8f04]
+  ignore line: [/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d8f04.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++      -v CMakeFiles/cmTC_d8f04.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_d8f04 ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/c++]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/aarch64-linux-gnu/9/lto-wrapper]
+  ignore line: [Target: aarch64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.5.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c ada c++ go d fortran objc obj-c++ gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=aarch64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --enable-fix-cortex-a53-843419 --disable-werror --enable-checking=release --build=aarch64-linux-gnu --host=aarch64-linux-gnu --target=aarch64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-mutex]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 9.5.0 (Ubuntu 9.5.0-1ubuntu1~22.04) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/aarch64-linux-gnu/9/:/usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/9/../../../../lib/:/lib/aarch64-linux-gnu/:/lib/../lib/:/usr/lib/aarch64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/aarch64-linux-gnu/9/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_d8f04' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64']
+  link line: [ /usr/lib/gcc/aarch64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/aarch64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/aarch64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccw2Qbuj.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu --as-needed -dynamic-linker /lib/ld-linux-aarch64.so.1 -X -EL -maarch64linux --fix-cortex-a53-843419 -pie -z now -z relro -o cmTC_d8f04 /usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu/Scrt1.o /usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu/crti.o /usr/lib/gcc/aarch64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/aarch64-linux-gnu/9 -L/usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu -L/usr/lib/gcc/aarch64-linux-gnu/9/../../../../lib -L/lib/aarch64-linux-gnu -L/lib/../lib -L/usr/lib/aarch64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/aarch64-linux-gnu/9/../../.. CMakeFiles/cmTC_d8f04.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/aarch64-linux-gnu/9/crtendS.o /usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu/crtn.o]
+    arg [/usr/lib/gcc/aarch64-linux-gnu/9/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/lib/gcc/aarch64-linux-gnu/9/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/usr/lib/gcc/aarch64-linux-gnu/9/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccw2Qbuj.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib/ld-linux-aarch64.so.1] ==> ignore
+    arg [-X] ==> ignore
+    arg [-EL] ==> ignore
+    arg [-maarch64linux] ==> ignore
+    arg [--fix-cortex-a53-843419] ==> ignore
+    arg [-pie] ==> ignore
+    arg [-znow] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_d8f04] ==> ignore
+    arg [/usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu/Scrt1.o] ==> ignore
+    arg [/usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu/crti.o] ==> ignore
+    arg [/usr/lib/gcc/aarch64-linux-gnu/9/crtbeginS.o] ==> ignore
+    arg [-L/usr/lib/gcc/aarch64-linux-gnu/9] ==> dir [/usr/lib/gcc/aarch64-linux-gnu/9]
+    arg [-L/usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu] ==> dir [/usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu]
+    arg [-L/usr/lib/gcc/aarch64-linux-gnu/9/../../../../lib] ==> dir [/usr/lib/gcc/aarch64-linux-gnu/9/../../../../lib]
+    arg [-L/lib/aarch64-linux-gnu] ==> dir [/lib/aarch64-linux-gnu]
+    arg [-L/lib/../lib] ==> dir [/lib/../lib]
+    arg [-L/usr/lib/aarch64-linux-gnu] ==> dir [/usr/lib/aarch64-linux-gnu]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/usr/lib/gcc/aarch64-linux-gnu/9/../../..] ==> dir [/usr/lib/gcc/aarch64-linux-gnu/9/../../..]
+    arg [CMakeFiles/cmTC_d8f04.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/usr/lib/gcc/aarch64-linux-gnu/9/crtendS.o] ==> ignore
+    arg [/usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu/crtn.o] ==> ignore
+  collapse library dir [/usr/lib/gcc/aarch64-linux-gnu/9] ==> [/usr/lib/gcc/aarch64-linux-gnu/9]
+  collapse library dir [/usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu] ==> [/usr/lib/aarch64-linux-gnu]
+  collapse library dir [/usr/lib/gcc/aarch64-linux-gnu/9/../../../../lib] ==> [/usr/lib]
+  collapse library dir [/lib/aarch64-linux-gnu] ==> [/lib/aarch64-linux-gnu]
+  collapse library dir [/lib/../lib] ==> [/lib]
+  collapse library dir [/usr/lib/aarch64-linux-gnu] ==> [/usr/lib/aarch64-linux-gnu]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/usr/lib/gcc/aarch64-linux-gnu/9/../../..] ==> [/usr/lib]
+  implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+  implicit dirs: [/usr/lib/gcc/aarch64-linux-gnu/9;/usr/lib/aarch64-linux-gnu;/usr/lib;/lib/aarch64-linux-gnu;/lib]
+  implicit fwks: []
+
+
+Performing C++ SOURCE FILE Test EIGEN_COMPILER_SUPPORT_CPP11 succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_12d30/fast && /usr/bin/gmake -f CMakeFiles/cmTC_12d30.dir/build.make CMakeFiles/cmTC_12d30.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_12d30.dir/src.cxx.o
+/usr/bin/c++    -DEIGEN_COMPILER_SUPPORT_CPP11   -std=c++11 -o CMakeFiles/cmTC_12d30.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_12d30
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_12d30.dir/link.txt --verbose=1
+/usr/bin/c++   -DEIGEN_COMPILER_SUPPORT_CPP11    CMakeFiles/cmTC_12d30.dir/src.cxx.o  -o cmTC_12d30 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_std=cpp03 succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_be628/fast && /usr/bin/gmake -f CMakeFiles/cmTC_be628.dir/build.make CMakeFiles/cmTC_be628.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_be628.dir/src.cxx.o
+/usr/bin/c++    -DCOMPILER_SUPPORT_std=cpp03   -std=c++03 -o CMakeFiles/cmTC_be628.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_be628
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_be628.dir/link.txt --verbose=1
+/usr/bin/c++   -DCOMPILER_SUPPORT_std=cpp03    CMakeFiles/cmTC_be628.dir/src.cxx.o  -o cmTC_be628 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test standard_math_library_linked_to_automatically succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_0327c/fast && /usr/bin/gmake -f CMakeFiles/cmTC_0327c.dir/build.make CMakeFiles/cmTC_0327c.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_0327c.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -Dstandard_math_library_linked_to_automatically   -o CMakeFiles/cmTC_0327c.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_0327c
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0327c.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++03 -Dstandard_math_library_linked_to_automatically    CMakeFiles/cmTC_0327c.dir/src.cxx.o  -o cmTC_0327c 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+#include<cmath>
+int main(int argc, char **){
+  return int(std::sin(double(argc)) + std::log(double(argc)));
+}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_WERROR succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_7af0e/fast && /usr/bin/gmake -f CMakeFiles/cmTC_7af0e.dir/build.make CMakeFiles/cmTC_7af0e.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_7af0e.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -DCOMPILER_SUPPORT_WERROR   -Werror -o CMakeFiles/cmTC_7af0e.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_7af0e
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7af0e.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++03 -DCOMPILER_SUPPORT_WERROR    CMakeFiles/cmTC_7af0e.dir/src.cxx.o  -o cmTC_7af0e 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_pedantic succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_266b1/fast && /usr/bin/gmake -f CMakeFiles/cmTC_266b1.dir/build.make CMakeFiles/cmTC_266b1.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_266b1.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -DCOMPILER_SUPPORT_pedantic -Werror   -pedantic -o CMakeFiles/cmTC_266b1.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_266b1
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_266b1.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++03 -DCOMPILER_SUPPORT_pedantic -Werror    CMakeFiles/cmTC_266b1.dir/src.cxx.o  -o cmTC_266b1 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wall succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_b8727/fast && /usr/bin/gmake -f CMakeFiles/cmTC_b8727.dir/build.make CMakeFiles/cmTC_b8727.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_b8727.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -DCOMPILER_SUPPORT_Wall -Werror   -Wall -o CMakeFiles/cmTC_b8727.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_b8727
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b8727.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++03 -pedantic -DCOMPILER_SUPPORT_Wall -Werror    CMakeFiles/cmTC_b8727.dir/src.cxx.o  -o cmTC_b8727 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wextra succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_9661d/fast && /usr/bin/gmake -f CMakeFiles/cmTC_9661d.dir/build.make CMakeFiles/cmTC_9661d.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_9661d.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -DCOMPILER_SUPPORT_Wextra -Werror   -Wextra -o CMakeFiles/cmTC_9661d.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_9661d
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9661d.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++03 -pedantic -Wall -DCOMPILER_SUPPORT_Wextra -Werror    CMakeFiles/cmTC_9661d.dir/src.cxx.o  -o cmTC_9661d 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wundef succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_6d4be/fast && /usr/bin/gmake -f CMakeFiles/cmTC_6d4be.dir/build.make CMakeFiles/cmTC_6d4be.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_6d4be.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -DCOMPILER_SUPPORT_Wundef -Werror   -Wundef -o CMakeFiles/cmTC_6d4be.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_6d4be
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6d4be.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++03 -pedantic -Wall -Wextra -DCOMPILER_SUPPORT_Wundef -Werror    CMakeFiles/cmTC_6d4be.dir/src.cxx.o  -o cmTC_6d4be 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wcastalign succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_934d1/fast && /usr/bin/gmake -f CMakeFiles/cmTC_934d1.dir/build.make CMakeFiles/cmTC_934d1.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_934d1.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -DCOMPILER_SUPPORT_Wcastalign -Werror   -Wcast-align -o CMakeFiles/cmTC_934d1.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_934d1
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_934d1.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++03 -pedantic -Wall -Wextra -Wundef -DCOMPILER_SUPPORT_Wcastalign -Werror    CMakeFiles/cmTC_934d1.dir/src.cxx.o  -o cmTC_934d1 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wcharsubscripts succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_6b999/fast && /usr/bin/gmake -f CMakeFiles/cmTC_6b999.dir/build.make CMakeFiles/cmTC_6b999.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_6b999.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -DCOMPILER_SUPPORT_Wcharsubscripts -Werror   -Wchar-subscripts -o CMakeFiles/cmTC_6b999.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_6b999
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6b999.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -DCOMPILER_SUPPORT_Wcharsubscripts -Werror    CMakeFiles/cmTC_6b999.dir/src.cxx.o  -o cmTC_6b999 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wnonvirtualdtor succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_6202a/fast && /usr/bin/gmake -f CMakeFiles/cmTC_6202a.dir/build.make CMakeFiles/cmTC_6202a.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_6202a.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -DCOMPILER_SUPPORT_Wnonvirtualdtor -Werror   -Wnon-virtual-dtor -o CMakeFiles/cmTC_6202a.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_6202a
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6202a.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -DCOMPILER_SUPPORT_Wnonvirtualdtor -Werror    CMakeFiles/cmTC_6202a.dir/src.cxx.o  -o cmTC_6202a 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wunusedlocaltypedefs succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_1ed85/fast && /usr/bin/gmake -f CMakeFiles/cmTC_1ed85.dir/build.make CMakeFiles/cmTC_1ed85.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_1ed85.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -DCOMPILER_SUPPORT_Wunusedlocaltypedefs -Werror   -Wunused-local-typedefs -o CMakeFiles/cmTC_1ed85.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_1ed85
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1ed85.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -DCOMPILER_SUPPORT_Wunusedlocaltypedefs -Werror    CMakeFiles/cmTC_1ed85.dir/src.cxx.o  -o cmTC_1ed85 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wpointerarith succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_e5cab/fast && /usr/bin/gmake -f CMakeFiles/cmTC_e5cab.dir/build.make CMakeFiles/cmTC_e5cab.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e5cab.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -DCOMPILER_SUPPORT_Wpointerarith -Werror   -Wpointer-arith -o CMakeFiles/cmTC_e5cab.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_e5cab
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e5cab.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -DCOMPILER_SUPPORT_Wpointerarith -Werror    CMakeFiles/cmTC_e5cab.dir/src.cxx.o  -o cmTC_e5cab 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wwritestrings succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_59361/fast && /usr/bin/gmake -f CMakeFiles/cmTC_59361.dir/build.make CMakeFiles/cmTC_59361.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_59361.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -DCOMPILER_SUPPORT_Wwritestrings -Werror   -Wwrite-strings -o CMakeFiles/cmTC_59361.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_59361
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_59361.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -DCOMPILER_SUPPORT_Wwritestrings -Werror    CMakeFiles/cmTC_59361.dir/src.cxx.o  -o cmTC_59361 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wformatsecurity succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_afa75/fast && /usr/bin/gmake -f CMakeFiles/cmTC_afa75.dir/build.make CMakeFiles/cmTC_afa75.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_afa75.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -DCOMPILER_SUPPORT_Wformatsecurity -Werror   -Wformat-security -o CMakeFiles/cmTC_afa75.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_afa75
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_afa75.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -DCOMPILER_SUPPORT_Wformatsecurity -Werror    CMakeFiles/cmTC_afa75.dir/src.cxx.o  -o cmTC_afa75 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wlogicalop succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_3145f/fast && /usr/bin/gmake -f CMakeFiles/cmTC_3145f.dir/build.make CMakeFiles/cmTC_3145f.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_3145f.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -DCOMPILER_SUPPORT_Wlogicalop -Werror   -Wlogical-op -o CMakeFiles/cmTC_3145f.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_3145f
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3145f.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -DCOMPILER_SUPPORT_Wlogicalop -Werror    CMakeFiles/cmTC_3145f.dir/src.cxx.o  -o cmTC_3145f 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wdoublepromotion succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_a9fb9/fast && /usr/bin/gmake -f CMakeFiles/cmTC_a9fb9.dir/build.make CMakeFiles/cmTC_a9fb9.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_a9fb9.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -DCOMPILER_SUPPORT_Wdoublepromotion -Werror   -Wdouble-promotion -o CMakeFiles/cmTC_a9fb9.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_a9fb9
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a9fb9.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -DCOMPILER_SUPPORT_Wdoublepromotion -Werror    CMakeFiles/cmTC_a9fb9.dir/src.cxx.o  -o cmTC_a9fb9 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wshadow succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_0295c/fast && /usr/bin/gmake -f CMakeFiles/cmTC_0295c.dir/build.make CMakeFiles/cmTC_0295c.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_0295c.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -DCOMPILER_SUPPORT_Wshadow -Werror   -Wshadow -o CMakeFiles/cmTC_0295c.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_0295c
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0295c.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -DCOMPILER_SUPPORT_Wshadow -Werror    CMakeFiles/cmTC_0295c.dir/src.cxx.o  -o cmTC_0295c 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wnopsabi succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_fa008/fast && /usr/bin/gmake -f CMakeFiles/cmTC_fa008.dir/build.make CMakeFiles/cmTC_fa008.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_fa008.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -DCOMPILER_SUPPORT_Wnopsabi -Werror   -Wno-psabi -o CMakeFiles/cmTC_fa008.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_fa008
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fa008.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -DCOMPILER_SUPPORT_Wnopsabi -Werror    CMakeFiles/cmTC_fa008.dir/src.cxx.o  -o cmTC_fa008 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wnovariadicmacros succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_7e7b6/fast && /usr/bin/gmake -f CMakeFiles/cmTC_7e7b6.dir/build.make CMakeFiles/cmTC_7e7b6.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_7e7b6.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -Wno-psabi -DCOMPILER_SUPPORT_Wnovariadicmacros -Werror   -Wno-variadic-macros -o CMakeFiles/cmTC_7e7b6.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_7e7b6
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7e7b6.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -Wno-psabi -DCOMPILER_SUPPORT_Wnovariadicmacros -Werror    CMakeFiles/cmTC_7e7b6.dir/src.cxx.o  -o cmTC_7e7b6 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wnolonglong succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_c2302/fast && /usr/bin/gmake -f CMakeFiles/cmTC_c2302.dir/build.make CMakeFiles/cmTC_c2302.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_c2302.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -DCOMPILER_SUPPORT_Wnolonglong -Werror   -Wno-long-long -o CMakeFiles/cmTC_c2302.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_c2302
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c2302.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -DCOMPILER_SUPPORT_Wnolonglong -Werror    CMakeFiles/cmTC_c2302.dir/src.cxx.o  -o cmTC_c2302 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_fnochecknew succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_d7a05/fast && /usr/bin/gmake -f CMakeFiles/cmTC_d7a05.dir/build.make CMakeFiles/cmTC_d7a05.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d7a05.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -DCOMPILER_SUPPORT_fnochecknew -Werror   -fno-check-new -o CMakeFiles/cmTC_d7a05.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_d7a05
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d7a05.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -DCOMPILER_SUPPORT_fnochecknew -Werror    CMakeFiles/cmTC_d7a05.dir/src.cxx.o  -o cmTC_d7a05 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_fnocommon succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_6b636/fast && /usr/bin/gmake -f CMakeFiles/cmTC_6b636.dir/build.make CMakeFiles/cmTC_6b636.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_6b636.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -DCOMPILER_SUPPORT_fnocommon -Werror   -fno-common -o CMakeFiles/cmTC_6b636.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_6b636
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6b636.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -DCOMPILER_SUPPORT_fnocommon -Werror    CMakeFiles/cmTC_6b636.dir/src.cxx.o  -o cmTC_6b636 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_fstrictaliasing succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_6e1d7/fast && /usr/bin/gmake -f CMakeFiles/cmTC_6e1d7.dir/build.make CMakeFiles/cmTC_6e1d7.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_6e1d7.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -DCOMPILER_SUPPORT_fstrictaliasing -Werror   -fstrict-aliasing -o CMakeFiles/cmTC_6e1d7.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_6e1d7
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6e1d7.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -DCOMPILER_SUPPORT_fstrictaliasing -Werror    CMakeFiles/cmTC_6e1d7.dir/src.cxx.o  -o cmTC_6e1d7 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_ansi succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_5d558/fast && /usr/bin/gmake -f CMakeFiles/cmTC_5d558.dir/build.make CMakeFiles/cmTC_5d558.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_5d558.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -DCOMPILER_SUPPORT_ansi -Werror   -ansi -o CMakeFiles/cmTC_5d558.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_5d558
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5d558.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -DCOMPILER_SUPPORT_ansi -Werror    CMakeFiles/cmTC_5d558.dir/src.cxx.o  -o cmTC_5d558 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_OPENMP succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_59a45/fast && /usr/bin/gmake -f CMakeFiles/cmTC_59a45.dir/build.make CMakeFiles/cmTC_59a45.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_59a45.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -ansi -DCOMPILER_SUPPORT_OPENMP   -fopenmp -o CMakeFiles/cmTC_59a45.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_59a45
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_59a45.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -ansi -DCOMPILER_SUPPORT_OPENMP    CMakeFiles/cmTC_59a45.dir/src.cxx.o  -o cmTC_59a45 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Looking for a Fortran compiler passed with the following output:
+-- The Fortran compiler identification is GNU 11.4.0
+-- Check for working Fortran compiler: /usr/bin/f95
+-- Check for working Fortran compiler: /usr/bin/f95  -- works
+-- Detecting Fortran compiler ABI info
+-- Detecting Fortran compiler ABI info - done
+-- Checking whether /usr/bin/f95 supports Fortran 90
+-- Checking whether /usr/bin/f95 supports Fortran 90 -- yes
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/test/CMakeFiles/CheckFortran
+
+Compiling the Fortran compiler identification source file "CMakeFortranCompilerId.F" succeeded.
+Compiler: /usr/bin/f95 
+Build flags: 
+Id flags: -v 
+
+The output was:
+0
+Driving: /usr/bin/f95 -v CMakeFortranCompilerId.F -l gfortran -l m -shared-libgcc
+Using built-in specs.
+COLLECT_GCC=/usr/bin/f95
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/aarch64-linux-gnu/11/lto-wrapper
+Target: aarch64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=aarch64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --enable-fix-cortex-a53-843419 --disable-werror --enable-checking=release --build=aarch64-linux-gnu --host=aarch64-linux-gnu --target=aarch64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04) 
+COLLECT_GCC_OPTIONS='-v' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'a-'
+ /usr/lib/gcc/aarch64-linux-gnu/11/f951 CMakeFortranCompilerId.F -ffixed-form -cpp=/tmp/ccjDvAhq.f90 -quiet -v -imultiarch aarch64-linux-gnu CMakeFortranCompilerId.F -quiet -dumpdir a- -dumpbase CMakeFortranCompilerId.F -dumpbase-ext .F -mlittle-endian -mabi=lp64 -version -fintrinsic-modules-path /usr/lib/gcc/aarch64-linux-gnu/11/finclude -fpre-include=/usr/include/finclude/math-vector-fortran.h -o /tmp/cci5a97k.s
+GNU Fortran (Ubuntu 11.4.0-1ubuntu1~22.04) version 11.4.0 (aarch64-linux-gnu)
+	compiled by GNU C version 11.4.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/usr/local/include/aarch64-linux-gnu"
+ignoring nonexistent directory "/usr/lib/gcc/aarch64-linux-gnu/11/include-fixed"
+ignoring nonexistent directory "/usr/lib/gcc/aarch64-linux-gnu/11/../../../../aarch64-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/lib/gcc/aarch64-linux-gnu/11/finclude
+ /usr/lib/gcc/aarch64-linux-gnu/11/include
+ /usr/local/include
+ /usr/include/aarch64-linux-gnu
+ /usr/include
+End of search list.
+GNU Fortran2008 (Ubuntu 11.4.0-1ubuntu1~22.04) version 11.4.0 (aarch64-linux-gnu)
+	compiled by GNU C version 11.4.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+COLLECT_GCC_OPTIONS='-v' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'a-'
+ as -v -EL -mabi=lp64 -o /tmp/cckC7G1d.o /tmp/cci5a97k.s
+GNU assembler version 2.38 (aarch64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38
+Reading specs from /usr/lib/gcc/aarch64-linux-gnu/11/libgfortran.spec
+rename spec lib to liborig
+COLLECT_GCC_OPTIONS='-v' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'a-'
+COMPILER_PATH=/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/11/../../../../lib/:/lib/aarch64-linux-gnu/:/lib/../lib/:/usr/lib/aarch64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/aarch64-linux-gnu/11/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'a.'
+ /usr/lib/gcc/aarch64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/aarch64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/aarch64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccQIIQ5p.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu --as-needed -dynamic-linker /lib/ld-linux-aarch64.so.1 -X -EL -maarch64linux --fix-cortex-a53-843419 -pie -z now -z relro /usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/Scrt1.o /usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/crti.o /usr/lib/gcc/aarch64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/aarch64-linux-gnu/11 -L/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu -L/usr/lib/gcc/aarch64-linux-gnu/11/../../../../lib -L/lib/aarch64-linux-gnu -L/lib/../lib -L/usr/lib/aarch64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/aarch64-linux-gnu/11/../../.. /tmp/cckC7G1d.o -lgfortran -lm -lgcc_s -lgcc -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/aarch64-linux-gnu/11/crtendS.o /usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'a.'
+
+
+Compilation of the Fortran compiler identification source "CMakeFortranCompilerId.F" produced "a.out"
+
+The Fortran compiler identification is GNU, found in "/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/3.16.3/CompilerIdFortran/a.out"
+
+Determining if the Fortran compiler works passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_ecfb0/fast && /usr/bin/gmake -f CMakeFiles/cmTC_ecfb0.dir/build.make CMakeFiles/cmTC_ecfb0.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building Fortran object CMakeFiles/cmTC_ecfb0.dir/testFortranCompiler.f.o
+/usr/bin/f95    -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/testFortranCompiler.f -o CMakeFiles/cmTC_ecfb0.dir/testFortranCompiler.f.o
+Linking Fortran executable cmTC_ecfb0
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ecfb0.dir/link.txt --verbose=1
+/usr/bin/f95      CMakeFiles/cmTC_ecfb0.dir/testFortranCompiler.f.o  -o cmTC_ecfb0 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Detecting Fortran compiler ABI info compiled with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_a6b38/fast && /usr/bin/gmake -f CMakeFiles/cmTC_a6b38.dir/build.make CMakeFiles/cmTC_a6b38.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building Fortran object CMakeFiles/cmTC_a6b38.dir/CMakeFortranCompilerABI.F.o
+/usr/bin/f95   -v -c /usr/local/cmake-3.16.3/share/cmake-3.16/Modules/CMakeFortranCompilerABI.F -o CMakeFiles/cmTC_a6b38.dir/CMakeFortranCompilerABI.F.o
+Using built-in specs.
+COLLECT_GCC=/usr/bin/f95
+Target: aarch64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=aarch64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --enable-fix-cortex-a53-843419 --disable-werror --enable-checking=release --build=aarch64-linux-gnu --host=aarch64-linux-gnu --target=aarch64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04) 
+COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_a6b38.dir/CMakeFortranCompilerABI.F.o' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_a6b38.dir/'
+ /usr/lib/gcc/aarch64-linux-gnu/11/f951 /usr/local/cmake-3.16.3/share/cmake-3.16/Modules/CMakeFortranCompilerABI.F -ffixed-form -cpp=/tmp/ccZInnyA.f90 -quiet -v -imultiarch aarch64-linux-gnu /usr/local/cmake-3.16.3/share/cmake-3.16/Modules/CMakeFortranCompilerABI.F -quiet -dumpdir CMakeFiles/cmTC_a6b38.dir/ -dumpbase CMakeFortranCompilerABI.F.F -dumpbase-ext .F -mlittle-endian -mabi=lp64 -version -fintrinsic-modules-path /usr/lib/gcc/aarch64-linux-gnu/11/finclude -fpre-include=/usr/include/finclude/math-vector-fortran.h -o /tmp/cczEigfR.s
+GNU Fortran (Ubuntu 11.4.0-1ubuntu1~22.04) version 11.4.0 (aarch64-linux-gnu)
+	compiled by GNU C version 11.4.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/usr/local/include/aarch64-linux-gnu"
+ignoring nonexistent directory "/usr/lib/gcc/aarch64-linux-gnu/11/include-fixed"
+ignoring nonexistent directory "/usr/lib/gcc/aarch64-linux-gnu/11/../../../../aarch64-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/lib/gcc/aarch64-linux-gnu/11/finclude
+ /usr/lib/gcc/aarch64-linux-gnu/11/include
+ /usr/local/include
+ /usr/include/aarch64-linux-gnu
+ /usr/include
+End of search list.
+GNU Fortran2008 (Ubuntu 11.4.0-1ubuntu1~22.04) version 11.4.0 (aarch64-linux-gnu)
+	compiled by GNU C version 11.4.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_a6b38.dir/CMakeFortranCompilerABI.F.o' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_a6b38.dir/'
+ as -v -EL -mabi=lp64 -o CMakeFiles/cmTC_a6b38.dir/CMakeFortranCompilerABI.F.o /tmp/cczEigfR.s
+GNU assembler version 2.38 (aarch64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38
+COMPILER_PATH=/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/11/../../../../lib/:/lib/aarch64-linux-gnu/:/lib/../lib/:/usr/lib/aarch64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/aarch64-linux-gnu/11/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_a6b38.dir/CMakeFortranCompilerABI.F.o' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_a6b38.dir/CMakeFortranCompilerABI.F.'
+Linking Fortran executable cmTC_a6b38
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a6b38.dir/link.txt --verbose=1
+/usr/bin/f95   -v   CMakeFiles/cmTC_a6b38.dir/CMakeFortranCompilerABI.F.o  -o cmTC_a6b38 
+Driving: /usr/bin/f95 -v CMakeFiles/cmTC_a6b38.dir/CMakeFortranCompilerABI.F.o -o cmTC_a6b38 -l gfortran -l m -shared-libgcc
+Using built-in specs.
+COLLECT_GCC=/usr/bin/f95
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/aarch64-linux-gnu/11/lto-wrapper
+Target: aarch64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=aarch64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --enable-fix-cortex-a53-843419 --disable-werror --enable-checking=release --build=aarch64-linux-gnu --host=aarch64-linux-gnu --target=aarch64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04) 
+Reading specs from /usr/lib/gcc/aarch64-linux-gnu/11/libgfortran.spec
+rename spec lib to liborig
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a6b38' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_a6b38-'
+COMPILER_PATH=/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/11/../../../../lib/:/lib/aarch64-linux-gnu/:/lib/../lib/:/usr/lib/aarch64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/aarch64-linux-gnu/11/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a6b38' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_a6b38.'
+ /usr/lib/gcc/aarch64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/aarch64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/aarch64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccosQtpL.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu --as-needed -dynamic-linker /lib/ld-linux-aarch64.so.1 -X -EL -maarch64linux --fix-cortex-a53-843419 -pie -z now -z relro -o cmTC_a6b38 /usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/Scrt1.o /usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/crti.o /usr/lib/gcc/aarch64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/aarch64-linux-gnu/11 -L/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu -L/usr/lib/gcc/aarch64-linux-gnu/11/../../../../lib -L/lib/aarch64-linux-gnu -L/lib/../lib -L/usr/lib/aarch64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/aarch64-linux-gnu/11/../../.. CMakeFiles/cmTC_a6b38.dir/CMakeFortranCompilerABI.F.o -lgfortran -lm -lgcc_s -lgcc -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/aarch64-linux-gnu/11/crtendS.o /usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a6b38' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_a6b38.'
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Parsed Fortran implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/usr/lib/gcc/aarch64-linux-gnu/11/finclude]
+    add: [/usr/lib/gcc/aarch64-linux-gnu/11/include]
+    add: [/usr/local/include]
+    add: [/usr/include/aarch64-linux-gnu]
+    add: [/usr/include]
+  end of search list found
+  collapse include dir [/usr/lib/gcc/aarch64-linux-gnu/11/finclude] ==> [/usr/lib/gcc/aarch64-linux-gnu/11/finclude]
+  collapse include dir [/usr/lib/gcc/aarch64-linux-gnu/11/include] ==> [/usr/lib/gcc/aarch64-linux-gnu/11/include]
+  collapse include dir [/usr/local/include] ==> [/usr/local/include]
+  collapse include dir [/usr/include/aarch64-linux-gnu] ==> [/usr/include/aarch64-linux-gnu]
+  collapse include dir [/usr/include] ==> [/usr/include]
+  implicit include dirs: [/usr/lib/gcc/aarch64-linux-gnu/11/finclude;/usr/lib/gcc/aarch64-linux-gnu/11/include;/usr/local/include;/usr/include/aarch64-linux-gnu;/usr/include]
+
+
+Parsed Fortran implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/gmake cmTC_a6b38/fast && /usr/bin/gmake -f CMakeFiles/cmTC_a6b38.dir/build.make CMakeFiles/cmTC_a6b38.dir/build]
+  ignore line: [gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building Fortran object CMakeFiles/cmTC_a6b38.dir/CMakeFortranCompilerABI.F.o]
+  ignore line: [/usr/bin/f95   -v -c /usr/local/cmake-3.16.3/share/cmake-3.16/Modules/CMakeFortranCompilerABI.F -o CMakeFiles/cmTC_a6b38.dir/CMakeFortranCompilerABI.F.o]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/f95]
+  ignore line: [Target: aarch64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c ada c++ go d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=aarch64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --enable-fix-cortex-a53-843419 --disable-werror --enable-checking=release --build=aarch64-linux-gnu --host=aarch64-linux-gnu --target=aarch64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2]
+  ignore line: [Thread model: posix]
+  ignore line: [Supported LTO compression algorithms: zlib zstd]
+  ignore line: [gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_a6b38.dir/CMakeFortranCompilerABI.F.o' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_a6b38.dir/']
+  ignore line: [ /usr/lib/gcc/aarch64-linux-gnu/11/f951 /usr/local/cmake-3.16.3/share/cmake-3.16/Modules/CMakeFortranCompilerABI.F -ffixed-form -cpp=/tmp/ccZInnyA.f90 -quiet -v -imultiarch aarch64-linux-gnu /usr/local/cmake-3.16.3/share/cmake-3.16/Modules/CMakeFortranCompilerABI.F -quiet -dumpdir CMakeFiles/cmTC_a6b38.dir/ -dumpbase CMakeFortranCompilerABI.F.F -dumpbase-ext .F -mlittle-endian -mabi=lp64 -version -fintrinsic-modules-path /usr/lib/gcc/aarch64-linux-gnu/11/finclude -fpre-include=/usr/include/finclude/math-vector-fortran.h -o /tmp/cczEigfR.s]
+  ignore line: [GNU Fortran (Ubuntu 11.4.0-1ubuntu1~22.04) version 11.4.0 (aarch64-linux-gnu)]
+  ignore line: [	compiled by GNU C version 11.4.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring nonexistent directory "/usr/local/include/aarch64-linux-gnu"]
+  ignore line: [ignoring nonexistent directory "/usr/lib/gcc/aarch64-linux-gnu/11/include-fixed"]
+  ignore line: [ignoring nonexistent directory "/usr/lib/gcc/aarch64-linux-gnu/11/../../../../aarch64-linux-gnu/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /usr/lib/gcc/aarch64-linux-gnu/11/finclude]
+  ignore line: [ /usr/lib/gcc/aarch64-linux-gnu/11/include]
+  ignore line: [ /usr/local/include]
+  ignore line: [ /usr/include/aarch64-linux-gnu]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU Fortran2008 (Ubuntu 11.4.0-1ubuntu1~22.04) version 11.4.0 (aarch64-linux-gnu)]
+  ignore line: [	compiled by GNU C version 11.4.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_a6b38.dir/CMakeFortranCompilerABI.F.o' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_a6b38.dir/']
+  ignore line: [ as -v -EL -mabi=lp64 -o CMakeFiles/cmTC_a6b38.dir/CMakeFortranCompilerABI.F.o /tmp/cczEigfR.s]
+  ignore line: [GNU assembler version 2.38 (aarch64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/11/../../../../lib/:/lib/aarch64-linux-gnu/:/lib/../lib/:/usr/lib/aarch64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/aarch64-linux-gnu/11/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_a6b38.dir/CMakeFortranCompilerABI.F.o' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_a6b38.dir/CMakeFortranCompilerABI.F.']
+  ignore line: [Linking Fortran executable cmTC_a6b38]
+  ignore line: [/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a6b38.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/f95   -v   CMakeFiles/cmTC_a6b38.dir/CMakeFortranCompilerABI.F.o  -o cmTC_a6b38 ]
+  ignore line: [Driving: /usr/bin/f95 -v CMakeFiles/cmTC_a6b38.dir/CMakeFortranCompilerABI.F.o -o cmTC_a6b38 -l gfortran -l m -shared-libgcc]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/f95]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/aarch64-linux-gnu/11/lto-wrapper]
+  ignore line: [Target: aarch64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c ada c++ go d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=aarch64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --enable-fix-cortex-a53-843419 --disable-werror --enable-checking=release --build=aarch64-linux-gnu --host=aarch64-linux-gnu --target=aarch64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2]
+  ignore line: [Thread model: posix]
+  ignore line: [Supported LTO compression algorithms: zlib zstd]
+  ignore line: [gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04) ]
+  ignore line: [Reading specs from /usr/lib/gcc/aarch64-linux-gnu/11/libgfortran.spec]
+  ignore line: [rename spec lib to liborig]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a6b38' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_a6b38-']
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/11/../../../../lib/:/lib/aarch64-linux-gnu/:/lib/../lib/:/usr/lib/aarch64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/aarch64-linux-gnu/11/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a6b38' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_a6b38.']
+  link line: [ /usr/lib/gcc/aarch64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/aarch64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/aarch64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccosQtpL.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu --as-needed -dynamic-linker /lib/ld-linux-aarch64.so.1 -X -EL -maarch64linux --fix-cortex-a53-843419 -pie -z now -z relro -o cmTC_a6b38 /usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/Scrt1.o /usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/crti.o /usr/lib/gcc/aarch64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/aarch64-linux-gnu/11 -L/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu -L/usr/lib/gcc/aarch64-linux-gnu/11/../../../../lib -L/lib/aarch64-linux-gnu -L/lib/../lib -L/usr/lib/aarch64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/aarch64-linux-gnu/11/../../.. CMakeFiles/cmTC_a6b38.dir/CMakeFortranCompilerABI.F.o -lgfortran -lm -lgcc_s -lgcc -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/aarch64-linux-gnu/11/crtendS.o /usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/crtn.o]
+    arg [/usr/lib/gcc/aarch64-linux-gnu/11/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/lib/gcc/aarch64-linux-gnu/11/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/usr/lib/gcc/aarch64-linux-gnu/11/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccosQtpL.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lm] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib/ld-linux-aarch64.so.1] ==> ignore
+    arg [-X] ==> ignore
+    arg [-EL] ==> ignore
+    arg [-maarch64linux] ==> ignore
+    arg [--fix-cortex-a53-843419] ==> ignore
+    arg [-pie] ==> ignore
+    arg [-znow] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_a6b38] ==> ignore
+    arg [/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/Scrt1.o] ==> ignore
+    arg [/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/crti.o] ==> ignore
+    arg [/usr/lib/gcc/aarch64-linux-gnu/11/crtbeginS.o] ==> ignore
+    arg [-L/usr/lib/gcc/aarch64-linux-gnu/11] ==> dir [/usr/lib/gcc/aarch64-linux-gnu/11]
+    arg [-L/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu] ==> dir [/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu]
+    arg [-L/usr/lib/gcc/aarch64-linux-gnu/11/../../../../lib] ==> dir [/usr/lib/gcc/aarch64-linux-gnu/11/../../../../lib]
+    arg [-L/lib/aarch64-linux-gnu] ==> dir [/lib/aarch64-linux-gnu]
+    arg [-L/lib/../lib] ==> dir [/lib/../lib]
+    arg [-L/usr/lib/aarch64-linux-gnu] ==> dir [/usr/lib/aarch64-linux-gnu]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/usr/lib/gcc/aarch64-linux-gnu/11/../../..] ==> dir [/usr/lib/gcc/aarch64-linux-gnu/11/../../..]
+    arg [CMakeFiles/cmTC_a6b38.dir/CMakeFortranCompilerABI.F.o] ==> ignore
+    arg [-lgfortran] ==> lib [gfortran]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/usr/lib/gcc/aarch64-linux-gnu/11/crtendS.o] ==> ignore
+    arg [/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/crtn.o] ==> ignore
+  collapse library dir [/usr/lib/gcc/aarch64-linux-gnu/11] ==> [/usr/lib/gcc/aarch64-linux-gnu/11]
+  collapse library dir [/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu] ==> [/usr/lib/aarch64-linux-gnu]
+  collapse library dir [/usr/lib/gcc/aarch64-linux-gnu/11/../../../../lib] ==> [/usr/lib]
+  collapse library dir [/lib/aarch64-linux-gnu] ==> [/lib/aarch64-linux-gnu]
+  collapse library dir [/lib/../lib] ==> [/lib]
+  collapse library dir [/usr/lib/aarch64-linux-gnu] ==> [/usr/lib/aarch64-linux-gnu]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/usr/lib/gcc/aarch64-linux-gnu/11/../../..] ==> [/usr/lib]
+  implicit libs: [gfortran;m;gcc_s;gcc;m;gcc_s;gcc;c;gcc_s;gcc]
+  implicit dirs: [/usr/lib/gcc/aarch64-linux-gnu/11;/usr/lib/aarch64-linux-gnu;/usr/lib;/lib/aarch64-linux-gnu;/lib]
+  implicit fwks: []
+
+
+Determining if the Fortran compiler supports Fortran 90 passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_f7dac/fast && /usr/bin/gmake -f CMakeFiles/cmTC_f7dac.dir/build.make CMakeFiles/cmTC_f7dac.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building Fortran object CMakeFiles/cmTC_f7dac.dir/testFortranCompilerF90.f90.o
+/usr/bin/f95    -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/testFortranCompilerF90.f90 -o CMakeFiles/cmTC_f7dac.dir/testFortranCompilerF90.f90.o
+Linking Fortran executable cmTC_f7dac
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f7dac.dir/link.txt --verbose=1
+/usr/bin/f95      CMakeFiles/cmTC_f7dac.dir/testFortranCompilerF90.f90.o  -o cmTC_f7dac 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Performing C++ SOURCE FILE Test SUPERLU_HAS_GLOBAL_MEM_USAGE_T succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_aef82/fast && /usr/bin/gmake -f CMakeFiles/cmTC_aef82.dir/build.make CMakeFiles/cmTC_aef82.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_aef82.dir/src.cxx.o
+/usr/bin/c++   -I/usr/include/superlu  -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -ansi -DSUPERLU_HAS_GLOBAL_MEM_USAGE_T   -o CMakeFiles/cmTC_aef82.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx: In function ‘int main()’:
+/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx:6:15: warning: unused variable ‘mem’ [-Wunused-variable]
+    6 |   mem_usage_t mem;
+      |               ^~~
+Linking CXX executable cmTC_aef82
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_aef82.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -ansi -DSUPERLU_HAS_GLOBAL_MEM_USAGE_T    CMakeFiles/cmTC_aef82.dir/src.cxx.o  -o cmTC_aef82 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+typedef int int_t;
+#include <supermatrix.h>
+#include <slu_util.h>
+int main() {
+  mem_usage_t mem;
+  return 0;
+}
+Performing C++ SOURCE FILE Test SUPERLU_HAS_CLEAN_ENUMS succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_ea300/fast && /usr/bin/gmake -f CMakeFiles/cmTC_ea300.dir/build.make CMakeFiles/cmTC_ea300.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_ea300.dir/src.cxx.o
+/usr/bin/c++   -I/usr/include/superlu  -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -ansi -DSUPERLU_HAS_CLEAN_ENUMS   -o CMakeFiles/cmTC_ea300.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_ea300
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ea300.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -ansi -DSUPERLU_HAS_CLEAN_ENUMS    CMakeFiles/cmTC_ea300.dir/src.cxx.o  -o cmTC_ea300 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+typedef int int_t;
+#include <supermatrix.h>
+#include <superlu_enum_consts.h>
+int main() {
+  return SLU_SINGLE;
+}
+Performing C++ SOURCE FILE Test SUPERLU_HAS_GLOBALLU_T succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_96585/fast && /usr/bin/gmake -f CMakeFiles/cmTC_96585.dir/build.make CMakeFiles/cmTC_96585.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_96585.dir/src.cxx.o
+/usr/bin/c++   -I/usr/include/superlu  -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -ansi -DSUPERLU_HAS_GLOBALLU_T   -o CMakeFiles/cmTC_96585.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx: In function ‘int main()’:
+/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx:7:14: warning: unused variable ‘glu’ [-Wunused-variable]
+    7 |   GlobalLU_t glu;
+      |              ^~~
+Linking CXX executable cmTC_96585
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_96585.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -ansi -DSUPERLU_HAS_GLOBALLU_T    CMakeFiles/cmTC_96585.dir/src.cxx.o  -o cmTC_96585 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+typedef int int_t;
+#include <supermatrix.h>
+#include <slu_util.h>
+int main(void)
+{
+  GlobalLU_t glu;
+  return 0;
+}
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_7e5ef/fast && /usr/bin/gmake -f CMakeFiles/cmTC_7e5ef.dir/build.make CMakeFiles/cmTC_7e5ef.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7e5ef.dir/CheckIncludeFile.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_7e5ef.dir/CheckIncludeFile.c.o   -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_7e5ef
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7e5ef.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_7e5ef.dir/CheckIncludeFile.c.o  -o cmTC_7e5ef 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_e24c6/fast && /usr/bin/gmake -f CMakeFiles/cmTC_e24c6.dir/build.make CMakeFiles/cmTC_e24c6.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e24c6.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_e24c6.dir/src.c.o   -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_e24c6
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e24c6.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_e24c6.dir/src.c.o  -o cmTC_e24c6 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_HWLOC_PARENT_MEMBER succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_0d97d/fast && /usr/bin/gmake -f CMakeFiles/cmTC_0d97d.dir/build.make CMakeFiles/cmTC_0d97d.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0d97d.dir/src.c.o
+/usr/bin/cc   -DHAVE_HWLOC_PARENT_MEMBER   -o CMakeFiles/cmTC_0d97d.dir/src.c.o   -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_0d97d
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0d97d.dir/link.txt --verbose=1
+/usr/bin/cc  -DHAVE_HWLOC_PARENT_MEMBER    CMakeFiles/cmTC_0d97d.dir/src.c.o  -o cmTC_0d97d 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+#include <hwloc.h>
+
+int main()
+{
+  (void)sizeof(((struct hwloc_obj *)0)->parent);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_HWLOC_CACHE_ATTR succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_b1b5a/fast && /usr/bin/gmake -f CMakeFiles/cmTC_b1b5a.dir/build.make CMakeFiles/cmTC_b1b5a.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b1b5a.dir/src.c.o
+/usr/bin/cc   -DHAVE_HWLOC_CACHE_ATTR   -o CMakeFiles/cmTC_b1b5a.dir/src.c.o   -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_b1b5a
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b1b5a.dir/link.txt --verbose=1
+/usr/bin/cc  -DHAVE_HWLOC_CACHE_ATTR    CMakeFiles/cmTC_b1b5a.dir/src.c.o  -o cmTC_b1b5a 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+#include <hwloc.h>
+
+int main()
+{
+  (void)sizeof(((struct hwloc_cache_attr_s *)0)->size);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_HWLOC_OBJ_PU succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_141ae/fast && /usr/bin/gmake -f CMakeFiles/cmTC_141ae.dir/build.make CMakeFiles/cmTC_141ae.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_141ae.dir/src.c.o
+/usr/bin/cc   -DHAVE_HWLOC_OBJ_PU   -o CMakeFiles/cmTC_141ae.dir/src.c.o   -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_141ae
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_141ae.dir/link.txt --verbose=1
+/usr/bin/cc  -DHAVE_HWLOC_OBJ_PU    CMakeFiles/cmTC_141ae.dir/src.c.o  -o cmTC_141ae 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+#include <hwloc.h>
+	    int main(void) { hwloc_obj_t o; o->type = HWLOC_OBJ_PU; return 0;}
+Determining if the function hwloc_bitmap_free exists in the hwloc passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_ceebd/fast && /usr/bin/gmake -f CMakeFiles/cmTC_ceebd.dir/build.make CMakeFiles/cmTC_ceebd.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ceebd.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=hwloc_bitmap_free   -o CMakeFiles/cmTC_ceebd.dir/CheckFunctionExists.c.o   -c /usr/local/cmake-3.16.3/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_ceebd
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ceebd.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=hwloc_bitmap_free    CMakeFiles/cmTC_ceebd.dir/CheckFunctionExists.c.o  -o cmTC_ceebd  -lhwloc 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the Fortran sgemm exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_9a8e1/fast && /usr/bin/gmake -f CMakeFiles/cmTC_9a8e1.dir/build.make CMakeFiles/cmTC_9a8e1.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building Fortran object CMakeFiles/cmTC_9a8e1.dir/testFortranCompiler.f.o
+/usr/bin/f95    -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/testFortranCompiler.f -o CMakeFiles/cmTC_9a8e1.dir/testFortranCompiler.f.o
+Linking Fortran executable cmTC_9a8e1
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9a8e1.dir/link.txt --verbose=1
+/usr/bin/f95      CMakeFiles/cmTC_9a8e1.dir/testFortranCompiler.f.o  -o cmTC_9a8e1  /usr/lib/aarch64-linux-gnu/libopenblas.so 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_FASTMATH succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_07c1e/fast && /usr/bin/gmake -f CMakeFiles/cmTC_07c1e.dir/build.make CMakeFiles/cmTC_07c1e.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_07c1e.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -ansi -DCOMPILER_SUPPORT_FASTMATH -fopenmp   -ffast-math -o CMakeFiles/cmTC_07c1e.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_07c1e
+/usr/local/cmake-3.16.3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_07c1e.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -ansi -DCOMPILER_SUPPORT_FASTMATH -fopenmp    CMakeFiles/cmTC_07c1e.dir/src.cxx.o  -o cmTC_07c1e 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }

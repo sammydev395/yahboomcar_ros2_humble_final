@@ -1,0 +1,23 @@
+running develop
+running egg_info
+creating yahboomcar_astra.egg-info
+writing yahboomcar_astra.egg-info/PKG-INFO
+writing dependency_links to yahboomcar_astra.egg-info/dependency_links.txt
+writing entry points to yahboomcar_astra.egg-info/entry_points.txt
+writing requirements to yahboomcar_astra.egg-info/requires.txt
+writing top-level names to yahboomcar_astra.egg-info/top_level.txt
+writing manifest file 'yahboomcar_astra.egg-info/SOURCES.txt'
+reading manifest file 'yahboomcar_astra.egg-info/SOURCES.txt'
+writing manifest file 'yahboomcar_astra.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_astra/lib/python3.10/site-packages/yahboomcar-astra.egg-link (link to .)
+Installing colorHSV script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_astra/lib/yahboomcar_astra
+Installing colorTracker script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_astra/lib/yahboomcar_astra
+
+Installed /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_astra
+running symlink_data
+creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_astra/share/ament_index/resource_index/packages
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_astra/resource/yahboomcar_astra -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_astra/share/ament_index/resource_index/packages
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_astra/package.xml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_astra/share/yahboomcar_astra
+creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_astra/share/yahboomcar_astra/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_astra/launch/colorTracker_X3.launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_astra/share/yahboomcar_astra/launch

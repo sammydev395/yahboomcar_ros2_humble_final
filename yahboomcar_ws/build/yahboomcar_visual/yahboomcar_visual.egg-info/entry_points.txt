@@ -1,0 +1,8 @@
+[console_scripts]
+astra_color_point = yahboomcar_visual.astra_color_point:main
+astra_depth_image = yahboomcar_visual.astra_depth_image:main
+astra_image_flip = yahboomcar_visual.astra_image_flip:main
+astra_rgb_image = yahboomcar_visual.astra_rgb_image:main
+laser_to_image = yahboomcar_visual.laser_to_image:main
+pub_image = yahboomcar_visual.pub_image:main
+simple_AR = yahboomcar_visual.simple_AR:main

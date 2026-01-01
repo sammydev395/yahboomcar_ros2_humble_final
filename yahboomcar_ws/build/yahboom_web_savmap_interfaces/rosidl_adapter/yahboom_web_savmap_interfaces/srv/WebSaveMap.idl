@@ -1,0 +1,15 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from yahboom_web_savmap_interfaces/src/srv/WebSaveMap.srv
+// generated code does not contain a copyright notice
+
+
+module yahboom_web_savmap_interfaces {
+  module srv {
+    struct WebSaveMap_Request {
+      string mapname;
+    };
+    struct WebSaveMap_Response {
+      string response;
+    };
+  };
+};

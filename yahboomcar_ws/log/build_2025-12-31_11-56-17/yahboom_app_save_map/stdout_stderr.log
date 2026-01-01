@@ -1,0 +1,22 @@
+running develop
+running egg_info
+creating yahboom_app_save_map.egg-info
+writing yahboom_app_save_map.egg-info/PKG-INFO
+writing dependency_links to yahboom_app_save_map.egg-info/dependency_links.txt
+writing entry points to yahboom_app_save_map.egg-info/entry_points.txt
+writing requirements to yahboom_app_save_map.egg-info/requires.txt
+writing top-level names to yahboom_app_save_map.egg-info/top_level.txt
+writing manifest file 'yahboom_app_save_map.egg-info/SOURCES.txt'
+reading manifest file 'yahboom_app_save_map.egg-info/SOURCES.txt'
+writing manifest file 'yahboom_app_save_map.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboom_app_save_map/lib/python3.10/site-packages/yahboom-app-save-map.egg-link (link to .)
+Installing client script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboom_app_save_map/lib/yahboom_app_save_map
+Installing server script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboom_app_save_map/lib/yahboom_app_save_map
+
+Installed /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboom_app_save_map
+running symlink_data
+creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboom_app_save_map/share/ament_index/resource_index/packages
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboom_app_save_map/resource/yahboom_app_save_map -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboom_app_save_map/share/ament_index/resource_index/packages
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboom_app_save_map/package.xml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboom_app_save_map/share/yahboom_app_save_map
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboom_app_save_map/launch/yahboom_app_save_map.launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboom_app_save_map/share/yahboom_app_save_map

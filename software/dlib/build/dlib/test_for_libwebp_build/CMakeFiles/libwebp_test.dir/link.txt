@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/libwebp_test.dir/libwebp_test.cpp.o -o libwebp_test 

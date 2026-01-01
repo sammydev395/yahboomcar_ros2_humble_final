@@ -1,0 +1,12 @@
+msg/ArmJoint.idl
+msg/ArmJoint.msg
+msg/ImageMsg.idl
+msg/ImageMsg.msg
+msg/PointArray.idl
+msg/PointArray.msg
+msg/Position.idl
+msg/Position.msg
+msg/Target.idl
+msg/Target.msg
+msg/TargetArray.idl
+msg/TargetArray.msg

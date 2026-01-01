@@ -1,0 +1,3 @@
+source;share/arm_moveit_demo/environment/ament_prefix_path.sh
+source;share/arm_moveit_demo/environment/path.sh
+source;share/arm_moveit_demo/environment/pythonpath.sh

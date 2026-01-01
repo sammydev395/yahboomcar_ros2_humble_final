@@ -1,0 +1,67 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found rclpy: 3.3.16 (/opt/ros/humble/share/rclpy/cmake)
+-- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)
+-- Added test 'copyright' to check source files copyright and LICENSE
+-- Added test 'flake8' to check Python code syntax and style conventions
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/arm_color_transport
+Built target ament_cmake_python_symlink_arm_color_transport
+running egg_info
+creating arm_color_transport.egg-info
+writing arm_color_transport.egg-info/PKG-INFO
+writing dependency_links to arm_color_transport.egg-info/dependency_links.txt
+writing top-level names to arm_color_transport.egg-info/top_level.txt
+writing manifest file 'arm_color_transport.egg-info/SOURCES.txt'
+reading manifest file 'arm_color_transport.egg-info/SOURCES.txt'
+writing manifest file 'arm_color_transport.egg-info/SOURCES.txt'
+Built target ament_cmake_python_build_arm_color_transport_egg
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/arm_color_transport/share/arm_color_transport/environment/pythonpath.sh
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/arm_color_transport/share/arm_color_transport/environment/pythonpath.dsv
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/arm_color_transport/local/lib/python3.10/dist-packages/arm_color_transport-0.1.0-py3.10.egg-info/PKG-INFO
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/arm_color_transport/local/lib/python3.10/dist-packages/arm_color_transport-0.1.0-py3.10.egg-info/SOURCES.txt
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/arm_color_transport/local/lib/python3.10/dist-packages/arm_color_transport-0.1.0-py3.10.egg-info/dependency_links.txt
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/arm_color_transport/local/lib/python3.10/dist-packages/arm_color_transport-0.1.0-py3.10.egg-info/top_level.txt
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/arm_color_transport/local/lib/python3.10/dist-packages/arm_color_transport/__init__.py
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/arm_color_transport/local/lib/python3.10/dist-packages/arm_color_transport/transport_common.py
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/arm_color_transport/local/lib/python3.10/dist-packages/arm_color_transport/transport_main.py
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/arm_color_transport/lib/arm_color_transport/transport_main.py
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/arm_color_transport/share/arm_color_transport/launch/color_transport.launch.py
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/arm_color_transport/share/ament_index/resource_index/package_run_dependencies/arm_color_transport
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/arm_color_transport/share/ament_index/resource_index/parent_prefix_path/arm_color_transport
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/arm_color_transport/share/arm_color_transport/environment/ament_prefix_path.sh
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/arm_color_transport/share/arm_color_transport/environment/ament_prefix_path.dsv
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/arm_color_transport/share/arm_color_transport/environment/path.sh
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/arm_color_transport/share/arm_color_transport/environment/path.dsv
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/arm_color_transport/share/arm_color_transport/local_setup.bash
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/arm_color_transport/share/arm_color_transport/local_setup.sh
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/arm_color_transport/share/arm_color_transport/local_setup.zsh
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/arm_color_transport/share/arm_color_transport/local_setup.dsv
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/arm_color_transport/share/arm_color_transport/package.dsv
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/arm_color_transport/share/ament_index/resource_index/packages/arm_color_transport
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/arm_color_transport/share/arm_color_transport/cmake/arm_color_transportConfig.cmake
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/arm_color_transport/share/arm_color_transport/cmake/arm_color_transportConfig-version.cmake
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/arm_color_transport/share/arm_color_transport/package.xml
+Listing '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/arm_color_transport/local/lib/python3.10/dist-packages/arm_color_transport'...
+Compiling '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/arm_color_transport/local/lib/python3.10/dist-packages/arm_color_transport/__init__.py'...
+Compiling '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/arm_color_transport/local/lib/python3.10/dist-packages/arm_color_transport/transport_common.py'...
+Compiling '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/arm_color_transport/local/lib/python3.10/dist-packages/arm_color_transport/transport_main.py'...

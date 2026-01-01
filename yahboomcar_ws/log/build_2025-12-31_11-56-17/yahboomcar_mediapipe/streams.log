@@ -1,0 +1,31 @@
+[4.537s] Invoking command in '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_mediapipe': PYTHONPATH=/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_mediapipe/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_mediapipe/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_mediapipe/build --no-deps symlink_data
+[8.322s] running develop
+[8.322s] running egg_info
+[8.379s] creating yahboomcar_mediapipe.egg-info
+[8.379s] writing yahboomcar_mediapipe.egg-info/PKG-INFO
+[8.380s] writing dependency_links to yahboomcar_mediapipe.egg-info/dependency_links.txt
+[8.381s] writing entry points to yahboomcar_mediapipe.egg-info/entry_points.txt
+[8.381s] writing requirements to yahboomcar_mediapipe.egg-info/requires.txt
+[8.383s] writing top-level names to yahboomcar_mediapipe.egg-info/top_level.txt
+[8.383s] writing manifest file 'yahboomcar_mediapipe.egg-info/SOURCES.txt'
+[8.627s] reading manifest file 'yahboomcar_mediapipe.egg-info/SOURCES.txt'
+[8.630s] writing manifest file 'yahboomcar_mediapipe.egg-info/SOURCES.txt'
+[8.722s] running build_ext
+[8.723s] Creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_mediapipe/lib/python3.10/site-packages/yahboomcar-mediapipe.egg-link (link to .)
+[8.726s] Installing 01_HandDetector script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_mediapipe/lib/yahboomcar_mediapipe
+[8.729s] Installing 02_PoseDetector script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_mediapipe/lib/yahboomcar_mediapipe
+[8.732s] Installing 03_Holistic script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_mediapipe/lib/yahboomcar_mediapipe
+[8.734s] Installing 04_FaceMesh script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_mediapipe/lib/yahboomcar_mediapipe
+[8.744s] Installing 05_FaceEyeDetection script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_mediapipe/lib/yahboomcar_mediapipe
+[8.746s] Installing test_msg script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_mediapipe/lib/yahboomcar_mediapipe
+[8.750s] 
+[8.750s] Installed /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_mediapipe
+[8.751s] running symlink_data
+[8.753s] creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_mediapipe/share/ament_index/resource_index/packages
+[8.755s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_mediapipe/resource/yahboomcar_mediapipe -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_mediapipe/share/ament_index/resource_index/packages
+[8.757s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_mediapipe/package.xml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_mediapipe/share/yahboomcar_mediapipe
+[8.765s] creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_mediapipe/share/yahboomcar_mediapipe/rviz
+[8.766s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_mediapipe/rviz/mediapipe_points.rviz -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_mediapipe/share/yahboomcar_mediapipe/rviz
+[8.768s] creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_mediapipe/share/yahboomcar_mediapipe/launch
+[8.769s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_mediapipe/launch/mediapipe_points.launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_mediapipe/share/yahboomcar_mediapipe/launch
+[8.964s] Invoked command in '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_mediapipe' returned '0': PYTHONPATH=/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_mediapipe/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_mediapipe/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_mediapipe/build --no-deps symlink_data

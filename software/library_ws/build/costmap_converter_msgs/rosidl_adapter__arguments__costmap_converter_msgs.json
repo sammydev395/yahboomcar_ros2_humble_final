@@ -1,0 +1,7 @@
+{
+  "package_name": "costmap_converter_msgs",
+  "non_idl_tuples": [
+    "/home/jetson/yahboomcar_ros2_ws/software/library_ws/src/costmap_converter-humble/costmap_converter_msgs:msg/ObstacleMsg.msg",
+    "/home/jetson/yahboomcar_ros2_ws/software/library_ws/src/costmap_converter-humble/costmap_converter_msgs:msg/ObstacleArrayMsg.msg"
+  ]
+}

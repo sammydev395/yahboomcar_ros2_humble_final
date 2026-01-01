@@ -1,0 +1,13 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from yahboomcar_msgs/msg/TargetArray.msg
+// generated code does not contain a copyright notice
+
+#include "yahboomcar_msgs/msg/Target.idl"
+
+module yahboomcar_msgs {
+  module msg {
+    struct TargetArray {
+      sequence<yahboomcar_msgs::msg::Target> data;
+    };
+  };
+};

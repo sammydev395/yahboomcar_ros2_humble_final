@@ -1,0 +1,88 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-530bfa58943c22b22d3a.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "garbage_identify_yolov11",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_garbage_identify_yolov11_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_garbage_identify_yolov11_egg-622edcb95dc23d581e79.json",
+					"name" : "ament_cmake_python_build_garbage_identify_yolov11_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_symlink_garbage_identify_yolov11::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_symlink_garbage_identify_yolov11-e7d8534799dfedb70cb0.json",
+					"name" : "ament_cmake_python_symlink_garbage_identify_yolov11",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "garbage_identify_yolov11_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-garbage_identify_yolov11_uninstall-9a102ec9e2dcf19d3332.json",
+					"name" : "garbage_identify_yolov11_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-f546de9b276aa9243be6.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/garbage_identify_yolov11",
+		"source" : "/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/src/garbage_identify_yolov11"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

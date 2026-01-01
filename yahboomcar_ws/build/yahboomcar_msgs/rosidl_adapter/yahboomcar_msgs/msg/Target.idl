@@ -1,0 +1,29 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from yahboomcar_msgs/msg/Target.msg
+// generated code does not contain a copyright notice
+
+#include "builtin_interfaces/msg/Time.idl"
+
+module yahboomcar_msgs {
+  module msg {
+    struct Target {
+      string frame_id;
+
+      builtin_interfaces::msg::Time stamp;
+
+      float scores;
+
+      float ptx;
+
+      float pty;
+
+      float distw;
+
+      float disth;
+
+      float centerx;
+
+      float centery;
+    };
+  };
+};

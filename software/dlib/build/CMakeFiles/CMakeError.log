@@ -1,0 +1,57 @@
+Determining if the function cblas_ddot exists failed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/dlib/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_13011/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_13011.dir/build.make CMakeFiles/cmTC_13011.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/dlib/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_13011.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=cblas_ddot -o CMakeFiles/cmTC_13011.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_13011
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_13011.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=cblas_ddot CMakeFiles/cmTC_13011.dir/CheckFunctionExists.c.o -o cmTC_13011 
+/usr/bin/ld: CMakeFiles/cmTC_13011.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `cblas_ddot'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_13011.dir/build.make:99: cmTC_13011] Error 1
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/dlib/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_13011/fast] Error 2
+
+
+
+Determining if the function sgesv exists failed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/dlib/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_28557/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_28557.dir/build.make CMakeFiles/cmTC_28557.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/dlib/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_28557.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=sgesv -o CMakeFiles/cmTC_28557.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_28557
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_28557.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=sgesv CMakeFiles/cmTC_28557.dir/CheckFunctionExists.c.o -o cmTC_28557 
+/usr/bin/ld: CMakeFiles/cmTC_28557.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `sgesv'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_28557.dir/build.make:99: cmTC_28557] Error 1
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/dlib/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_28557/fast] Error 2
+
+
+
+Determining if the function sgesv_ exists failed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/dlib/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_dd573/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_dd573.dir/build.make CMakeFiles/cmTC_dd573.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/dlib/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_dd573.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=sgesv_ -o CMakeFiles/cmTC_dd573.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_dd573
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dd573.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=sgesv_ CMakeFiles/cmTC_dd573.dir/CheckFunctionExists.c.o -o cmTC_dd573 
+/usr/bin/ld: CMakeFiles/cmTC_dd573.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `sgesv_'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_dd573.dir/build.make:99: cmTC_dd573] Error 1
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/dlib/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_dd573/fast] Error 2
+
+
+

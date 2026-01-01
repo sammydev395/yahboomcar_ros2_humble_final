@@ -1,0 +1,29 @@
+[2.888s] Invoking command in '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_bringup': PYTHONPATH=/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_bringup/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_bringup/build --no-deps symlink_data
+[3.888s] running develop
+[4.634s] running egg_info
+[4.686s] writing yahboomcar_bringup.egg-info/PKG-INFO
+[4.688s] writing dependency_links to yahboomcar_bringup.egg-info/dependency_links.txt
+[4.688s] writing entry points to yahboomcar_bringup.egg-info/entry_points.txt
+[4.689s] writing requirements to yahboomcar_bringup.egg-info/requires.txt
+[4.689s] writing top-level names to yahboomcar_bringup.egg-info/top_level.txt
+[4.800s] reading manifest file 'yahboomcar_bringup.egg-info/SOURCES.txt'
+[4.803s] writing manifest file 'yahboomcar_bringup.egg-info/SOURCES.txt'
+[4.861s] running build_ext
+[4.861s] Creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_bringup/lib/python3.10/site-packages/yahboomcar-bringup.egg-link (link to .)
+[4.863s] Installing Ackman_driver_R2 script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_bringup/lib/yahboomcar_bringup
+[4.863s] Installing Mcnamu_driver_X3 script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_bringup/lib/yahboomcar_bringup
+[4.864s] Installing Mcnamu_driver_X3plus script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_bringup/lib/yahboomcar_bringup
+[4.864s] Installing Mcnamu_driver_x1 script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_bringup/lib/yahboomcar_bringup
+[4.864s] Installing calibrate_angular_R2 script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_bringup/lib/yahboomcar_bringup
+[4.864s] Installing calibrate_angular_X3 script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_bringup/lib/yahboomcar_bringup
+[4.865s] Installing calibrate_linear_R2 script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_bringup/lib/yahboomcar_bringup
+[4.865s] Installing calibrate_linear_X3 script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_bringup/lib/yahboomcar_bringup
+[4.865s] Installing patrol_4ROS script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_bringup/lib/yahboomcar_bringup
+[4.866s] Installing patrol_4ROS_R2 script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_bringup/lib/yahboomcar_bringup
+[4.866s] Installing patrol_a1_R2 script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_bringup/lib/yahboomcar_bringup
+[4.866s] Installing patrol_a1_X3 script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_bringup/lib/yahboomcar_bringup
+[4.867s] 
+[4.867s] Installed /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_bringup
+[4.867s] running symlink_data
+[4.868s] symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_bringup/launch/yahboomcar_bringup_X3plus_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_bringup/share/yahboomcar_bringup/launch
+[4.991s] Invoked command in '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_bringup' returned '0': PYTHONPATH=/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_bringup/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_bringup/build --no-deps symlink_data

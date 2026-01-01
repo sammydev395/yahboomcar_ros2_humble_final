@@ -1,0 +1,1190 @@
+The system is: Linux - 5.15.148-tegra - aarch64
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/3.22.1/CompilerIdCXX/a.out"
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_71852/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_71852.dir/build.make CMakeFiles/cmTC_71852.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_71852.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++   -v -o CMakeFiles/cmTC_71852.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp
+Using built-in specs.
+COLLECT_GCC=/usr/bin/c++
+Target: aarch64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=aarch64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --enable-fix-cortex-a53-843419 --disable-werror --enable-checking=release --build=aarch64-linux-gnu --host=aarch64-linux-gnu --target=aarch64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_71852.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_71852.dir/'
+ /usr/lib/gcc/aarch64-linux-gnu/11/cc1plus -quiet -v -imultiarch aarch64-linux-gnu -D_GNU_SOURCE /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_71852.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mlittle-endian -mabi=lp64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -o /tmp/ccwFbQb0.s
+GNU C++17 (Ubuntu 11.4.0-1ubuntu1~22.04) version 11.4.0 (aarch64-linux-gnu)
+	compiled by GNU C version 11.4.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring duplicate directory "/usr/include/aarch64-linux-gnu/c++/11"
+ignoring nonexistent directory "/usr/local/include/aarch64-linux-gnu"
+ignoring nonexistent directory "/usr/lib/gcc/aarch64-linux-gnu/11/include-fixed"
+ignoring nonexistent directory "/usr/lib/gcc/aarch64-linux-gnu/11/../../../../aarch64-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/include/c++/11
+ /usr/include/aarch64-linux-gnu/c++/11
+ /usr/include/c++/11/backward
+ /usr/lib/gcc/aarch64-linux-gnu/11/include
+ /usr/local/include
+ /usr/include/aarch64-linux-gnu
+ /usr/include
+End of search list.
+GNU C++17 (Ubuntu 11.4.0-1ubuntu1~22.04) version 11.4.0 (aarch64-linux-gnu)
+	compiled by GNU C version 11.4.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 3e6e780af1232722b47e0979fda82402
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_71852.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_71852.dir/'
+ as -v -EL -mabi=lp64 -o CMakeFiles/cmTC_71852.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccwFbQb0.s
+GNU assembler version 2.38 (aarch64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38
+COMPILER_PATH=/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/11/../../../../lib/:/lib/aarch64-linux-gnu/:/lib/../lib/:/usr/lib/aarch64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/aarch64-linux-gnu/11/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_71852.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_71852.dir/CMakeCXXCompilerABI.cpp.'
+Linking CXX executable cmTC_71852
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_71852.dir/link.txt --verbose=1
+/usr/bin/c++  -v CMakeFiles/cmTC_71852.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_71852 
+Using built-in specs.
+COLLECT_GCC=/usr/bin/c++
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/aarch64-linux-gnu/11/lto-wrapper
+Target: aarch64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=aarch64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --enable-fix-cortex-a53-843419 --disable-werror --enable-checking=release --build=aarch64-linux-gnu --host=aarch64-linux-gnu --target=aarch64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04) 
+COMPILER_PATH=/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/11/../../../../lib/:/lib/aarch64-linux-gnu/:/lib/../lib/:/usr/lib/aarch64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/aarch64-linux-gnu/11/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_71852' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_71852.'
+ /usr/lib/gcc/aarch64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/aarch64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/aarch64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccu3Rwaz.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu --as-needed -dynamic-linker /lib/ld-linux-aarch64.so.1 -X -EL -maarch64linux --fix-cortex-a53-843419 -pie -z now -z relro -o cmTC_71852 /usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/Scrt1.o /usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/crti.o /usr/lib/gcc/aarch64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/aarch64-linux-gnu/11 -L/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu -L/usr/lib/gcc/aarch64-linux-gnu/11/../../../../lib -L/lib/aarch64-linux-gnu -L/lib/../lib -L/usr/lib/aarch64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/aarch64-linux-gnu/11/../../.. CMakeFiles/cmTC_71852.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/aarch64-linux-gnu/11/crtendS.o /usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_71852' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_71852.'
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Parsed CXX implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/usr/include/c++/11]
+    add: [/usr/include/aarch64-linux-gnu/c++/11]
+    add: [/usr/include/c++/11/backward]
+    add: [/usr/lib/gcc/aarch64-linux-gnu/11/include]
+    add: [/usr/local/include]
+    add: [/usr/include/aarch64-linux-gnu]
+    add: [/usr/include]
+  end of search list found
+  collapse include dir [/usr/include/c++/11] ==> [/usr/include/c++/11]
+  collapse include dir [/usr/include/aarch64-linux-gnu/c++/11] ==> [/usr/include/aarch64-linux-gnu/c++/11]
+  collapse include dir [/usr/include/c++/11/backward] ==> [/usr/include/c++/11/backward]
+  collapse include dir [/usr/lib/gcc/aarch64-linux-gnu/11/include] ==> [/usr/lib/gcc/aarch64-linux-gnu/11/include]
+  collapse include dir [/usr/local/include] ==> [/usr/local/include]
+  collapse include dir [/usr/include/aarch64-linux-gnu] ==> [/usr/include/aarch64-linux-gnu]
+  collapse include dir [/usr/include] ==> [/usr/include]
+  implicit include dirs: [/usr/include/c++/11;/usr/include/aarch64-linux-gnu/c++/11;/usr/include/c++/11/backward;/usr/lib/gcc/aarch64-linux-gnu/11/include;/usr/local/include;/usr/include/aarch64-linux-gnu;/usr/include]
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_71852/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_71852.dir/build.make CMakeFiles/cmTC_71852.dir/build]
+  ignore line: [gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_71852.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++   -v -o CMakeFiles/cmTC_71852.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/c++]
+  ignore line: [Target: aarch64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c ada c++ go d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=aarch64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --enable-fix-cortex-a53-843419 --disable-werror --enable-checking=release --build=aarch64-linux-gnu --host=aarch64-linux-gnu --target=aarch64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2]
+  ignore line: [Thread model: posix]
+  ignore line: [Supported LTO compression algorithms: zlib zstd]
+  ignore line: [gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_71852.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_71852.dir/']
+  ignore line: [ /usr/lib/gcc/aarch64-linux-gnu/11/cc1plus -quiet -v -imultiarch aarch64-linux-gnu -D_GNU_SOURCE /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_71852.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mlittle-endian -mabi=lp64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -o /tmp/ccwFbQb0.s]
+  ignore line: [GNU C++17 (Ubuntu 11.4.0-1ubuntu1~22.04) version 11.4.0 (aarch64-linux-gnu)]
+  ignore line: [	compiled by GNU C version 11.4.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring duplicate directory "/usr/include/aarch64-linux-gnu/c++/11"]
+  ignore line: [ignoring nonexistent directory "/usr/local/include/aarch64-linux-gnu"]
+  ignore line: [ignoring nonexistent directory "/usr/lib/gcc/aarch64-linux-gnu/11/include-fixed"]
+  ignore line: [ignoring nonexistent directory "/usr/lib/gcc/aarch64-linux-gnu/11/../../../../aarch64-linux-gnu/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /usr/include/c++/11]
+  ignore line: [ /usr/include/aarch64-linux-gnu/c++/11]
+  ignore line: [ /usr/include/c++/11/backward]
+  ignore line: [ /usr/lib/gcc/aarch64-linux-gnu/11/include]
+  ignore line: [ /usr/local/include]
+  ignore line: [ /usr/include/aarch64-linux-gnu]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C++17 (Ubuntu 11.4.0-1ubuntu1~22.04) version 11.4.0 (aarch64-linux-gnu)]
+  ignore line: [	compiled by GNU C version 11.4.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: 3e6e780af1232722b47e0979fda82402]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_71852.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_71852.dir/']
+  ignore line: [ as -v -EL -mabi=lp64 -o CMakeFiles/cmTC_71852.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccwFbQb0.s]
+  ignore line: [GNU assembler version 2.38 (aarch64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/11/../../../../lib/:/lib/aarch64-linux-gnu/:/lib/../lib/:/usr/lib/aarch64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/aarch64-linux-gnu/11/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_71852.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_71852.dir/CMakeCXXCompilerABI.cpp.']
+  ignore line: [Linking CXX executable cmTC_71852]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_71852.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++  -v CMakeFiles/cmTC_71852.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_71852 ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/c++]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/aarch64-linux-gnu/11/lto-wrapper]
+  ignore line: [Target: aarch64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c ada c++ go d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=aarch64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --enable-fix-cortex-a53-843419 --disable-werror --enable-checking=release --build=aarch64-linux-gnu --host=aarch64-linux-gnu --target=aarch64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2]
+  ignore line: [Thread model: posix]
+  ignore line: [Supported LTO compression algorithms: zlib zstd]
+  ignore line: [gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/aarch64-linux-gnu/11/:/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/11/../../../../lib/:/lib/aarch64-linux-gnu/:/lib/../lib/:/usr/lib/aarch64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/aarch64-linux-gnu/11/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_71852' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_71852.']
+  link line: [ /usr/lib/gcc/aarch64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/aarch64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/aarch64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccu3Rwaz.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu --as-needed -dynamic-linker /lib/ld-linux-aarch64.so.1 -X -EL -maarch64linux --fix-cortex-a53-843419 -pie -z now -z relro -o cmTC_71852 /usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/Scrt1.o /usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/crti.o /usr/lib/gcc/aarch64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/aarch64-linux-gnu/11 -L/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu -L/usr/lib/gcc/aarch64-linux-gnu/11/../../../../lib -L/lib/aarch64-linux-gnu -L/lib/../lib -L/usr/lib/aarch64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/aarch64-linux-gnu/11/../../.. CMakeFiles/cmTC_71852.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/aarch64-linux-gnu/11/crtendS.o /usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/crtn.o]
+    arg [/usr/lib/gcc/aarch64-linux-gnu/11/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/lib/gcc/aarch64-linux-gnu/11/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/usr/lib/gcc/aarch64-linux-gnu/11/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccu3Rwaz.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib/ld-linux-aarch64.so.1] ==> ignore
+    arg [-X] ==> ignore
+    arg [-EL] ==> ignore
+    arg [-maarch64linux] ==> ignore
+    arg [--fix-cortex-a53-843419] ==> ignore
+    arg [-pie] ==> ignore
+    arg [-znow] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_71852] ==> ignore
+    arg [/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/Scrt1.o]
+    arg [/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/crti.o]
+    arg [/usr/lib/gcc/aarch64-linux-gnu/11/crtbeginS.o] ==> obj [/usr/lib/gcc/aarch64-linux-gnu/11/crtbeginS.o]
+    arg [-L/usr/lib/gcc/aarch64-linux-gnu/11] ==> dir [/usr/lib/gcc/aarch64-linux-gnu/11]
+    arg [-L/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu] ==> dir [/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu]
+    arg [-L/usr/lib/gcc/aarch64-linux-gnu/11/../../../../lib] ==> dir [/usr/lib/gcc/aarch64-linux-gnu/11/../../../../lib]
+    arg [-L/lib/aarch64-linux-gnu] ==> dir [/lib/aarch64-linux-gnu]
+    arg [-L/lib/../lib] ==> dir [/lib/../lib]
+    arg [-L/usr/lib/aarch64-linux-gnu] ==> dir [/usr/lib/aarch64-linux-gnu]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/usr/lib/gcc/aarch64-linux-gnu/11/../../..] ==> dir [/usr/lib/gcc/aarch64-linux-gnu/11/../../..]
+    arg [CMakeFiles/cmTC_71852.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/usr/lib/gcc/aarch64-linux-gnu/11/crtendS.o] ==> obj [/usr/lib/gcc/aarch64-linux-gnu/11/crtendS.o]
+    arg [/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/crtn.o] ==> obj [/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/crtn.o]
+  collapse obj [/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/Scrt1.o] ==> [/usr/lib/aarch64-linux-gnu/Scrt1.o]
+  collapse obj [/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/crti.o] ==> [/usr/lib/aarch64-linux-gnu/crti.o]
+  collapse obj [/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/crtn.o] ==> [/usr/lib/aarch64-linux-gnu/crtn.o]
+  collapse library dir [/usr/lib/gcc/aarch64-linux-gnu/11] ==> [/usr/lib/gcc/aarch64-linux-gnu/11]
+  collapse library dir [/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu] ==> [/usr/lib/aarch64-linux-gnu]
+  collapse library dir [/usr/lib/gcc/aarch64-linux-gnu/11/../../../../lib] ==> [/usr/lib]
+  collapse library dir [/lib/aarch64-linux-gnu] ==> [/lib/aarch64-linux-gnu]
+  collapse library dir [/lib/../lib] ==> [/lib]
+  collapse library dir [/usr/lib/aarch64-linux-gnu] ==> [/usr/lib/aarch64-linux-gnu]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/usr/lib/gcc/aarch64-linux-gnu/11/../../..] ==> [/usr/lib]
+  implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+  implicit objs: [/usr/lib/aarch64-linux-gnu/Scrt1.o;/usr/lib/aarch64-linux-gnu/crti.o;/usr/lib/gcc/aarch64-linux-gnu/11/crtbeginS.o;/usr/lib/gcc/aarch64-linux-gnu/11/crtendS.o;/usr/lib/aarch64-linux-gnu/crtn.o]
+  implicit dirs: [/usr/lib/gcc/aarch64-linux-gnu/11;/usr/lib/aarch64-linux-gnu;/usr/lib;/lib/aarch64-linux-gnu;/lib]
+  implicit fwks: []
+
+
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_18f80/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_18f80.dir/build.make CMakeFiles/cmTC_18f80.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_18f80.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -fPIE -o CMakeFiles/cmTC_18f80.dir/CheckIncludeFile.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_18f80
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_18f80.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_18f80.dir/CheckIncludeFile.cxx.o -o cmTC_18f80 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Performing C++ SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_19282/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_19282.dir/build.make CMakeFiles/cmTC_19282.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_19282.dir/src.cxx.o
+/usr/bin/c++ -DCMAKE_HAVE_LIBC_PTHREAD  -fPIE -o CMakeFiles/cmTC_19282.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_19282
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_19282.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_19282.dir/src.cxx.o -o cmTC_19282 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the include file dlfcn.h exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_4c09f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_4c09f.dir/build.make CMakeFiles/cmTC_4c09f.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_4c09f.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -fPIE -o CMakeFiles/cmTC_4c09f.dir/CheckIncludeFile.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_4c09f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4c09f.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_4c09f.dir/CheckIncludeFile.cxx.o -o cmTC_4c09f 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file execinfo.h exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_a2172/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_a2172.dir/build.make CMakeFiles/cmTC_a2172.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_a2172.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -fPIE -o CMakeFiles/cmTC_a2172.dir/CheckIncludeFile.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_a2172
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a2172.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_a2172.dir/CheckIncludeFile.cxx.o -o cmTC_a2172 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file glob.h exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_3071c/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_3071c.dir/build.make CMakeFiles/cmTC_3071c.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_3071c.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -fPIE -o CMakeFiles/cmTC_3071c.dir/CheckIncludeFile.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_3071c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3071c.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_3071c.dir/CheckIncludeFile.cxx.o -o cmTC_3071c 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file inttypes.h exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_fdb17/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_fdb17.dir/build.make CMakeFiles/cmTC_fdb17.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_fdb17.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -fPIE -o CMakeFiles/cmTC_fdb17.dir/CheckIncludeFile.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_fdb17
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fdb17.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_fdb17.dir/CheckIncludeFile.cxx.o -o cmTC_fdb17 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file memory.h exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_99c1a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_99c1a.dir/build.make CMakeFiles/cmTC_99c1a.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_99c1a.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -fPIE -o CMakeFiles/cmTC_99c1a.dir/CheckIncludeFile.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_99c1a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_99c1a.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_99c1a.dir/CheckIncludeFile.cxx.o -o cmTC_99c1a 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file pwd.h exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_6c3da/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_6c3da.dir/build.make CMakeFiles/cmTC_6c3da.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_6c3da.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -fPIE -o CMakeFiles/cmTC_6c3da.dir/CheckIncludeFile.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_6c3da
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6c3da.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_6c3da.dir/CheckIncludeFile.cxx.o -o cmTC_6c3da 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file stdint.h exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_4a64e/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_4a64e.dir/build.make CMakeFiles/cmTC_4a64e.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_4a64e.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -fPIE -o CMakeFiles/cmTC_4a64e.dir/CheckIncludeFile.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_4a64e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4a64e.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_4a64e.dir/CheckIncludeFile.cxx.o -o cmTC_4a64e 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file strings.h exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_4238f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_4238f.dir/build.make CMakeFiles/cmTC_4238f.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_4238f.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -fPIE -o CMakeFiles/cmTC_4238f.dir/CheckIncludeFile.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_4238f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4238f.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_4238f.dir/CheckIncludeFile.cxx.o -o cmTC_4238f 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file sys/stat.h exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_2dac7/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_2dac7.dir/build.make CMakeFiles/cmTC_2dac7.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_2dac7.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -fPIE -o CMakeFiles/cmTC_2dac7.dir/CheckIncludeFile.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_2dac7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2dac7.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_2dac7.dir/CheckIncludeFile.cxx.o -o cmTC_2dac7 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file sys/syscall.h exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_bc652/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_bc652.dir/build.make CMakeFiles/cmTC_bc652.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_bc652.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -fPIE -o CMakeFiles/cmTC_bc652.dir/CheckIncludeFile.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_bc652
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bc652.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_bc652.dir/CheckIncludeFile.cxx.o -o cmTC_bc652 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file sys/time.h exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_ca948/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_ca948.dir/build.make CMakeFiles/cmTC_ca948.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_ca948.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -fPIE -o CMakeFiles/cmTC_ca948.dir/CheckIncludeFile.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_ca948
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ca948.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_ca948.dir/CheckIncludeFile.cxx.o -o cmTC_ca948 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file sys/types.h exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_91708/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_91708.dir/build.make CMakeFiles/cmTC_91708.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_91708.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -fPIE -o CMakeFiles/cmTC_91708.dir/CheckIncludeFile.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_91708
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_91708.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_91708.dir/CheckIncludeFile.cxx.o -o cmTC_91708 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file sys/utsname.h exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_c2f73/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c2f73.dir/build.make CMakeFiles/cmTC_c2f73.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_c2f73.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -fPIE -o CMakeFiles/cmTC_c2f73.dir/CheckIncludeFile.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_c2f73
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c2f73.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_c2f73.dir/CheckIncludeFile.cxx.o -o cmTC_c2f73 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file sys/wait.h exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_580c5/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_580c5.dir/build.make CMakeFiles/cmTC_580c5.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_580c5.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -fPIE -o CMakeFiles/cmTC_580c5.dir/CheckIncludeFile.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_580c5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_580c5.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_580c5.dir/CheckIncludeFile.cxx.o -o cmTC_580c5 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file syscall.h exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_e0b1d/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_e0b1d.dir/build.make CMakeFiles/cmTC_e0b1d.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e0b1d.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -fPIE -o CMakeFiles/cmTC_e0b1d.dir/CheckIncludeFile.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_e0b1d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e0b1d.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_e0b1d.dir/CheckIncludeFile.cxx.o -o cmTC_e0b1d 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file syslog.h exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_3100f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_3100f.dir/build.make CMakeFiles/cmTC_3100f.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_3100f.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -fPIE -o CMakeFiles/cmTC_3100f.dir/CheckIncludeFile.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_3100f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3100f.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_3100f.dir/CheckIncludeFile.cxx.o -o cmTC_3100f 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file ucontext.h exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_65de8/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_65de8.dir/build.make CMakeFiles/cmTC_65de8.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_65de8.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -fPIE -o CMakeFiles/cmTC_65de8.dir/CheckIncludeFile.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_65de8
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_65de8.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_65de8.dir/CheckIncludeFile.cxx.o -o cmTC_65de8 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file unistd.h exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_213d7/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_213d7.dir/build.make CMakeFiles/cmTC_213d7.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_213d7.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -fPIE -o CMakeFiles/cmTC_213d7.dir/CheckIncludeFile.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_213d7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_213d7.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_213d7.dir/CheckIncludeFile.cxx.o -o cmTC_213d7 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file ext/hash_map exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_82722/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_82722.dir/build.make CMakeFiles/cmTC_82722.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_82722.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -fPIE -o CMakeFiles/cmTC_82722.dir/CheckIncludeFile.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+In file included from /usr/include/c++/11/ext/hash_map:60,
+                 from /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx:1:
+/usr/include/c++/11/backward/backward_warning.h:32:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated. [-Wcpp]
+   32 | #warning \
+      |  ^~~~~~~
+Linking CXX executable cmTC_82722
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_82722.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_82722.dir/CheckIncludeFile.cxx.o -o cmTC_82722 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file ext/hash_set exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_34c9c/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_34c9c.dir/build.make CMakeFiles/cmTC_34c9c.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_34c9c.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -fPIE -o CMakeFiles/cmTC_34c9c.dir/CheckIncludeFile.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+In file included from /usr/include/c++/11/ext/hash_set:60,
+                 from /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx:1:
+/usr/include/c++/11/backward/backward_warning.h:32:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated. [-Wcpp]
+   32 | #warning \
+      |  ^~~~~~~
+Linking CXX executable cmTC_34c9c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_34c9c.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_34c9c.dir/CheckIncludeFile.cxx.o -o cmTC_34c9c 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file ext/slist exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_8d011/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_8d011.dir/build.make CMakeFiles/cmTC_8d011.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_8d011.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -fPIE -o CMakeFiles/cmTC_8d011.dir/CheckIncludeFile.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_8d011
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8d011.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_8d011.dir/CheckIncludeFile.cxx.o -o cmTC_8d011 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file tr1/unordered_map exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_e112b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_e112b.dir/build.make CMakeFiles/cmTC_e112b.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e112b.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -fPIE -o CMakeFiles/cmTC_e112b.dir/CheckIncludeFile.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_e112b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e112b.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_e112b.dir/CheckIncludeFile.cxx.o -o cmTC_e112b 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file tr1/unordered_set exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_50f9f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_50f9f.dir/build.make CMakeFiles/cmTC_50f9f.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_50f9f.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -fPIE -o CMakeFiles/cmTC_50f9f.dir/CheckIncludeFile.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_50f9f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_50f9f.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_50f9f.dir/CheckIncludeFile.cxx.o -o cmTC_50f9f 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file unordered_map exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_1993e/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_1993e.dir/build.make CMakeFiles/cmTC_1993e.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_1993e.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -fPIE -o CMakeFiles/cmTC_1993e.dir/CheckIncludeFile.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_1993e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1993e.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_1993e.dir/CheckIncludeFile.cxx.o -o cmTC_1993e 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file unordered_set exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_837f5/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_837f5.dir/build.make CMakeFiles/cmTC_837f5.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_837f5.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -fPIE -o CMakeFiles/cmTC_837f5.dir/CheckIncludeFile.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_837f5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_837f5.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_837f5.dir/CheckIncludeFile.cxx.o -o cmTC_837f5 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file stddef.h exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_e39de/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_e39de.dir/build.make CMakeFiles/cmTC_e39de.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e39de.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -fPIE -o CMakeFiles/cmTC_e39de.dir/CheckIncludeFile.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_e39de
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e39de.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_e39de.dir/CheckIncludeFile.cxx.o -o cmTC_e39de 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of u_int16_t passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_24549/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_24549.dir/build.make CMakeFiles/cmTC_24549.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_24549.dir/HAVE_U_INT16_T.cpp.o
+/usr/bin/c++   -fPIE -o CMakeFiles/cmTC_24549.dir/HAVE_U_INT16_T.cpp.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CheckTypeSize/HAVE_U_INT16_T.cpp
+Linking CXX executable cmTC_24549
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_24549.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_24549.dir/HAVE_U_INT16_T.cpp.o -o cmTC_24549 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of uint16_t passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_5a5e6/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_5a5e6.dir/build.make CMakeFiles/cmTC_5a5e6.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_5a5e6.dir/HAVE_UINT16_T.cpp.o
+/usr/bin/c++   -fPIE -o CMakeFiles/cmTC_5a5e6.dir/HAVE_UINT16_T.cpp.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CheckTypeSize/HAVE_UINT16_T.cpp
+Linking CXX executable cmTC_5a5e6
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5a5e6.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_5a5e6.dir/HAVE_UINT16_T.cpp.o -o cmTC_5a5e6 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function dladdr exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_bf808/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_bf808.dir/build.make CMakeFiles/cmTC_bf808.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_bf808.dir/CheckFunctionExists.cxx.o
+/usr/bin/c++   -DCHECK_FUNCTION_EXISTS=dladdr -fPIE -o CMakeFiles/cmTC_bf808.dir/CheckFunctionExists.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CheckFunctionExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_bf808
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bf808.dir/link.txt --verbose=1
+/usr/bin/c++  -DCHECK_FUNCTION_EXISTS=dladdr CMakeFiles/cmTC_bf808.dir/CheckFunctionExists.cxx.o -o cmTC_bf808 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function fcntl exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_2a668/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_2a668.dir/build.make CMakeFiles/cmTC_2a668.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_2a668.dir/CheckFunctionExists.cxx.o
+/usr/bin/c++   -DCHECK_FUNCTION_EXISTS=fcntl -fPIE -o CMakeFiles/cmTC_2a668.dir/CheckFunctionExists.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CheckFunctionExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_2a668
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2a668.dir/link.txt --verbose=1
+/usr/bin/c++  -DCHECK_FUNCTION_EXISTS=fcntl CMakeFiles/cmTC_2a668.dir/CheckFunctionExists.cxx.o -o cmTC_2a668 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function pread exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_de9a7/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_de9a7.dir/build.make CMakeFiles/cmTC_de9a7.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_de9a7.dir/CheckFunctionExists.cxx.o
+/usr/bin/c++   -DCHECK_FUNCTION_EXISTS=pread -fPIE -o CMakeFiles/cmTC_de9a7.dir/CheckFunctionExists.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CheckFunctionExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_de9a7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_de9a7.dir/link.txt --verbose=1
+/usr/bin/c++  -DCHECK_FUNCTION_EXISTS=pread CMakeFiles/cmTC_de9a7.dir/CheckFunctionExists.cxx.o -o cmTC_de9a7 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function pwrite exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_e146d/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_e146d.dir/build.make CMakeFiles/cmTC_e146d.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e146d.dir/CheckFunctionExists.cxx.o
+/usr/bin/c++   -DCHECK_FUNCTION_EXISTS=pwrite -fPIE -o CMakeFiles/cmTC_e146d.dir/CheckFunctionExists.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CheckFunctionExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_e146d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e146d.dir/link.txt --verbose=1
+/usr/bin/c++  -DCHECK_FUNCTION_EXISTS=pwrite CMakeFiles/cmTC_e146d.dir/CheckFunctionExists.cxx.o -o cmTC_e146d 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function sigaction exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_9b63d/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_9b63d.dir/build.make CMakeFiles/cmTC_9b63d.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_9b63d.dir/CheckFunctionExists.cxx.o
+/usr/bin/c++   -DCHECK_FUNCTION_EXISTS=sigaction -fPIE -o CMakeFiles/cmTC_9b63d.dir/CheckFunctionExists.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CheckFunctionExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_9b63d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9b63d.dir/link.txt --verbose=1
+/usr/bin/c++  -DCHECK_FUNCTION_EXISTS=sigaction CMakeFiles/cmTC_9b63d.dir/CheckFunctionExists.cxx.o -o cmTC_9b63d 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function sigaltstack exists passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_fcb06/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_fcb06.dir/build.make CMakeFiles/cmTC_fcb06.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_fcb06.dir/CheckFunctionExists.cxx.o
+/usr/bin/c++   -DCHECK_FUNCTION_EXISTS=sigaltstack -fPIE -o CMakeFiles/cmTC_fcb06.dir/CheckFunctionExists.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CheckFunctionExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_fcb06
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fcb06.dir/link.txt --verbose=1
+/usr/bin/c++  -DCHECK_FUNCTION_EXISTS=sigaltstack CMakeFiles/cmTC_fcb06.dir/CheckFunctionExists.cxx.o -o cmTC_fcb06 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+
+Performing C++ SOURCE FILE Test HAVE_NO_DEPRECATED succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_fe6e2/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_fe6e2.dir/build.make CMakeFiles/cmTC_fe6e2.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_fe6e2.dir/src.cxx.o
+/usr/bin/c++ -DHAVE_NO_DEPRECATED  -fPIE   -Wdeprecated -o CMakeFiles/cmTC_fe6e2.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_fe6e2
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fe6e2.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_fe6e2.dir/src.cxx.o -o cmTC_fe6e2 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Determining if the snprintf exist passed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_60ddd/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_60ddd.dir/build.make CMakeFiles/cmTC_60ddd.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_60ddd.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++   -fPIE -o CMakeFiles/cmTC_60ddd.dir/CheckSymbolExists.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+Linking CXX executable cmTC_60ddd
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_60ddd.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_60ddd.dir/CheckSymbolExists.cxx.o -o cmTC_60ddd 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+File /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <cstdio>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef snprintf
+  return ((int*)(&snprintf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C++ SOURCE FILE Test HAVE___ATTRIBUTE__ succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_15345/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_15345.dir/build.make CMakeFiles/cmTC_15345.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_15345.dir/src.cxx.o
+/usr/bin/c++ -DHAVE___ATTRIBUTE__  -fPIE -o CMakeFiles/cmTC_15345.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_15345
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_15345.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_15345.dir/src.cxx.o -o cmTC_15345 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+#include <cstdlib>
+static void foo(void) __attribute__ ((unused));
+int main(void) { return 0; }
+
+Performing C++ SOURCE FILE Test HAVE___ATTRIBUTE__VISIBILITY_DEFAULT succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_df77f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_df77f.dir/build.make CMakeFiles/cmTC_df77f.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_df77f.dir/src.cxx.o
+/usr/bin/c++ -DHAVE___ATTRIBUTE__VISIBILITY_DEFAULT  -fPIE -o CMakeFiles/cmTC_df77f.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/src.cxx
+/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/src.cxx:3:61: warning: ‘visibility’ attribute ignored [-Wattributes]
+    3 | static void foo(void) __attribute__ ((visibility("default")));
+      |                                                             ^
+Linking CXX executable cmTC_df77f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_df77f.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_df77f.dir/src.cxx.o -o cmTC_df77f 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+#include <cstdlib>
+static void foo(void) __attribute__ ((visibility("default")));
+int main(void) { return 0; }
+
+Performing C++ SOURCE FILE Test HAVE___ATTRIBUTE__VISIBILITY_HIDDEN succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_df365/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_df365.dir/build.make CMakeFiles/cmTC_df365.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_df365.dir/src.cxx.o
+/usr/bin/c++ -DHAVE___ATTRIBUTE__VISIBILITY_HIDDEN  -fPIE -o CMakeFiles/cmTC_df365.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/src.cxx
+/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/src.cxx:3:60: warning: ‘visibility’ attribute ignored [-Wattributes]
+    3 | static void foo(void) __attribute__ ((visibility("hidden")));
+      |                                                            ^
+Linking CXX executable cmTC_df365
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_df365.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_df365.dir/src.cxx.o -o cmTC_df365 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+#include <cstdlib>
+static void foo(void) __attribute__ ((visibility("hidden")));
+int main(void) { return 0; }
+
+Performing C++ SOURCE FILE Test HAVE___BUILTIN_EXPECT succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_c0faa/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c0faa.dir/build.make CMakeFiles/cmTC_c0faa.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_c0faa.dir/src.cxx.o
+/usr/bin/c++ -DHAVE___BUILTIN_EXPECT  -fPIE -o CMakeFiles/cmTC_c0faa.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_c0faa
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c0faa.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_c0faa.dir/src.cxx.o -o cmTC_c0faa 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+int main(void) { if (__builtin_expect(0, 0)) return 1; return 0; }
+
+Performing C++ SOURCE FILE Test HAVE___SYNC_VAL_COMPARE_AND_SWAP succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_33697/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_33697.dir/build.make CMakeFiles/cmTC_33697.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_33697.dir/src.cxx.o
+/usr/bin/c++ -DHAVE___SYNC_VAL_COMPARE_AND_SWAP  -fPIE -o CMakeFiles/cmTC_33697.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_33697
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_33697.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_33697.dir/src.cxx.o -o cmTC_33697 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+int main(void)
+{
+  int a; if (__sync_val_compare_and_swap(&a, 0, 1)) return 1; return 0;
+}
+
+Performing C++ SOURCE FILE Test HAVE_RWLOCK succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_54bd0/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_54bd0.dir/build.make CMakeFiles/cmTC_54bd0.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_54bd0.dir/src.cxx.o
+/usr/bin/c++ -DHAVE_RWLOCK  -fPIE -o CMakeFiles/cmTC_54bd0.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_54bd0
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_54bd0.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_54bd0.dir/src.cxx.o -o cmTC_54bd0 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+#define _XOPEN_SOURCE 500
+#include <pthread.h>
+int main(void)
+{
+  pthread_rwlock_t l;
+  pthread_rwlock_init(&l, NULL);
+  pthread_rwlock_rdlock(&l);
+  return 0;
+}
+
+Performing C++ SOURCE FILE Test STL_STD_NAMESPACE succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_f8f91/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_f8f91.dir/build.make CMakeFiles/cmTC_f8f91.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_f8f91.dir/src.cxx.o
+/usr/bin/c++ -DSTL_STD_NAMESPACE  -fPIE -o CMakeFiles/cmTC_f8f91.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_f8f91
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f8f91.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_f8f91.dir/src.cxx.o -o cmTC_f8f91 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+#include <vector>
+std::vector<int> t; int main() { }
+
+Performing C++ SOURCE FILE Test HAVE_USING_OPERATOR succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_3ec83/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_3ec83.dir/build.make CMakeFiles/cmTC_3ec83.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_3ec83.dir/src.cxx.o
+/usr/bin/c++ -DHAVE_USING_OPERATOR  -fPIE -o CMakeFiles/cmTC_3ec83.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_3ec83
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3ec83.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_3ec83.dir/src.cxx.o -o cmTC_3ec83 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+#include <iostream>
+std::ostream& operator<<(std::ostream&, struct s);
+using ::operator<<;
+int main() { }
+
+Performing C++ SOURCE FILE Test HAVE_NAMESPACES succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_98395/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_98395.dir/build.make CMakeFiles/cmTC_98395.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_98395.dir/src.cxx.o
+/usr/bin/c++ -DHAVE_NAMESPACES  -fPIE -o CMakeFiles/cmTC_98395.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_98395
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_98395.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_98395.dir/src.cxx.o -o cmTC_98395 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+namespace Outer { namespace Inner { int i = 0; }}
+using namespace Outer::Inner;;
+int main() { return i; }
+
+Performing C++ SOURCE FILE Test HAVE_GCC_TLS succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_e3036/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_e3036.dir/build.make CMakeFiles/cmTC_e3036.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e3036.dir/src.cxx.o
+/usr/bin/c++ -DHAVE_GCC_TLS  -fPIE -o CMakeFiles/cmTC_e3036.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_e3036
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e3036.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_e3036.dir/src.cxx.o -o cmTC_e3036 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+__thread int tls;
+int main() { }
+
+Performing C++ SOURCE FILE Test HAVE_CXX11_TLS succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_22a56/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_22a56.dir/build.make CMakeFiles/cmTC_22a56.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_22a56.dir/src.cxx.o
+/usr/bin/c++ -DHAVE_CXX11_TLS  -fPIE -o CMakeFiles/cmTC_22a56.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_22a56
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_22a56.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_22a56.dir/src.cxx.o -o cmTC_22a56 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+thread_local int tls;
+int main() { }
+
+Performing C++ SOURCE FILE Test HAVE_ALIGNED_STORAGE succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_b320e/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_b320e.dir/build.make CMakeFiles/cmTC_b320e.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_b320e.dir/src.cxx.o
+/usr/bin/c++ -DHAVE_ALIGNED_STORAGE  -fPIE -o CMakeFiles/cmTC_b320e.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_b320e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b320e.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_b320e.dir/src.cxx.o -o cmTC_b320e 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+#include <type_traits>
+std::aligned_storage<sizeof(char), alignof(char)>::type data;
+int main() { }
+
+Performing C++ SOURCE FILE Test HAVE_CXX11_ATOMIC succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_5e4f2/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_5e4f2.dir/build.make CMakeFiles/cmTC_5e4f2.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_5e4f2.dir/src.cxx.o
+/usr/bin/c++ -DHAVE_CXX11_ATOMIC  -fPIE -o CMakeFiles/cmTC_5e4f2.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_5e4f2
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5e4f2.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_5e4f2.dir/src.cxx.o -o cmTC_5e4f2 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+#include <atomic>
+std::atomic<int> i;
+int main() { }
+
+Performing C++ SOURCE FILE Test HAVE_CXX11_CONSTEXPR succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_f3fcd/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_f3fcd.dir/build.make CMakeFiles/cmTC_f3fcd.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_f3fcd.dir/src.cxx.o
+/usr/bin/c++ -DHAVE_CXX11_CONSTEXPR  -fPIE -o CMakeFiles/cmTC_f3fcd.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_f3fcd
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f3fcd.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_f3fcd.dir/src.cxx.o -o cmTC_f3fcd 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+constexpr int x = 0;
+int main() { }
+
+Performing C++ SOURCE FILE Test HAVE_CXX11_CHRONO succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_bab6d/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_bab6d.dir/build.make CMakeFiles/cmTC_bab6d.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_bab6d.dir/src.cxx.o
+/usr/bin/c++ -DHAVE_CXX11_CHRONO  -fPIE -o CMakeFiles/cmTC_bab6d.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_bab6d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bab6d.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_bab6d.dir/src.cxx.o -o cmTC_bab6d 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+#include <chrono>
+std::chrono::seconds s;
+int main() { }
+
+Performing C++ SOURCE FILE Test HAVE_CXX11_NULLPTR_T succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_33d74/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_33d74.dir/build.make CMakeFiles/cmTC_33d74.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_33d74.dir/src.cxx.o
+/usr/bin/c++ -DHAVE_CXX11_NULLPTR_T  -fPIE -o CMakeFiles/cmTC_33d74.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_33d74
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_33d74.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_33d74.dir/src.cxx.o -o cmTC_33d74 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+#include <cstddef>
+void foo(std::nullptr_t) {}
+int main(void) { foo(nullptr); }
+
+Performing C++ SOURCE FILE Test HAVE_LOCALTIME_R succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d7377/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d7377.dir/build.make CMakeFiles/cmTC_d7377.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d7377.dir/src.cxx.o
+/usr/bin/c++ -DHAVE_LOCALTIME_R  -fPIE -o CMakeFiles/cmTC_d7377.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_d7377
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d7377.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_d7377.dir/src.cxx.o -o cmTC_d7377 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+#include <cstdlib>
+#include <ctime>
+int main()
+{
+    time_t timep;
+    struct tm result;
+    localtime_r(&timep, &result);
+    return EXIT_SUCCESS;
+}
+
+Performing C++ SOURCE FILE Test COMPILER_HAS_HIDDEN_VISIBILITY succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_af747/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_af747.dir/build.make CMakeFiles/cmTC_af747.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_af747.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_HAS_HIDDEN_VISIBILITY  -fPIE   -fvisibility=hidden -o CMakeFiles/cmTC_af747.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_af747
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_af747.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_af747.dir/src.cxx.o -o cmTC_af747 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_HAS_HIDDEN_INLINE_VISIBILITY succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d7c7c/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d7c7c.dir/build.make CMakeFiles/cmTC_d7c7c.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d7c7c.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_HAS_HIDDEN_INLINE_VISIBILITY  -fPIE   -fvisibility-inlines-hidden -o CMakeFiles/cmTC_d7c7c.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_d7c7c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d7c7c.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_d7c7c.dir/src.cxx.o -o cmTC_d7c7c 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_HAS_DEPRECATED_ATTR succeeded with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_bad58/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_bad58.dir/build.make CMakeFiles/cmTC_bad58.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_bad58.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_HAS_DEPRECATED_ATTR  -fPIE -o CMakeFiles/cmTC_bad58.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/src.cxx
+/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/src.cxx: In function ‘int main()’:
+/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/src.cxx:2:33: warning: ‘int somefunc()’ is deprecated [-Wdeprecated-declarations]
+    2 |     int main() { return somefunc();}
+      |                         ~~~~~~~~^~
+/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp/src.cxx:1:37: note: declared here
+    1 | __attribute__((__deprecated__)) int somefunc() { return 0; }
+      |                                     ^~~~~~~~
+Linking CXX executable cmTC_bad58
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bad58.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_bad58.dir/src.cxx.o -o cmTC_bad58 
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/glog-0.6.0/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+__attribute__((__deprecated__)) int somefunc() { return 0; }
+    int main() { return somefunc();}

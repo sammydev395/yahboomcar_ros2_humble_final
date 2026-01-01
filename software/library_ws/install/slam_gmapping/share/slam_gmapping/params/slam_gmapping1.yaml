@@ -1,0 +1,51 @@
+/slam_gmapping:
+  ros__parameters:
+    angularUpdate: 1.0
+    astep: 0.10
+    base_frame: base_footprint
+    map_frame: map
+    odom_frame: odom
+    delta: 0.05
+    iterations: 5
+    kernelSize: 1
+    lasamplerange: 0.005
+    lasamplestep: 0.005
+    linearUpdate: 0.2
+    llsamplerange: 0.01
+    llsamplestep: 0.01
+    lsigma: 0.075
+    lskip: 2
+    lstep: 0.10
+    map_update_interval: 0.3
+    maxRange: 6.0
+    maxUrange: 4.0
+    minimum_score: 0.0
+    occ_thresh: 0.25
+    ogain: 3.0
+    particles: 15
+    qos_overrides:
+      /parameter_events:
+        publisher:
+          depth: 1000
+          durability: volatile
+          history: keep_all
+          reliability: reliable
+      /tf:
+        publisher:
+          depth: 1000
+          durability: volatile
+          history: keep_last
+          reliability: reliable
+    resampleThreshold: 0.5
+    sigma: 0.05
+    srr: 0.2
+    srt: 0.0
+    str: 0.0
+    stt: 0.0
+    temporalUpdate: 1.0
+    transform_publish_period: 0.05
+    use_sim_time: false
+    xmax: 20.0
+    xmin: -20.0
+    ymax: 20.0
+    ymin: -20.0

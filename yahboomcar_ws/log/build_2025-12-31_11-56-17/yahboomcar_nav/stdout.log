@@ -1,0 +1,70 @@
+running develop
+running egg_info
+creating yahboomcar_nav.egg-info
+writing yahboomcar_nav.egg-info/PKG-INFO
+writing dependency_links to yahboomcar_nav.egg-info/dependency_links.txt
+writing entry points to yahboomcar_nav.egg-info/entry_points.txt
+writing requirements to yahboomcar_nav.egg-info/requires.txt
+writing top-level names to yahboomcar_nav.egg-info/top_level.txt
+writing manifest file 'yahboomcar_nav.egg-info/SOURCES.txt'
+reading manifest file 'yahboomcar_nav.egg-info/SOURCES.txt'
+writing manifest file 'yahboomcar_nav.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/lib/python3.10/site-packages/yahboomcar-nav.egg-link (link to .)
+Installing scan_filter script to /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/lib/yahboomcar_nav
+
+Installed /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav
+running symlink_data
+creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/ament_index/resource_index/packages
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/resource/yahboomcar_nav -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/ament_index/resource_index/packages
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/package.xml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav
+creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/map_rtabmap_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/occupancy_grid_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/display_rtabmap_nav_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/map_gmapping_a1_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/map_gmapping_s2_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/laser_bringup_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/navigation_cartodwb_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/display_map_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/cartographer_localization_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/map_gmapping_4ros_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/map_gmapping_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/localization_imu_odom.launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/display_rtabmap_map_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/map_cartographer_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/cartographer_bringup_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/navigation_rtabmap_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/navigation_teb_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/cartographer_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/save_map_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/rtabmap_nav_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/display_nav_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/rtabmap_sync_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/laser_bringup_no_odom_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/rtabmap_viz_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/navigation_dwa_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/rtabmap_localization_launch.py -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/launch
+creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/rviz
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/rviz/nav.rviz -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/rviz
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/rviz/rtabmap_map.rviz -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/rviz
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/rviz/map.rviz -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/rviz
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/rviz/rtabmap_nav.rviz -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/rviz
+creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/params
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/params/dwa_nav_params.yaml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/params
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/params/teb_nav_params.yaml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/params
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/params/lds_2d.lua -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/params
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/params/cartoteb_nav_params.yaml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/params
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/params/rtabmap_nav_params.yaml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/params
+creating /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/maps
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/maps/Test .yaml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/maps
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/maps/test1.pgm -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/maps
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/maps/yahboomcar.pbstream -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/maps
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/maps/yahboomcar.yaml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/maps
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/maps/Test .pgm -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/maps
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/maps/h h h h.pgm -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/maps
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/maps/yahboomcar2.pgm -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/maps
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/maps/yahboomcar2.yaml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/maps
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/maps/test1.yaml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/maps
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/maps/h h h h.yaml -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/maps
+symbolically linking /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/maps/yahboomcar.pgm -> /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_nav/share/yahboomcar_nav/maps

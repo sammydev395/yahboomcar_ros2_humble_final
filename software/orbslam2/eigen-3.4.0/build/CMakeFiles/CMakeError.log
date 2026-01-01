@@ -1,0 +1,167 @@
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wshorten64to32 failed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_b1ce8/fast && /usr/bin/gmake -f CMakeFiles/cmTC_b1ce8.dir/build.make CMakeFiles/cmTC_b1ce8.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_b1ce8.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -DCOMPILER_SUPPORT_Wshorten64to32 -Werror   -Wshorten-64-to-32 -o CMakeFiles/cmTC_b1ce8.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-Wshorten-64-to-32'
+gmake[1]: *** [CMakeFiles/cmTC_b1ce8.dir/build.make:66: CMakeFiles/cmTC_b1ce8.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:121: cmTC_b1ce8/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wenumconversion failed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_75e36/fast && /usr/bin/gmake -f CMakeFiles/cmTC_75e36.dir/build.make CMakeFiles/cmTC_75e36.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_75e36.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -DCOMPILER_SUPPORT_Wenumconversion -Werror   -Wenum-conversion -o CMakeFiles/cmTC_75e36.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-Wenum-conversion'; did you mean '-Wno-conversion'?
+gmake[1]: *** [CMakeFiles/cmTC_75e36.dir/build.make:66: CMakeFiles/cmTC_75e36.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:121: cmTC_75e36/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wcpp11extensions failed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_332ec/fast && /usr/bin/gmake -f CMakeFiles/cmTC_332ec.dir/build.make CMakeFiles/cmTC_332ec.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_332ec.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -DCOMPILER_SUPPORT_Wcpp11extensions -Werror   -Wc++11-extensions -o CMakeFiles/cmTC_332ec.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-Wc++11-extensions'; did you mean '-fms-extensions'?
+gmake[1]: *** [CMakeFiles/cmTC_332ec.dir/build.make:66: CMakeFiles/cmTC_332ec.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:121: cmTC_332ec/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_wd981 failed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_39598/fast && /usr/bin/gmake -f CMakeFiles/cmTC_39598.dir/build.make CMakeFiles/cmTC_39598.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_39598.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -DCOMPILER_SUPPORT_wd981 -Werror   -wd981 -o CMakeFiles/cmTC_39598.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-wd981'
+gmake[1]: *** [CMakeFiles/cmTC_39598.dir/build.make:66: CMakeFiles/cmTC_39598.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:121: cmTC_39598/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_wd2304 failed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_15e22/fast && /usr/bin/gmake -f CMakeFiles/cmTC_15e22.dir/build.make CMakeFiles/cmTC_15e22.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_15e22.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -DCOMPILER_SUPPORT_wd2304 -Werror   -wd2304 -o CMakeFiles/cmTC_15e22.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-wd2304'
+gmake[1]: *** [CMakeFiles/cmTC_15e22.dir/build.make:66: CMakeFiles/cmTC_15e22.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:121: cmTC_15e22/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_STRICTANSI failed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_71693/fast && /usr/bin/gmake -f CMakeFiles/cmTC_71693.dir/build.make CMakeFiles/cmTC_71693.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_71693.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -DCOMPILER_SUPPORT_STRICTANSI -Werror   -strict-ansi -o CMakeFiles/cmTC_71693.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-strict-ansi'; did you mean '-fstrict-enums'?
+gmake[1]: *** [CMakeFiles/cmTC_71693.dir/build.make:66: CMakeFiles/cmTC_71693.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:121: cmTC_71693/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Qunusedarguments failed with the following output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_b22a0/fast && /usr/bin/gmake -f CMakeFiles/cmTC_b22a0.dir/build.make CMakeFiles/cmTC_b22a0.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_b22a0.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -DCOMPILER_SUPPORT_Qunusedarguments -Werror   -Qunused-arguments -o CMakeFiles/cmTC_b22a0.dir/src.cxx.o -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-Qunused-arguments'
+gmake[1]: *** [CMakeFiles/cmTC_b22a0.dir/build.make:66: CMakeFiles/cmTC_b22a0.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:121: cmTC_b22a0/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Performing C SOURCE FILE Test SCOTCH_Num_4 failed with the following compile output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_1485c/fast && /usr/bin/gmake -f CMakeFiles/cmTC_1485c.dir/build.make CMakeFiles/cmTC_1485c.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1485c.dir/src.c.o
+/usr/bin/cc   -DSCOTCH_Num_4 -fopenmp   -o CMakeFiles/cmTC_1485c.dir/src.c.o   -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.c
+/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.c:4:10: fatal error: scotch.h: No such file or directory
+    4 | #include <scotch.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_1485c.dir/build.make:66: CMakeFiles/cmTC_1485c.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:121: cmTC_1485c/fast] Error 2
+
+
+...and run output:
+
+Return value: 1
+Source file was:
+
+#include <stdio.h>
+#include <stdint.h>
+#include <scotch.h>
+int main(int argc, char **argv) {
+  if (sizeof(SCOTCH_Num) == 4)
+    return 0;
+  else
+    return 1;
+}
+
+Performing C SOURCE FILE Test SCOTCH_Num_8 failed with the following compile output:
+Change Dir: /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_14430/fast && /usr/bin/gmake -f CMakeFiles/cmTC_14430.dir/build.make CMakeFiles/cmTC_14430.dir/build
+gmake[1]: Entering directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_14430.dir/src.c.o
+/usr/bin/cc   -DSCOTCH_Num_8 -fopenmp   -o CMakeFiles/cmTC_14430.dir/src.c.o   -c /home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.c
+/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp/src.c:4:10: fatal error: scotch.h: No such file or directory
+    4 | #include <scotch.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_14430.dir/build.make:66: CMakeFiles/cmTC_14430.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/home/jetson/yahboomcar_ros2_ws/software/orbslam2/eigen-3.4.0/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:121: cmTC_14430/fast] Error 2
+
+
+...and run output:
+
+Return value: 1
+Source file was:
+
+#include <stdio.h>
+#include <stdint.h>
+#include <scotch.h>
+int main(int argc, char **argv) {
+  if (sizeof(SCOTCH_Num) == 8)
+    return 0;
+  else
+    return 1;
+}
+

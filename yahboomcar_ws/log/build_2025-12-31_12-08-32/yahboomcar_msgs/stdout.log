@@ -1,0 +1,321 @@
+-- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found geometry_msgs: 4.8.0 (/opt/ros/humble/share/geometry_msgs/cmake)
+-- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+-- Using PYTHON_LIBRARIES: /usr/lib/aarch64-linux-gnu/libpython3.10.so
+-- Using numpy include directory: /home/jetson/.local/lib/python3.10/site-packages/numpy/core/include
+-- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)
+-- Added test 'copyright' to check source files copyright and LICENSE
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_msgs
+[  1%] Generating C code for ROS interfaces
+[  2%] Generating C++ code for ROS interfaces
+[  2%] Built target ament_cmake_python_symlink_yahboomcar_msgs
+running egg_info
+writing yahboomcar_msgs.egg-info/PKG-INFO
+writing dependency_links to yahboomcar_msgs.egg-info/dependency_links.txt
+writing top-level names to yahboomcar_msgs.egg-info/top_level.txt
+reading manifest file 'yahboomcar_msgs.egg-info/SOURCES.txt'
+writing manifest file 'yahboomcar_msgs.egg-info/SOURCES.txt'
+[  2%] Built target ament_cmake_python_build_yahboomcar_msgs_egg
+Consolidate compiler generated dependencies of target yahboomcar_msgs__rosidl_generator_c
+[  2%] Built target yahboomcar_msgs__cpp
+[  7%] Building C object CMakeFiles/yahboomcar_msgs__rosidl_generator_c.dir/rosidl_generator_c/yahboomcar_msgs/msg/detail/arm_joint__functions.c.o
+[  7%] Building C object CMakeFiles/yahboomcar_msgs__rosidl_generator_c.dir/rosidl_generator_c/yahboomcar_msgs/msg/detail/image_msg__functions.c.o
+[  7%] Building C object CMakeFiles/yahboomcar_msgs__rosidl_generator_c.dir/rosidl_generator_c/yahboomcar_msgs/msg/detail/point_array__functions.c.o
+[  8%] Building C object CMakeFiles/yahboomcar_msgs__rosidl_generator_c.dir/rosidl_generator_c/yahboomcar_msgs/msg/detail/position__functions.c.o
+[  9%] Generating C++ type support dispatch for ROS interfaces
+[ 11%] Building C object CMakeFiles/yahboomcar_msgs__rosidl_generator_c.dir/rosidl_generator_c/yahboomcar_msgs/msg/detail/target__functions.c.o
+[ 12%] Building C object CMakeFiles/yahboomcar_msgs__rosidl_generator_c.dir/rosidl_generator_c/yahboomcar_msgs/msg/detail/target_array__functions.c.o
+[ 14%] Generating C++ type support for eProsima Fast-RTPS
+[ 15%] Generating C++ introspection for ROS interfaces
+[ 16%] Linking C shared library libyahboomcar_msgs__rosidl_generator_c.so
+[ 16%] Built target yahboomcar_msgs__rosidl_generator_c
+[ 18%] Generating C introspection for ROS interfaces
+[ 19%] Generating C type support for eProsima Fast-RTPS
+[ 21%] Generating C type support dispatch for ROS interfaces
+Consolidate compiler generated dependencies of target yahboomcar_msgs__rosidl_typesupport_cpp
+[ 22%] Building CXX object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/yahboomcar_msgs/msg/arm_joint__type_support.cpp.o
+Consolidate compiler generated dependencies of target yahboomcar_msgs__rosidl_typesupport_introspection_cpp
+[ 23%] Building CXX object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/yahboomcar_msgs/msg/detail/arm_joint__type_support.cpp.o
+Consolidate compiler generated dependencies of target yahboomcar_msgs__rosidl_typesupport_fastrtps_cpp
+[ 25%] Building CXX object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/yahboomcar_msgs/msg/detail/dds_fastrtps/arm_joint__type_support.cpp.o
+Consolidate compiler generated dependencies of target yahboomcar_msgs__rosidl_typesupport_c
+[ 26%] Building CXX object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/yahboomcar_msgs/msg/arm_joint__type_support.cpp.o
+[ 28%] Building CXX object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/yahboomcar_msgs/msg/image_msg__type_support.cpp.o
+Consolidate compiler generated dependencies of target yahboomcar_msgs__rosidl_typesupport_introspection_c
+[ 29%] Building C object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/yahboomcar_msgs/msg/detail/arm_joint__type_support.c.o
+[ 30%] Building CXX object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/yahboomcar_msgs/msg/point_array__type_support.cpp.o
+[ 32%] Building CXX object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/yahboomcar_msgs/msg/image_msg__type_support.cpp.o
+Consolidate compiler generated dependencies of target yahboomcar_msgs__rosidl_typesupport_fastrtps_c
+[ 33%] Building CXX object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/yahboomcar_msgs/msg/detail/arm_joint__type_support_c.cpp.o
+[ 35%] Building CXX object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/yahboomcar_msgs/msg/position__type_support.cpp.o
+[ 36%] Building C object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/yahboomcar_msgs/msg/detail/image_msg__type_support.c.o
+[ 38%] Building CXX object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/yahboomcar_msgs/msg/target__type_support.cpp.o
+[ 39%] Building C object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/yahboomcar_msgs/msg/detail/point_array__type_support.c.o
+[ 40%] Building CXX object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/yahboomcar_msgs/msg/target_array__type_support.cpp.o
+[ 42%] Building C object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/yahboomcar_msgs/msg/detail/position__type_support.c.o
+[ 43%] Linking CXX shared library libyahboomcar_msgs__rosidl_typesupport_c.so
+[ 45%] Building C object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/yahboomcar_msgs/msg/detail/target__type_support.c.o
+[ 45%] Built target yahboomcar_msgs__rosidl_typesupport_c
+[ 46%] Building C object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/yahboomcar_msgs/msg/detail/target_array__type_support.c.o
+[ 47%] Building CXX object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/yahboomcar_msgs/msg/detail/image_msg__type_support.cpp.o
+[ 49%] Linking C shared library libyahboomcar_msgs__rosidl_typesupport_introspection_c.so
+[ 49%] Built target yahboomcar_msgs__rosidl_typesupport_introspection_c
+[ 50%] Building CXX object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/yahboomcar_msgs/msg/detail/point_array__type_support.cpp.o
+[ 53%] Building CXX object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/yahboomcar_msgs/msg/point_array__type_support.cpp.o
+[ 53%] Building CXX object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/yahboomcar_msgs/msg/detail/dds_fastrtps/image_msg__type_support.cpp.o
+[ 54%] Building CXX object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/yahboomcar_msgs/msg/position__type_support.cpp.o
+[ 56%] Building CXX object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/yahboomcar_msgs/msg/detail/image_msg__type_support_c.cpp.o
+[ 57%] Building CXX object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/yahboomcar_msgs/msg/target__type_support.cpp.o
+[ 59%] Building CXX object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/yahboomcar_msgs/msg/target_array__type_support.cpp.o
+[ 60%] Building CXX object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/yahboomcar_msgs/msg/detail/point_array__type_support_c.cpp.o
+[ 61%] Building CXX object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/yahboomcar_msgs/msg/detail/position__type_support.cpp.o
+[ 63%] Building CXX object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/yahboomcar_msgs/msg/detail/target__type_support.cpp.o
+[ 64%] Building CXX object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/yahboomcar_msgs/msg/detail/dds_fastrtps/point_array__type_support.cpp.o
+[ 66%] Building CXX object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/yahboomcar_msgs/msg/detail/position__type_support_c.cpp.o
+[ 67%] Linking CXX shared library libyahboomcar_msgs__rosidl_typesupport_cpp.so
+[ 67%] Built target yahboomcar_msgs__rosidl_typesupport_cpp
+[ 69%] Building CXX object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/yahboomcar_msgs/msg/detail/target__type_support_c.cpp.o
+[ 70%] Building CXX object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/yahboomcar_msgs/msg/detail/target_array__type_support_c.cpp.o
+[ 71%] Building CXX object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/yahboomcar_msgs/msg/detail/target_array__type_support.cpp.o
+[ 73%] Building CXX object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/yahboomcar_msgs/msg/detail/dds_fastrtps/position__type_support.cpp.o
+[ 74%] Building CXX object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/yahboomcar_msgs/msg/detail/dds_fastrtps/target__type_support.cpp.o
+[ 76%] Building CXX object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/yahboomcar_msgs/msg/detail/dds_fastrtps/target_array__type_support.cpp.o
+[ 77%] Linking CXX shared library libyahboomcar_msgs__rosidl_typesupport_fastrtps_c.so
+[ 77%] Built target yahboomcar_msgs__rosidl_typesupport_fastrtps_c
+[ 78%] Linking CXX shared library libyahboomcar_msgs__rosidl_typesupport_introspection_cpp.so
+[ 78%] Built target yahboomcar_msgs__rosidl_typesupport_introspection_cpp
+[ 80%] Linking CXX shared library libyahboomcar_msgs__rosidl_typesupport_fastrtps_cpp.so
+[ 80%] Built target yahboomcar_msgs__rosidl_typesupport_fastrtps_cpp
+[ 80%] Built target yahboomcar_msgs
+[ 81%] Generating Python code for ROS interfaces
+[ 81%] Built target yahboomcar_msgs__py
+Consolidate compiler generated dependencies of target yahboomcar_msgs__rosidl_generator_py
+[ 85%] Building C object CMakeFiles/yahboomcar_msgs__rosidl_generator_py.dir/rosidl_generator_py/yahboomcar_msgs/msg/_image_msg_s.c.o
+[ 85%] Building C object CMakeFiles/yahboomcar_msgs__rosidl_generator_py.dir/rosidl_generator_py/yahboomcar_msgs/msg/_position_s.c.o
+[ 85%] Building C object CMakeFiles/yahboomcar_msgs__rosidl_generator_py.dir/rosidl_generator_py/yahboomcar_msgs/msg/_arm_joint_s.c.o
+[ 87%] Building C object CMakeFiles/yahboomcar_msgs__rosidl_generator_py.dir/rosidl_generator_py/yahboomcar_msgs/msg/_point_array_s.c.o
+[ 90%] Building C object CMakeFiles/yahboomcar_msgs__rosidl_generator_py.dir/rosidl_generator_py/yahboomcar_msgs/msg/_target_s.c.o
+[ 90%] Building C object CMakeFiles/yahboomcar_msgs__rosidl_generator_py.dir/rosidl_generator_py/yahboomcar_msgs/msg/_target_array_s.c.o
+[ 91%] Linking C shared library rosidl_generator_py/yahboomcar_msgs/libyahboomcar_msgs__rosidl_generator_py.so
+[ 91%] Built target yahboomcar_msgs__rosidl_generator_py
+Consolidate compiler generated dependencies of target yahboomcar_msgs__rosidl_typesupport_c__pyext
+Consolidate compiler generated dependencies of target yahboomcar_msgs__rosidl_typesupport_fastrtps_c__pyext
+Consolidate compiler generated dependencies of target yahboomcar_msgs__rosidl_typesupport_introspection_c__pyext
+[ 95%] Building C object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/yahboomcar_msgs/_yahboomcar_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o
+[ 95%] Building C object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/yahboomcar_msgs/_yahboomcar_msgs_s.ep.rosidl_typesupport_c.c.o
+[ 95%] Building C object CMakeFiles/yahboomcar_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/yahboomcar_msgs/_yahboomcar_msgs_s.ep.rosidl_typesupport_introspection_c.c.o
+[ 97%] Linking C shared library rosidl_generator_py/yahboomcar_msgs/yahboomcar_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so
+[ 98%] Linking C shared library rosidl_generator_py/yahboomcar_msgs/yahboomcar_msgs_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so
+[100%] Linking C shared library rosidl_generator_py/yahboomcar_msgs/yahboomcar_msgs_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so
+[100%] Built target yahboomcar_msgs__rosidl_typesupport_fastrtps_c__pyext
+[100%] Built target yahboomcar_msgs__rosidl_typesupport_introspection_c__pyext
+[100%] Built target yahboomcar_msgs__rosidl_typesupport_c__pyext
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/ament_index/resource_index/rosidl_interfaces/yahboomcar_msgs
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/arm_joint.h
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/arm_joint__functions.h
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/arm_joint__struct.h
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/arm_joint__type_support.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/image_msg__functions.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/image_msg__struct.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/image_msg__type_support.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/point_array__functions.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/point_array__struct.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/point_array__type_support.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/position__functions.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/position__struct.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/position__type_support.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/target__functions.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/target__struct.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/target__type_support.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/target_array__functions.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/target_array__struct.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/target_array__type_support.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/image_msg.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/point_array.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/position.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/rosidl_generator_c__visibility_control.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/target.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/target_array.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/environment/library_path.sh
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/environment/library_path.dsv
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/arm_joint__rosidl_typesupport_fastrtps_c.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/image_msg__rosidl_typesupport_fastrtps_c.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/point_array__rosidl_typesupport_fastrtps_c.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/position__rosidl_typesupport_fastrtps_c.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/target__rosidl_typesupport_fastrtps_c.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/target_array__rosidl_typesupport_fastrtps_c.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/arm_joint__rosidl_typesupport_introspection_c.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/image_msg__rosidl_typesupport_introspection_c.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/point_array__rosidl_typesupport_introspection_c.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/position__rosidl_typesupport_introspection_c.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/target__rosidl_typesupport_introspection_c.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/target_array__rosidl_typesupport_introspection_c.h
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/arm_joint.hpp
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/arm_joint__builder.hpp
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/arm_joint__struct.hpp
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/arm_joint__traits.hpp
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/arm_joint__type_support.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/image_msg__builder.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/image_msg__struct.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/image_msg__traits.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/image_msg__type_support.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/point_array__builder.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/point_array__struct.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/point_array__traits.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/point_array__type_support.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/position__builder.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/position__struct.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/position__traits.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/position__type_support.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/target__builder.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/target__struct.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/target__traits.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/target__type_support.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/target_array__builder.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/target_array__struct.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/target_array__traits.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/target_array__type_support.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/image_msg.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/point_array.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/position.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/target.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/target_array.hpp
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/arm_joint__rosidl_typesupport_fastrtps_cpp.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/image_msg__rosidl_typesupport_fastrtps_cpp.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/point_array__rosidl_typesupport_fastrtps_cpp.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/position__rosidl_typesupport_fastrtps_cpp.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/target__rosidl_typesupport_fastrtps_cpp.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/target_array__rosidl_typesupport_fastrtps_cpp.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/arm_joint__rosidl_typesupport_introspection_cpp.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/image_msg__rosidl_typesupport_introspection_cpp.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/point_array__rosidl_typesupport_introspection_cpp.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/position__rosidl_typesupport_introspection_cpp.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/target__rosidl_typesupport_introspection_cpp.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/include/yahboomcar_msgs/yahboomcar_msgs/msg/detail/target_array__rosidl_typesupport_introspection_cpp.hpp
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/environment/pythonpath.sh
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/environment/pythonpath.dsv
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs-0.0.0-py3.10.egg-info/PKG-INFO
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs-0.0.0-py3.10.egg-info/SOURCES.txt
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs-0.0.0-py3.10.egg-info/dependency_links.txt
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs-0.0.0-py3.10.egg-info/top_level.txt
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/__init__.py
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/_yahboomcar_msgs_s.ep.rosidl_typesupport_c.c
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/_yahboomcar_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/_yahboomcar_msgs_s.ep.rosidl_typesupport_introspection_c.c
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/libyahboomcar_msgs__rosidl_generator_py.so
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/msg/__init__.py
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/msg/_arm_joint.py
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/msg/_arm_joint_s.c
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/msg/_image_msg.py
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/msg/_image_msg_s.c
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/msg/_point_array.py
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/msg/_point_array_s.c
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/msg/_position.py
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/msg/_position_s.c
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/msg/_target.py
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/msg/_target_array.py
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/msg/_target_array_s.c
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/msg/_target_s.c
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/yahboomcar_msgs_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/yahboomcar_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/yahboomcar_msgs_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/yahboomcar_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/yahboomcar_msgs_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/yahboomcar_msgs_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/msg/ArmJoint.idl
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/msg/ImageMsg.idl
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/msg/PointArray.idl
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/msg/Position.idl
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/msg/Target.idl
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/msg/TargetArray.idl
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/msg/ArmJoint.msg
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/msg/ImageMsg.msg
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/msg/PointArray.msg
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/msg/Position.msg
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/msg/Target.msg
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/msg/TargetArray.msg
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/ament_index/resource_index/package_run_dependencies/yahboomcar_msgs
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/ament_index/resource_index/parent_prefix_path/yahboomcar_msgs
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/environment/path.sh
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/environment/path.dsv
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/local_setup.bash
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/local_setup.sh
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/local_setup.zsh
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/local_setup.dsv
+-- Symlinking: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/package.dsv
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/ament_index/resource_index/packages/yahboomcar_msgs
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/cmake/rosidl_cmake-extras.cmake
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/cmake/ament_cmake_export_targets-extras.cmake
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/cmake/yahboomcar_msgsConfig.cmake
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/cmake/yahboomcar_msgsConfig-version.cmake
+-- Up-to-date symlink: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/package.xml
+-- Installing: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/lib/libyahboomcar_msgs__rosidl_generator_c.so
+-- Set runtime path of "/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/lib/libyahboomcar_msgs__rosidl_generator_c.so" to ""
+-- Installing: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/lib/libyahboomcar_msgs__rosidl_typesupport_fastrtps_c.so
+-- Set runtime path of "/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/lib/libyahboomcar_msgs__rosidl_typesupport_fastrtps_c.so" to ""
+-- Installing: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/lib/libyahboomcar_msgs__rosidl_typesupport_introspection_c.so
+-- Set runtime path of "/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/lib/libyahboomcar_msgs__rosidl_typesupport_introspection_c.so" to ""
+-- Installing: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/lib/libyahboomcar_msgs__rosidl_typesupport_c.so
+-- Set runtime path of "/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/lib/libyahboomcar_msgs__rosidl_typesupport_c.so" to ""
+-- Installing: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/lib/libyahboomcar_msgs__rosidl_typesupport_fastrtps_cpp.so
+-- Set runtime path of "/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/lib/libyahboomcar_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""
+-- Installing: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/lib/libyahboomcar_msgs__rosidl_typesupport_introspection_cpp.so
+-- Set runtime path of "/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/lib/libyahboomcar_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+-- Installing: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/lib/libyahboomcar_msgs__rosidl_typesupport_cpp.so
+-- Set runtime path of "/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/lib/libyahboomcar_msgs__rosidl_typesupport_cpp.so" to ""
+Listing '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs'...
+Compiling '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/__init__.py'...
+Listing '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/msg'...
+Compiling '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/msg/__init__.py'...
+Compiling '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/msg/_arm_joint.py'...
+Compiling '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/msg/_image_msg.py'...
+Compiling '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/msg/_point_array.py'...
+Compiling '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/msg/_position.py'...
+Compiling '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/msg/_target.py'...
+Compiling '/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/local/lib/python3.10/dist-packages/yahboomcar_msgs/msg/_target_array.py'...
+-- Installing: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/lib/libyahboomcar_msgs__rosidl_generator_py.so
+-- Set runtime path of "/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/lib/libyahboomcar_msgs__rosidl_generator_py.so" to ""
+-- Up-to-date: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/cmake/export_yahboomcar_msgs__rosidl_generator_cExport.cmake
+-- Up-to-date: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/cmake/export_yahboomcar_msgs__rosidl_generator_cExport-noconfig.cmake
+-- Up-to-date: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/cmake/export_yahboomcar_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+-- Up-to-date: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/cmake/export_yahboomcar_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+-- Up-to-date: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/cmake/yahboomcar_msgs__rosidl_typesupport_introspection_cExport.cmake
+-- Up-to-date: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/cmake/yahboomcar_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+-- Up-to-date: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/cmake/yahboomcar_msgs__rosidl_typesupport_cExport.cmake
+-- Up-to-date: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/cmake/yahboomcar_msgs__rosidl_typesupport_cExport-noconfig.cmake
+-- Up-to-date: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/cmake/export_yahboomcar_msgs__rosidl_generator_cppExport.cmake
+-- Up-to-date: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/cmake/export_yahboomcar_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+-- Up-to-date: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/cmake/export_yahboomcar_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+-- Up-to-date: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/cmake/yahboomcar_msgs__rosidl_typesupport_introspection_cppExport.cmake
+-- Up-to-date: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/cmake/yahboomcar_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+-- Up-to-date: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/cmake/yahboomcar_msgs__rosidl_typesupport_cppExport.cmake
+-- Up-to-date: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/cmake/yahboomcar_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+-- Up-to-date: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/cmake/export_yahboomcar_msgs__rosidl_generator_pyExport.cmake
+-- Up-to-date: /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/install/yahboomcar_msgs/share/yahboomcar_msgs/cmake/export_yahboomcar_msgs__rosidl_generator_pyExport-noconfig.cmake
