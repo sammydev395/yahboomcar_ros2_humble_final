@@ -77,9 +77,10 @@ docker run -d \
     -p 8888:8888 \
     -p 6000:6000 \
     yahboom_ros2_humble:latest \
-    bash -c "ln -sf /dev/ttyUSB1 /dev/myserial 2>/dev/null || true && \
-             ln -sf /dev/ttyUSB0 /dev/ydlidar 2>/dev/null || true && \
-             tail -f /dev/null"
+            bash -c "ln -sf /dev/ttyUSB1 /dev/myserial 2>/dev/null || true && \
+                     ln -sf /dev/ttyUSB0 /dev/ydlidar 2>/dev/null || true && \
+                     ln -sf /dev/ttyUSB2 /dev/myspeech 2>/dev/null || true && \
+                     tail -f /dev/null"
 
 if [ $? -eq 0 ]; then
     echo ""

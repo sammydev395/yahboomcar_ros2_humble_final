@@ -22,6 +22,10 @@ if [ -e /dev/ttyUSB0 ]; then
     ln -sf /dev/ttyUSB0 /dev/ydlidar 2>/dev/null || true
 fi
 
+if [ -e /dev/ttyUSB2 ]; then
+    ln -sf /dev/ttyUSB2 /dev/myspeech 2>/dev/null || true
+fi
+
 # Execute the command passed to the container
 exec "$@"
 
