@@ -1,2 +1,0 @@
-/mnt/foxy_image/var/lib/docker/overlay2/0f11ca337f9f88f0914940ad0a25e76796117b10ae6dab740c5841580ea53d3d/diff/etc/modprobe.d/libopenni-sensor-pointclouds0.conf
-/mnt/foxy_image/var/lib/docker/overlay2/0f11ca337f9f88f0914940ad0a25e76796117b10ae6dab740c5841580ea53d3d/diff/etc/sensors3.conf
