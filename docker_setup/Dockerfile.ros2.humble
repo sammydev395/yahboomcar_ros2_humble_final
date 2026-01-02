@@ -146,8 +146,8 @@ RUN mkdir -p /root/yahboomcar_ros2_ws
 # Setup environment
 RUN echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc
 
-# Copy udev rules from Foxy container (if any exist)
-COPY foxy_container_extract/udev_rules/ /tmp/udev_rules/
+# Copy udev rules (if any exist)
+COPY udev_rules/ /tmp/udev_rules/
 RUN if [ -d /tmp/udev_rules ] && [ "$(ls -A /tmp/udev_rules 2>/dev/null)" ]; then \
         cp /tmp/udev_rules/* /etc/udev/rules.d/ 2>/dev/null || true; \
         rm -rf /tmp/udev_rules; \
