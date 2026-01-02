@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install -y \
     && locale-gen en_US.UTF-8 \
     && update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 
-# Install basic utilities
+# Install basic utilities (without ROS2 packages first)
 RUN apt-get update && apt-get install -y \
     curl \
     gnupg2 \
@@ -29,9 +29,6 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     cmake \
     python3-pip \
-    python3-colcon-common-extensions \
-    python3-rosdep \
-    python3-vcstool \
     sudo \
     net-tools \
     iputils-ping \
@@ -40,6 +37,13 @@ RUN apt-get update && apt-get install -y \
 # Setup ROS2 Humble repository
 RUN curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | apt-key add - \
     && echo "deb [arch=$(dpkg --print-architecture)] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/ros2-latest.list
+
+# Install ROS2 build tools (after repository is added)
+RUN apt-get update && apt-get install -y \
+    python3-colcon-common-extensions \
+    python3-rosdep \
+    python3-vcstool \
+    && rm -rf /var/lib/apt/lists/*
 
 # Install ROS2 Humble
 RUN apt-get update && apt-get install -y \
@@ -62,6 +66,7 @@ RUN apt-get update && apt-get install -y \
     ros-humble-robot-localization \
     ros-humble-robot-state-publisher \
     ros-humble-joint-state-publisher \
+    ros-humble-joint-state-publisher-gui \
     ros-humble-xacro \
     ros-humble-urdf \
     ros-humble-tf2-ros \
@@ -73,15 +78,63 @@ RUN apt-get update && apt-get install -y \
     ros-humble-cartographer \
     && rm -rf /var/lib/apt/lists/*
 
+# Install MoveIt2 packages (for arm packages and x3plus_moveit_config)
+RUN apt-get update && apt-get install -y \
+    ros-humble-moveit \
+    ros-humble-moveit-core \
+    ros-humble-moveit-ros-planning-interface \
+    ros-humble-moveit-ros-move-group \
+    ros-humble-moveit-kinematics \
+    ros-humble-moveit-planners \
+    ros-humble-moveit-ros-visualization \
+    ros-humble-moveit-simple-controller-manager \
+    ros-humble-moveit-msgs \
+    ros-humble-ros2-control \
+    ros-humble-ros2-controllers \
+    ros-humble-controller-manager \
+    ros-humble-rviz2 \
+    && rm -rf /var/lib/apt/lists/*
+
 # Install system dependencies (will be updated based on Foxy extraction)
 RUN apt-get update && apt-get install -y \
     libopencv-dev \
     libeigen3-dev \
     libboost-all-dev \
+    libboost-system-dev \
     libusb-1.0-0-dev \
     udev \
     usbutils \
+    python3-numpy \
+    python3-yaml \
+    python3-opencv \
+    libglew-dev \
+    libepoxy-dev \
+    ffmpeg \
+    libcanberra-gtk-module \
     && rm -rf /var/lib/apt/lists/*
+
+# Build Pangolin (required for ORB-SLAM2)
+# Note: Pangolin is available in mounted /root/software/orbslam2/Pangolin-0.6
+# Skipping build in Dockerfile - will use mounted version at runtime
+
+# Build ORB-SLAM2 (if not in workspace, build it here)
+# Note: ORB_SLAM2 is available in mounted /root/software/orbslam2/ORB_SLAM2-master
+# Skipping build in Dockerfile - will use mounted version at runtime
+
+# Set ORB_SLAM2 environment variables (will use mounted version if available)
+ENV ORB_SLAM2_ROOT_DIR=/root/software/orbslam2/ORB_SLAM2-master
+ENV LD_LIBRARY_PATH=/root/software/orbslam2/Pangolin-0.6/build/src:/root/software/orbslam2/ORB_SLAM2-master/Thirdparty/DBoW2/lib:/root/software/orbslam2/ORB_SLAM2-master/Thirdparty/g2o/lib:/root/software/orbslam2/ORB_SLAM2-master/lib:/root/Pangolin/build/src:/root/ORB_SLAM2/Thirdparty/DBoW2/lib:/root/ORB_SLAM2/Thirdparty/g2o/lib:/root/ORB_SLAM2/lib:$LD_LIBRARY_PATH
+
+# Install Python packages for vision and ML
+# Remove system-installed sympy first to avoid conflicts, then install packages
+RUN apt-get remove -y python3-sympy 2>/dev/null || true && \
+    pip3 install --upgrade pip && \
+    pip3 install --break-system-packages \
+    ultralytics \
+    mediapipe \
+    torch \
+    torchvision \
+    && rm -rf /root/.cache/pip
 
 # Initialize rosdep (will be updated with custom rules from Foxy if needed)
 RUN rosdep init || true \
@@ -93,7 +146,14 @@ RUN mkdir -p /root/yahboomcar_ros2_ws
 # Setup environment
 RUN echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc
 
-# Copy entrypoint script (will be created/updated based on Foxy extraction)
+# Copy udev rules from Foxy container (if any exist)
+COPY foxy_container_extract/udev_rules/ /tmp/udev_rules/
+RUN if [ -d /tmp/udev_rules ] && [ "$(ls -A /tmp/udev_rules 2>/dev/null)" ]; then \
+        cp /tmp/udev_rules/* /etc/udev/rules.d/ 2>/dev/null || true; \
+        rm -rf /tmp/udev_rules; \
+    fi
+
+# Copy entrypoint script
 COPY docker_entrypoint.sh /ros_entrypoint.sh
 RUN chmod +x /ros_entrypoint.sh
 

@@ -1,0 +1,18 @@
+# Large extracted image files (too large for Git, even with LFS)
+foxy_image_extract/
+*.img
+
+# Build logs and temporary files
+build.log
+*.backup.*
+
+# Large extraction directories (keep foxy_container_extract as it's only 13MB)
+# foxy_container_extract/ is kept - it contains useful extracted configs
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+

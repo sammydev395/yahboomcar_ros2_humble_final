@@ -54,6 +54,8 @@ docker run -d \
     -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
     -v $HOME/.Xauthority:/root/.Xauthority:rw \
     -v "$WORKSPACE_DIR:/root/yahboomcar_ros2_ws:rw" \
+    -v /home/jetson/yahboomcar_ros2_ws/software/library_ws:/root/library_ws:rw \
+    -v /home/jetson/yahboomcar_ros2_ws_new/software:/root/software:rw \
     -v /home/jetson/temp:/root/temp:rw \
     -v /dev/bus/usb:/dev/bus/usb:rw \
     -v /dev/bus/usb/001/009:/dev/bus/usb/001/009 \

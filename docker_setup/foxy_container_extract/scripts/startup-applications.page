@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" style="task" id="startup-applications" xml:lang="ca">
+
+  <info>
+    <link type="guide" xref="shell-overview#apps"/>
+    <link type="guide" xref="prefs"/>
+    <desc>Escolliu quines aplicacions s'engeguen quan inicieu la sessió.</desc>
+
+    <revision version="18.04" date="2018-03-19" status="review"/>
+
+    <credit type="author">
+      <name>Equip de documentació de l'Ubuntu</name>
+    </credit>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+  </info>
+
+  <title>Aplicacions d'inici</title>
+
+  <p>Podeu configurar quines aplicacions s'han d'engegar quan inicieu la sessió, a més de les aplicacions que s'engeguen per defecte al sistema.</p>
+
+  <steps>
+    <item>
+      <p>Obriu les <gui>Aplicacions a l'inici</gui> via la visió general <gui xref="shell-introduction#activities">Activitats</gui>. Alternativament, podeu teclejar <keyseq><key>Alt</key><key>F2</key></keyseq> i executar la comanda <cmd>gnome-session-properties</cmd>.</p>
+    </item>
+    <item>
+      <p>Cliqueu <gui>Afegeix</gui> i introduïu la comanda a executar a l'inici de sessió (el nom i els comentaris són opcionals). Per exemple, per fer que el Firefox s'engegui automàticament, n'hi ha prou amb teclejar <cmd>firefox</cmd> al camp <gui>Comanda</gui> i confirmar amb <gui>Afegeix</gui>.</p>
+    </item>
+  </steps>
+
+  <note>
+    <p>Tant podeu teclejar la comanda, com clicar el botó <gui>Navega...</gui> i seleccionar una comanda. Les aplicacions per l'inici automàtic són típicament a la carpeta <code>/usr/bin</code>.</p>
+  </note>
+
+</page>
