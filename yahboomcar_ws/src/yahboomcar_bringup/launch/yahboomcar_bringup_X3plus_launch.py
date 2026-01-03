@@ -8,7 +8,7 @@ from ament_index_python.packages import get_package_share_path, get_package_shar
 
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
-from launch.conditions import IfCondition, UnlessCondition
+from launch.conditions import IfCondition, UnlessCondition, AndCondition
 from launch.substitutions import Command, LaunchConfiguration
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 
@@ -65,6 +65,12 @@ def generate_launch_description():
         description='Whether to start RViz'
     )
 
+    use_real_robot_arg = DeclareLaunchArgument(
+        'use_real_robot',
+        default_value='true',
+        description='Whether to use real robot (disables joint_state_publisher to avoid conflicts)'
+    )
+
     # Robot description
     robot_description = ParameterValue(
         Command(['xacro ', LaunchConfiguration('model')]),
@@ -79,10 +85,13 @@ def generate_launch_description():
     )
 
     # Joint State Publisher (for visualization without real robot)
+    # Only start if NOT using real robot (to avoid conflicts with driver_node joint states)
+    # Note: When use_real_robot=true (default), driver_node publishes real joint states
+    # and joint_state_publisher is disabled to prevent conflicts
     joint_state_publisher_node = Node(
         package='joint_state_publisher',
         executable='joint_state_publisher',
-        condition=UnlessCondition(LaunchConfiguration('gui'))
+        condition=UnlessCondition(LaunchConfiguration('use_real_robot'))
     )
 
     joint_state_publisher_gui_node = Node(
@@ -180,6 +189,7 @@ def generate_launch_description():
         rviz_arg,
         pub_odom_tf_arg,
         use_rviz_arg,
+        use_real_robot_arg,
         # Nodes
         robot_state_publisher_node,
         joint_state_publisher_node,
