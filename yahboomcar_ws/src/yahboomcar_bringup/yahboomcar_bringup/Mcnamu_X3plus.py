@@ -191,21 +191,29 @@ class YahboomcarDriver(Node):
         self.last_arm_command_time = current_time
         arm_joint = ArmJoint()
         if hasattr(msg, 'joints') and len(msg.joints) != 0:
-            arm_joint.joints = self.joints
-            for i, angle in enumerate(msg.joints):
-                servo_id = i + 1
-                if servo_id in [1, 2, 3, 4]:
-                    idx = servo_id - 1
-                    if self.last_servo_angles[idx] is None or abs(angle - self.last_servo_angles[idx]) > 0.5:
-                        self.get_logger().info(f"Moving servo {servo_id} to {angle:.1f}")
-                        self.car.set_uart_servo_angle(servo_id, angle, msg.run_time)
-                        self.last_servo_angles[idx] = angle
+            # Validate joints array length
+            if len(msg.joints) != 6:
+                self.get_logger().error(f"Invalid joints array length: {len(msg.joints)}, expected 6")
+                return
+            arm_joint.joints = list(msg.joints)  # Copy the joints array
+            try:
+                for i, angle in enumerate(msg.joints):
+                    servo_id = i + 1
+                    if servo_id in [1, 2, 3, 4]:
+                        idx = servo_id - 1
+                        if self.last_servo_angles[idx] is None or abs(angle - self.last_servo_angles[idx]) > 0.5:
+                            self.get_logger().info(f"Moving servo {servo_id} to {angle:.1f}")
+                            self.car.set_uart_servo_angle(servo_id, angle, msg.run_time)
+                            self.last_servo_angles[idx] = angle
+                        else:
+                            self.get_logger().debug(f"Servo {servo_id}: Angle change too small, skipping command.")
                     else:
-                        self.get_logger().debug(f"Servo {servo_id}: Angle change too small, skipping command.")
-                else:
-                    self.car.set_uart_servo_angle(servo_id, angle, msg.run_time)
-                self.joints[i] = angle
-                sleep(0.02)
+                        self.car.set_uart_servo_angle(servo_id, angle, msg.run_time)
+                    self.joints[i] = angle
+                    sleep(0.02)
+            except Exception as e:
+                self.get_logger().error(f"Error setting arm joints: {e}")
+                return
             self.ArmPubUpdate.publish(arm_joint)
         else:
             arm_joint.id = msg.id

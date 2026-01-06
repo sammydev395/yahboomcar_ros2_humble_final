@@ -23,6 +23,8 @@ setup(
     entry_points={
         'console_scripts': [
         'Voice_Ctrl_Mcnamu_driver_X3 = yahboomcar_voice_ctrl.Voice_Ctrl_Mcnamu_driver_X3:main',
+        'Voice_Ctrl_Arm_X3plus = yahboomcar_voice_ctrl.Voice_Ctrl_Arm_X3plus:main',
+        'Voice_Ctrl_Unified_X3plus = yahboomcar_voice_ctrl.Voice_Ctrl_Unified_X3plus:main',
         'Voice_Ctrl_follow_line_a1_X3 = yahboomcar_voice_ctrl.Voice_Ctrl_follow_line_a1_X3:main',
         'Voice_Ctrl_colorTracker = yahboomcar_voice_ctrl.Voice_Ctrl_colorTracker:main',
         'Voice_Ctrl_colorHSV = yahboomcar_voice_ctrl.Voice_Ctrl_colorHSV:main',

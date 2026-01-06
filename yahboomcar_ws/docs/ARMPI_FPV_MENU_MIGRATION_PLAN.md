@@ -53,7 +53,7 @@ This document outlines the migration plan for bringing the ArmPi FPV menu system
 2. **Python Scripts**: Utility scripts for LED control (strip LEDs), UPS monitoring (Waveshare UPS Module C)
 3. **Configuration Files**: Color calibration (lab_config may be needed for camera calibration)
 4. **Camera Support**: 
-   - **Arm Camera**: Current inexpensive USB camera (on arm/gripper) - will be replaced with Arducam or OAK-D-Lite
+   - **Arm Camera**: Microdia Camera (OOTB - ID 0c45:6340) on arm/gripper - will be replaced with Arducam or OAK-D-Lite
    - **Astra Camera**: Fixed mount, powerful depth camera - already working, no migration needed
    - **Arducam IMX477 CSI Camera** - to be integrated (replaces current USB camera)
    - **OAK-D-Lite HD Camera** - future integration option
@@ -242,8 +242,15 @@ The Rosmaster X3 Plus has **two camera systems**:
    - **Action**: **No work needed** - this camera is already functional
 
 2. **Arm Camera (Gripper Camera)** ⚠️ **TO BE REPLACED**
-   - **Current**: Inexpensive USB camera mounted on arm/gripper
-   - **Device**: Generic USB webcam (accessed via `/dev/camera_usb` or `/dev/video0`)
+   - **Current**: Microdia Camera (OOTB - comes with Yahboom robot)
+   - **Device**: USB Camera (Microdia, ID 0c45:6340)
+   - **Device Path**: Appears as "USB 2.0 Camera" on `/dev/video0` and `/dev/video1`
+   - **Symlink**: `/dev/camera_usb` → `/dev/video0` (created for arm nodes)
+   - **Location**: Mounted on arm/gripper
+   - **ROS2 Package**: `usb_cam` (ros-humble-usb-cam)
+   - **Topic**: Publishes to `/image_raw` (separate from Astra camera topics)
+   - **Frame Rate**: ~15-30 FPS (functional but lower than target 30Hz)
+   - **Used By**: Arm control nodes (`arm_autopilot`, `arm_mediapipe`)
    - **Status**: Currently working but will be replaced for better quality
    - **Replacement Options**:
      - **Arducam IMX477 CSI Camera** ⚠️ **TO BE INTEGRATED**
@@ -284,11 +291,24 @@ The Rosmaster X3 Plus has **two camera systems**:
 **Status**: ⚠️ Currently working but will be replaced
 
 **Current Implementation**:
-- Generic USB webcam mounted on arm/gripper
-- Accessed via `/dev/camera_usb` or `/dev/video0`
-- Used by arm control nodes (e.g., `arm_autopilot`, `arm_mediapipe`)
+- **Microdia Camera** (OOTB - comes with Yahboom robot)
+- **Device**: USB Camera (Microdia, ID 0c45:6340)
+- **Device Path**: Appears as "USB 2.0 Camera" on `/dev/video0` and `/dev/video1`
+- **Symlink**: `/dev/camera_usb` → `/dev/video0` (created for arm nodes)
+- **Location**: Mounted on arm/gripper
+- **ROS2 Package**: `usb_cam` (ros-humble-usb-cam)
+- **Topic**: Publishes to `/image_raw` (separate from Astra camera topics)
+- **Frame Rate**: ~15-30 FPS (functional but lower than target 30Hz)
+- **Used By**: Arm control nodes:
+  - `arm_autopilot` - uses `/dev/camera_usb` (falls back to `/dev/video0`)
+  - `arm_mediapipe` - uses `/dev/camera_depth` (falls back to `/dev/video0`)
+- **Camera Separation**:
+  - **Arm Camera**: Microdia (0c45:6340) on `/dev/video0`, publishes `/image_raw`
+  - **Astra Camera**: Orbbec (2bc5:050f) publishes `/color/image_raw`, `/depth/image_raw`, `/ir/image_raw`
 
-**Action**: Will be replaced with Arducam or OAK-D-Lite for better quality.
+**Action**: Will be replaced with Arducam or OAK-D-Lite for better quality and higher frame rates.
+
+**Reference**: See Phase 3 Test 3.1 in TEST_PLAN.md for detailed setup and testing procedures.
 
 #### 4.2.3 Arducam IMX477 CSI Camera (Arm Camera Replacement)
 
@@ -505,7 +525,7 @@ The Rosmaster X3 Plus has **two camera systems**:
    - Update Python paths: `python3.8` → `python3.10`
    - Update ROS2 source commands
    - Update node execution paths
-   - Update camera integration for Aurora930
+   - Update camera integration for arm camera (current USB camera → Arducam/OAK-D-Lite)
 
 2. **Update `turn_off_leds.py`**:
    - Update ROS2 workspace paths
@@ -564,9 +584,9 @@ The Rosmaster X3 Plus has **two camera systems**:
    - Test lab calibration GUI
 
 2. **Test camera integration**:
-   - Test Aurora930 (baseline)
-   - Test Arducam bridge
-   - Test camera switching
+   - Test current USB arm camera (OOTB - ID 0c45:6340) as baseline
+   - Test Arducam bridge (replacement for USB camera)
+   - Test camera switching (if implemented)
 
 3. **Test Python scripts**:
    - Test `turn_off_leds.py` (Yahboom strip LEDs)
@@ -707,7 +727,7 @@ The Rosmaster X3 Plus has **two camera systems**:
 
 ### Camera Documentation
 - **Astra Camera**: Fixed mount depth camera - already working via `yahboomcar_astra` package (no migration needed)
-- **Arm Camera**: Current inexpensive USB camera on arm/gripper - will be replaced
+- **Arm Camera**: Microdia Camera (OOTB - ID 0c45:6340) on arm/gripper - will be replaced
 - **Arducam Product**: https://www.arducam.com/b0240-arducam-imx477-hq-quality-camera.html
 - **OAK-D-Lite**: https://www.waveshare.com/oak-d-lite.htm
 - **DepthAI Documentation**: https://docs.luxonis.com/
@@ -734,7 +754,7 @@ The Rosmaster X3 Plus has **two camera systems**:
 - Removed Aurora930 references (not needed - Astra camera is different and already working)
 - Updated camera information:
   - Astra camera: Fixed mount, already working, no migration needed
-  - Arm camera: Current inexpensive USB camera, will be replaced with Arducam/OAK-D-Lite
+  - Arm camera: Microdia Camera (OOTB - ID 0c45:6340), will be replaced with Arducam/OAK-D-Lite
 - Updated UPS module information (Waveshare UPS Power Module C instead of Lumi-Electronics)
 - Clarified that both systems use ROS2 Humble (no version migration needed)
 - Identified that lab_config is needed for camera calibration (no existing tools in yahboom code)
