@@ -887,18 +887,25 @@ ros2 topic echo /cmd_vel
   - Rebuilt `yahboomcar_msgs` package
   - Services now properly generated and importable
 - **Joystick Button Controls (Jetson Controller):**
-  - **Button 7 (R1):** RGB Light control (cycles through 6 effects: 0=stop, 1=flowing, 2=running, 3=breathing, 4=gradient, 5=starlight)
-  - **Button 11 (START):** Buzzer toggle (on/off)
-  - **Button 10 (SELECT):** Toggle gripper/arm joint 5 control mode
-  - **Left stick (axes[0,1]):** Chassis forward/back/strafe
-  - **Right stick (axes[2,3]):** Chassis rotation
-  - **Button 0 (A):** Arm joint 2 down
-  - **Button 1 (B):** Arm joint 1 down
-  - **Button 3 (X):** Arm joint 1 up
-  - **Button 4 (Y):** Arm joint 2 up
-  - **D-pad (axes[6,7]):** Arm joints 3/4
-  - **Button 6 (L1):** Gripper open / Arm joint 5 up
-  - **Axes 5 (L2):** Gripper close / Arm joint 5 down
+
+| Control | Button/Axis | Function | Details |
+|---------|-------------|----------|---------|
+| **Chassis Control** | | | |
+| Forward/Back/Strafe | Left Stick (axes[0,1]) | Chassis movement | Forward/backward and left/right strafe |
+| Rotation | Right Stick (axes[2,3]) | Chassis rotation | Rotate robot in place |
+| **Arm Control** | | | |
+| Joint 1 Down | Button 1 (B) | Arm joint 1 down | Lower joint 1 |
+| Joint 1 Up | Button 3 (X) | Arm joint 1 up | Raise joint 1 |
+| Joint 2 Down | Button 0 (A) | Arm joint 2 down | Lower joint 2 |
+| Joint 2 Up | Button 4 (Y) | Arm joint 2 up | Raise joint 2 |
+| Joints 3/4 | D-pad (axes[6,7]) | Arm joints 3/4 | Control joints 3 and 4 |
+| **Gripper Control** | | | |
+| Mode Toggle | Button 10 (SELECT) | Toggle gripper/joint 5 mode | Switch between gripper and joint 5 control |
+| Open / Joint 5 Up | Button 6 (L1) | Gripper open or joint 5 up | Opens gripper (gripper mode) or raises joint 5 (joint mode) |
+| Close / Joint 5 Down | Axes 5 (L2) | Gripper close or joint 5 down | Closes gripper (gripper mode) or lowers joint 5 (joint mode) |
+| **Auxiliary Controls** | | | |
+| RGB Light | Button 7 (R1) | RGB Light effects | Cycles through 6 effects: 0=stop, 1=flowing, 2=running, 3=breathing, 4=gradient, 5=starlight |
+| Buzzer | Button 11 (START) | Buzzer toggle | Toggle buzzer on/off |
 - **Note:** RGB light can also be controlled via joystick button (verified during testing)
 - **Notes:**
   - Controller node works correctly
