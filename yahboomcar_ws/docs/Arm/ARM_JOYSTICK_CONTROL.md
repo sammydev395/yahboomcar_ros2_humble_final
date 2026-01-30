@@ -9,6 +9,18 @@ source install/setup.bash
 
 ---
 
+## Arm camera (for reference)
+
+Joystick and topic-based arm control in this doc do **not** require a camera. If you use **arm_autopilot** (color following) elsewhere, it uses the arm/gripper USB camera:
+
+| Feature | Package | Camera device | Physical camera |
+|--------|----------|---------------|------------------|
+| **Arm color following** | `arm_autopilot` | `/dev/camera_usb` → `0` | Arm/gripper USB (Microdia 0c45:6340, usually `/dev/video0`) |
+
+**Optional setup** (only if using arm_autopilot): `ln -sf /dev/video0 /dev/camera_usb`
+
+---
+
 ## Joystick Button Controls (Jetson Controller)
 
 | Control | Button/Axis | Function | Details |
@@ -41,7 +53,9 @@ source install/setup.bash
 
 ---
 
-## Test 3.2: Arm Joint States
+## Arm tests
+
+### Test 3.2: Arm Joint States
 **Purpose:** Verify arm position feedback
 
 **Prerequisites:** Driver node should be running from Test 1.4. If not:
@@ -598,4 +612,3 @@ yahboomcar_msgs.srv.RobotArmArray_Response(angles=[90.0, 145.0, 0.0, 45.0, 90.0,
 - **Verification:** Both joint_states topic and CurrentAngle service confirm position changes
 - **Safety:** Arm returns to safe positions after testing
 
----

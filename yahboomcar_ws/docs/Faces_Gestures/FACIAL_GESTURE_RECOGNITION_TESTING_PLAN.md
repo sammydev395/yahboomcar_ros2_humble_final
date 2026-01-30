@@ -39,7 +39,7 @@ todos:
     dependencies:
       - create-test-framework
   - id: test-distance-range
-    content: Test system at 2, 5, 10, and 15 feet distances and verify detection accuracy and tracking persistence
+    content: Test system at 2, 5, 10, and 15 feet distances and verify detection accuracy and tracking persistence (run with both stationary Astra and arm OAK-D Lite; record results per camera)
     status: pending
     dependencies:
       - create-launch-file
@@ -56,6 +56,13 @@ todos:
 
 This plan creates a comprehensive testing system that combines facial recognition, gesture recognition, and person tracking using multiple technologies (LLM/VLM/MediaPipe/YOLOv8) to work across a 2-15 foot distance range.
 
+**Dual-camera testing requirement:** All face and gesture recognition tests must be run with **both** camera sources and results recorded per camera:
+
+1. **Stationary camera (Orbbec Astra Pro)** — chassis-mounted depth camera; fixed view of the scene.
+2. **Arm camera (OAK-D Lite when replaced)** — camera on the arm/gripper; close-up, ego-centric view. When the stock arm camera (e.g. Microdia USB) is replaced with OAK-D Lite, use the arm camera stream for a second full test pass.
+
+See [Camera Sources and Topic Reference](#camera-sources-and-topic-reference) and [Dual-Camera Test Execution](#dual-camera-test-execution) below. For camera setup, topics, and launch details see [YAHBOOMCAR_VISUAL_TEST_PLAN.md](../Camera/YAHBOOMCAR_VISUAL_TEST_PLAN.md) and [Camera_Integration_Guide.md](../Camera/Camera_Integration_Guide.md).
+
 ## Architecture
 
 The system will integrate:
@@ -64,6 +71,33 @@ The system will integrate:
 - **YOLOv8** for person detection and tracking with persistent IDs
 - **VLM/LLM** for enhanced scene understanding and natural language descriptions
 - **Multi-modal fusion** to combine detections across technologies
+
+## Camera Sources and Topic Reference
+
+The ROSmaster X3 Plus uses a **dual-camera setup**. Face and gesture tests must be run with **both** sources; topic names and roles are below. See [YAHBOOMCAR_VISUAL_TEST_PLAN.md](../Camera/YAHBOOMCAR_VISUAL_TEST_PLAN.md) and [Camera_Integration_Guide.md](../Camera/Camera_Integration_Guide.md) for full camera and launch details.
+
+| Camera | Role | RGB topic | Depth topic | Notes |
+|--------|------|-----------|-------------|--------|
+| **Orbbec Astra Pro** | Stationary (chassis) | `/camera/color/image_raw` | `/camera/depth/image_raw` | Launch `yahboomcar_astra` (e.g. `ros2 launch yahboomcar_astra astra.launch.py`). Some configs use `/color/image_raw`; if so, use that for face/gesture input. |
+| **OAK-D Lite (arm)** | Arm camera (replacement) | `/arm_cam/image_raw` or `/oak/rgb/image_raw` | `/arm_cam/depth/image_raw` or `/oak/depth/image_raw` | Run depthai-ros for OAK-D Lite; remap RGB to `/arm_cam/image_raw` (or keep `/oak/rgb/image_raw` and remap in launch). 1080p/4K @ 30fps; depth to ~20 feet; onboard Myriad X. |
+
+**Stationary (Orbbec Astra Pro):**
+
+- **Resolution:** 640×480 @ 30fps  
+- **Depth range:** 0.15–3 m  
+- **Use:** Chassis-level perception; KCF, SLAM, Astra viewers.  
+- **Face/gesture:** Good at 2–5 ft; marginal at 5–10 ft; unreliable beyond.
+
+**Arm camera (OAK-D Lite when replaced):**
+
+- **Resolution:** 1080p or 4K @ 30fps  
+- **Depth range:** Up to ~20 feet  
+- **Use:** Arm/gripper view; arm_autopilot, arm_mediapipe (with topic support).  
+- **Face/gesture:** Better range than Astra (e.g. 2–15 ft at 1080p, 2–20 ft at 4K) due to higher resolution.
+
+When running face/gesture nodes, set the image topic (e.g. `camera_topic`) to the appropriate source:  
+- Stationary: `camera_topic:=/camera/color/image_raw` (or `/color/image_raw` if that is what the Astra driver publishes).  
+- Arm: `camera_topic:=/arm_cam/image_raw` (or remap from `/oak/rgb/image_raw`).
 
 ## System Components
 
@@ -105,7 +139,7 @@ The system will integrate:
 
 **Key Features:**
 
-- Subscribe to: `person_tracker/tracked_persons` and camera image (`/color/image_raw` - Astra Pro)
+- Subscribe to: `person_tracker/tracked_persons` and camera image (same topic as person tracker: stationary `/camera/color/image_raw` or arm `/arm_cam/image_raw`)
 - Crop person regions from full image before face detection
 - Publish face detections: `~/face_detections` (with associated person ID)
 - Use existing `mp.solutions.face_detection.FaceDetection` from `face_tracker.py`
@@ -128,7 +162,7 @@ The system will integrate:
 
 **Key Features:**
 
-- Subscribe to: `person_tracker/tracked_persons` and camera image (`/color/image_raw` - Astra Pro)
+- Subscribe to: `person_tracker/tracked_persons` and camera image (same topic as person tracker: stationary `/camera/color/image_raw` or arm `/arm_cam/image_raw`)
 - Crop person regions and detect hands within those regions
 - Use existing gesture recognition logic from `finger_trace.py`
 - Publish gestures: `~/gesture_detections` (gesture type + person ID)
@@ -309,18 +343,20 @@ float32[] hand_landmarks
    - Create comprehensive visualization
    - Implement logging and metrics
 
-2. **Test scenarios**
+2. **Test scenarios (run with BOTH camera sources)**
 
-   - Single person, 2 feet away: face + gesture detection (✅ Expected: Reliable)
-   - Single person, 5 feet away: face + gesture detection (✅ Expected: Reliable)
-   - Single person, 10 feet away: face + gesture detection (⚠️ Expected: Face marginal, gesture difficult)
-   - Single person, 15 feet away: face + gesture detection (❌ Expected: Face unreliable, gesture likely impossible)
-   - Single person, 20 feet away: person detection only (❌ Expected: No face/gesture, person tracking only)
-   - Person walking around: tracking persistence
-   - Multiple persons: track ID separation
-   - Occlusion handling: person temporarily hidden
+   Execute the same scenarios **once with the stationary Orbbec Astra Pro** and **once with the arm camera (OAK-D Lite when replaced)**. Record results per camera (pass/fail, FPS, distance limits).
 
-**Note:** Astra Pro camera (640x480 @ 30fps, depth range 0.15-3m) limitations mean 15-20 feet face/gesture detection is likely not achievable. Consider higher resolution camera upgrade for long-range applications.
+   - Single person, 2 feet away: face + gesture detection (✅ Expected: Reliable on both cameras)
+   - Single person, 5 feet away: face + gesture detection (✅ Astra reliable; ✅ OAK-D Lite reliable)
+   - Single person, 10 feet away: face + gesture detection (⚠️ Astra marginal; ✅ OAK-D Lite expected better)
+   - Single person, 15 feet away: face + gesture detection (❌ Astra unreliable; ⚠️ OAK-D Lite marginal at 1080p, ✅ at 4K)
+   - Single person, 20 feet away: person detection only (❌ Astra; ⚠️/✅ OAK-D Lite depending on resolution)
+   - Person walking around: tracking persistence (both cameras)
+   - Multiple persons: track ID separation (both cameras)
+   - Occlusion handling: person temporarily hidden (both cameras)
+
+**Note:** Stationary Astra (640×480 @ 30fps, depth 0.15–3 m) limits face/gesture at 15–20 ft. The arm OAK-D Lite (1080p/4K, depth to ~20 ft) supports better range; test both and document differences.
 
 ### Phase 6: Documentation
 
@@ -344,6 +380,45 @@ float32[] hand_landmarks
    - Add hardware-specific details (Astra Pro camera, depth sensing)
    - Include integration with YOLOv8 and AI models
    - Document Jetson/Orin/RPi5 hardware differences
+
+## Dual-Camera Test Execution
+
+All face and gesture recognition tests must be run **twice**: once with the **stationary Orbbec Astra Pro** and once with the **arm camera (OAK-D Lite when replaced)**. Use the same test scenarios and record results per camera.
+
+### Test pass 1: Stationary camera (Orbbec Astra Pro)
+
+1. **Start the stationary Astra** so RGB (and optionally depth) is published:
+   ```bash
+   ros2 launch yahboomcar_astra astra.launch.py
+   ```
+2. **Confirm topics:**  
+   `ros2 topic hz /camera/color/image_raw` (or `/color/image_raw` if your Astra launch uses that namespace).
+3. **Launch the face/gesture pipeline** with the stationary camera as source:
+   ```bash
+   ros2 launch <face_gesture_launch> face_gesture_test.launch.py camera_topic:=/camera/color/image_raw
+   ```
+   (Use the actual topic name your Astra driver publishes.)
+4. **Run the test scenarios** in Phase 5 (distances 2, 5, 10, 15 ft; tracking persistence; multiple persons; occlusion). Record: pass/fail, FPS, max distance for reliable face/gesture.
+5. **Document results** in a table or log (e.g. "Stationary Astra: face reliable to 5 ft, gesture to 5 ft; FPS 12; …").
+
+### Test pass 2: Arm camera (OAK-D Lite)
+
+1. **Start the OAK-D Lite (arm camera)** via depthai-ros so its RGB is published (e.g. `/oak/rgb/image_raw` or remapped to `/arm_cam/image_raw`). See [Camera_Integration_Guide.md](../Camera/Camera_Integration_Guide.md) and [YAHBOOMCAR_VISUAL_TEST_PLAN.md](../Camera/YAHBOOMCAR_VISUAL_TEST_PLAN.md).
+2. **Confirm topic:**  
+   `ros2 topic hz /arm_cam/image_raw` or `ros2 topic hz /oak/rgb/image_raw`.
+3. **Launch the face/gesture pipeline** with the arm camera as source:
+   ```bash
+   ros2 launch <face_gesture_launch> face_gesture_test.launch.py camera_topic:=/arm_cam/image_raw
+   ```
+   (Or remap from `/oak/rgb/image_raw` to the topic the launch expects.)
+4. **Run the same test scenarios** as in pass 1. Record results per scenario.
+5. **Document results** (e.g. "Arm OAK-D Lite 1080p: face reliable to 10 ft, gesture to 8 ft; FPS 18; …").
+
+### Comparison and reporting
+
+- Fill a simple matrix: scenario × camera (stationary Astra vs arm OAK-D Lite) with pass/fail and notes.
+- Note resolution/FPS differences (Astra 640×480 vs OAK-D Lite 1080p/4K) and any depth usage.
+- If the arm camera is still the stock USB camera (e.g. Microdia), run pass 2 with that source’s topic (e.g. `/image_raw`) if available; otherwise document "Arm camera: stock USB, topic X" and run when OAK-D Lite is integrated.
 
 ## Distance-Based Configuration
 
@@ -390,10 +465,10 @@ float32[] hand_landmarks
 - ❌ **15-20 feet range:** Person detection only, face/gesture not reliable
 
 **Summary:**
-- **For 2-10 feet face/gesture recognition:** ✅ **Astra Pro is sufficient**
+- **For 2-10 feet face/gesture recognition:** ✅ **Astra Pro (stationary) is sufficient**
 - **For 10-15 feet:** ⚠️ **Astra Pro person detection works, face/gesture marginal**
 - **For 15-20 feet:** ❌ **Astra Pro insufficient for face/gesture, person detection only**
-- **Note:** X3PLUS comes with Astra Pro. For 15-20 feet face/gesture, consider upgrading to higher resolution camera (OAK-D Lite/S2 or similar)
+- **Arm camera (OAK-D Lite):** When the arm camera is replaced with OAK-D Lite, run the same test scenarios with the arm camera topic (`/arm_cam/image_raw`); expect better range (1080p/4K) and document results in the dual-camera test pass. See [Camera_Integration_Guide.md](../Camera/Camera_Integration_Guide.md) and [YAHBOOMCAR_VISUAL_TEST_PLAN.md](../Camera/YAHBOOMCAR_VISUAL_TEST_PLAN.md).
 
 ### Detection Confidence Thresholds
 
@@ -482,12 +557,19 @@ float32[] hand_landmarks
 
 Launch all nodes in correct order:
 
-1. Camera node
-2. Person tracker node
-3. Face detection node
-4. Gesture recognition node
+1. **Camera node** — Start **either** the stationary Astra (`yahboomcar_astra`) **or** the arm camera (OAK-D Lite via depthai-ros). Do not run both cameras on the same image topic; run two separate test passes (see [Dual-Camera Test Execution](#dual-camera-test-execution)).
+2. Person tracker node (with `camera_topic` set to the active camera)
+3. Face detection node (same `camera_topic`)
+4. Gesture recognition node (same `camera_topic`)
 5. VLM analysis node (optional)
 6. Test visualization node
+
+**Camera selection:** Support a launch parameter `camera_topic` so the pipeline can be driven by either camera:
+
+- **Stationary (Orbbec Astra Pro):** `camera_topic:=/camera/color/image_raw` (or `/color/image_raw` if that is the Astra topic in your setup).
+- **Arm (OAK-D Lite):** `camera_topic:=/arm_cam/image_raw` (or remap from `/oak/rgb/image_raw`).
+
+Run the full test suite once with each value and record results per camera.
 
 ## Hardware Resource Requirements
 
@@ -713,6 +795,7 @@ vlm_description = response.message
 8. VLM can describe detected faces and gestures (if enabled, requires Jetson Orin NX SUPER or 16GB RPi5)
 9. Test framework provides comprehensive logging and visualization
 10. System remains stable for extended testing sessions (30+ minutes)
+11. **Both camera sources tested:** All face/gesture scenarios executed and documented for **stationary Orbbec Astra Pro** and for **arm camera (OAK-D Lite when replaced)**; results recorded per camera (see [Dual-Camera Test Execution](#dual-camera-test-execution)).
 
 **⚠️ IMPORTANT:** Camera selection affects detection range:
 
@@ -784,3 +867,8 @@ vlm_description = response.message
    - Verify agent_process service is running
    - Check API keys and base URLs if using cloud VLM
    - Consider TensorRT optimization for Jetson/Orin
+
+## References (Camera and Visual Stack)
+
+- **[YAHBOOMCAR_VISUAL_TEST_PLAN.md](../Camera/YAHBOOMCAR_VISUAL_TEST_PLAN.md)** — Which tests use stationary Astra vs OAK-D Lite; topic mapping; run order (OAK-D Lite then Astra for pub_image/astra_image_flip).
+- **[Camera_Integration_Guide.md](../Camera/Camera_Integration_Guide.md)** — Stationary Orbbec Astra Pro and arm camera (OAK-D Lite replacement); topic names (`/camera/color/image_raw`, `/arm_cam/image_raw`); depthai-ros and remapping.

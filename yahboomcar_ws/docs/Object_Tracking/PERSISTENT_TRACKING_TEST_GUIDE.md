@@ -11,15 +11,15 @@
 
 ## Overview
 
-This guide provides comprehensive testing procedures for persistent object tracking using the KCF tracker on the Yahboom ROSMASTER X3PLUS 6DOF robot. The system enables real-time object tracking with depth sensing and optional arm integration for object manipulation.
+This guide covers **object tracking testing only** for four systems: **KCF** (Astra camera, chassis following), **arm_autopilot** (color-based arm tracking), **MediaPipe** (hand/pose tracking for arm control), and **arm_color_transport** (color-based pick and transport with navigation). It does not include generic arm control verification; see `ARM_JOYSTICK_CONTROL.md` for arm control testing.
 
 ### Key Features
 
-- **Persistent Object Tracking:** KCF algorithm maintains object identity across frames
-- **Depth Integration:** Uses Astra Pro Plus depth camera for distance measurement
-- **Robot Following:** Chassis movement to follow tracked objects
-- **Arm Integration:** Optional arm control for object manipulation
-- **Visual Feedback:** Real-time visualization of tracking status
+- **KCF Tracker:** Persistent object tracking (Astra camera), depth integration, chassis following via `/cmd_vel`.
+- **Arm Autopilot:** Color-based object tracking on arm camera (red, green, blue, yellow) → `/TargetAngle` for 6-DOF arm + gripper.
+- **MediaPipe:** Hand and pose tracking on arm camera for gesture/pose-based arm control → `/TargetAngle`.
+- **Arm Color Transport:** Color detection on arm camera (red, yellow, green, blue) → grip target, then Nav2 navigation to color pose → arm place → return. Uses `/TargetAngle`, `/cmd_vel`, Nav2 `navigate_to_pose`, and `color_end_pose` (MarkerArray).
+- **Visual Feedback:** KCF_image; arm_autopilot, MediaPipe, and arm_color_transport OpenCV windows.
 
 ---
 
@@ -51,6 +51,9 @@ This guide provides comprehensive testing procedures for persistent object track
 - ✅ `yahboomcar_description` - Robot model
 - ✅ `yahboomcar_msgs` - Custom messages
 - ✅ `orbbec_camera` - Astra camera driver
+- ✅ `arm_autopilot` - Arm-based color object tracking (arm camera → `/TargetAngle`)
+- ✅ `arm_mediapipe` - Hand/pose tracking for arm control (arm camera → `/TargetAngle`)
+- ✅ `arm_color_transport` - Color-based pick and transport with navigation (arm camera + Nav2)
 
 ### Verify Package Installation
 
@@ -72,32 +75,85 @@ ros2 pkg list | grep yahboomcar
 
 ### Topic Flow
 
+**Path A: KCF Tracker (Astra fixed camera, chassis following)**
+
 ```
 Astra Pro Plus Camera
-    ├── /camera/rgb/image_raw → KCF Tracker
-    ├── /camera/depth/image_raw → KCF Tracker (distance measurement)
-    └── /camera/depth/points → Optional (point cloud)
+    ├── /color/image_raw → KCF Tracker
+    ├── /depth/image_raw → KCF Tracker (distance measurement)
+    └── /depth/points → Optional (point cloud)
 
 KCF Tracker Node
-    ├── Subscribes: /camera/rgb/image_raw, /camera/depth/image_raw, /JoyState
+    ├── Subscribes: /color/image_raw, /depth/image_raw, /JoyState
     ├── Publishes: /KCF_image (visualization), /cmd_vel (robot movement)
     └── Output: Tracking box, object center, distance
 
 Robot Control
-    ├── /cmd_vel → driver_node → Robot chassis movement
-    └── /TargetAngle → driver_node → Arm control (optional)
+    └── /cmd_vel → driver_node → Chassis movement
 ```
+
+**Path B: Arm Autopilot (arm camera, color tracking, arm following)**
+
+```
+Arm Camera (USB: /dev/camera_usb or /dev/video0)
+    └── Direct capture in arm_autopilot node (OpenCV)
+
+Arm Autopilot Node (arm_autopilot/autopilot_main.py)
+    ├── Subscribes: (none; uses OpenCV VideoCapture)
+    ├── Publishes: /TargetAngle (yahboomcar_msgs/ArmJoint)
+    ├── Config: config/HSV.yaml (red, green, blue, yellow)
+    └── Output: Color-based object center → arm joint commands
+
+Robot Control
+    └── /TargetAngle → driver_node → Arm movement (6-DOF + gripper)
+```
+
+**Path C: MediaPipe (arm camera, hand/pose tracking, arm control)**
+
+```
+Arm Camera (USB: /dev/camera_usb or /dev/video0)
+    └── Direct capture in arm_mediapipe node (OpenCV)
+
+Arm MediaPipe Node (arm_mediapipe/ArmCtrl.py)
+    ├── Subscribes: (none; uses OpenCV VideoCapture)
+    ├── Publishes: /TargetAngle (yahboomcar_msgs/ArmJoint)
+    └── Output: Hand/pose landmarks → arm joint commands (gesture/pose control)
+
+Robot Control
+    └── /TargetAngle → driver_node → Arm movement
+```
+
+**Path D: Arm Color Transport (arm camera, color detection, navigation + arm)**
+
+```
+Arm Camera (USB: /dev/camera_usb or /dev/video0)
+    └── Direct capture in arm_color_transport node (OpenCV)
+
+Color Transport Node (arm_color_transport/transport_main.py)
+    ├── Subscribes: RGBLight, color_end_pose (MarkerArray – color goal poses)
+    ├── Publishes: /TargetAngle, /cmd_vel, /Buzzer, /Transport/rgb
+    ├── Nav2: navigate_to_pose action (drive to color pose)
+    └── Output: Color in center ROI (red/yellow/green/blue) → grip → navigate to pose → place → return
+
+Robot Control
+    ├── /TargetAngle → driver_node → Arm movement
+    └── /cmd_vel → driver_node → Chassis (or Nav2 drives chassis)
+```
+
+**Note:** arm_color_transport typically requires the full navigation stack (map, AMCL, move_base/Nav2) and a node that publishes `color_end_pose` (e.g. marker drawing / map goals). Launch may be `color_transport.launch.py` (node only) with bringup and nav launched separately.
 
 ### Key Topics
 
 | Topic | Type | Purpose |
 |-------|------|---------|
-| `/camera/rgb/image_raw` | `sensor_msgs/Image` | RGB camera feed for tracking |
-| `/camera/depth/image_raw` | `sensor_msgs/Image` | Depth data for distance measurement |
-| `/JoyState` | `std_msgs/Bool` | Safety override (must be `true` for movement) |
-| `/KCF_image` | `sensor_msgs/Image` | Tracking visualization output |
-| `/cmd_vel` | `geometry_msgs/Twist` | Robot movement commands |
-| `/TargetAngle` | `yahboomcar_msgs/ArmJoint` | Arm joint control (optional) |
+| `/color/image_raw` | `sensor_msgs/Image` | Astra RGB feed for KCF tracking |
+| `/depth/image_raw` | `sensor_msgs/Image` | Depth data for distance measurement |
+| `/JoyState` | `std_msgs/Bool` | Safety override (must be `true` for chassis movement) |
+| `/KCF_image` | `sensor_msgs/Image` | KCF tracking visualization output |
+| `/cmd_vel` | `geometry_msgs/Twist` | Chassis movement commands (KCF) |
+| `/TargetAngle` | `yahboomcar_msgs/ArmJoint` | Arm commands (arm_autopilot, arm_mediapipe, arm_color_transport) |
+| `color_end_pose` | `visualization_msgs/MarkerArray` | Color goal poses for transport (arm_color_transport) |
+| `/Transport/rgb` | `sensor_msgs/Image` | Transport visualization (arm_color_transport) |
 
 ---
 
@@ -124,23 +180,21 @@ Robot Control
 
 3. **Verify topics in new terminal:**
    ```bash
-   ros2 topic list | grep camera
-   # Expected:
-   # /camera/rgb/image_raw
-   # /camera/depth/image_raw
-   # /camera/ir/image_raw
-   # /camera/depth/points
+   ros2 topic list | grep -E 'color|depth|camera'
+   # Expected (Astra driver): /color/image_raw, /depth/image_raw, /ir/image_raw, /depth/points, etc.
    ```
 
 4. **Check image publishing:**
    ```bash
-   ros2 topic hz /camera/rgb/image_raw
-   # Expected: ~30 Hz
+   ros2 topic hz /color/image_raw
+   # Expected: ~10–30 Hz
    ```
 
 5. **View camera feed (optional):**
    ```bash
-   ros2 run image_view image_view --ros-args -r image:=/camera/rgb/image_raw
+   ros2 run image_view image_view --ros-args -r image:=/color/image_raw
+   # Or in rqt_image_view: select topic /color/image_raw
+   # Note: Camera driver publishes bgr8; yuv422_yuy2 was fixed in uvc_camera_driver.cpp for rqt_image_view compatibility.
    ```
 
 **Expected Results:**
@@ -553,82 +607,328 @@ If robot oscillates or overshoots:
 
 ---
 
-### Phase 4: Arm Integration (Optional)
+### Phase 4: Arm Autopilot Object Tracking
 
-#### Test 4.1: Verify Arm Control System
+The **arm_autopilot** package (`src/arm_autopilot`) provides **color-based object tracking** using the **arm/gripper USB camera**. The arm follows colored objects (red, green, blue, yellow) and can pick/place. This complements the KCF tracker (Astra camera, chassis following).
 
-**Purpose:** Ensure arm control is available for integration.
-
-**Steps:**
-
-1. **Check arm topics:**
-   ```bash
-   ros2 topic list | grep -i arm
-   # Expected:
-   # /TargetAngle
-   # /ArmAngleUpdate
-   # /joint_states
-   ```
-
-2. **Verify arm service:**
-   ```bash
-   ros2 service list | grep -i arm
-   # Expected:
-   # /CurrentAngle
-   ```
-
-3. **Get current arm position:**
-   ```bash
-   ros2 service call /CurrentAngle yahboomcar_msgs/srv/RobotArmArray "{apply: 'GetArmJoints'}"
-   # Expected: Array of 6 joint angles
-   ```
-
-**Expected Results:**
-- ✅ All arm topics available
-- ✅ Arm service responds
-- ✅ Current joint angles reported
+**Prerequisites for Phase 5:**
+- Base system running (driver_node)
+- Arm camera available: `/dev/camera_usb` or `/dev/video0` (Microdia USB camera)
+- Optional: Joystick for override; `arm_autopilot_full.launch.py` can include bringup + joy
 
 ---
 
-#### Test 4.2: Arm Tracking Integration (Advanced)
+#### Test 4.1: Verify Arm Autopilot Prerequisites
 
-**Purpose:** Test arm movement to point at tracked object.
+**Purpose:** Ensure arm camera and base system are ready for arm_autopilot.
 
-**⚠️ Note:** This requires custom integration code. Basic KCF tracker does not include arm control.
+**Steps:**
 
-**If arm tracking integration exists:**
-
-1. **Launch system with arm integration:**
+1. **Verify arm camera device:**
    ```bash
-   # Use appropriate launch file if available
-   ros2 launch <package> <arm_tracking_launch>.launch.py
+   ls -l /dev/camera_usb /dev/video0 2>/dev/null || ls -l /dev/video*
+   # Expected: camera device present (e.g. /dev/video0 for Microdia arm camera)
    ```
 
-2. **Initialize tracker** on object
+2. **Verify base system (driver_node) is running:**
+   ```bash
+   ros2 node list | grep driver
+   # Expected: /driver_node
+   ```
 
-3. **Verify arm movement:**
-   - Arm should move to point at object
-   - Monitor `/TargetAngle` topic:
-     ```bash
-     ros2 topic echo /TargetAngle
-     # Should show arm joint commands
-     ```
-
-4. **Test arm following:**
-   - Move object, arm should track
-   - Verify smooth movement
-   - Check for joint limits
+3. **Verify arm topics exist when driver is running:**
+   ```bash
+   ros2 topic list | grep -E "TargetAngle|ArmAngleUpdate|joint_states"
+   # Expected: /TargetAngle, /ArmAngleUpdate, /joint_states
+   ```
 
 **Expected Results:**
-- ✅ Arm points at tracked object
-- ✅ Smooth arm movement
-- ✅ No joint limit violations
-- ✅ Arm and chassis can work together
+- ✅ Arm camera device present
+- ✅ driver_node running
+- ✅ /TargetAngle and /ArmAngleUpdate available
 
-**Note:** If arm tracking integration doesn't exist, this would require:
-- Custom node subscribing to KCF tracker output
-- Inverse kinematics calculation
-- Publishing to `/TargetAngle` topic
+---
+
+#### Test 4.2: Launch Arm Autopilot
+
+**Purpose:** Start the arm autopilot node (color-based object tracking).
+
+**Steps:**
+
+1. **Launch base system first** (if not already running):
+   ```bash
+   ros2 launch yahboomcar_bringup yahboomcar.launch.py robot_type:=X3plus
+   ```
+
+2. **Launch arm autopilot (node only):**
+   ```bash
+   ros2 launch arm_autopilot arm_autopilot.launch.py
+   ```
+
+   **Or launch with dependencies (bringup + joy + autopilot):**
+   ```bash
+   ros2 launch arm_autopilot arm_autopilot_full.launch.py
+   ```
+   *(Note: full launch may use different bringup launch name; adjust if `yahboomcar_bringup_X3_launch.py` is not present—use `yahboomcar_bringup_X3plus_launch.py` or equivalent.)*
+
+3. **Verify node is running:**
+   ```bash
+   ros2 node list | grep line_detect
+   # Expected: /line_detect (arm_autopilot main node)
+   ```
+
+4. **Check for OpenCV window:**
+   - A window titled `frame` should appear showing the arm camera feed and (when a colored object is in view) tracking overlay.
+
+**Expected Results:**
+- ✅ arm_autopilot node (`line_detect`) running
+- ✅ Camera window visible with arm camera feed
+- ✅ No errors in console about missing camera or driver
+
+**Troubleshooting:**
+- If camera not found: Ensure `/dev/camera_usb` or `/dev/video0` is available and not used by another process. In container, devices are passed via `run_docker_ros2.sh`.
+- If bringup not running: Launch `yahboomcar_bringup` first so `/TargetAngle` is subscribed by the driver.
+
+---
+
+#### Test 4.3: Color-Based Object Tracking
+
+**Purpose:** Verify arm follows a colored object (red, green, blue, or yellow).
+
+**Steps:**
+
+1. **Ensure arm_autopilot is running** (Test 4.2).
+
+2. **Place a colored object** (e.g. red or green block/ball) in view of the **arm camera** (on the gripper/arm).
+
+3. **Select target color** (if configurable in UI or parameters):
+   - Default target is red. Colors: 0=red, 1=green, 2=blue, 3=yellow.
+   - HSV ranges are in `arm_autopilot/config/HSV.yaml`.
+
+4. **Observe behavior:**
+   - Arm should move so the object stays centered in the camera view.
+   - Monitor `/TargetAngle`:
+     ```bash
+     ros2 topic echo /TargetAngle
+     ```
+   - You should see `ArmJoint` messages when the object is detected.
+
+5. **Move the object slowly** left/right and up/down; arm should follow.
+
+**Expected Results:**
+- ✅ Colored object is detected (visual feedback in camera window).
+- ✅ Arm moves to center the object.
+- ✅ /TargetAngle publishes when object is in view.
+- ✅ Smooth arm motion, no joint limit errors.
+
+**Success Criteria:**
+- Tracking maintained for >30 seconds with slow object movement.
+- Arm recovers when object is temporarily lost.
+
+---
+
+#### Test 4.4: HSV Calibration (Optional)
+
+**Purpose:** Tune color detection for your lighting and objects.
+
+**Steps:**
+
+1. **Edit HSV configuration:**
+   ```bash
+   # In workspace
+   nano src/arm_autopilot/config/HSV.yaml
+   ```
+   Adjust `Hmin`, `Hmax`, `Smin`, `Smax`, `Vmin`, `Vmax` for the target color (red, green, blue, yellow).
+
+2. **Or use dynamic parameters** (if supported):
+   ```bash
+   ros2 param list /line_detect
+   ros2 param set /line_detect Hmin 0
+   ros2 param set /line_detect Hmax 9
+   # ... etc.
+   ```
+
+3. **Restart arm_autopilot** after YAML changes and re-run Test 4.3.
+
+**Expected Results:**
+- ✅ Improved detection for your environment and colored objects.
+
+---
+
+#### Test 4.5: Integration with KCF Tracker (Optional)
+
+**Purpose:** Run both tracking systems where applicable (e.g. chassis follow with KCF + arm ready, or arm follow with arm_autopilot). They use different cameras and control outputs.
+
+**Note:**
+- **KCF tracker:** Astra camera → `/cmd_vel` (chassis).
+- **Arm autopilot:** Arm camera → `/TargetAngle` (arm).
+- Running both: launch bringup + joy, then either KCF or arm_autopilot (or both if desired). Do not run two nodes that both command the arm without coordination.
+
+**Steps:**
+
+1. Launch bringup + joy.
+2. Launch either:
+   - `ros2 launch yahboomcar_astra KCFTracker.launch.py robot_type:=X3plus` for chassis following, or
+   - `ros2 launch arm_autopilot arm_autopilot.launch.py` for arm color following.
+3. Verify only one arm-controlling node is active if you expect deterministic behavior.
+
+**Expected Results:**
+- ✅ Either chassis or arm (or coordinated use) responds to the intended tracker.
+
+---
+
+### Phase 5: MediaPipe Object Tracking
+
+The **arm_mediapipe** package (`src/arm_mediapipe`) provides **hand and pose tracking** on the arm camera for gesture/pose-based arm control. The arm responds to hand gestures or body pose landmarks. This complements KCF (chassis) and arm_autopilot (color).
+
+**Prerequisites for Phase 5:**
+- Base system running (driver_node)
+- Arm camera available: `/dev/camera_usb` or `/dev/video0`
+
+---
+
+#### Test 5.1: Launch MediaPipe Arm Control
+
+**Purpose:** Start hand/pose tracking for arm control.
+
+**Steps:**
+
+1. **Launch base system first** (if not already running):
+   ```bash
+   ros2 launch yahboomcar_bringup yahboomcar.launch.py robot_type:=X3plus
+   ```
+
+2. **Launch MediaPipe arm control:**
+   ```bash
+   ros2 launch arm_mediapipe arm_mediapipe.launch.py
+   ```
+
+3. **Verify node is running:**
+   ```bash
+   ros2 node list | grep hand_ctrl_arm
+   # Expected: /hand_ctrl_arm
+   ```
+
+4. **Check for OpenCV window:** A window should appear showing the arm camera feed with hand/pose overlay when a hand or body is in view.
+
+**Expected Results:**
+- ✅ arm_mediapipe node (`hand_ctrl_arm`) running
+- ✅ Camera window visible with arm camera feed
+- ✅ Hand/pose landmarks visible when hand or body is in frame
+
+---
+
+#### Test 5.2: Hand/Pose Tracking and Arm Response
+
+**Purpose:** Verify arm responds to hand gestures or pose.
+
+**Steps:**
+
+1. **Ensure arm_mediapipe is running** (Test 5.1).
+
+2. **Place hand (or full body for pose) in view of the arm camera.**
+
+3. **Observe behavior:** Arm should move according to gestures/pose. Monitor `/TargetAngle`:
+   ```bash
+   ros2 topic echo /TargetAngle
+   ```
+
+4. **Try different gestures/poses** as documented for the node (e.g. hand open/close, pose landmarks).
+
+**Expected Results:**
+- ✅ Hand/pose detected (visual overlay in window).
+- ✅ /TargetAngle publishes when gestures/pose are recognized.
+- ✅ Arm moves in response to tracking.
+
+**Note:** Do not run arm_mediapipe and arm_autopilot at the same time; both publish to `/TargetAngle`. Use one tracking mode at a time.
+
+---
+
+### Phase 6: Arm Color Transport Object Tracking
+
+The **arm_color_transport** package (`src/arm_color_transport`) provides **color-based pick and transport**: it detects a color (red, yellow, green, blue) in the arm camera’s center ROI, grips the target, then uses **Nav2** to navigate to a stored color pose, places, and returns. It combines color tracking with navigation and arm control.
+
+**Prerequisites for Phase 6:**
+- Base system running (driver_node)
+- Arm camera available: `/dev/camera_usb` or `/dev/video0`
+- **Navigation stack** (map server, AMCL, Nav2 / move_base) if testing full transport
+- A node or process that publishes **`color_end_pose`** (MarkerArray) with goal poses per color (e.g. from map or marker drawing), or test color detection only without navigation
+
+---
+
+#### Test 6.1: Launch Arm Color Transport
+
+**Purpose:** Start the color transport node (color detection + optional Nav2).
+
+**Steps:**
+
+1. **Launch base system first** (if not already running):
+   ```bash
+   ros2 launch yahboomcar_bringup yahboomcar.launch.py robot_type:=X3plus
+   ```
+
+2. **Launch color transport (node only):**
+   ```bash
+   ros2 launch arm_color_transport color_transport.launch.py
+   ```
+   For full transport demos, also start the navigation stack and any node that publishes `color_end_pose` (see package docs or `arm_areas_launch_catalog.md` for transport_base-style launch).
+
+3. **Verify node is running:**
+   ```bash
+   ros2 node list | grep color_transport
+   # Expected: /color_transport
+   ```
+
+4. **Check for OpenCV window:** A window should appear showing the arm camera feed with center ROI (280,180)–(360,260) and detected color (H min/max).
+
+**Expected Results:**
+- ✅ arm_color_transport node (`color_transport`) running
+- ✅ Camera window visible with arm camera feed and center ROI
+- ✅ No errors about missing camera or driver
+
+---
+
+#### Test 6.2: Color Detection in Center ROI
+
+**Purpose:** Verify color detection (red, yellow, green, blue) in the center region.
+
+**Steps:**
+
+1. **Ensure arm_color_transport is running** (Test 6.1).
+
+2. **Place a colored object** (red, yellow, green, or blue) in the **center** of the arm camera view (within the green rectangle).
+
+3. **Observe:** The node prints H min/max and detects color. States: Init → Grip (SPACE or joy action) → Transport (when `color_end_pose` has goals) → Grip_down → come_back.
+
+4. **Press SPACE** (or trigger joy action) to enter Grip mode; node will detect color in ROI and can start Grip_Target (arm movement).
+
+**Expected Results:**
+- ✅ Color detected in center ROI (red/yellow/green/blue).
+- ✅ H min/max displayed; state advances to Grip when triggered.
+- ✅ Arm can move to grip (Grip_Target) when color is detected.
+
+---
+
+#### Test 6.3: Full Transport with Navigation (Optional)
+
+**Purpose:** Test full flow: grip → navigate to color pose → place → return. Requires Nav2 and `color_end_pose` publisher.
+
+**Steps:**
+
+1. **Launch navigation stack** (map, AMCL, Nav2) and any node that publishes `color_end_pose` (MarkerArray) with goal poses for red/green/blue/yellow.
+
+2. **Run arm_color_transport** (Test 6.1).
+
+3. **Place colored object in center ROI**, press SPACE to enter Grip; after grip, node should send Nav2 goal from `color_end_pose` for that color.
+
+4. **Monitor:** Navigation to goal → Grip_down (place) → come_back (return to start). Check `/TargetAngle`, `navigate_to_pose`, and `/Transport/rgb` if needed.
+
+**Expected Results:**
+- ✅ After grip, robot navigates to corresponding color pose.
+- ✅ On arrival, arm places; then robot returns to start.
+- ✅ Buzzer/visual feedback as per node logic.
+
+**Note:** Do not run arm_color_transport together with arm_autopilot or arm_mediapipe; only one node should command `/TargetAngle` at a time.
 
 ---
 
@@ -799,10 +1099,27 @@ Use this checklist to verify all functionality:
 - [ ] Handles moving objects
 - [ ] Safe stop on tracking loss
 
-### Phase 4: Arm Integration (if applicable)
-- [ ] Arm topics available
-- [ ] Arm service responds
-- [ ] Arm tracking integration works (if implemented)
+### Phase 4: Arm Autopilot Object Tracking
+- [ ] Arm camera device present (/dev/camera_usb or /dev/video0)
+- [ ] arm_autopilot launches successfully
+- [ ] Camera window shows arm camera feed
+- [ ] Colored object detected (red/green/blue/yellow)
+- [ ] Arm follows colored object (/TargetAngle publishing)
+- [ ] HSV calibration tested (optional)
+- [ ] Integration with KCF (optional) understood
+
+### Phase 5: MediaPipe Object Tracking
+- [ ] arm_mediapipe launches successfully
+- [ ] Camera window shows arm camera feed with hand/pose overlay
+- [ ] Hand or pose detected
+- [ ] Arm responds to gestures/pose (/TargetAngle publishing)
+
+### Phase 6: Arm Color Transport Object Tracking
+- [ ] arm_color_transport launches successfully
+- [ ] Camera window shows arm camera feed with center ROI
+- [ ] Color detected in center (red/yellow/green/blue)
+- [ ] Grip mode triggers arm grip when color in ROI
+- [ ] Full transport with Nav2 tested (optional; requires nav stack and color_end_pose)
 
 ---
 
@@ -848,18 +1165,29 @@ To track specific objects:
 - Launch: `yahboomcar_astra/launch/KCFTracker.launch.py`
 - Node: `yahboomcar_astra/src/KCF_Tracker.cpp`
 - Tracker: `yahboomcar_astra/src/yahboomcar_astra/kcftracker.cpp`
+- Arm autopilot: `arm_autopilot/launch/arm_autopilot.launch.py`, `arm_autopilot_full.launch.py`
+- Arm autopilot node: `arm_autopilot/arm_autopilot/autopilot_main.py`
+- Arm autopilot config: `arm_autopilot/config/HSV.yaml`
+- MediaPipe: `arm_mediapipe/launch/arm_mediapipe.launch.py`
+- MediaPipe node: `arm_mediapipe/arm_mediapipe/ArmCtrl.py`
+- Arm color transport: `arm_color_transport/launch/color_transport.launch.py`
+- Color transport node: `arm_color_transport/arm_color_transport/transport_main.py`
+- Color transport common: `arm_color_transport/arm_color_transport/transport_common.py`
 
 ### Related Packages
 - `yahboomcar_bringup` - Base robot driver
 - `yahboomcar_ctrl` - Joystick control
-- `yahboomcar_astra` - Camera and tracking
-- `orbbec_camera` - Camera driver
+- `yahboomcar_astra` - Camera and KCF tracking
+- `orbbec_camera` - Astra camera driver
+- `arm_autopilot` - Arm-based color object tracking (arm camera → /TargetAngle)
+- `arm_mediapipe` - Hand/pose tracking for arm control (arm camera → /TargetAngle)
+- `arm_color_transport` - Color-based pick and transport with navigation (arm camera + Nav2)
 
 ---
 
 ## Conclusion
 
-This test guide provides comprehensive procedures for testing persistent object tracking on the Yahboom ROSMASTER X3PLUS 6DOF robot. The KCF tracker provides robust, real-time tracking with depth integration and robot following capabilities.
+This test guide covers object tracking testing only: **KCF** (Astra camera, chassis following), **arm_autopilot** (color tracking on arm camera), **MediaPipe** (hand/pose tracking on arm camera), and **arm_color_transport** (color-based pick and transport with navigation). It does not include generic arm control testing; see `ARM_JOYSTICK_CONTROL.md` for that.
 
 For issues or questions, refer to:
 - Troubleshooting section above
