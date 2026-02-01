@@ -15,6 +15,9 @@
 		{
 			"name": "Documentation",
 			"path": "ROSMASTERX3-PLUS-DOCS"
+		},
+		{
+			"path": "../ultralytics"
 		}
 	],
 	"settings": {

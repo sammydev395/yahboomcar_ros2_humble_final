@@ -53,6 +53,7 @@ docker run -d \
     -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
     -v $HOME/.Xauthority:/root/.Xauthority:rw \
     -v "$SCRIPT_DIR:/root/yahboomcar_ros2_ws_new:rw" \
+    -v /home/jetson/ultralytics:/root/ultralytics:rw \
     -v "$WORKSPACE_DIR:/root/yahboomcar_ros2_ws:rw" \
     -v /home/jetson/temp:/root/temp:rw \
     -v /dev/bus/usb:/dev/bus/usb:rw \

@@ -20,7 +20,7 @@ def generate_launch_description():
     robot_type_arg = DeclareLaunchArgument(
         name='robot_type', 
         default_value=os.getenv('ROBOT_TYPE', 'x3'), 
-        choices=['x3', 'r2'],
+        choices=['x3', 'r2', 'x3plus'],
         description='The type of robot'
     )
     rplidar_type_arg = DeclareLaunchArgument(
@@ -47,6 +47,12 @@ def generate_launch_description():
             [os.path.join(get_package_share_directory('yahboomcar_bringup'), 'launch'),
             '/bringup_no_odom_launch.py']),
         condition=LaunchConfigurationEquals('robot_type', 'r2')
+    )
+    bringup_x3plus_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            [os.path.join(get_package_share_directory('yahboomcar_bringup'), 'launch'),
+            '/yahboomcar_bringup_X3plus_launch.py']),
+        condition=LaunchConfigurationEquals('robot_type', 'x3plus')
     )
 
     lidar_a1_launch = IncludeLaunchDescription(
@@ -87,6 +93,7 @@ def generate_launch_description():
         #bringup_x1_launch,
         bringup_x3_launch,
         bringup_r2_launch,
+        bringup_x3plus_launch,
         lidar_a1_launch,
         lidar_s2_launch,
         lidar_4ROS_launch,

@@ -124,7 +124,6 @@ class OdomPublisher:public rclcpp ::Node
 			// linear speed from encoders
 			odom.twist.twist.linear.x = linear_velocity_x_;
 			odom.twist.twist.linear.y = linear_velocity_y_;
-			odom.twist.twist.linear.y = 0.0; // vy = 0.0
 			odom.twist.twist.linear.z = 0.0;
 			odom.twist.twist.angular.x = 0.0;
 			odom.twist.twist.angular.y = 0.0;
