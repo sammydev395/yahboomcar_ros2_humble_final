@@ -52,20 +52,12 @@ The X3 Plus is a mecanum-wheel robot equipped with a 6-DOF robotic arm. Its chas
     - Implements safety features (R2 trigger must be held to enable movement).
     - Publishes `/cmd_vel` for the chassis and `/TargetAngle` for the arm.
 
-## Topic & Data Flow
+## Chassis Architecture Overview
 
-```mermaid
-graph TD
-    Joy[Joystick / Teleop] -->|/cmd_vel| Driver[Driver Node]
-    Driver -->|Serial/USB| Hardware[Rosmaster Board]
-    Hardware -->|Feedback| Driver
-    Driver -->|/vel_raw| Base[Base Node]
-    Driver -->|/imu/imu_raw| IMUFilter[IMU Filter]
-    IMUFilter -->|/imu/data| EKF[EKF Localization]
-    Base -->|/odom_raw| EKF
-    EKF -->|/odom| Nav[Navigation Stack]
-    EKF -->|TF: odom -> base_link| TF[TF Tree]
-```
+The following diagram illustrates the data flow for the X3 Plus chassis:
+
+![Chassis Architecture Diagram](chassis_architecture.png)
+
 
 ## Frame Hierarchy (TF)
 
