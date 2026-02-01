@@ -1,3 +1,0 @@
-source;share/garbage_identify_yolov11/environment/ament_prefix_path.sh
-source;share/garbage_identify_yolov11/environment/path.sh
-source;share/garbage_identify_yolov11/environment/pythonpath.sh

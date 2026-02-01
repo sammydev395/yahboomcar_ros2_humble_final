@@ -1,6 +1,0 @@
-setup.py
-yahboom_web_savmap_interfaces/__init__.py
-yahboom_web_savmap_interfaces.egg-info/PKG-INFO
-yahboom_web_savmap_interfaces.egg-info/SOURCES.txt
-yahboom_web_savmap_interfaces.egg-info/dependency_links.txt
-yahboom_web_savmap_interfaces.egg-info/top_level.txt

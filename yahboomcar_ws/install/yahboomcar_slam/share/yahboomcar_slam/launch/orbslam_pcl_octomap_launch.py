@@ -1,1 +1,0 @@
-/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/src/yahboomcar_slam/launch/orbslam_pcl_octomap_launch.py

@@ -1,1 +1,0 @@
-/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/src/garbage_identify_yolov11/garbage_identify_yolov11/garbage_identify_node.py

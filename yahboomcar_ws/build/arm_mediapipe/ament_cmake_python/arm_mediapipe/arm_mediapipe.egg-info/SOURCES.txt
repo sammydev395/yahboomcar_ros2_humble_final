@@ -1,8 +1,0 @@
-setup.py
-arm_mediapipe/ArmCtrl.py
-arm_mediapipe/__init__.py
-arm_mediapipe/media_library.py
-arm_mediapipe.egg-info/PKG-INFO
-arm_mediapipe.egg-info/SOURCES.txt
-arm_mediapipe.egg-info/dependency_links.txt
-arm_mediapipe.egg-info/top_level.txt

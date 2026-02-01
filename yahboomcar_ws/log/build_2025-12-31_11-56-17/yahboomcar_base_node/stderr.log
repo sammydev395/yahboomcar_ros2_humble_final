@@ -1,7 +1,0 @@
-/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/src/yahboomcar_base_node/src/base_node_X3.cpp: In member function ‘void OdomPublisher::handle_vel(std::shared_ptr<geometry_msgs::msg::Twist_<std::allocator<void> > >)’:
-/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/src/yahboomcar_base_node/src/base_node_X3.cpp:91:32: warning: unused variable ‘steer_angle’ [-Wunused-variable]
-   91 |                         double steer_angle = linear_velocity_y_;
-      |                                ^~~~~~~~~~~
-/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/src/yahboomcar_base_node/src/base_node_X3.cpp:92:32: warning: unused variable ‘MI_PI’ [-Wunused-variable]
-   92 |                         double MI_PI = 3.1416;
-      |                                ^~~~~

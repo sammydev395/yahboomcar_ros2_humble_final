@@ -1,1 +1,0 @@
-/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_msgs/rosidl_typesupport_introspection_c/yahboomcar_msgs/msg/detail/point_array__rosidl_typesupport_introspection_c.h

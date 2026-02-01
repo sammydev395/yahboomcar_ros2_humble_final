@@ -1,1 +1,0 @@
-/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/src/yahboomcar_laser/launch/laser_Avoidance_a1_X3.launch.py

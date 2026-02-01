@@ -1,9 +1,0 @@
-source;share/yahboomcar_ctrl/hook/pythonpath.ps1
-source;share/yahboomcar_ctrl/hook/pythonpath.dsv
-source;share/yahboomcar_ctrl/hook/pythonpath.sh
-source;share/yahboomcar_ctrl/hook/ament_prefix_path.ps1
-source;share/yahboomcar_ctrl/hook/ament_prefix_path.dsv
-source;share/yahboomcar_ctrl/hook/ament_prefix_path.sh
-source;../../build/yahboomcar_ctrl/share/yahboomcar_ctrl/hook/pythonpath_develop.ps1
-source;../../build/yahboomcar_ctrl/share/yahboomcar_ctrl/hook/pythonpath_develop.dsv
-source;../../build/yahboomcar_ctrl/share/yahboomcar_ctrl/hook/pythonpath_develop.sh

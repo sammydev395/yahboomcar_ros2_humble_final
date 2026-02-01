@@ -1,1 +1,0 @@
-/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/src/yahboomcar_multi/launch/R2_nav_robot1_launch.py

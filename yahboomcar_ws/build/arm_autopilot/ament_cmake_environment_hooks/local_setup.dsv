@@ -1,3 +1,0 @@
-source;share/arm_autopilot/environment/ament_prefix_path.sh
-source;share/arm_autopilot/environment/path.sh
-source;share/arm_autopilot/environment/pythonpath.sh

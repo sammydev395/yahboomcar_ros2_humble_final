@@ -1,1 +1,0 @@
-/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_point/ament_cmake_core/yahboomcar_pointConfig.cmake

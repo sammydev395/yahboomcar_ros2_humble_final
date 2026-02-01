@@ -2,9 +2,7 @@
 yahboomcar_ws/build/
 yahboomcar_ws/install/
 yahboomcar_ws/log/
-
-# Python cache
-__pycache__/
+**/__pycache__/
 *.pyc
 *.pyo
 *.pyd

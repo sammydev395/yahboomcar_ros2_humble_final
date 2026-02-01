@@ -31,6 +31,7 @@ setup(
         '03_Holistic = yahboomcar_mediapipe.03_Holistic:main',
         '04_FaceMesh = yahboomcar_mediapipe.04_FaceMesh:main',
         '05_FaceEyeDetection = yahboomcar_mediapipe.05_FaceEyeDetection:main',
+        'face_detection_node = yahboomcar_mediapipe.face_detection_node:main',
         'test_msg = yahboomcar_mediapipe.test_msg:main'
         ],
     },

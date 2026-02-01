@@ -1,1 +1,0 @@
-/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_astra/launch/colorTracker_X3.launch.py

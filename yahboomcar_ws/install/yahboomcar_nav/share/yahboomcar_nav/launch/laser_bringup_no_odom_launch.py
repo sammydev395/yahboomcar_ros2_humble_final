@@ -1,1 +1,0 @@
-/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_nav/launch/laser_bringup_no_odom_launch.py

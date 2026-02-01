@@ -1,1 +1,0 @@
-ament_cmake_symlink_install_targets("TARGET_FILES" "/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_KCFTracker/KCF_Tracker_Node" "TARGETS" "KCF_Tracker_Node" "DESTINATION" "lib/yahboomcar_KCFTracker")

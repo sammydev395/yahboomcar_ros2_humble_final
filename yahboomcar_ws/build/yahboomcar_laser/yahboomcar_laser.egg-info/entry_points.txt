@@ -1,8 +1,0 @@
-[console_scripts]
-laser_Avoidance_4ROS_R2 = yahboomcar_laser.laser_Avoidance_4ROS_R2:main
-laser_Avoidance_a1_R2 = yahboomcar_laser.laser_Avoidance_a1_R2:main
-laser_Avoidance_a1_X3 = yahboomcar_laser.laser_Avoidance_a1_X3:main
-laser_Tracker_4ROS_R2 = yahboomcar_laser.laser_Tracker_4ROS_R2:main
-laser_Tracker_a1_R2 = yahboomcar_laser.laser_Tracker_a1_R2:main
-laser_Tracker_a1_X3 = yahboomcar_laser.laser_Tracker_a1_X3:main
-laser_Warning_a1_X3 = yahboomcar_laser.laser_Warning_a1_X3:main

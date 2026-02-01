@@ -1,3 +1,0 @@
-[console_scripts]
-colorHSV = yahboomcar_astra.colorHSV:main
-colorTracker = yahboomcar_astra.colorTracker:main

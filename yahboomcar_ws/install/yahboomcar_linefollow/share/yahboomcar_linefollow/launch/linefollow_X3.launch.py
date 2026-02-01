@@ -1,1 +1,0 @@
-/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/yahboomcar_linefollow/launch/linefollow_X3.launch.py

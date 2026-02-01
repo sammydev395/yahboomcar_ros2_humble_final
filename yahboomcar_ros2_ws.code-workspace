@@ -1,0 +1,39 @@
+{
+	"folders": [
+		{
+			"name": "ROS2 Workspace",
+			"path": "yahboomcar_ws"
+		},
+		{
+			"name": "Software",
+			"path": "software"
+		},
+		{
+			"name": "Docker Setup",
+			"path": "docker_setup"
+		},
+		{
+			"name": "Documentation",
+			"path": "ROSMASTERX3-PLUS-DOCS"
+		}
+	],
+	"settings": {
+		"files.exclude": {
+			"**/build": true,
+			"**/install": true,
+			"**/log": true,
+			"**/.git": false
+		},
+		"search.exclude": {
+			"**/build": true,
+			"**/install": true,
+			"**/log": true,
+			"**/node_modules": true
+		},
+		"files.watcherExclude": {
+			"**/build/**": true,
+			"**/install/**": true,
+			"**/log/**": true
+		}
+	}
+}

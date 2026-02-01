@@ -1,3 +1,0 @@
-[console_scripts]
-client = yahboom_app_save_map.yahboom_app_save_map_client:main
-server = yahboom_app_save_map.yahboom_app_save_map:main

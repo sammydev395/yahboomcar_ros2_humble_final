@@ -1,8 +1,0 @@
-source;share/garbage_identify_yolov11/hook/cmake_prefix_path.ps1
-source;share/garbage_identify_yolov11/hook/cmake_prefix_path.dsv
-source;share/garbage_identify_yolov11/hook/cmake_prefix_path.sh
-source;share/garbage_identify_yolov11/local_setup.bash
-source;share/garbage_identify_yolov11/local_setup.dsv
-source;share/garbage_identify_yolov11/local_setup.ps1
-source;share/garbage_identify_yolov11/local_setup.sh
-source;share/garbage_identify_yolov11/local_setup.zsh

@@ -1,9 +1,0 @@
-source;share/yahboom_app_save_map/hook/pythonpath.ps1
-source;share/yahboom_app_save_map/hook/pythonpath.dsv
-source;share/yahboom_app_save_map/hook/pythonpath.sh
-source;share/yahboom_app_save_map/hook/ament_prefix_path.ps1
-source;share/yahboom_app_save_map/hook/ament_prefix_path.dsv
-source;share/yahboom_app_save_map/hook/ament_prefix_path.sh
-source;../../build/yahboom_app_save_map/share/yahboom_app_save_map/hook/pythonpath_develop.ps1
-source;../../build/yahboom_app_save_map/share/yahboom_app_save_map/hook/pythonpath_develop.dsv
-source;../../build/yahboom_app_save_map/share/yahboom_app_save_map/hook/pythonpath_develop.sh

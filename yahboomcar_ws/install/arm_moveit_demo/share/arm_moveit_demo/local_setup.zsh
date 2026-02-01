@@ -1,1 +1,0 @@
-/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws/build/arm_moveit_demo/ament_cmake_environment_hooks/local_setup.zsh

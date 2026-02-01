@@ -8,7 +8,7 @@ from ament_index_python.packages import get_package_share_path, get_package_shar
 
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
-from launch.conditions import IfCondition, UnlessCondition, AndCondition
+from launch.conditions import IfCondition, UnlessCondition
 from launch.substitutions import Command, LaunchConfiguration
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 
@@ -150,11 +150,11 @@ def generate_launch_description():
         parameters=[imu_filter_config]
     )
 
-    # EKF for sensor fusion
+    # EKF for sensor fusion (custom launch in bringup; robot_localization does not ship ekf_x1_x3)
     ekf_node = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
             os.path.join(
-                get_package_share_directory('robot_localization'),
+                get_package_share_directory('yahboomcar_bringup'),
                 'launch'
             ),
             '/ekf_x1_x3_launch.py'
