@@ -1,4 +1,6 @@
 from setuptools import setup
+import os
+from glob import glob
 
 package_name = 'yahboomcar_visual'
 
@@ -10,6 +12,7 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -28,7 +31,8 @@ setup(
         'astra_rgb_image = yahboomcar_visual.astra_rgb_image:main',
         'astra_depth_image = yahboomcar_visual.astra_depth_image:main',
         'astra_image_flip = yahboomcar_visual.astra_image_flip:main',
-        'astra_color_point = yahboomcar_visual.astra_color_point:main'
+        'astra_color_point = yahboomcar_visual.astra_color_point:main',
+        'person_tracker_node = yahboomcar_visual.person_tracker_node:main'
         ],
     },
 )

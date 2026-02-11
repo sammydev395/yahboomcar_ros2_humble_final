@@ -29,6 +29,10 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/Position.msg"
   "msg/Target.msg"
   "msg/TargetArray.msg"
+  "msg/TrackedPerson.msg"
+  "msg/TrackedPersons.msg"
+  "msg/FaceDetection.msg"
+  "msg/GestureDetection.msg"
   "srv/RobotArmArray.srv"
   "srv/Kinematics.srv"
   DEPENDENCIES geometry_msgs std_msgs
