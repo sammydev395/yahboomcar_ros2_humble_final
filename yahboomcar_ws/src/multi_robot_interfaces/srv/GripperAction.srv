@@ -1,0 +1,7 @@
+# Control a robot's gripper
+string robot_name
+string action              # "open", "close", "set"
+float64 position           # 0.0 (closed) to 1.0 (fully open)
+---
+bool success
+string gripper_state       # resulting state: "open", "closed", "partial"

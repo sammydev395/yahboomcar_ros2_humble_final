@@ -1,0 +1,10 @@
+# Move a robot's mobile base (mecanum wheels)
+string robot_name
+string mode                # "velocity", "stop"
+float64 linear_x           # m/s forward/backward
+float64 linear_y           # m/s strafe left/right (mecanum only)
+float64 angular_z          # rad/s rotation
+float64 duration_seconds   # how long to apply velocity (0 = indefinite until stop)
+---
+bool success
+string message

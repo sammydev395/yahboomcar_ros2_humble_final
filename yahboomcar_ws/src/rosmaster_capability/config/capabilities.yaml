@@ -1,0 +1,25 @@
+robot_name: rosmaster
+capabilities:
+  - name: mobile_base
+    type: mecanum_4wd
+    max_velocity_linear: 0.5   # m/s
+    max_velocity_angular: 1.0  # rad/s
+  - name: arm
+    type: 6dof_yahboom
+    dof: 6
+    control: MoveIt2 + Kinematics service
+  - name: gripper
+    type: servo_gripper
+    joint: joint6
+    range_rad: [0.0, 1.5]
+  - name: camera_rgbd
+    type: astra_pro
+    resolution: [640, 480]
+    topics:
+      rgb: /color/image_raw
+      depth: /depth/image_raw
+      points: /depth/points
+  - name: lidar
+    type: rplidar
+    topic: /scan
+    range_m: 12

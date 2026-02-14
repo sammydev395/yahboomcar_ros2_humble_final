@@ -1,0 +1,9 @@
+# Start a detection pipeline on a robot
+string robot_name
+string detection_type      # "color", "yolo", "face", "gesture"
+string[] target_labels     # e.g. ["red", "blue"] or [] for all
+bool continuous             # publish continuously on /{robot_name}/vision/detections?
+---
+bool success
+string message
+multi_robot_interfaces/Detection[] initial_detections

@@ -12,6 +12,10 @@
 #   - /robot_state_publisher, imu_filter, ekf_localization
 #
 
+# CycloneDDS RMW configuration
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+export ROS_DOMAIN_ID=100
+
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -215,4 +219,16 @@ if [[ "$USE_RVIZ" == true ]]; then
     LAUNCH_ARGS+=(use_rviz:=true)
 fi
 
-exec "${LAUNCH_ARGS[@]}"
+# Launch main bringup in background
+"${LAUNCH_ARGS[@]}" &
+BRINGUP_PID=$!
+
+# Wait for nodes to start before launching capability facade
+sleep 30
+
+# --- Multi-robot capability facade node ---
+# Advertises Rosmaster capabilities over DDS for agent coordination
+echo "Starting rosmaster_capability node in background..."
+ros2 launch rosmaster_capability capability.launch.py &
+
+wait $BRINGUP_PID

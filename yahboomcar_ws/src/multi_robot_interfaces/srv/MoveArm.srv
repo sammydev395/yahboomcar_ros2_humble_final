@@ -1,0 +1,9 @@
+# Move a robot's arm to a target pose
+string robot_name
+float64[3] target_position  # x,y,z in meters
+float64 speed_factor        # 0.0-1.0
+string mode                 # "cartesian", "joint", "named_pose"
+string named_pose           # e.g. "home", "up", "grab_ready" (used when mode=named_pose)
+---
+bool success
+string message

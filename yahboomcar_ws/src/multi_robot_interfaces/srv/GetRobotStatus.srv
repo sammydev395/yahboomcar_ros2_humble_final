@@ -1,0 +1,8 @@
+# Get the current status of a robot
+string robot_name
+---
+bool online
+string status              # "ready", "busy", "error"
+multi_robot_interfaces/RobotCapability[] capabilities
+string[] active_nodes
+string[] active_topics
