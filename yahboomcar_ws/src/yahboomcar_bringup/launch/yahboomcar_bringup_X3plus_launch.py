@@ -126,6 +126,7 @@ def generate_launch_description():
             ('/pub_vel', '/vel_raw'),
             ('/pub_imu', '/imu/imu_raw'),
             ('/pub_mag', '/mag/mag_raw'),
+            ('cmd_vel', '/rosmaster/cmd_vel'),
         ],
     )
 
@@ -172,6 +173,10 @@ def generate_launch_description():
             'yspeed_limit': 0.7,
             'angular_speed_limit': 3.2,
         }],
+        remappings=[
+            ('cmd_vel', '/rosmaster/cmd_vel'),
+            ('joy', '/rosmaster/joy'),
+        ],
     )
 
     # Standard Joy Node
@@ -180,6 +185,7 @@ def generate_launch_description():
         executable='joy_node',
         name='joy_node',
         output='screen',
+        remappings=[('/joy', '/rosmaster/joy')],
     )
 
     return LaunchDescription([

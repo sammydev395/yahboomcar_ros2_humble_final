@@ -242,21 +242,48 @@ class RosmasterCapabilityNode(Node):
             return response
 
         try:
-            arm_msg = self._arm_joint_type()
-            # Map x,y,z position to joint angles
-            # For now, pass target position directly as joint1-3 angles (radians)
-            # Full IK integration via Kinematics service is Phase 5 work
-            arm_msg.joint1 = request.target_position[0]
-            arm_msg.joint2 = request.target_position[1]
-            arm_msg.joint3 = request.target_position[2]
-            arm_msg.joint4 = 0.0
-            arm_msg.joint5 = 0.0
-            arm_msg.joint6 = 0.0  # gripper
-            # Speed is controlled by the driver; we publish the target
-            self._arm_busy = True
-            self._arm_pub.publish(arm_msg)
-            response.success = True
-            response.message = f'Arm moving to [{request.target_position[0]:.3f}, {request.target_position[1]:.3f}, {request.target_position[2]:.3f}]'
+            if request.mode == 'joint' and len(request.target_position) >= 1:
+                # Direct joint control: target_position[0] = joint_id (1-6),
+                # target_position[1] = angle in degrees, target_position[2] = run_time ms
+                arm_msg = self._arm_joint_type()
+                arm_msg.id = int(request.target_position[0])
+                arm_msg.angle = request.target_position[1] if len(request.target_position) > 1 else 90.0
+                arm_msg.run_time = int(request.target_position[2]) if len(request.target_position) > 2 else 500
+                self._arm_busy = True
+                self._arm_pub.publish(arm_msg)
+                response.success = True
+                response.message = (
+                    f'Arm joint {arm_msg.id} moving to {arm_msg.angle:.1f} deg '
+                    f'(run_time={arm_msg.run_time}ms)'
+                )
+            elif request.mode == 'named_pose':
+                # Named poses as full joints array (degrees): home, up, etc.
+                # Joint order: [j1_base, j2_shoulder, j3_elbow, j4_wrist, j5_wrist_rot, j6_gripper]
+                # Rest position verified from docs: [90, 145, 0, 45, 90, 30]
+                poses = {
+                    'home': [90.0, 145.0, 0.0, 45.0, 90.0, 30.0],
+                    'up': [90.0, 90.0, 90.0, 90.0, 90.0, 30.0],
+                }
+                pose_name = request.named_pose or 'home'
+                if pose_name not in poses:
+                    response.success = False
+                    response.message = f'Unknown pose: {pose_name}. Available: {list(poses.keys())}'
+                    return response
+                arm_msg = self._arm_joint_type()
+                arm_msg.run_time = 1500
+                arm_msg.joints = poses[pose_name]
+                self._arm_busy = True
+                self._arm_pub.publish(arm_msg)
+                response.success = True
+                response.message = f'Arm moving to named pose: {pose_name}'
+            else:
+                response.success = False
+                response.message = (
+                    f'Mode "{request.mode}" not yet implemented for Rosmaster. '
+                    f'Use mode="joint" with target_position=[joint_id, angle_deg, run_time_ms] '
+                    f'or mode="named_pose" with named_pose="home".'
+                )
+                return response
         except Exception as e:
             response.success = False
             response.message = f'Arm move failed: {str(e)}'
@@ -270,29 +297,30 @@ class RosmasterCapabilityNode(Node):
             return response
 
         try:
+            # Gripper is joint6 (id=6) on X3+. 30 deg = closed, 180 deg = open
+            GRIPPER_OPEN_DEG = 180.0
+            GRIPPER_CLOSED_DEG = 30.0
+
             arm_msg = self._arm_joint_type()
-            # Gripper is joint6 on X3+. 0.0 = closed, ~1.5 = open
+            arm_msg.id = 6
+            arm_msg.run_time = 500
+
             if request.action == 'open':
-                arm_msg.joint6 = 1.5
+                arm_msg.angle = GRIPPER_OPEN_DEG
                 response.gripper_state = 'open'
             elif request.action == 'close':
-                arm_msg.joint6 = 0.0
+                arm_msg.angle = GRIPPER_CLOSED_DEG
                 response.gripper_state = 'closed'
             elif request.action == 'set':
-                arm_msg.joint6 = request.position * 1.5  # normalize 0-1 to 0-1.5
+                # position 0.0 = closed, 1.0 = open
+                arm_msg.angle = GRIPPER_CLOSED_DEG + (
+                    GRIPPER_OPEN_DEG - GRIPPER_CLOSED_DEG
+                ) * request.position
                 response.gripper_state = 'partial'
             else:
                 response.success = False
                 response.gripper_state = 'unknown'
                 return response
-
-            # Keep other joints at current position if available
-            if self._joint_states and len(self._joint_states.position) >= 5:
-                arm_msg.joint1 = self._joint_states.position[0]
-                arm_msg.joint2 = self._joint_states.position[1]
-                arm_msg.joint3 = self._joint_states.position[2]
-                arm_msg.joint4 = self._joint_states.position[3]
-                arm_msg.joint5 = self._joint_states.position[4]
 
             self._arm_pub.publish(arm_msg)
             response.success = True

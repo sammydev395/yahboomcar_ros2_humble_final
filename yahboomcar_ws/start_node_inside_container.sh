@@ -11,6 +11,11 @@
 #   - /yahboom_joy   (joystick controller → /cmd_vel, /TargetAngle)
 #   - /robot_state_publisher, imu_filter, ekf_localization
 #
+# Additional services started:
+#   - rosmaster_capability (multi-robot coordination)
+#   - yahboomcar_astra (Orbbec Astra Pro camera)
+#   - web_video_server (remote camera viewing on port 8090)
+#
 
 # CycloneDDS RMW configuration
 export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
@@ -33,6 +38,7 @@ usage() {
     echo "Usage: $0 [OPTIONS]"
     echo ""
     echo "Start main X3Plus bringup (chassis + arm + joystick + state publisher + EKF)."
+    echo "Also starts Astra camera and web_video_server (port 8090) for remote viewing."
     echo ""
     echo "Options:"
     echo "  --voice      Use voice-control bringup (driver + voice_control node)"
@@ -43,6 +49,11 @@ usage() {
     echo "Paths (detected):"
     echo "  WS_ROOT=$WS_ROOT"
     echo "  SOFTWARE_ROOT=$SOFTWARE_ROOT"
+    echo ""
+    echo "Web Video Streams (after startup):"
+    echo "  http://<robot_ip>:8090/                                  - Main topic list"
+    echo "  http://<robot_ip>:8090/stream_viewer?topic=/simpleAR/camera       - Arm camera"
+    echo "  http://<robot_ip>:8090/stream_viewer?topic=/camera/color/image_raw - Astra color"
     echo ""
     echo "Examples:"
     echo "  $0              # Standard bringup (joystick control)"
@@ -92,6 +103,7 @@ kill_bringup_processes() {
         "rviz2"
         "Voice_Ctrl_Unified_X3plus"
         "joint_state_publisher"
+        "web_video_server"
     )
     local killed=0
     for pattern in "${patterns[@]}"; do
@@ -230,5 +242,20 @@ sleep 30
 # Advertises Rosmaster capabilities over DDS for agent coordination
 echo "Starting rosmaster_capability node in background..."
 ros2 launch rosmaster_capability capability.launch.py &
+
+echo "Starting Astra camera node in background..."
+ros2 launch yahboomcar_astra astra.launch.py &
+
+# --- Web Video Server for remote camera viewing ---
+# Source library_ws and start web_video_server on port 8090
+echo "Starting web_video_server for remote camera viewing (port 8090)..."
+LIBRARY_WS_ROOT="/root/yahboomcar_ros2_ws_new/software/library_ws"
+if [[ -f "${LIBRARY_WS_ROOT}/install/setup.bash" ]]; then
+    source "${LIBRARY_WS_ROOT}/install/setup.bash"
+    ros2 run web_video_server web_video_server &
+    echo "  Web streams available at: http://<robot_ip>:8090/"
+else
+    echo "  [WARN] library_ws not found at ${LIBRARY_WS_ROOT}, skipping web_video_server"
+fi
 
 wait $BRINGUP_PID
