@@ -1,0 +1,29 @@
+/rosmaster_oak:
+  ros__parameters:
+    camera:
+      i_nn_type: none
+      i_enable_imu: true
+      i_enable_ir: false
+      i_usb_speed: SUPER
+      i_pipeline_type: RGBD
+      i_enable_sync: false
+      i_enable_diagnostics: false
+    rgb:
+      i_resolution: "1080P"
+      i_fps: 30.0
+      i_anti_banding_mode: "MAINS_60_HZ"
+      i_publish_topic: true
+      i_max_q_size: 1
+      i_low_bandwidth: true
+      i_low_bandwidth_quality: 80
+      i_enable_lazy_publisher: false
+      i_synced: false
+    stereo:
+      i_resolution: "400P"
+      i_fps: 30.0
+      i_publish_topic: true
+      i_output_disparity: true
+      i_max_q_size: 1
+      i_low_bandwidth: true
+      i_low_bandwidth_quality: 50
+      i_synced: false
