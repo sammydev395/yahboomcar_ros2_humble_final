@@ -1,0 +1,68 @@
+# Controllers config for the X3PLUS chassis (D2 — chassis only).
+# D3 will add imu_sensor_broadcaster; D4 will add arm_controller.
+
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+    use_sim_time: false
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    chassis_controller:
+      type: mecanum_drive_controller/MecanumDriveController
+
+joint_state_broadcaster:
+  ros__parameters:
+    # No explicit joint list = broadcast all joints from all hardware components.
+    use_local_topics: false
+
+chassis_controller:
+  ros__parameters:
+    # ── Wheel joint names (must match URDF + YahboomSystem's NUM_WHEELS=4 ordering) ──
+    # mecanum_drive_controller convention: front_left, front_right, rear_left, rear_right
+    front_left_wheel_command_joint_name:  "front_left_wheel_joint"
+    front_right_wheel_command_joint_name: "front_right_wheel_joint"
+    rear_left_wheel_command_joint_name:   "rear_left_wheel_joint"
+    rear_right_wheel_command_joint_name:  "rear_right_wheel_joint"
+
+    # State joints (same as command for X3PLUS — direct drive, no separate sensor)
+    front_left_wheel_state_joint_name:  "front_left_wheel_joint"
+    front_right_wheel_state_joint_name: "front_right_wheel_joint"
+    rear_left_wheel_state_joint_name:   "rear_left_wheel_joint"
+    rear_right_wheel_state_joint_name:  "rear_right_wheel_joint"
+
+    # ── Mecanum kinematics constants ──
+    # MUST match the values in the URDF <hardware><param> block AND the
+    # YahboomSystem write() inverse kinematics, otherwise Path A's round-trip
+    # cancellation breaks. Single source of truth: URDF.
+    kinematics:
+      wheels_radius:        0.040    # m (80 mm wheel — confirmed from schematic)
+      sum_of_robot_center_projection_on_X_Y_axis: 0.2141  # = (Lx + Ly), half-spans
+                                       # Lx = wheel_separation_x/2 = 0.110
+                                       # Ly = wheel_separation_y/2 = 0.1041
+                                       # sum = 0.2141
+                                       # All from official X3 Plus schematic 2026-05-04.
+
+    # ── Reference (Twist) topic + frames ──
+    base_frame_id: base_link
+    odom_frame_id: odom
+    enable_odom_tf: true             # publish odom→base_link tf
+    publish_rate: 50.0
+    open_loop: false                 # use wheel state for odom integration
+
+    # ── Phase-4 caps (override at launch time; vendor full-gear is 0.7 / 3.2) ──
+    linear:
+      x:
+        max_velocity:  0.10           # m/s — Phase-4 cap
+        max_acceleration: 0.5
+      y:
+        max_velocity:  0.10
+        max_acceleration: 0.5
+    angular:
+      z:
+        max_velocity:  0.30           # rad/s — Phase-4 cap
+        max_acceleration: 1.0
+
+    # Reference timeout: if no Twist received in N seconds, command zero.
+    cmd_vel_timeout: 0.5
