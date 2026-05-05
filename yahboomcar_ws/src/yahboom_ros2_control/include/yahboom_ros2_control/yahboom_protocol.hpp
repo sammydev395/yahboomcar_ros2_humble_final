@@ -37,10 +37,12 @@ enum Func : uint8_t {
   FUNC_BEEP = 0x02,
   FUNC_RGB = 0x05,
 
-  // Push-mode reports (auto-emitted at ~25 Hz when AUTO_REPORT enabled)
+  // Push-mode reports (auto-emitted at ~25-27 Hz when AUTO_REPORT enabled)
   FUNC_REPORT_SPEED = 0x0A,
-  FUNC_REPORT_IMU_ATT = 0x0C,
+  FUNC_REPORT_MPU_RAW = 0x0B,    // raw 9-DOF from MPU9250 IMU (older X3PLUS variant)
+  FUNC_REPORT_IMU_ATT = 0x0C,    // STM32-fused roll/pitch/yaw
   FUNC_REPORT_ENCODER = 0x0D,
+  FUNC_REPORT_ICM_RAW = 0x0E,    // raw 9-DOF from ICM20948 IMU (this X3PLUS unit)
 
   FUNC_MOTOR = 0x10,           // 4-wheel duty cycle (-100..100)
   FUNC_CAR_RUN = 0x11,         // canned states (forward, etc.) — unused
@@ -367,6 +369,34 @@ inline std::optional<SpeedReport> parse_speed(const std::vector<uint8_t>& payloa
       read_le16(payload.data() + 2) / 1000.0,
       read_le16(payload.data() + 4) / 1000.0,
       payload[6],
+  };
+}
+
+// Raw 9-DOF IMU readings from ICM20948 (FUNC_REPORT_ICM_RAW). Per
+// Rosmaster_Lib v3.3.1 line ~166-182, all 9 fields are int16 LE divided by 1000:
+//   gyro: rad/s (verified — stationary robot reports ≈ 0.001-0.003)
+//   accel: m/s² (verified — accel_z ≈ -9.96 = -1g pointing down)
+//   mag: µT-ish (Earth field at ≈ 22 µT magnitude — chip-default scaling)
+// Vendor MPU_RAW (0x0B) uses different per-axis ratios + sign flips on gy/gz;
+// not implemented here because this X3PLUS unit reports ICM_RAW only.
+struct IcmRawData {
+  double gx, gy, gz;  // gyroscope (rad/s)
+  double ax, ay, az;  // accelerometer (m/s²)
+  double mx, my, mz;  // magnetometer (µT)
+};
+
+inline std::optional<IcmRawData> parse_icm_raw(const std::vector<uint8_t>& payload) {
+  if (payload.size() < 18) return std::nullopt;
+  return IcmRawData{
+      read_le16(payload.data() + 0)  / 1000.0,
+      read_le16(payload.data() + 2)  / 1000.0,
+      read_le16(payload.data() + 4)  / 1000.0,
+      read_le16(payload.data() + 6)  / 1000.0,
+      read_le16(payload.data() + 8)  / 1000.0,
+      read_le16(payload.data() + 10) / 1000.0,
+      read_le16(payload.data() + 12) / 1000.0,
+      read_le16(payload.data() + 14) / 1000.0,
+      read_le16(payload.data() + 16) / 1000.0,
   };
 }
 

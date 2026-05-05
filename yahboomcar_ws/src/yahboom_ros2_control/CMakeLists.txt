@@ -36,12 +36,24 @@ ament_target_dependencies(yahboom_ros2_control
 
 pluginlib_export_plugin_description_file(hardware_interface yahboom_ros2_control.xml)
 
+# Hardware smoke test — opens /dev/yahboom_stm32, enables push reports, listens
+# for ~3s, prints frames. Not a unit test (needs real STM32). Run as
+# `ros2 run yahboom_ros2_control smoke_serial`.
+add_executable(smoke_serial tools/smoke_serial.cpp)
+target_link_libraries(smoke_serial yahboom_ros2_control)
+target_include_directories(smoke_serial PRIVATE include)
+
 install(
   TARGETS yahboom_ros2_control
   EXPORT export_yahboom_ros2_control
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
+)
+
+install(
+  TARGETS smoke_serial
+  DESTINATION lib/${PROJECT_NAME}
 )
 
 install(

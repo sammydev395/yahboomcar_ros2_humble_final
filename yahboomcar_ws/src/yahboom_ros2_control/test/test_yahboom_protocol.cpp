@@ -334,6 +334,32 @@ TEST(TypedParse, RejectsTruncatedPayload) {
   EXPECT_FALSE(y::parse_imu_att(short_payload).has_value());
   EXPECT_FALSE(y::parse_encoder(short_payload).has_value());
   EXPECT_FALSE(y::parse_speed(short_payload).has_value());
+  EXPECT_FALSE(y::parse_icm_raw(short_payload).has_value());
+}
+
+TEST(TypedParse, IcmRawFromLiveJetsonCapture) {
+  // Captured 2026-05-04 from /dev/myserial smoke test on jetsonnanodev:
+  //   FUNC=0x0E payload[18]=02 00 FE FF 00 00 DD FF DD FF 17 D9 0A AB 2F A5 4C 49
+  // Decoded as 9× int16 LE divided by 1000:
+  //   gx=2/1000=0.002, gy=-2/1000=-0.002, gz=0
+  //   ax=-35/1000=-0.035, ay=-35/1000=-0.035, az=-9961/1000=-9.961 (≈ -1g, gravity ✓)
+  //   mx=-21750/1000=-21.75, my=-23249/1000=-23.249, mz=18764/1000=18.764
+  std::vector<uint8_t> payload = {
+      0x02, 0x00, 0xFE, 0xFF, 0x00, 0x00,  // gyro
+      0xDD, 0xFF, 0xDD, 0xFF, 0x17, 0xD9,  // accel
+      0x0A, 0xAB, 0x2F, 0xA5, 0x4C, 0x49,  // mag
+  };
+  auto d = y::parse_icm_raw(payload);
+  ASSERT_TRUE(d.has_value());
+  EXPECT_NEAR(d->gx,  0.002, 1e-4);
+  EXPECT_NEAR(d->gy, -0.002, 1e-4);
+  EXPECT_NEAR(d->gz,  0.000, 1e-4);
+  EXPECT_NEAR(d->ax, -0.035, 1e-4);
+  EXPECT_NEAR(d->ay, -0.035, 1e-4);
+  EXPECT_NEAR(d->az, -9.961, 1e-3);  // gravity sanity check — 1g ≈ 9.81 m/s²
+  EXPECT_NEAR(d->mx, -21.750, 1e-3);
+  EXPECT_NEAR(d->my, -23.249, 1e-3);
+  EXPECT_NEAR(d->mz,  18.764, 1e-3);
 }
 
 // ─── End-to-end: build → parse round-trip ────────────────────────────────────
