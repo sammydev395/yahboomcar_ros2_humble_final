@@ -62,6 +62,42 @@ class YahboomSystem : public hardware_interface::SystemInterface {
   static constexpr size_t RR = 3;
   static constexpr size_t NUM_WHEELS = 4;
 
+  // ── Arm joints (D4) ──
+  // 6 bus servos, addressed by STM32 servo id 1..6 (natural order; NOT
+  // reversed like Ultra). URDF joints declared in this order:
+  //   index 0 = arm_joint1 (base yaw)
+  //   index 1 = arm_joint2 (shoulder)
+  //   index 2 = arm_joint3 (elbow)
+  //   index 3 = arm_joint4 (wrist pitch)
+  //   index 4 = arm_joint5 (wrist rot, asymmetric 0..270° range)
+  //   index 5 = grip_joint (gripper, vendor-protected 30° lower bound)
+  static constexpr size_t NUM_ARM_JOINTS = 6;
+  static constexpr int servo_id_for_arm_joint(size_t j) {
+    return static_cast<int>(j) + 1;  // 1-indexed
+  }
+
+  // URDF rad ↔ vendor deg conversion: vendor_deg = offset + sign * rad * 180/π.
+  // Hardcoded defaults; refine at D7 calibration. Joints 1-4 have axisZ=-1
+  // in URDF (so positive rad → negative vendor angle change); joints 5 and
+  // grip_joint have axisZ=+1.
+  // Offsets: vendor angle when URDF rad = 0 (URDF "zero pose").
+  // - joints 1-4: offset 90° puts URDF zero at vendor mid-range
+  // - joint 5: offset 135° (vendor range 0..270 — mid is 135)
+  // - grip_joint: offset 90° (placeholder; vendor "closed" is 30° per
+  //   yahboom_joy_X3plus.py:212, vendor "open" is 180°; URDF range -π/2..0
+  //   maps onto a sub-range of vendor 0..180 — TODO_CALIBRATE at D7)
+  static constexpr std::array<double, NUM_ARM_JOINTS> kArmVendorOffsetDeg = {
+      90.0,   // arm_joint1
+      90.0,   // arm_joint2
+      90.0,   // arm_joint3
+      90.0,   // arm_joint4
+      135.0,  // arm_joint5
+      90.0,   // grip_joint  TODO_CALIBRATE
+  };
+  static constexpr std::array<double, NUM_ARM_JOINTS> kArmAxisSign = {
+      -1.0, -1.0, -1.0, -1.0, +1.0, +1.0,
+  };
+
   // ── Wheel position → STM32 motor/encoder index mapping ──
   // VERIFIED 2026-05-05 via wheel_calibrate D2.3 session:
   //   motor 1 drives front_left  (encoder m1)
@@ -151,6 +187,21 @@ class YahboomSystem : public hardware_interface::SystemInterface {
   // Filled in on_init from info_.joints.
   std::array<std::string, NUM_WHEELS> wheel_joint_names_{};
 
+  // ── Arm joints (D4) ──
+  std::array<std::string, NUM_ARM_JOINTS> arm_joint_names_{};
+  bool arm_present_ = false;  // true if URDF declares 6 arm joints after the wheels
+
+  std::array<double, NUM_ARM_JOINTS> arm_position_state_{};      // rad (URDF convention)
+  std::array<double, NUM_ARM_JOINTS> arm_position_command_{};    // rad (URDF convention)
+  // Last sent vendor angle (deg), used for write-side dedupe + heartbeat —
+  // STM32 firmware likely has the same per-frame issue arm side as chassis,
+  // so we apply Twist-style throttling at the FUNC_ARM_CTRL level.
+  std::array<double, NUM_ARM_JOINTS> last_sent_arm_deg_{};
+  rclcpp::Time last_arm_send_time_{0, 0, RCL_ROS_TIME};
+  bool arm_send_seeded_ = false;
+  static constexpr double kArmDegEpsilon = 0.5;             // ≈ 9 mrad
+  static constexpr int64_t kArmHeartbeatMs = 100;
+
   // Helpers
   void zero_wheel_command();
   void send_motion_command(double vx, double vy, double wz);
@@ -159,6 +210,8 @@ class YahboomSystem : public hardware_interface::SystemInterface {
   // roll/pitch/yaw → quaternion (z-y-x intrinsic, ROS REP-103 convention).
   static void rpy_to_quat(double roll, double pitch, double yaw,
                           double& qx, double& qy, double& qz, double& qw);
+  // URDF rad → vendor degrees per joint (uses kArmVendorOffsetDeg + kArmAxisSign).
+  static double urdf_rad_to_vendor_deg(size_t arm_joint_idx, double rad);
 };
 
 }  // namespace yahboom_ros2_control

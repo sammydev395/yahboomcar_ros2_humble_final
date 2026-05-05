@@ -74,14 +74,17 @@ hardware_interface::CallbackReturn YahboomSystem::on_init(
               wheel_separation_y_, encoder_counts_per_rev_,
               dry_run_ ? "true" : "false");
 
-  // Validate exactly 4 joints declared in URDF, capture their names in order
-  // (FL, FR, RL, RR — matches mecanum_drive_controller declaration order).
-  if (info_.joints.size() != NUM_WHEELS) {
+  // URDF declares either 4 wheel joints (chassis-only) or 4 wheel + 6 arm
+  // joints (full chassis+arm). Wheels first (positions 0..3), arm next
+  // (positions 4..9). Anything else is a config error.
+  if (info_.joints.size() != NUM_WHEELS &&
+      info_.joints.size() != NUM_WHEELS + NUM_ARM_JOINTS) {
     RCLCPP_ERROR(rclcpp::get_logger(kLogger),
-                 "expected %zu wheel joints in URDF, got %zu",
-                 NUM_WHEELS, info_.joints.size());
+                 "expected %zu (chassis-only) or %zu (chassis+arm) joints in URDF, got %zu",
+                 NUM_WHEELS, NUM_WHEELS + NUM_ARM_JOINTS, info_.joints.size());
     return hardware_interface::CallbackReturn::ERROR;
   }
+  arm_present_ = (info_.joints.size() == NUM_WHEELS + NUM_ARM_JOINTS);
 
   for (size_t i = 0; i < NUM_WHEELS; ++i) {
     wheel_joint_names_[i] = info_.joints[i].name;
@@ -105,6 +108,36 @@ hardware_interface::CallbackReturn YahboomSystem::on_init(
                 "wheel[%zu] = '%s' → STM32 motor id %d (encoder index %d)",
                 i, wheel_joint_names_[i].c_str(),
                 motor_id_for_wheel(i), encoder_index_for_wheel(i));
+  }
+
+  if (arm_present_) {
+    for (size_t j = 0; j < NUM_ARM_JOINTS; ++j) {
+      const auto& joint = info_.joints[NUM_WHEELS + j];
+      arm_joint_names_[j] = joint.name;
+      // Each arm joint declares: 1 position command + 1 position state.
+      bool has_pos_cmd = false, has_pos_state = false;
+      for (const auto& iface : joint.command_interfaces) {
+        if (iface.name == hardware_interface::HW_IF_POSITION) has_pos_cmd = true;
+      }
+      for (const auto& iface : joint.state_interfaces) {
+        if (iface.name == hardware_interface::HW_IF_POSITION) has_pos_state = true;
+      }
+      if (!has_pos_cmd || !has_pos_state) {
+        RCLCPP_ERROR(rclcpp::get_logger(kLogger),
+                     "arm joint '%s' missing required interfaces "
+                     "(need: cmd=position, state=position)",
+                     arm_joint_names_[j].c_str());
+        return hardware_interface::CallbackReturn::ERROR;
+      }
+      RCLCPP_INFO(rclcpp::get_logger(kLogger),
+                  "arm[%zu] = '%s' → STM32 servo id %d "
+                  "(URDF rad=0 → vendor %.1f°, axis_sign=%+0.0f)",
+                  j, arm_joint_names_[j].c_str(), servo_id_for_arm_joint(j),
+                  kArmVendorOffsetDeg[j], kArmAxisSign[j]);
+    }
+  } else {
+    RCLCPP_INFO(rclcpp::get_logger(kLogger),
+                "URDF has no arm joints — chassis-only mode");
   }
 
   // ── D3: IMU sensor declaration ──
@@ -214,7 +247,7 @@ hardware_interface::CallbackReturn YahboomSystem::on_cleanup(
 
 std::vector<hardware_interface::StateInterface> YahboomSystem::export_state_interfaces() {
   std::vector<hardware_interface::StateInterface> out;
-  out.reserve(2 * NUM_WHEELS + 10);
+  out.reserve(2 * NUM_WHEELS + NUM_ARM_JOINTS + 10);
   for (size_t i = 0; i < NUM_WHEELS; ++i) {
     out.emplace_back(wheel_joint_names_[i],
                      hardware_interface::HW_IF_POSITION,
@@ -222,6 +255,15 @@ std::vector<hardware_interface::StateInterface> YahboomSystem::export_state_inte
     out.emplace_back(wheel_joint_names_[i],
                      hardware_interface::HW_IF_VELOCITY,
                      &wheel_velocity_state_[i]);
+  }
+
+  // D4: arm joint position state (only if URDF declares arm joints).
+  if (arm_present_) {
+    for (size_t j = 0; j < NUM_ARM_JOINTS; ++j) {
+      out.emplace_back(arm_joint_names_[j],
+                       hardware_interface::HW_IF_POSITION,
+                       &arm_position_state_[j]);
+    }
   }
 
   // D3: 10 IMU state interfaces (only if sensor declared in URDF).
@@ -243,13 +285,26 @@ std::vector<hardware_interface::StateInterface> YahboomSystem::export_state_inte
 
 std::vector<hardware_interface::CommandInterface> YahboomSystem::export_command_interfaces() {
   std::vector<hardware_interface::CommandInterface> out;
-  out.reserve(NUM_WHEELS);
+  out.reserve(NUM_WHEELS + NUM_ARM_JOINTS);
   for (size_t i = 0; i < NUM_WHEELS; ++i) {
     out.emplace_back(wheel_joint_names_[i],
                      hardware_interface::HW_IF_VELOCITY,
                      &wheel_velocity_command_[i]);
   }
+  if (arm_present_) {
+    for (size_t j = 0; j < NUM_ARM_JOINTS; ++j) {
+      out.emplace_back(arm_joint_names_[j],
+                       hardware_interface::HW_IF_POSITION,
+                       &arm_position_command_[j]);
+    }
+  }
   return out;
+}
+
+double YahboomSystem::urdf_rad_to_vendor_deg(size_t arm_joint_idx, double rad) {
+  // vendor_deg = offset + sign * rad * 180/π
+  return kArmVendorOffsetDeg[arm_joint_idx] +
+         kArmAxisSign[arm_joint_idx] * rad * (180.0 / M_PI);
 }
 
 // ─── read() — drain push frames, update wheel state ──────────────────────────
@@ -257,9 +312,15 @@ std::vector<hardware_interface::CommandInterface> YahboomSystem::export_command_
 hardware_interface::return_type YahboomSystem::read(const rclcpp::Time& time,
                                                      const rclcpp::Duration& /*period*/) {
   if (dry_run_) {
-    // Perfect-tracker model: state echoes command.
+    // Perfect-tracker model: state echoes command. Used by D4 arm dry-run
+    // bring-up so spawned controllers see "instant settle" and no faults.
     for (size_t i = 0; i < NUM_WHEELS; ++i) {
       wheel_velocity_state_[i] = wheel_velocity_command_[i];
+    }
+    if (arm_present_) {
+      for (size_t j = 0; j < NUM_ARM_JOINTS; ++j) {
+        arm_position_state_[j] = arm_position_command_[j];
+      }
     }
     return hardware_interface::return_type::OK;
   }
@@ -407,6 +468,67 @@ hardware_interface::return_type YahboomSystem::write(const rclcpp::Time& time,
                   vx, vy, wz, w_fl, w_fr, w_rl, w_rr);
     }
   }
+
+  // ── D4: arm path. Convert URDF rad → vendor deg, dedupe + heartbeat,
+  // emit FUNC_ARM_CTRL frame. Same throttling pattern as chassis since
+  // STM32 firmware likely has the same per-frame buffering issue. In
+  // dry_run mode, log only — never touch serial.
+  if (arm_present_) {
+    std::array<double, NUM_ARM_JOINTS> cmd_deg{};
+    for (size_t j = 0; j < NUM_ARM_JOINTS; ++j) {
+      cmd_deg[j] = urdf_rad_to_vendor_deg(j, arm_position_command_[j]);
+    }
+
+    bool arm_changed = !arm_send_seeded_;
+    if (!arm_changed) {
+      for (size_t j = 0; j < NUM_ARM_JOINTS; ++j) {
+        if (std::fabs(cmd_deg[j] - last_sent_arm_deg_[j]) > kArmDegEpsilon) {
+          arm_changed = true;
+          break;
+        }
+      }
+    }
+    bool arm_heartbeat = false;
+    if (arm_send_seeded_) {
+      const auto since_ms = (time - last_arm_send_time_).nanoseconds() / 1'000'000;
+      arm_heartbeat = since_ms >= kArmHeartbeatMs;
+    }
+
+    if (arm_changed || arm_heartbeat) {
+      if (dry_run_) {
+        if (arm_changed) {
+          RCLCPP_INFO(rclcpp::get_logger(kLogger),
+                      "[DRY-RUN] WOULD send FUNC_ARM_CTRL: "
+                      "deg=[%.1f %.1f %.1f %.1f %.1f %.1f] "
+                      "rad=[%.3f %.3f %.3f %.3f %.3f %.3f]",
+                      cmd_deg[0], cmd_deg[1], cmd_deg[2], cmd_deg[3], cmd_deg[4], cmd_deg[5],
+                      arm_position_command_[0], arm_position_command_[1],
+                      arm_position_command_[2], arm_position_command_[3],
+                      arm_position_command_[4], arm_position_command_[5]);
+        }
+      } else {
+        // LIVE mode: build + send the FUNC_ARM_CTRL frame. Only fires once
+        // Phase 4 single-joint test passes (operator must set dry_run=false
+        // explicitly in URDF).
+        std::array<double, 6> angles{
+            cmd_deg[0], cmd_deg[1], cmd_deg[2], cmd_deg[3], cmd_deg[4], cmd_deg[5]};
+        auto frame = protocol::build_set_uart_servo_angle_array(angles);
+        if (serial_.is_open()) {
+          serial_.write_bytes(frame.data(), frame.size());
+        }
+        if (arm_changed) {
+          RCLCPP_INFO(rclcpp::get_logger(kLogger),
+                      "FUNC_ARM_CTRL send: deg=[%.1f %.1f %.1f %.1f %.1f %.1f]",
+                      cmd_deg[0], cmd_deg[1], cmd_deg[2],
+                      cmd_deg[3], cmd_deg[4], cmd_deg[5]);
+        }
+      }
+      last_sent_arm_deg_ = cmd_deg;
+      last_arm_send_time_ = time;
+      arm_send_seeded_ = true;
+    }
+  }
+
   return hardware_interface::return_type::OK;
 }
 
