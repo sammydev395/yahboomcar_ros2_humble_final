@@ -1,0 +1,13 @@
+<library path="yahboom_ros2_control">
+  <class
+    name="yahboom_ros2_control/YahboomSystem"
+    type="yahboom_ros2_control::YahboomSystem"
+    base_class_type="hardware_interface::SystemInterface">
+    <description>
+      ros2_control SystemInterface for Yahboom ROSMASTER X3PLUS (STM32 motor controller +
+      bus servo arm + IMU + push-mode encoder/IMU reports).
+      D1: scaffold + protocol layer + serial wrapper. read()/write() are no-ops; chassis
+      and arm wiring come in D2-D4.
+    </description>
+  </class>
+</library>
