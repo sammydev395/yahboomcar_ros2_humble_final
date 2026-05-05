@@ -43,6 +43,12 @@ add_executable(smoke_serial tools/smoke_serial.cpp)
 target_link_libraries(smoke_serial yahboom_ros2_control)
 target_include_directories(smoke_serial PRIVATE include)
 
+# D2.3 interactive wheel calibration tool — drives each motor 1-by-1 and
+# captures encoder deltas for both wheel-to-motor mapping AND counts/rev.
+add_executable(wheel_calibrate tools/wheel_calibrate.cpp)
+target_link_libraries(wheel_calibrate yahboom_ros2_control)
+target_include_directories(wheel_calibrate PRIVATE include)
+
 install(
   TARGETS yahboom_ros2_control
   EXPORT export_yahboom_ros2_control
@@ -52,7 +58,7 @@ install(
 )
 
 install(
-  TARGETS smoke_serial
+  TARGETS smoke_serial wheel_calibrate
   DESTINATION lib/${PROJECT_NAME}
 )
 

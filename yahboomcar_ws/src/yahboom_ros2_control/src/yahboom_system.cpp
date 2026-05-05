@@ -265,12 +265,15 @@ void YahboomSystem::update_state_from_encoder_frame(
   if (dt <= 0.0) return;  // bogus timestamp; skip
 
   const double rad_per_count = 2.0 * M_PI / encoder_counts_per_rev_;
-  for (size_t i = 0; i < NUM_WHEELS; ++i) {
-    const int32_t delta = raw[i] - last_encoder_counts_[i];
-    wheel_position_state_[i] += delta * rad_per_count;     // accumulate rad
-    wheel_velocity_state_[i]  = (delta * rad_per_count) / dt;
+  // Use kEncoderIndexForWheel mapping — Yahboom physical wiring puts motors 2
+  // and 3 swapped vs the naive 1:1 default (verified 2026-05-05 D2.3 calib).
+  for (size_t w = 0; w < NUM_WHEELS; ++w) {
+    const int e = encoder_index_for_wheel(w);
+    const int32_t delta = raw[e] - last_encoder_counts_[e];
+    wheel_position_state_[w] += delta * rad_per_count;     // accumulate rad
+    wheel_velocity_state_[w]  = (delta * rad_per_count) / dt;
   }
-  last_encoder_counts_ = raw;
+  last_encoder_counts_ = raw;  // store all 4 raw, indexed by encoder slot
   last_encoder_time_ = now;
 }
 

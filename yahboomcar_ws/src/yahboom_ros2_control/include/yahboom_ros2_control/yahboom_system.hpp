@@ -62,11 +62,36 @@ class YahboomSystem : public hardware_interface::SystemInterface {
   static constexpr size_t RR = 3;
   static constexpr size_t NUM_WHEELS = 4;
 
-  // Wheel name → STM32 motor ID (1..4 for FUNC_MOTOR / FUNC_REPORT_ENCODER).
-  // TODO_VERIFY: confirm physical mapping by spinning each motor in isolation.
-  // Initial guess: m1=FL, m2=FR, m3=RL, m4=RR (vendor convention typical).
+  // ── Wheel position → STM32 motor/encoder index mapping ──
+  // VERIFIED 2026-05-05 via wheel_calibrate D2.3 session:
+  //   motor 1 drives front_left  (encoder m1)
+  //   motor 2 drives REAR_LEFT   (encoder m2)  ← was incorrectly assumed FR
+  //   motor 3 drives FRONT_RIGHT (encoder m3)  ← was incorrectly assumed RL
+  //   motor 4 drives rear_right  (encoder m4)
+  // Yahboom's physical wiring puts motors 2 and 3 swapped relative to the
+  // naive "1=FL, 2=FR, 3=RL, 4=RR" default. The kinematics math in write()
+  // is wheel-position-based and unaffected (FUNC_MOTION takes Twist, STM32
+  // knows its own layout). Only the read-back from FUNC_REPORT_ENCODER
+  // needs the index swap to populate state interfaces correctly.
+  static constexpr std::array<int, NUM_WHEELS> kMotorIdForWheel = {
+      1,  // FL → STM32 motor 1
+      3,  // FR → STM32 motor 3 (NOT 2)
+      2,  // RL → STM32 motor 2 (NOT 3)
+      4,  // RR → STM32 motor 4
+  };
+  // Index into FUNC_REPORT_ENCODER frame (m1@0, m2@1, m3@2, m4@3) for a
+  // given wheel position — same mapping as above, 0-based.
+  static constexpr std::array<int, NUM_WHEELS> kEncoderIndexForWheel = {
+      0,  // FL ← m1 (frame index 0)
+      2,  // FR ← m3 (frame index 2)
+      1,  // RL ← m2 (frame index 1)
+      3,  // RR ← m4 (frame index 3)
+  };
   static constexpr int motor_id_for_wheel(size_t w) {
-    return static_cast<int>(w) + 1;  // 1-indexed
+    return kMotorIdForWheel[w];
+  }
+  static constexpr int encoder_index_for_wheel(size_t w) {
+    return kEncoderIndexForWheel[w];
   }
 
   // ── Hardware params (from URDF <hardware><param>...</param></hardware>) ──
@@ -74,7 +99,7 @@ class YahboomSystem : public hardware_interface::SystemInterface {
   double wheel_radius_ = 0.040;            // m. 80 mm wheel (vendor schematic).
   double wheel_separation_x_ = 0.220;      // m. front↔rear axle (vendor schematic).
   double wheel_separation_y_ = 0.2082;     // m. left↔right axle (245.60 − 37.40, schematic).
-  double encoder_counts_per_rev_ = 616.0;  // 11 Hall PPR × 56:1 gearbox, TODO_VERIFY.
+  double encoder_counts_per_rev_ = 2436.0; // verified 2026-05-05 via wheel_calibrate hand-rev test (≈ 11 PPR × 56:1 × 4 quadrature = 2464 nominal).
   bool dry_run_ = false;
 
   // ── Runtime state ──
