@@ -129,6 +129,24 @@ class YahboomSystem : public hardware_interface::SystemInterface {
   rclcpp::Time last_motion_send_time_{0, 0, RCL_ROS_TIME};
   bool motion_send_seeded_ = false;
 
+  // ── IMU state interfaces (D3) ──
+  // Populated from FUNC_REPORT_IMU_ATT (roll/pitch/yaw → quaternion) and
+  // FUNC_REPORT_ICM_RAW (gyro = angular velocity rad/s, accel = linear
+  // acceleration m/s²). 10 doubles match imu_sensor_broadcaster's required
+  // state-interface set. Magnetometer is decoded but not exposed (broadcaster
+  // doesn't consume it; would need a separate magnetometer_broadcaster).
+  std::string imu_sensor_name_ = "imu_sensor";  // overridden from URDF
+  double imu_orientation_x_ = 0.0;
+  double imu_orientation_y_ = 0.0;
+  double imu_orientation_z_ = 0.0;
+  double imu_orientation_w_ = 1.0;              // identity quaternion at init
+  double imu_angular_velocity_x_ = 0.0;
+  double imu_angular_velocity_y_ = 0.0;
+  double imu_angular_velocity_z_ = 0.0;
+  double imu_linear_acceleration_x_ = 0.0;
+  double imu_linear_acceleration_y_ = 0.0;
+  double imu_linear_acceleration_z_ = 0.0;
+
   // URDF joint name lookup — tells us which wheel slot each export goes to.
   // Filled in on_init from info_.joints.
   std::array<std::string, NUM_WHEELS> wheel_joint_names_{};
@@ -138,6 +156,9 @@ class YahboomSystem : public hardware_interface::SystemInterface {
   void send_motion_command(double vx, double vy, double wz);
   void update_state_from_encoder_frame(const protocol::EncoderCounts& counts,
                                        const rclcpp::Time& now);
+  // roll/pitch/yaw → quaternion (z-y-x intrinsic, ROS REP-103 convention).
+  static void rpy_to_quat(double roll, double pitch, double yaw,
+                          double& qx, double& qy, double& qz, double& qw);
 };
 
 }  // namespace yahboom_ros2_control

@@ -14,9 +14,6 @@ Test after launch:
   ros2 topic echo /chassis_controller/odometry --once
 """
 
-import os
-
-from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, RegisterEventHandler
 from launch.event_handlers import OnProcessExit
@@ -82,6 +79,15 @@ def generate_launch_description():
         arguments=['joint_state_broadcaster', '--controller-manager', '/controller_manager'],
     )
 
+    # D3: spawn imu_sensor_broadcaster (also state-only, no actuator authority).
+    # Reads from YahboomSystem's IMU state interfaces (FUNC_REPORT_IMU_ATT
+    # quaternion + FUNC_REPORT_ICM_RAW gyro/accel), publishes /imu_sensor_broadcaster/imu.
+    spawn_imu = Node(
+        package='controller_manager',
+        executable='spawner',
+        arguments=['imu_sensor_broadcaster', '--controller-manager', '/controller_manager'],
+    )
+
     # Spawn chassis_controller AFTER joint_state_broadcaster is up. This
     # mirrors Ultra's pattern (controllers chain spawn-order to avoid races
     # where the controller_manager hasn't loaded YahboomSystem yet).
@@ -91,9 +97,15 @@ def generate_launch_description():
         arguments=['chassis_controller', '--controller-manager', '/controller_manager'],
     )
 
-    delay_chassis_after_jsb = RegisterEventHandler(
+    delay_imu_after_jsb = RegisterEventHandler(
         event_handler=OnProcessExit(
             target_action=spawn_jsb,
+            on_exit=[spawn_imu],
+        )
+    )
+    delay_chassis_after_imu = RegisterEventHandler(
+        event_handler=OnProcessExit(
+            target_action=spawn_imu,
             on_exit=[spawn_chassis],
         )
     )
@@ -104,5 +116,6 @@ def generate_launch_description():
         robot_state_publisher,
         controller_manager,
         spawn_jsb,
-        delay_chassis_after_jsb,
+        delay_imu_after_jsb,
+        delay_chassis_after_imu,
     ])

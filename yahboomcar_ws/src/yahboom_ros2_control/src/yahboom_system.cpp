@@ -102,8 +102,30 @@ hardware_interface::CallbackReturn YahboomSystem::on_init(
       return hardware_interface::CallbackReturn::ERROR;
     }
     RCLCPP_INFO(rclcpp::get_logger(kLogger),
-                "wheel[%zu] = '%s' → STM32 motor id %d",
-                i, wheel_joint_names_[i].c_str(), motor_id_for_wheel(i));
+                "wheel[%zu] = '%s' → STM32 motor id %d (encoder index %d)",
+                i, wheel_joint_names_[i].c_str(),
+                motor_id_for_wheel(i), encoder_index_for_wheel(i));
+  }
+
+  // ── D3: IMU sensor declaration ──
+  // URDF may include zero or one <sensor name="..."> elements inside the
+  // <ros2_control> block. If present, capture the name for state-interface
+  // export and verify it declares the 10 standard IMU fields.
+  if (!info_.sensors.empty()) {
+    if (info_.sensors.size() > 1) {
+      RCLCPP_WARN(rclcpp::get_logger(kLogger),
+                  "expected ≤1 sensor in URDF, got %zu — using first ('%s')",
+                  info_.sensors.size(), info_.sensors[0].name.c_str());
+    }
+    imu_sensor_name_ = info_.sensors[0].name;
+    RCLCPP_INFO(rclcpp::get_logger(kLogger),
+                "IMU sensor declared: name='%s' with %zu state interfaces",
+                imu_sensor_name_.c_str(),
+                info_.sensors[0].state_interfaces.size());
+  } else {
+    RCLCPP_INFO(rclcpp::get_logger(kLogger),
+                "no IMU sensor declared in URDF — not exporting IMU state. "
+                "(Add <sensor name=\"imu_sensor\"> block to enable.)");
   }
 
   return hardware_interface::CallbackReturn::SUCCESS;
@@ -192,7 +214,7 @@ hardware_interface::CallbackReturn YahboomSystem::on_cleanup(
 
 std::vector<hardware_interface::StateInterface> YahboomSystem::export_state_interfaces() {
   std::vector<hardware_interface::StateInterface> out;
-  out.reserve(2 * NUM_WHEELS);
+  out.reserve(2 * NUM_WHEELS + 10);
   for (size_t i = 0; i < NUM_WHEELS; ++i) {
     out.emplace_back(wheel_joint_names_[i],
                      hardware_interface::HW_IF_POSITION,
@@ -200,6 +222,21 @@ std::vector<hardware_interface::StateInterface> YahboomSystem::export_state_inte
     out.emplace_back(wheel_joint_names_[i],
                      hardware_interface::HW_IF_VELOCITY,
                      &wheel_velocity_state_[i]);
+  }
+
+  // D3: 10 IMU state interfaces (only if sensor declared in URDF).
+  // Names are the convention imu_sensor_broadcaster expects.
+  if (!info_.sensors.empty()) {
+    out.emplace_back(imu_sensor_name_, "orientation.x",         &imu_orientation_x_);
+    out.emplace_back(imu_sensor_name_, "orientation.y",         &imu_orientation_y_);
+    out.emplace_back(imu_sensor_name_, "orientation.z",         &imu_orientation_z_);
+    out.emplace_back(imu_sensor_name_, "orientation.w",         &imu_orientation_w_);
+    out.emplace_back(imu_sensor_name_, "angular_velocity.x",    &imu_angular_velocity_x_);
+    out.emplace_back(imu_sensor_name_, "angular_velocity.y",    &imu_angular_velocity_y_);
+    out.emplace_back(imu_sensor_name_, "angular_velocity.z",    &imu_angular_velocity_z_);
+    out.emplace_back(imu_sensor_name_, "linear_acceleration.x", &imu_linear_acceleration_x_);
+    out.emplace_back(imu_sensor_name_, "linear_acceleration.y", &imu_linear_acceleration_y_);
+    out.emplace_back(imu_sensor_name_, "linear_acceleration.z", &imu_linear_acceleration_z_);
   }
   return out;
 }
@@ -242,12 +279,48 @@ hardware_interface::return_type YahboomSystem::read(const rclcpp::Time& time,
       if (auto counts = protocol::parse_encoder(frame->payload)) {
         update_state_from_encoder_frame(*counts, time);
       }
+    } else if (frame->func == protocol::FUNC_REPORT_IMU_ATT) {
+      // Roll/pitch/yaw fused by STM32 → quaternion for orientation IF.
+      if (auto att = protocol::parse_imu_att(frame->payload)) {
+        rpy_to_quat(att->roll, att->pitch, att->yaw,
+                    imu_orientation_x_, imu_orientation_y_,
+                    imu_orientation_z_, imu_orientation_w_);
+      }
+    } else if (frame->func == protocol::FUNC_REPORT_ICM_RAW) {
+      // ICM20948 raw 9-DOF: gyro (rad/s) → angular_velocity, accel (m/s²)
+      // → linear_acceleration. Magnetometer decoded but not exported (no
+      // standard broadcaster consumes it from ros2_control state IFs).
+      if (auto d = protocol::parse_icm_raw(frame->payload)) {
+        imu_angular_velocity_x_    = d->gx;
+        imu_angular_velocity_y_    = d->gy;
+        imu_angular_velocity_z_    = d->gz;
+        imu_linear_acceleration_x_ = d->ax;
+        imu_linear_acceleration_y_ = d->ay;
+        imu_linear_acceleration_z_ = d->az;
+      }
     }
-    // Other push frames (REPORT_IMU_ATT, REPORT_SPEED, REPORT_ICM_RAW) are
-    // drained but ignored at D2; D3 wires up imu_sensor_broadcaster.
+    // FUNC_REPORT_SPEED is drained but unused — vendor-style integrated
+    // chassis Twist; mecanum_drive_controller computes its own odom from
+    // wheel state, no need to duplicate.
   }
 
   return hardware_interface::return_type::OK;
+}
+
+// Roll/pitch/yaw → unit quaternion (z-y-x intrinsic, ROS REP-103 convention).
+// Standard conversion; static so it can be unit-tested without instance.
+void YahboomSystem::rpy_to_quat(double roll, double pitch, double yaw,
+                                double& qx, double& qy, double& qz, double& qw) {
+  const double cr = std::cos(roll  * 0.5);
+  const double sr = std::sin(roll  * 0.5);
+  const double cp = std::cos(pitch * 0.5);
+  const double sp = std::sin(pitch * 0.5);
+  const double cy = std::cos(yaw   * 0.5);
+  const double sy = std::sin(yaw   * 0.5);
+  qw = cr * cp * cy + sr * sp * sy;
+  qx = sr * cp * cy - cr * sp * sy;
+  qy = cr * sp * cy + sr * cp * sy;
+  qz = cr * cp * sy - sr * sp * cy;
 }
 
 void YahboomSystem::update_state_from_encoder_frame(
