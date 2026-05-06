@@ -1,0 +1,80 @@
+# Yahboom-shipped X3PLUS gamepad map (DragonRise 0079:181c).
+# Verified live D5 Phase 1 on 2026-05-06 via joy_recorder.py session at
+# /tmp/yahboom_joy_recording.log (saved 21:41:35).
+#
+# Layout: standard xpad-style HID — same as Ultra DuLingKer, by design
+# (cross-robot operator consistency). See feedback_gamepad_cross_robot_consistency.md.
+#
+# Phase 1 corrections vs original docs:
+#   - buttons 8 and 9 are NOT silent. They fire as DIGITAL trigger
+#     reports paired with the analog trigger axes (xpad convention):
+#       LT pressed → buttons[8]=1 AND axes[5] (drops to -1.0)
+#       RT pressed → buttons[9]=1 AND axes[4] (drops to -1.0)
+#   - trigger AXIS polarity: rest=+1.0, pressed=-1.0 (NOT the reverse).
+#
+# Buttons 2, 5, 12 confirmed silent on this gamepad class.
+
+mode: xpad-style
+device:
+  vid: "0079"
+  pid: "181c"
+  vendor_name: "DragonRise Inc. Generic USB Joystick"
+  ros_node: joy            # ros-humble-joy v3.3.0, device_id=0
+  default_path: /dev/input/js0   # = /dev/yahboom_joy via udev rule
+  verified_on: jetsonnanodev (2026-05-06)
+  verified_by: D5 Phase 1 joy_recorder.py session
+
+buttons:
+  a:        0
+  b:        1
+  # 2 silent
+  x:        3
+  y:        4
+  # 5 silent
+  l1:       6
+  r1:       7
+  lt:       8       # digital — fires together with axes[5] going -1
+  rt:       9       # digital — fires together with axes[4] going -1
+  select:   10
+  start:    11
+  # 12 silent (Mode/Logitech middle — kernel doesn't expose)
+  ls_click: 13
+  rs_click: 14
+
+axes:
+  ls_x:    0        # -1.0 .. +1.0, rest 0
+  ls_y:    1        # -1.0 .. +1.0, rest 0
+  rs_x:    2        # -1.0 .. +1.0, rest 0
+  rs_y:    3        # -1.0 .. +1.0, rest 0
+  rt:      4        # +1.0 rest, -1.0 pressed (analog)
+  lt:      5        # +1.0 rest, -1.0 pressed (analog)
+  dpad_x:  6        # ±1 digital, 0 rest
+  dpad_y:  7        # ±1 digital, 0 rest
+
+# Operator-facing role assignment (committed 2026-05-04, see
+# YAHBOOM_GAMEPAD_INTEGRATION_PLAN.md and Ultra DuLingKer for
+# cross-robot consistency).
+roles:
+  chassis_deadman:    a              # buttons[0]
+  arm_deadman:        b              # buttons[1]
+  arm_turbo:          x              # buttons[3]
+  chassis_turbo:      y              # buttons[4]
+  estop_freeze:       select         # buttons[10] — edge-triggered → ~/freeze
+  reserved_for_home:  start          # buttons[11] — DISABLED until Phase 6 redesign
+  linear_gear_cycle:  ls_click       # buttons[13] — vendor convention, kept
+  angular_gear_cycle: rs_click       # buttons[14] — vendor convention, kept
+
+# Stick → joint assignment (with deadman B held) and chassis Twist (with A held).
+# Derived from Ultra DuLingKer arm_teleop_node + chassis pattern.
+arm_with_b_held:
+  arm_joint1:   ls_x          # base yaw
+  arm_joint2:   ls_y          # shoulder
+  arm_joint3:   rs_y          # elbow
+  arm_joint5:   rs_x          # wrist rot (axes[2])
+  arm_joint4:   dpad_x        # wrist pitch
+  grip_joint:   dpad_y        # gripper
+
+chassis_with_a_held:
+  linear_x:     ls_y          # forward/back (axes[1])
+  linear_y:     ls_x          # strafe       (axes[0])
+  angular_z:    rs_x          # yaw          (axes[2])

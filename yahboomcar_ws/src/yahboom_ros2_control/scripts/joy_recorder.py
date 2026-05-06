@@ -44,6 +44,12 @@ AXIS_ACTIVE_THRESH = 0.15  # below this, axis shown as idle
 # Buttons 2, 5, 8, 9, 12 are UNMAPPED on this gamepad class — they fire
 # no events (vendor convention). Indices left undefined here so they
 # show as "?(N)" if they ever do fire.
+# Verified live D5 Phase 1 (2026-05-06):
+# Buttons 2, 5, 12 confirmed silent (no events). Buttons 8 and 9 are
+# DIGITAL trigger reports paired with the analog axis values — pressing
+# LT fires both buttons[8]=1 and axes[5] = -1.0, pressing RT fires both
+# buttons[9]=1 and axes[4] = -1.0. Trigger AXIS polarity is rest=+1.0,
+# pressed=-1.0 (opposite of what we initially documented).
 BUTTON_LABELS = {
     0: "A",
     1: "B",
@@ -51,6 +57,8 @@ BUTTON_LABELS = {
     4: "Y",
     6: "L1",
     7: "R1",
+    8: "LT",      # digital, paired with axes[5] analog
+    9: "RT",      # digital, paired with axes[4] analog
     10: "SELECT",
     11: "START",
     13: "LS-clk",
@@ -61,8 +69,8 @@ AXIS_LABELS = {
     1: "LS UD",
     2: "RS LR",
     3: "RS UD",
-    4: "RT",     # analog trigger: -1 rest → +1 pressed
-    5: "LT",     # analog trigger: -1 rest → +1 pressed
+    4: "RT",     # analog trigger: rest=+1.0, pressed=-1.0
+    5: "LT",     # analog trigger: rest=+1.0, pressed=-1.0
     6: "Dpad LR",
     7: "Dpad UD",
 }
