@@ -362,6 +362,59 @@ TEST(TypedParse, IcmRawFromLiveJetsonCapture) {
   EXPECT_NEAR(d->mz,  18.764, 1e-3);
 }
 
+// ─── FUNC_REQUEST_DATA + FUNC_ARM_CTRL response (D7) ─────────────────────────
+
+TEST(BuildFrame, RequestDataForArmCtrl) {
+  // build_request_data(FUNC_ARM_CTRL) — payload = [0x23, 0x00], LEN = 2+3 = 5.
+  // checksum = (5 + 0x50 + 0x23 + 0x00) & 0xff = 0x78
+  auto f = y::build_request_data(y::FUNC_ARM_CTRL);
+  ASSERT_EQ(f.size(), 7u);
+  EXPECT_EQ(f[0], 0xFF);
+  EXPECT_EQ(f[1], 0xFC);
+  EXPECT_EQ(f[2], 0x05);  // LEN
+  EXPECT_EQ(f[3], 0x50);  // FUNC_REQUEST_DATA
+  EXPECT_EQ(f[4], 0x23);  // target = FUNC_ARM_CTRL
+  EXPECT_EQ(f[5], 0x00);  // param
+  EXPECT_EQ(f[6], 0x78);  // checksum
+}
+
+TEST(TypedParse, ArmCtrlSixPulses) {
+  // 6 × int16 LE pulses. Vendor home pose pulses: s1=2000, s2=1327, s3=3100,
+  // s4=2550, s5=1486, s6=1266 (computed via arm_angle_to_pulse for the
+  // documented degrees [90, 145, 0, 45, 90, 30]).
+  auto le = [](int16_t v) -> std::array<uint8_t, 2> {
+    return {static_cast<uint8_t>(v & 0xff),
+            static_cast<uint8_t>((v >> 8) & 0xff)};
+  };
+  std::vector<uint8_t> payload;
+  for (int16_t p : {int16_t(2000), int16_t(1327), int16_t(3100),
+                    int16_t(2550), int16_t(1486), int16_t(1266)}) {
+    auto bytes = le(p);
+    payload.push_back(bytes[0]);
+    payload.push_back(bytes[1]);
+  }
+  auto a = y::parse_arm_ctrl(payload);
+  ASSERT_TRUE(a.has_value());
+  EXPECT_EQ(a->pulses[0], 2000);
+  EXPECT_EQ(a->pulses[1], 1327);
+  EXPECT_EQ(a->pulses[2], 3100);
+  EXPECT_EQ(a->pulses[3], 2550);
+  EXPECT_EQ(a->pulses[4], 1486);
+  EXPECT_EQ(a->pulses[5], 1266);
+  // Round-trip via arm_pulse_to_angle: should recover home degrees ±0.5°.
+  EXPECT_NEAR(y::arm_pulse_to_angle(1, a->pulses[0]),  90.0, 0.5);
+  EXPECT_NEAR(y::arm_pulse_to_angle(2, a->pulses[1]), 145.0, 0.5);
+  EXPECT_NEAR(y::arm_pulse_to_angle(3, a->pulses[2]),   0.0, 0.5);
+  EXPECT_NEAR(y::arm_pulse_to_angle(4, a->pulses[3]),  45.0, 0.5);
+  EXPECT_NEAR(y::arm_pulse_to_angle(5, a->pulses[4]),  90.0, 0.5);
+  EXPECT_NEAR(y::arm_pulse_to_angle(6, a->pulses[5]),  30.0, 0.5);
+}
+
+TEST(TypedParse, ArmCtrlRejectsTruncatedPayload) {
+  std::vector<uint8_t> short_payload = {0x88, 0x13, 0x3C};  // 3 bytes
+  EXPECT_FALSE(y::parse_arm_ctrl(short_payload).has_value());
+}
+
 // ─── End-to-end: build → parse round-trip ────────────────────────────────────
 
 TEST(RoundTrip, BuildSetMotorParseAsInbound) {

@@ -52,6 +52,15 @@ enum Func : uint8_t {
   FUNC_UART_SERVO = 0x20,         // single bus servo, raw pulse
   FUNC_UART_SERVO_TORQUE = 0x22,  // arm torque on/off
   FUNC_ARM_CTRL = 0x23,           // 6-joint batch, raw pulses
+
+  FUNC_REQUEST_DATA = 0x50,       // ask STM32 to emit a data frame on demand;
+                                  // payload byte = the FUNC code being requested.
+                                  // Used for synchronous reads (e.g. arm
+                                  // positions at on_configure / on_activate
+                                  // re-seed) — STM32 responds with a frame of
+                                  // the requested FUNC type carrying current
+                                  // values. Vendor uses this for
+                                  // get_uart_servo_angle_array().
 };
 
 enum CarType : uint8_t {
@@ -233,6 +242,18 @@ inline std::vector<uint8_t> build_set_car_type(CarType car_type) {
   return build_frame(FUNC_SET_CAR_TYPE, payload);
 }
 
+// FUNC_REQUEST_DATA: ask STM32 to emit a one-shot frame of `target_func`
+// type. Used for synchronous reads — e.g. requesting FUNC_ARM_CTRL gets
+// a 6-int16-pulse arm-positions response back via the same parser stream.
+// Vendor's Rosmaster_Lib.__request_data wraps this; param is unused for
+// FUNC_ARM_CTRL queries (vendor passes 0).
+inline std::vector<uint8_t> build_request_data(uint8_t target_func, uint8_t param = 0) {
+  std::vector<uint8_t> payload;
+  payload.push_back(target_func);
+  payload.push_back(param);
+  return build_frame(FUNC_REQUEST_DATA, payload);
+}
+
 // ─── Inbound frame parsing ───────────────────────────────────────────────────
 
 struct ParsedFrame {
@@ -398,6 +419,23 @@ inline std::optional<IcmRawData> parse_icm_raw(const std::vector<uint8_t>& paylo
       read_le16(payload.data() + 14) / 1000.0,
       read_le16(payload.data() + 16) / 1000.0,
   };
+}
+
+// FUNC_ARM_CTRL response (one-shot, in reply to FUNC_REQUEST_DATA(FUNC_ARM_CTRL)):
+// 6 int16 LE pulse values, one per servo (s1..s6 in vendor order).
+// Caller converts pulse → vendor degrees with arm_pulse_to_angle(s_id, pulse),
+// then to URDF rad via per-joint offset/sign at the YahboomSystem layer.
+struct ArmPulses {
+  std::array<int16_t, 6> pulses;  // [s1, s2, s3, s4, s5, s6]
+};
+
+inline std::optional<ArmPulses> parse_arm_ctrl(const std::vector<uint8_t>& payload) {
+  if (payload.size() < 12) return std::nullopt;
+  ArmPulses out;
+  for (size_t i = 0; i < 6; ++i) {
+    out.pulses[i] = read_le16(payload.data() + 2 * i);
+  }
+  return out;
 }
 
 }  // namespace yahboom_ros2_control::protocol

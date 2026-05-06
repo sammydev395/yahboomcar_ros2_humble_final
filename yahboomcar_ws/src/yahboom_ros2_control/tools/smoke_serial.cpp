@@ -75,8 +75,26 @@ static void dump_frame(const y::ParsedFrame& f) {
 }
 
 int main(int argc, char** argv) {
+  // Modes:
+  //   smoke_serial [port] [seconds]    — drain push frames (default)
+  //   smoke_serial [port] --query-arm  — synchronous arm-position read
+  //                                       (no torque, no motion). D7 prereq.
+  //   smoke_serial [port] --torque-off — disable arm bus servo torque so
+  //                                       operator can manually re-pose the
+  //                                       arm. NO motion of its own. Safe.
+  //                                       Send --torque-on after re-posing
+  //                                       OR just relaunch ros2_control.
+  //   smoke_serial [port] --torque-on  — re-enable arm bus servo torque
+  //                                       (typically not needed since
+  //                                       YahboomSystem.on_activate does it).
   std::string port = (argc > 1) ? argv[1] : "/dev/yahboom_stm32";
-  double seconds  = (argc > 2) ? std::atof(argv[2]) : 3.0;
+  std::string mode = (argc > 2) ? argv[2] : "";
+  bool query_arm_mode = (mode == "--query-arm");
+  bool torque_off_mode = (mode == "--torque-off");
+  bool torque_on_mode  = (mode == "--torque-on");
+  double seconds = (query_arm_mode || torque_off_mode || torque_on_mode)
+                       ? 0.0
+                       : ((argc > 2) ? std::atof(argv[2]) : 3.0);
 
   std::printf("[smoke_serial] opening %s ...\n", port.c_str());
   YahboomSerial ser;
@@ -103,6 +121,100 @@ int main(int argc, char** argv) {
   }
   std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
+  // ── Torque on/off modes (D7 helper) ─────────────────────────────────
+  // Single-frame FUNC_UART_SERVO_TORQUE write, then exit. Used to
+  // disengage arm servos so the operator can manually re-pose joints
+  // (e.g., back-drive joint3 into URDF range before phase4 launch),
+  // then optionally re-engage. YahboomSystem.on_activate also
+  // re-engages, so --torque-on is mostly a convenience.
+  if (torque_off_mode || torque_on_mode) {
+    const bool enable = torque_on_mode;
+    auto frame = y::build_set_uart_servo_torque(enable);
+    std::printf("[smoke_serial] sending FUNC_UART_SERVO_TORQUE(%s), %zu bytes\n",
+                enable ? "ON" : "OFF", frame.size());
+    if (ser.write_bytes(frame.data(), frame.size()) != static_cast<ssize_t>(frame.size())) {
+      std::fprintf(stderr, "[smoke_serial] write FUNC_UART_SERVO_TORQUE failed\n");
+      return 4;
+    }
+    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    if (enable) {
+      std::printf("[smoke_serial] torque ENABLED — arm now holds position. "
+                  "Run --query-arm to verify joint positions before phase4 launch.\n");
+    } else {
+      std::printf("[smoke_serial] torque DISABLED — arm is now back-drivable.\n"
+                  "  Move joint3 (elbow) so it reads inside URDF range "
+                  "(vendor 0..180°, URDF -1.57..+1.57 rad).\n"
+                  "  Then run: ros2 run yahboom_ros2_control smoke_serial /dev/myserial --query-arm\n"
+                  "  to verify the new pose. Re-enable torque with --torque-on (or just relaunch ros2_control).\n");
+    }
+    return 0;
+  }
+
+  // ── Query-arm mode (D7 prerequisite) ────────────────────────────────
+  // Send FUNC_REQUEST_DATA(FUNC_ARM_CTRL), wait up to 1 second for the
+  // FUNC_ARM_CTRL response frame, parse + print pulses + degrees + URDF rad
+  // (with our offset/sign convention), then exit. NO torque, NO motion.
+  if (query_arm_mode) {
+    std::printf("[smoke_serial] --query-arm: requesting arm positions...\n");
+    auto req = y::build_request_data(y::FUNC_ARM_CTRL);
+    if (ser.write_bytes(req.data(), req.size()) != static_cast<ssize_t>(req.size())) {
+      std::fprintf(stderr, "[smoke_serial] write FUNC_REQUEST_DATA failed\n");
+      return 5;
+    }
+
+    y::FrameParser p;
+    uint8_t buf[256];
+    auto deadline = clk::now() + std::chrono::seconds(1);
+    std::optional<y::ArmPulses> got;
+    while (clk::now() < deadline && !got.has_value()) {
+      ssize_t r = ser.read_bytes(buf, sizeof(buf));
+      if (r > 0) {
+        p.feed(buf, static_cast<size_t>(r));
+        while (auto frame = p.next_frame()) {
+          if (frame->func == y::FUNC_ARM_CTRL) {
+            got = y::parse_arm_ctrl(frame->payload);
+            break;
+          }
+          // Other frames (push reports we already enabled in vendor's last
+          // session) get drained but ignored.
+        }
+      } else if (r < 0) {
+        std::fprintf(stderr, "[smoke_serial] read error during arm query\n");
+        return 6;
+      } else {
+        std::this_thread::sleep_for(std::chrono::milliseconds(5));
+      }
+    }
+    if (!got) {
+      std::fprintf(stderr, "[smoke_serial] --query-arm: TIMEOUT — no FUNC_ARM_CTRL response in 1s\n");
+      std::fprintf(stderr, "  troubleshooting: STM32 may need AUTO_REPORT enabled first; try a default smoke run\n");
+      std::fprintf(stderr, "  (no --query-arm flag) and verify FUNC_REPORT_* frames arrive, then retry --query-arm.\n");
+      return 7;
+    }
+
+    // YahboomSystem-side per-joint conversion arrays (must match
+    // yahboom_system.hpp kArmVendorOffsetDeg + kArmAxisSign):
+    static const double kOffsetDeg[6] = {90.0, 90.0, 90.0, 90.0, 135.0, 90.0};
+    static const double kAxisSign[6]  = {-1.0, -1.0, -1.0, -1.0,  +1.0,  +1.0};
+    static const char* kJointName[6] = {
+        "arm_joint1", "arm_joint2", "arm_joint3", "arm_joint4", "arm_joint5", "grip_joint"};
+
+    std::printf("\n[smoke_serial] === ARM POSITIONS (one-shot read) ===\n");
+    std::printf("  servo  pulse   deg     URDF-rad   joint\n");
+    for (size_t i = 0; i < 6; ++i) {
+      const uint8_t s_id = static_cast<uint8_t>(i + 1);
+      const double deg = y::arm_pulse_to_angle(s_id, got->pulses[i]);
+      const double rad = (deg - kOffsetDeg[i]) / (kAxisSign[i] * 180.0 / M_PI);
+      std::printf("    s%zu   %5d  %+6.1f  %+8.4f   %s\n",
+                  i + 1, got->pulses[i], deg, rad, kJointName[i]);
+    }
+    std::printf("\n[smoke_serial] PASS — arm-position query round-trip works.\n");
+    std::printf("  Use this output to verify YahboomSystem on_configure seeding\n");
+    std::printf("  (compare to /joint_states after launch).\n");
+    return 0;
+  }
+
+  // ── Default mode: enable push-mode reports + drain ──────────────────
   // Enable push-mode reports.
   {
     auto frame = y::build_set_auto_report_state(true, false);
