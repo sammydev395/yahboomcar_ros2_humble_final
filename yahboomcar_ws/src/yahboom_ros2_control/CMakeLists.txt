@@ -66,7 +66,7 @@ install(
 # verification). PROGRAMS install + DESTINATION under lib/<pkg>/ so
 # `ros2 run yahboom_ros2_control joy_recorder.py` works.
 install(
-  PROGRAMS scripts/joy_recorder.py
+  PROGRAMS scripts/joy_recorder.py scripts/arm_teleop_node.py scripts/twist_logger_node.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
