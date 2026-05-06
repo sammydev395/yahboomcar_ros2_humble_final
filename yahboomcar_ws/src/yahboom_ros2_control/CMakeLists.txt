@@ -62,6 +62,14 @@ install(
   DESTINATION lib/${PROJECT_NAME}
 )
 
+# Python helper scripts (joy_recorder for D5 Phase 1 gamepad mapping
+# verification). PROGRAMS install + DESTINATION under lib/<pkg>/ so
+# `ros2 run yahboom_ros2_control joy_recorder.py` works.
+install(
+  PROGRAMS scripts/joy_recorder.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 install(
   DIRECTORY include/
   DESTINATION include
