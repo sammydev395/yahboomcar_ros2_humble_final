@@ -61,7 +61,15 @@ chassis_controller:
     base_frame_id: base_link
     odom_frame_id: odom
     enable_odom_tf: true             # publish odom→base_link tf
-    publish_rate: 50.0
+    # publish_rate MUST equal controller_manager update_rate (100 Hz) —
+    # mecanum_drive_controller in Humble alternates between commanded
+    # output and zero every other update cycle when publish_rate <
+    # update_rate. Net effect on the wheels: "go 0.1 m/s, stop, go,
+    # stop, ..." → wheels barely move under operator stick input
+    # (D8.2 first-launch failure 2026-05-07; same root cause as the
+    # D2 chassis-only test). Setting both to 100 Hz eliminates the
+    # alternation.
+    publish_rate: 100.0
     open_loop: false                 # use wheel state for odom integration
 
     # ── Phase-4 caps (override at launch time; vendor full-gear is 0.7 / 3.2) ──

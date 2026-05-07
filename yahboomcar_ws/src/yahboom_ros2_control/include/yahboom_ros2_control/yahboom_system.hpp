@@ -174,6 +174,21 @@ class YahboomSystem : public hardware_interface::SystemInterface {
   // heartbeat every kMotionHeartbeatMs to stay above any STM32 watchdog.
   static constexpr double kMotionEpsilon = 1e-4;       // m/s or rad/s
   static constexpr int64_t kMotionHeartbeatMs = 100;   // re-send anyway every 100 ms
+  // Anti-alternation filter for the chassis path. mecanum_drive_controller
+  // (Humble 2.52.1, ChainableControllerInterface) outputs alternating
+  // (commanded, zero, commanded, zero, …) at the controller_manager
+  // update_rate when its reference topic isn't being written every cycle.
+  // Forwarding the zero half of each pair makes the wheels see "go,
+  // stop, go, stop, …" → barely move (D8.2 first-launch failure
+  // 2026-05-07: at vy=0.10 m/s commanded, wheels visually crawled).
+  // Fix: only forward an all-zero Twist after kMotionStopRequiredCycles
+  // consecutive zero readings; non-zero commands still go through
+  // immediately. Real stick-release produces sustained zeros so it
+  // gets through with at most kMotionStopRequiredCycles × 10 ms (=
+  // 30 ms) latency. Alternation artifact zeros only last 1 cycle and
+  // are suppressed.
+  static constexpr int kMotionStopRequiredCycles = 3;
+  int motion_consecutive_zero_count_ = 0;
   double last_sent_vx_ = 0.0;
   double last_sent_vy_ = 0.0;
   double last_sent_wz_ = 0.0;

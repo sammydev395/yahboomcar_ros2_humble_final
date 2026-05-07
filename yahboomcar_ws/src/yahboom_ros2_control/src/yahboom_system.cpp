@@ -599,6 +599,33 @@ hardware_interface::return_type YahboomSystem::write(const rclcpp::Time& time,
   const double vy = (R / 4.0) * (-w_fl + w_fr + w_rl - w_rr);
   const double wz = R / (4.0 * (Lx + Ly)) * (-w_fl + w_fr - w_rl + w_rr);
 
+  // Anti-alternation filter for the chassis path. mecanum_drive_controller
+  // (Humble 2.52.1) outputs alternating (commanded, zero, commanded, zero,
+  // …) at the controller_manager update_rate. Forwarding the zero half of
+  // each pair makes the wheels see "go, stop, go, stop, …" → barely move
+  // (D8.2 first-launch 2026-05-07). Suppress zero commands until we've
+  // seen kMotionStopRequiredCycles consecutive zeros — real stick-release
+  // produces sustained zeros so it gets through within ~30 ms; alternation
+  // artifact zeros only last 1 cycle and are filtered out. Only gates the
+  // FUNC_MOTION send below, NOT the arm path that follows.
+  const bool chassis_wants_zero =
+      std::fabs(vx) < kMotionEpsilon &&
+      std::fabs(vy) < kMotionEpsilon &&
+      std::fabs(wz) < kMotionEpsilon;
+  bool chassis_skip = false;
+  if (chassis_wants_zero) {
+    motion_consecutive_zero_count_++;
+    if (motion_consecutive_zero_count_ < kMotionStopRequiredCycles) {
+      // Likely an alternation-artifact zero; skip THIS chassis send.
+      // The previous non-zero command is left in flight at the STM32
+      // (firmware holds last cmd).
+      chassis_skip = true;
+    }
+    // else: enough sustained zeros to count as a real stop — fall through.
+  } else {
+    motion_consecutive_zero_count_ = 0;
+  }
+
   // Dedupe + heartbeat. STM32 firmware can't keep up with 100 Hz FUNC_MOTION;
   // each new frame interrupts the previous before it executes. Vendor sends
   // event-driven at ~10-30 Hz. We send only when Twist meaningfully changes
@@ -615,7 +642,7 @@ hardware_interface::return_type YahboomSystem::write(const rclcpp::Time& time,
     heartbeat = since_last_ms >= kMotionHeartbeatMs;
   }
 
-  if (changed || heartbeat) {
+  if (!chassis_skip && (changed || heartbeat)) {
     send_motion_command(vx, vy, wz);
     last_sent_vx_ = vx;
     last_sent_vy_ = vy;
