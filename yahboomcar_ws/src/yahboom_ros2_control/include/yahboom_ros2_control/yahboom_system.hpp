@@ -15,6 +15,7 @@
 
 #include <array>
 #include <cstdint>
+#include <optional>
 #include <string>
 #include <vector>
 
@@ -96,6 +97,20 @@ class YahboomSystem : public hardware_interface::SystemInterface {
   };
   static constexpr std::array<double, NUM_ARM_JOINTS> kArmAxisSign = {
       -1.0, -1.0, -1.0, -1.0, +1.0, +1.0,
+  };
+
+  // URDF position limits (rad) per arm joint, from
+  // yahboomcar_X3plus.urdf.xacro (verified D2.3). on_activate refuses to
+  // engage if a freshly-queried joint state lies outside this range —
+  // operator must back-drive the offending joint into URDF range first
+  // (use `smoke_serial /dev/myserial --torque-off` to disengage). This
+  // prevents the "first write commands a state ros2_control thinks is
+  // impossible" failure mode.
+  static constexpr std::array<double, NUM_ARM_JOINTS> kArmUrdfLo = {
+      -1.5708, -1.5708, -1.5708, -1.5708, -1.5708, -1.5708,  // -π/2 except joint5/grip already noted below
+  };
+  static constexpr std::array<double, NUM_ARM_JOINTS> kArmUrdfHi = {
+      +1.5708, +1.5708, +1.5708, +1.5708, +3.1416,  0.0,     // +π/2 for joints 1-4; +π for joint5; 0 for grip
   };
 
   // ── Wheel position → STM32 motor/encoder index mapping ──
@@ -212,6 +227,26 @@ class YahboomSystem : public hardware_interface::SystemInterface {
                           double& qx, double& qy, double& qz, double& qw);
   // URDF rad → vendor degrees per joint (uses kArmVendorOffsetDeg + kArmAxisSign).
   static double urdf_rad_to_vendor_deg(size_t arm_joint_idx, double rad);
+  // Inverse: vendor pulse (raw STM32 units) → URDF rad. Inverts the chain
+  // arm_pulse_to_angle → (deg - offset) / (sign * 180/π).
+  static double vendor_pulse_to_urdf_rad(size_t arm_joint_idx, int16_t pulse);
+
+  // Synchronous arm-position read: write FUNC_REQUEST_DATA(FUNC_ARM_CTRL),
+  // wait up to 1s for the FUNC_ARM_CTRL response, return the 6 pulses on
+  // success or nullopt on timeout/IO failure. Uses a LOCAL parser so any
+  // push-mode frames received during the wait are dropped (the read() loop
+  // picks them up fresh on the next cycle). Safe to call from on_configure
+  // / on_activate (no torque change, no motion command).
+  std::optional<protocol::ArmPulses> query_arm_positions();
+
+  // Query arm positions, validate against [kArmUrdfLo, kArmUrdfHi], and on
+  // success seed arm_position_state_ + arm_position_command_ from the
+  // measured pose so the first write() doesn't lurch. Returns false (and
+  // logs which joint(s) failed) if the query times out OR any joint reads
+  // outside the URDF range — operator must back-drive into range first
+  // (use `smoke_serial /dev/myserial --torque-off`). Sole point of arm
+  // seeding for both on_configure and on_activate.
+  bool validate_and_seed_arm_from_hardware();
 };
 
 }  // namespace yahboom_ros2_control

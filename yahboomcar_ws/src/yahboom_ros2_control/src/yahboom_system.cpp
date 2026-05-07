@@ -4,11 +4,13 @@
 #include "yahboom_ros2_control/yahboom_system.hpp"
 
 #include <algorithm>
+#include <chrono>
 #include <cmath>
 #include <cstdint>
 #include <cstdlib>
 #include <stdexcept>
 #include <string>
+#include <thread>
 
 #include "hardware_interface/types/hardware_interface_type_values.hpp"
 #include "rclcpp/logging.hpp"
@@ -206,6 +208,25 @@ hardware_interface::CallbackReturn YahboomSystem::on_configure(
 
   parser_.reset();
   encoder_seeded_ = false;
+
+  // ── D7: arm position seed (LIVE only) ──
+  // Query current arm pulses, validate they're inside URDF range, and seed
+  // arm_position_state_/arm_position_command_ from the measured pose. This
+  // guarantees the controller's first reference matches the physical pose
+  // (no first-write lurch — TELEOP_PHASE4_LESSONS.md lessons 1-4).
+  // Refusal-to-configure if any joint reads outside URDF range is the
+  // explicit safety check; operator must back-drive into range first.
+  if (arm_present_) {
+    RCLCPP_INFO(rclcpp::get_logger(kLogger),
+                "on_configure: querying arm positions for seed + URDF-range check");
+    if (!validate_and_seed_arm_from_hardware()) {
+      serial_.close();
+      return hardware_interface::CallbackReturn::ERROR;
+    }
+    RCLCPP_INFO(rclcpp::get_logger(kLogger),
+                "arm seeded: cmd = state from hardware (first write == no-op)");
+  }
+
   RCLCPP_INFO(rclcpp::get_logger(kLogger), "on_configure OK on %s", serial_port_.c_str());
   return hardware_interface::CallbackReturn::SUCCESS;
 }
@@ -221,7 +242,59 @@ hardware_interface::CallbackReturn YahboomSystem::on_activate(
   // didn't move while INACTIVE; encoder counts are still cumulative).
 
   zero_wheel_command();  // send a zero-Twist FUNC_MOTION right now
-  RCLCPP_INFO(rclcpp::get_logger(kLogger), "on_activate OK (wheel commands zeroed)");
+
+  // ── D7: arm activation (LIVE only) ──
+  // 1. Re-query + re-validate + re-seed (operator might have back-driven the
+  //    arm between configure and activate; trust nothing).
+  // 2. Send a single FUNC_ARM_CTRL nailing each servo to its current pose
+  //    (write() would do this on first call anyway, but emit one upfront
+  //    so the firmware "hold target" is unambiguous).
+  // 3. Send FUNC_UART_SERVO_TORQUE(true) — defensive. STM32 firmware boots
+  //    with torque enabled by default per operator observation, but if the
+  //    operator ran --torque-off to back-drive joints, we need to re-engage.
+  //    Order matters: torque-on AFTER the position command so the firmware
+  //    engages servos at the freshly-commanded current pose.
+  if (!dry_run_ && arm_present_) {
+    RCLCPP_INFO(rclcpp::get_logger(kLogger),
+                "on_activate: re-querying arm positions (defensive re-seed)");
+    if (!validate_and_seed_arm_from_hardware()) {
+      RCLCPP_ERROR(rclcpp::get_logger(kLogger),
+                   "on_activate: arm seed failed — refusing to activate");
+      return hardware_interface::CallbackReturn::ERROR;
+    }
+    // Build + send a FUNC_ARM_CTRL frame at the seeded pose (cmd == state).
+    std::array<double, 6> angles_deg{};
+    for (size_t j = 0; j < NUM_ARM_JOINTS; ++j) {
+      angles_deg[j] = urdf_rad_to_vendor_deg(j, arm_position_command_[j]);
+    }
+    {
+      auto frame = protocol::build_set_uart_servo_angle_array(angles_deg);
+      if (serial_.write_bytes(frame.data(), frame.size()) !=
+          static_cast<ssize_t>(frame.size())) {
+        RCLCPP_ERROR(rclcpp::get_logger(kLogger),
+                     "on_activate: failed to write initial FUNC_ARM_CTRL");
+        return hardware_interface::CallbackReturn::ERROR;
+      }
+    }
+    {
+      auto frame = protocol::build_set_uart_servo_torque(true);
+      if (serial_.write_bytes(frame.data(), frame.size()) !=
+          static_cast<ssize_t>(frame.size())) {
+        RCLCPP_ERROR(rclcpp::get_logger(kLogger),
+                     "on_activate: failed to write FUNC_UART_SERVO_TORQUE(on)");
+        return hardware_interface::CallbackReturn::ERROR;
+      }
+    }
+    RCLCPP_INFO(rclcpp::get_logger(kLogger),
+                "arm torque ENABLED, holding seeded pose: "
+                "deg=[%.1f %.1f %.1f %.1f %.1f %.1f]",
+                angles_deg[0], angles_deg[1], angles_deg[2],
+                angles_deg[3], angles_deg[4], angles_deg[5]);
+  }
+
+  RCLCPP_INFO(rclcpp::get_logger(kLogger),
+              "on_activate OK (wheel commands zeroed%s)",
+              (arm_present_ && !dry_run_) ? ", arm seeded + torque on" : "");
   return hardware_interface::CallbackReturn::SUCCESS;
 }
 
@@ -305,6 +378,85 @@ double YahboomSystem::urdf_rad_to_vendor_deg(size_t arm_joint_idx, double rad) {
   // vendor_deg = offset + sign * rad * 180/π
   return kArmVendorOffsetDeg[arm_joint_idx] +
          kArmAxisSign[arm_joint_idx] * rad * (180.0 / M_PI);
+}
+
+double YahboomSystem::vendor_pulse_to_urdf_rad(size_t arm_joint_idx, int16_t pulse) {
+  // Inverse of urdf_rad_to_vendor_deg, but the pulse→deg step is asymmetric
+  // per joint (handled by protocol::arm_pulse_to_angle).
+  const uint8_t s_id = static_cast<uint8_t>(arm_joint_idx + 1);
+  const double deg = protocol::arm_pulse_to_angle(s_id, pulse);
+  return (deg - kArmVendorOffsetDeg[arm_joint_idx]) /
+         (kArmAxisSign[arm_joint_idx] * (180.0 / M_PI));
+}
+
+std::optional<protocol::ArmPulses> YahboomSystem::query_arm_positions() {
+  if (!serial_.is_open()) return std::nullopt;
+  auto req = protocol::build_request_data(protocol::FUNC_ARM_CTRL);
+  if (serial_.write_bytes(req.data(), req.size()) !=
+      static_cast<ssize_t>(req.size())) {
+    return std::nullopt;
+  }
+  // LOCAL parser so push frames received during the wait don't pollute
+  // parser_ state. Cost: a handful of dropped push frames during the 1s
+  // window — fine, the next read() cycle picks them up fresh.
+  protocol::FrameParser local;
+  uint8_t buf[256];
+  const auto deadline =
+      std::chrono::steady_clock::now() + std::chrono::seconds(1);
+  while (std::chrono::steady_clock::now() < deadline) {
+    ssize_t r = serial_.read_bytes(buf, sizeof(buf));
+    if (r > 0) {
+      local.feed(buf, static_cast<size_t>(r));
+      while (auto frame = local.next_frame()) {
+        if (frame->func == protocol::FUNC_ARM_CTRL) {
+          return protocol::parse_arm_ctrl(frame->payload);
+        }
+      }
+    } else if (r < 0) {
+      return std::nullopt;
+    } else {
+      std::this_thread::sleep_for(std::chrono::milliseconds(5));
+    }
+  }
+  return std::nullopt;
+}
+
+bool YahboomSystem::validate_and_seed_arm_from_hardware() {
+  auto pulses = query_arm_positions();
+  if (!pulses) {
+    RCLCPP_ERROR(rclcpp::get_logger(kLogger),
+                 "arm position query TIMEOUT (1s) — refusing to seed. "
+                 "Is the STM32 responsive? Try `smoke_serial /dev/myserial` "
+                 "(default mode) and confirm FUNC_REPORT_* frames arrive.");
+    return false;
+  }
+  std::array<double, NUM_ARM_JOINTS> rads{};
+  bool all_ok = true;
+  for (size_t j = 0; j < NUM_ARM_JOINTS; ++j) {
+    rads[j] = vendor_pulse_to_urdf_rad(j, pulses->pulses[j]);
+    const bool in_range =
+        rads[j] >= kArmUrdfLo[j] && rads[j] <= kArmUrdfHi[j];
+    RCLCPP_INFO(rclcpp::get_logger(kLogger),
+                "  arm[%zu] '%s': pulse=%d urdf_rad=%+.4f "
+                "(URDF [%+.4f, %+.4f]) %s",
+                j, arm_joint_names_[j].c_str(), pulses->pulses[j], rads[j],
+                kArmUrdfLo[j], kArmUrdfHi[j], in_range ? "OK" : "OUTSIDE");
+    if (!in_range) all_ok = false;
+  }
+  if (!all_ok) {
+    RCLCPP_ERROR(rclcpp::get_logger(kLogger),
+                 "one or more arm joints outside URDF range — refusing to "
+                 "seed. Disable torque ('ros2 run yahboom_ros2_control "
+                 "smoke_serial /dev/myserial --torque-off'), back-drive "
+                 "the offending joint(s) into URDF range, then re-launch.");
+    return false;
+  }
+  arm_position_state_ = rads;
+  arm_position_command_ = rads;  // seed cmd = state → first write() == no-op
+  // Reset write-side dedupe so the next write() emits the seeded pose
+  // (don't carry stale last_sent_arm_deg_ from a prior configure cycle).
+  arm_send_seeded_ = false;
+  return true;
 }
 
 // ─── read() — drain push frames, update wheel state ──────────────────────────
