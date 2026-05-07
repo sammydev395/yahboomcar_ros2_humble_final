@@ -106,15 +106,21 @@ TEST(BuildFrame, SetUartServoTorqueOff) {
 }
 
 TEST(BuildFrame, SetUartServoUsesShortRunTimeByDefault) {
-  // DEFAULT_RUN_TIME_MS = 5 (no buffered-motion lurch from Ultra Phase 4 lessons)
+  // DEFAULT_RUN_TIME_MS = 500, matching vendor's Rosmaster_Lib exactly.
+  // (Initial 5 ms produced oscillation. 100 ms fixed FUNC_ARM_CTRL but
+  // not FUNC_UART_SERVO — single-servo frames were silently ignored
+  // until run_time hit ≥ 500 ms, verified live D7.5 2026-05-07 via
+  // smoke_serial --move-servo. Same value works for both frame types
+  // and matches the vendor SDK we ported from.) Test name kept as-is
+  // for git history continuity even though "Short" is now misleading.
   auto f = y::build_set_uart_servo(1, 2000);
   ASSERT_EQ(f.size(), 10u);
   EXPECT_EQ(f[3], 0x20);  // FUNC_UART_SERVO
   EXPECT_EQ(f[4], 1);     // servo_id
   EXPECT_EQ(f[5], 0xD0);  // pulse=2000=0x07D0 LE
   EXPECT_EQ(f[6], 0x07);
-  EXPECT_EQ(f[7], 0x05);  // run_time=5 LE
-  EXPECT_EQ(f[8], 0x00);
+  EXPECT_EQ(f[7], 0xF4);  // run_time=500=0x01F4 LE
+  EXPECT_EQ(f[8], 0x01);
 }
 
 TEST(BuildFrame, SetUartServoClampsRunTime) {

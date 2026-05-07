@@ -92,7 +92,8 @@ int main(int argc, char** argv) {
   bool query_arm_mode = (mode == "--query-arm");
   bool torque_off_mode = (mode == "--torque-off");
   bool torque_on_mode  = (mode == "--torque-on");
-  double seconds = (query_arm_mode || torque_off_mode || torque_on_mode)
+  bool move_servo_mode = (mode == "--move-servo");
+  double seconds = (query_arm_mode || torque_off_mode || torque_on_mode || move_servo_mode)
                        ? 0.0
                        : ((argc > 2) ? std::atof(argv[2]) : 3.0);
 
@@ -147,6 +148,66 @@ int main(int argc, char** argv) {
                   "  Then run: ros2 run yahboom_ros2_control smoke_serial /dev/myserial --query-arm\n"
                   "  to verify the new pose. Re-enable torque with --torque-on (or just relaunch ros2_control).\n");
     }
+    return 0;
+  }
+
+  // ── Move-servo mode (D7.5 diagnostic) ───────────────────────────────
+  // Send a single FUNC_UART_SERVO frame to test whether single-servo
+  // commands actually drive the bus servos. Used to diagnose the case
+  // where YahboomSystem.write() switched from batch FUNC_ARM_CTRL to
+  // per-joint FUNC_UART_SERVO and the arm stopped responding entirely.
+  // This isolates the firmware path: if --move-servo moves a joint,
+  // FUNC_UART_SERVO works fine and the bug is in YahboomSystem; if it
+  // doesn't move, FUNC_UART_SERVO needs different prep (e.g. preceding
+  // FUNC_ARM_CTRL, longer run_time, etc.).
+  //
+  // Usage:  smoke_serial /dev/myserial --move-servo S deg [run_time_ms]
+  //   S         servo id 1..6
+  //   deg       target angle (servos 1-4: 0..180; 5: 0..270; 6: 0..180)
+  //   run_time  optional, default 500 (vendor default).
+  // Pre-flight: arm torque must be ON. If smoke_serial --torque-off was
+  // run earlier, run --torque-on first OR include the seed-engage step.
+  if (move_servo_mode) {
+    if (argc < 5) {
+      std::fprintf(stderr,
+                   "[smoke_serial] --move-servo needs <servo_id> <deg> "
+                   "[run_time_ms].\n  example: smoke_serial /dev/myserial "
+                   "--move-servo 1 100 500\n");
+      return 8;
+    }
+    const int s_id = std::atoi(argv[3]);
+    const double angle_deg = std::atof(argv[4]);
+    const int run_time_ms = (argc > 5) ? std::atoi(argv[5]) : 500;
+    if (s_id < 1 || s_id > 6) {
+      std::fprintf(stderr, "[smoke_serial] servo_id must be 1..6\n");
+      return 8;
+    }
+    // Belt-and-suspenders: re-enable torque before attempting motion in
+    // case the previous session left it off.
+    {
+      auto frame = y::build_set_uart_servo_torque(true);
+      ser.write_bytes(frame.data(), frame.size());
+      std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    }
+    const int16_t pulse = y::arm_angle_to_pulse(static_cast<uint8_t>(s_id), angle_deg);
+    auto frame = y::build_set_uart_servo(static_cast<uint8_t>(s_id), pulse,
+                                          static_cast<uint16_t>(run_time_ms));
+    std::printf("[smoke_serial] sending FUNC_UART_SERVO: s_id=%d deg=%.1f "
+                "pulse=%d run_time=%d ms (frame %zu bytes)\n",
+                s_id, angle_deg, pulse, run_time_ms, frame.size());
+    if (ser.write_bytes(frame.data(), frame.size()) !=
+        static_cast<ssize_t>(frame.size())) {
+      std::fprintf(stderr, "[smoke_serial] FUNC_UART_SERVO write failed\n");
+      return 9;
+    }
+    // Hold the port open until well past run_time so the firmware has
+    // time to actually drive the servo before the link closes.
+    std::this_thread::sleep_for(
+        std::chrono::milliseconds(run_time_ms + 500));
+    std::printf("[smoke_serial] frame sent. Did servo %d physically move?\n"
+                "  If YES — FUNC_UART_SERVO works; YahboomSystem bug.\n"
+                "  If NO  — FUNC_UART_SERVO needs different prep (firmware mode lock?).\n",
+                s_id);
     return 0;
   }
 

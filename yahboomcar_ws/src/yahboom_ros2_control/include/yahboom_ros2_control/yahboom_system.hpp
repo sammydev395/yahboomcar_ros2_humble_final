@@ -215,7 +215,10 @@ class YahboomSystem : public hardware_interface::SystemInterface {
   rclcpp::Time last_arm_send_time_{0, 0, RCL_ROS_TIME};
   bool arm_send_seeded_ = false;
   static constexpr double kArmDegEpsilon = 0.5;             // ≈ 9 mrad
-  static constexpr int64_t kArmHeartbeatMs = 100;
+  // No arm heartbeat — see comment in write() arm path. Vendor lib has
+  // none either; the bus servos hold position passively once commanded
+  // and re-issuing FUNC_ARM_CTRL with the same target restarts firmware-
+  // side servo motion → micro-overshoot oscillation (D7.5 fix).
 
   // Helpers
   void zero_wheel_command();

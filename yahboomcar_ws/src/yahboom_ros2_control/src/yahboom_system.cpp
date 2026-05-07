@@ -183,6 +183,13 @@ hardware_interface::CallbackReturn YahboomSystem::on_configure(
     return hardware_interface::CallbackReturn::ERROR;
   }
 
+  // STM32 needs a beat after the userland side opens the CH340 before it
+  // accepts frames. Same delay smoke_serial uses (verified D7.2). Without
+  // this we observed silent SET_CAR_TYPE + the subsequent FUNC_REQUEST_DATA
+  // timing out at the on_configure arm seed query (D7.5 first-launch fail
+  // 2026-05-07).
+  std::this_thread::sleep_for(std::chrono::milliseconds(200));
+
   // Set car type (defensive — STM32 may have a stale setting from a prior
   // session). Forever flag = false: RAM-only, doesn't write flash.
   {
@@ -194,28 +201,25 @@ hardware_interface::CallbackReturn YahboomSystem::on_configure(
       return hardware_interface::CallbackReturn::ERROR;
     }
   }
+  // Same firmware-settle pattern smoke_serial uses between SET_CAR_TYPE and
+  // any follow-up frame — gives the STM32 time to apply the new car type
+  // before we ask it questions.
+  std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
-  // Enable push-mode reports (encoder/IMU/speed at ~27 Hz each).
-  {
-    auto frame = protocol::build_set_auto_report_state(true, false);
-    if (serial_.write_bytes(frame.data(), frame.size()) !=
-        static_cast<ssize_t>(frame.size())) {
-      RCLCPP_ERROR(rclcpp::get_logger(kLogger), "AUTO_REPORT write failed");
-      serial_.close();
-      return hardware_interface::CallbackReturn::ERROR;
-    }
-  }
-
+  // ── D7: arm position seed BEFORE enabling AUTO_REPORT ──
+  // Order matters: query the arm pose on a QUIET bus, then enable
+  // AUTO_REPORT. With AUTO_REPORT on, the STM32 emits encoder/IMU/speed
+  // frames at ~27 Hz each — at that point a request-response round-trip
+  // for FUNC_ARM_CTRL appears to time out (observed D7.5 first launch
+  // 2026-05-07: smoke_serial --query-arm worked seconds earlier with
+  // AUTO_REPORT off; on_configure timed out with AUTO_REPORT enabled
+  // immediately before the same query).
+  //
+  // The seed validates the pose against [kArmUrdfLo, kArmUrdfHi] — refuses
+  // + closes serial if any joint is outside, before any motion can occur.
+  // (Refusal-to-configure is the explicit safety check; operator must
+  // back-drive offending joints into URDF range first.)
   parser_.reset();
-  encoder_seeded_ = false;
-
-  // ── D7: arm position seed (LIVE only) ──
-  // Query current arm pulses, validate they're inside URDF range, and seed
-  // arm_position_state_/arm_position_command_ from the measured pose. This
-  // guarantees the controller's first reference matches the physical pose
-  // (no first-write lurch — TELEOP_PHASE4_LESSONS.md lessons 1-4).
-  // Refusal-to-configure if any joint reads outside URDF range is the
-  // explicit safety check; operator must back-drive into range first.
   if (arm_present_) {
     RCLCPP_INFO(rclcpp::get_logger(kLogger),
                 "on_configure: querying arm positions for seed + URDF-range check");
@@ -226,6 +230,24 @@ hardware_interface::CallbackReturn YahboomSystem::on_configure(
     RCLCPP_INFO(rclcpp::get_logger(kLogger),
                 "arm seeded: cmd = state from hardware (first write == no-op)");
   }
+
+  // Enable push-mode reports AFTER the arm seed query is complete. The
+  // read() loop (driven by ros2_control update_rate) drains these from
+  // here on.
+  {
+    auto frame = protocol::build_set_auto_report_state(true, false);
+    if (serial_.write_bytes(frame.data(), frame.size()) !=
+        static_cast<ssize_t>(frame.size())) {
+      RCLCPP_ERROR(rclcpp::get_logger(kLogger), "AUTO_REPORT write failed");
+      serial_.close();
+      return hardware_interface::CallbackReturn::ERROR;
+    }
+  }
+
+  parser_.reset();   // discard any FUNC_ARM_CTRL response tail or partial
+                     // push frames that arrived during the AUTO_REPORT
+                     // enable write — read() starts from a clean slate.
+  encoder_seeded_ = false;
 
   RCLCPP_INFO(rclcpp::get_logger(kLogger), "on_configure OK on %s", serial_port_.c_str());
   return hardware_interface::CallbackReturn::SUCCESS;
@@ -244,52 +266,42 @@ hardware_interface::CallbackReturn YahboomSystem::on_activate(
   zero_wheel_command();  // send a zero-Twist FUNC_MOTION right now
 
   // ── D7: arm activation (LIVE only) ──
-  // 1. Re-query + re-validate + re-seed (operator might have back-driven the
-  //    arm between configure and activate; trust nothing).
-  // 2. Send a single FUNC_ARM_CTRL nailing each servo to its current pose
-  //    (write() would do this on first call anyway, but emit one upfront
-  //    so the firmware "hold target" is unambiguous).
-  // 3. Send FUNC_UART_SERVO_TORQUE(true) — defensive. STM32 firmware boots
-  //    with torque enabled by default per operator observation, but if the
-  //    operator ran --torque-off to back-drive joints, we need to re-engage.
-  //    Order matters: torque-on AFTER the position command so the firmware
-  //    engages servos at the freshly-commanded current pose.
+  // Match vendor Rosmaster_Lib.__init__ exactly: just send torque-on,
+  // nothing else. Vendor never sends a startup batch frame, and our
+  // earlier attempt at "build + send FUNC_ARM_CTRL at the seeded pose"
+  // caused the STM32 to silently ignore subsequent single-servo
+  // FUNC_UART_SERVO frames entirely (D7.5 final-launch failure
+  // 2026-05-07: arm motion stopped working after switching write() to
+  // per-joint FUNC_UART_SERVO; isolating with smoke_serial --move-servo
+  // proved FUNC_UART_SERVO works fine standalone with run_time=500ms).
+  //
+  // The first write() call after on_activate will see !arm_send_seeded_
+  // and emit 6 FUNC_UART_SERVO frames (one per joint) at the configure-
+  // seeded vendor degrees — that handles the "hold target" we used to
+  // do here, but using only single-servo frames so the firmware never
+  // enters whatever batch-mode lock causes single-servo frames to be
+  // ignored.
+  //
+  // Defensive re-query is intentionally NOT done here — FUNC_REQUEST_DATA
+  // round-trip times out on a bus saturated with AUTO_REPORT push frames
+  // (observed D7.5 first launch 2026-05-07). on_configure runs the query
+  // BEFORE enabling AUTO_REPORT for that reason.
   if (!dry_run_ && arm_present_) {
-    RCLCPP_INFO(rclcpp::get_logger(kLogger),
-                "on_activate: re-querying arm positions (defensive re-seed)");
-    if (!validate_and_seed_arm_from_hardware()) {
+    auto frame = protocol::build_set_uart_servo_torque(true);
+    if (serial_.write_bytes(frame.data(), frame.size()) !=
+        static_cast<ssize_t>(frame.size())) {
       RCLCPP_ERROR(rclcpp::get_logger(kLogger),
-                   "on_activate: arm seed failed — refusing to activate");
+                   "on_activate: failed to write FUNC_UART_SERVO_TORQUE(on)");
       return hardware_interface::CallbackReturn::ERROR;
     }
-    // Build + send a FUNC_ARM_CTRL frame at the seeded pose (cmd == state).
-    std::array<double, 6> angles_deg{};
-    for (size_t j = 0; j < NUM_ARM_JOINTS; ++j) {
-      angles_deg[j] = urdf_rad_to_vendor_deg(j, arm_position_command_[j]);
-    }
-    {
-      auto frame = protocol::build_set_uart_servo_angle_array(angles_deg);
-      if (serial_.write_bytes(frame.data(), frame.size()) !=
-          static_cast<ssize_t>(frame.size())) {
-        RCLCPP_ERROR(rclcpp::get_logger(kLogger),
-                     "on_activate: failed to write initial FUNC_ARM_CTRL");
-        return hardware_interface::CallbackReturn::ERROR;
-      }
-    }
-    {
-      auto frame = protocol::build_set_uart_servo_torque(true);
-      if (serial_.write_bytes(frame.data(), frame.size()) !=
-          static_cast<ssize_t>(frame.size())) {
-        RCLCPP_ERROR(rclcpp::get_logger(kLogger),
-                     "on_activate: failed to write FUNC_UART_SERVO_TORQUE(on)");
-        return hardware_interface::CallbackReturn::ERROR;
-      }
-    }
     RCLCPP_INFO(rclcpp::get_logger(kLogger),
-                "arm torque ENABLED, holding seeded pose: "
-                "deg=[%.1f %.1f %.1f %.1f %.1f %.1f]",
-                angles_deg[0], angles_deg[1], angles_deg[2],
-                angles_deg[3], angles_deg[4], angles_deg[5]);
+                "arm torque ENABLED — first write() will seed servos via "
+                "6× FUNC_UART_SERVO at configure pose");
+    // Reset write-side dedupe so the very first write() (and future
+    // controller commands) emit cleanly; arm_position_command_ already
+    // matches arm_position_state_ from the configure-time seed, so the
+    // first write is a no-op (1° lurch PASS bar).
+    arm_send_seeded_ = false;
   }
 
   RCLCPP_INFO(rclcpp::get_logger(kLogger),
@@ -621,61 +633,84 @@ hardware_interface::return_type YahboomSystem::write(const rclcpp::Time& time,
     }
   }
 
-  // ── D4: arm path. Convert URDF rad → vendor deg, dedupe + heartbeat,
-  // emit FUNC_ARM_CTRL frame. Same throttling pattern as chassis since
-  // STM32 firmware likely has the same per-frame buffering issue. In
-  // dry_run mode, log only — never touch serial.
+  // ── D4 + D7.5: arm path. PER-JOINT dedupe + single-servo FUNC_UART_SERVO
+  // frames, mirroring vendor Mcnamu_X3plus.py:185-225. Vendor never sends
+  // batch FUNC_ARM_CTRL during gamepad jog — only set_uart_servo_angle
+  // (single-servo) for joints that exceed the same 0.5° threshold we use.
+  //
+  // Why NOT FUNC_ARM_CTRL: that frame re-engages firmware-side servo
+  // control on ALL 6 servos every time it arrives. When jogging a single
+  // joint at speed (frames every ~100 ms), the static joints (2-6) get
+  // unwanted re-engagement → visible micro-jiggle on gravity-loaded poses
+  // (D7.5 "23 lurches in 130° of base sweep" observation 2026-05-07).
+  // Per-joint frames mean the static joints get NO frames during a
+  // single-joint jog → no jiggle.
+  //
+  // No arm heartbeat — bus servos hold position passively (D7.5 fix).
+  // In dry_run mode, log only — never touch serial.
   if (arm_present_) {
     std::array<double, NUM_ARM_JOINTS> cmd_deg{};
     for (size_t j = 0; j < NUM_ARM_JOINTS; ++j) {
       cmd_deg[j] = urdf_rad_to_vendor_deg(j, arm_position_command_[j]);
     }
 
-    bool arm_changed = !arm_send_seeded_;
-    if (!arm_changed) {
-      for (size_t j = 0; j < NUM_ARM_JOINTS; ++j) {
-        if (std::fabs(cmd_deg[j] - last_sent_arm_deg_[j]) > kArmDegEpsilon) {
-          arm_changed = true;
-          break;
-        }
-      }
-    }
-    bool arm_heartbeat = false;
-    if (arm_send_seeded_) {
-      const auto since_ms = (time - last_arm_send_time_).nanoseconds() / 1'000'000;
-      arm_heartbeat = since_ms >= kArmHeartbeatMs;
+    // Per-joint change detection. !arm_send_seeded_ forces all six joints
+    // to be sent on first write() after activation, so the firmware knows
+    // about all six target positions even if the controller's command
+    // matches our seeded state exactly.
+    std::array<bool, NUM_ARM_JOINTS> joint_changed{};
+    for (size_t j = 0; j < NUM_ARM_JOINTS; ++j) {
+      joint_changed[j] = !arm_send_seeded_ ||
+                         std::fabs(cmd_deg[j] - last_sent_arm_deg_[j]) > kArmDegEpsilon;
     }
 
-    if (arm_changed || arm_heartbeat) {
+    int num_changed = 0;
+    for (bool c : joint_changed) if (c) ++num_changed;
+
+    if (num_changed > 0) {
       if (dry_run_) {
-        if (arm_changed) {
-          RCLCPP_INFO(rclcpp::get_logger(kLogger),
-                      "[DRY-RUN] WOULD send FUNC_ARM_CTRL: "
-                      "deg=[%.1f %.1f %.1f %.1f %.1f %.1f] "
-                      "rad=[%.3f %.3f %.3f %.3f %.3f %.3f]",
-                      cmd_deg[0], cmd_deg[1], cmd_deg[2], cmd_deg[3], cmd_deg[4], cmd_deg[5],
-                      arm_position_command_[0], arm_position_command_[1],
-                      arm_position_command_[2], arm_position_command_[3],
-                      arm_position_command_[4], arm_position_command_[5]);
-        }
-      } else {
-        // LIVE mode: build + send the FUNC_ARM_CTRL frame. Only fires once
-        // Phase 4 single-joint test passes (operator must set dry_run=false
-        // explicitly in URDF).
-        std::array<double, 6> angles{
-            cmd_deg[0], cmd_deg[1], cmd_deg[2], cmd_deg[3], cmd_deg[4], cmd_deg[5]};
-        auto frame = protocol::build_set_uart_servo_angle_array(angles);
-        if (serial_.is_open()) {
+        RCLCPP_INFO(rclcpp::get_logger(kLogger),
+                    "[DRY-RUN] WOULD send %d FUNC_UART_SERVO frame(s) "
+                    "(seeded=%d): deg=[%.1f %.1f %.1f %.1f %.1f %.1f] "
+                    "changed=[%d %d %d %d %d %d]",
+                    num_changed, arm_send_seeded_ ? 1 : 0,
+                    cmd_deg[0], cmd_deg[1], cmd_deg[2],
+                    cmd_deg[3], cmd_deg[4], cmd_deg[5],
+                    joint_changed[0], joint_changed[1], joint_changed[2],
+                    joint_changed[3], joint_changed[4], joint_changed[5]);
+      } else if (serial_.is_open()) {
+        // LIVE: emit one FUNC_UART_SERVO per changed joint. servo_id is
+        // 1-indexed (j+1). Frames burst back-to-back; at 115200 baud each
+        // frame is ~10 bytes ≈ 0.87 ms airtime so even all six (5.2 ms)
+        // fit comfortably between 10 ms ros2_control update ticks.
+        for (size_t j = 0; j < NUM_ARM_JOINTS; ++j) {
+          if (!joint_changed[j]) continue;
+          const uint8_t s_id = static_cast<uint8_t>(j + 1);
+          auto frame = protocol::build_set_uart_servo_angle(s_id, cmd_deg[j]);
           serial_.write_bytes(frame.data(), frame.size());
         }
-        if (arm_changed) {
-          RCLCPP_INFO(rclcpp::get_logger(kLogger),
-                      "FUNC_ARM_CTRL send: deg=[%.1f %.1f %.1f %.1f %.1f %.1f]",
-                      cmd_deg[0], cmd_deg[1], cmd_deg[2],
-                      cmd_deg[3], cmd_deg[4], cmd_deg[5]);
-        }
+        // Log the SET we just sent. Throttled to one line per write — even
+        // a single-joint jog produces ~10 frames/sec, fine for visibility
+        // and matches the chassis log pattern.
+        RCLCPP_INFO(rclcpp::get_logger(kLogger),
+                    "FUNC_UART_SERVO send (%d joint%s): "
+                    "deg=[%.1f %.1f %.1f %.1f %.1f %.1f] "
+                    "changed=[%d %d %d %d %d %d]",
+                    num_changed, num_changed == 1 ? "" : "s",
+                    cmd_deg[0], cmd_deg[1], cmd_deg[2],
+                    cmd_deg[3], cmd_deg[4], cmd_deg[5],
+                    joint_changed[0], joint_changed[1], joint_changed[2],
+                    joint_changed[3], joint_changed[4], joint_changed[5]);
       }
-      last_sent_arm_deg_ = cmd_deg;
+      // Update last_sent_arm_deg_ ONLY for the joints we actually sent.
+      // Joints we didn't send keep their stale last_sent value, so the
+      // next write() compares fresh cmd against the same baseline — the
+      // moment a static joint's URDF cmd nudges by 0.5° (e.g. controller
+      // drift, or operator switching to a different active_joint), we
+      // catch it on the next tick.
+      for (size_t j = 0; j < NUM_ARM_JOINTS; ++j) {
+        if (joint_changed[j]) last_sent_arm_deg_[j] = cmd_deg[j];
+      }
       last_arm_send_time_ = time;
       arm_send_seeded_ = true;
     }

@@ -325,7 +325,20 @@ class ArmTeleop(Node):
             and bool(joy.buttons[DEADMAN_BUTTON])
         )
         if not deadman_held:
-            return  # deadman released — no motion
+            # Deadman released — DON'T early-return. Publish the unchanged
+            # target so /arm_controller/commands has a fresh message every
+            # tick. forward_command_controller's update() is a no-op when
+            # no command has been received over the topic, but as soon as
+            # ANY command arrives it begins writing whatever it last
+            # received to its command interfaces every cycle. Without this
+            # 50 Hz idle-republish the controller's command_interfaces
+            # could end up at default-zero values (D7.5 first-launch
+            # observation 2026-05-07: joint2 oscillated when no publisher
+            # was attached). Republishing the seeded target keeps cmd ==
+            # state, so YahboomSystem.write() emits no-op heartbeats and
+            # the arm holds.
+            self._publish_target(time_from_start_sec=self.dt)
+            return  # no motion change beyond the idle-publish
 
         turbo = (
             len(joy.buttons) > TURBO_BUTTON and joy.buttons[TURBO_BUTTON]

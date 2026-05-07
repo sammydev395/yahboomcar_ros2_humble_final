@@ -70,10 +70,34 @@ enum CarType : uint8_t {
   CAR_R2 = 0x05,
 };
 
-// Run-time bound: vendor SDK clamps to 2000 ms. We default to 5 ms to match
-// the no-buffered-motion lesson from Ultra Phase 4 (TELEOP_PHASE4_LESSONS.md
-// lessons 1-3). Inter-frame interval at 100 Hz is 10 ms; 5 ms gives margin.
-constexpr uint16_t DEFAULT_RUN_TIME_MS = 5;
+// Run-time bound: vendor SDK clamps to 2000 ms. We match vendor's own
+// default of 500 ms exactly. Two separate D7.5 observations drove this
+// to its current value:
+//   1. 5 ms (initial) was too short for the firmware servo PID to
+//      converge before the next frame, producing continuous micro-
+//      overshoot oscillation ("arm going up and down like crazy" with
+//      no operator input, 2026-05-07).
+//   2. 100 ms made FUNC_ARM_CTRL behave OK but caused FUNC_UART_SERVO
+//      (single-servo) frames to be silently ignored by the firmware —
+//      smoke_serial --move-servo at run_time=500 moved the servo;
+//      same call at the YahboomSystem-default 100 ms didn't. The
+//      firmware paths for the two function codes have different
+//      run_time floors. 500 ms (vendor default) works for both.
+//
+// Run_time is "how long to interpolate from current position to
+// target". When new commands arrive faster than run_time (which is
+// our normal case at Phase 4 jog 0.10 rad/s — frames every ~100 ms,
+// run_time 500 ms), the firmware just re-plans from the current
+// position toward the new target each frame. Overlapping
+// interpolations produce smooth continuous motion, with the actual
+// servo speed governed by the new-command arrival rate, not run_time.
+//
+// Earlier comment "no-buffered-motion lesson from Ultra Phase 4" was
+// applied incorrectly — that lesson is about not letting the
+// CONTROLLER buffer trajectories ahead of operator input (which is
+// why we use forward_command_controller, not JTC). It says nothing
+// about the firmware-side run_time.
+constexpr uint16_t DEFAULT_RUN_TIME_MS = 500;
 
 // ─── Checksum ────────────────────────────────────────────────────────────────
 // (LEN + FUNC + sum(payload)) & 0xff. Python uses sum(cmd, COMPLEMENT=5)
