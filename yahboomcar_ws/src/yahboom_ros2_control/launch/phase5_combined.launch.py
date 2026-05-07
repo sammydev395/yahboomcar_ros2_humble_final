@@ -266,7 +266,15 @@ def generate_launch_description():
             'device_id': LaunchConfiguration('device_id'),
             'deadzone': 0.0,           # arm_teleop + teleop_twist_joy
                                        # apply their own deadzones
-            'autorepeat_rate': 50.0,
+            # autorepeat_rate MUST be >= controller_manager update_rate
+            # (100 Hz). At 50 Hz, teleop_twist_joy republishes /cmd_vel
+            # at 50 Hz, controller polls at 100 Hz, alternate cycles
+            # find an empty rt buffer → controller writes zero → wheels
+            # see bursts of "go, stop, go, stop". Bumping joy_node to
+            # 100 Hz makes /cmd_vel match controller cadence; the
+            # YahboomSystem chassis filter stays as defense-in-depth.
+            # (D8.2 stutter fix 2026-05-07.)
+            'autorepeat_rate': 100.0,
             'sticky_buttons': False,
             'coalesce_interval_ms': 1,
         }],
