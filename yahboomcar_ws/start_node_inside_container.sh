@@ -1,109 +1,138 @@
 #!/usr/bin/env bash
 #
-# start_node_inside_container.sh
-# Start the main X3Plus ROS2 nodes inside the container.
-# Based on TEST_PLAN.md and ROS2_Package_Docs (yahboomcar_bringup, yahboomcar_ctrl).
+# start_node_inside_container.sh — D8.3 rewrite (2026-05-14)
 #
-# Key nodes started by the bringup launch:
-#   - /driver_node   (chassis + 6-DOF arm)
-#   - /base_node     (odometry)
-#   - /joy_node      (joystick hardware)
-#   - /yahboom_joy   (joystick controller → /cmd_vel, /TargetAngle)
-#   - /robot_state_publisher, imu_filter, ekf_localization
+# Single inside-container entry point for the X3PLUS stack.
 #
-# Additional services started:
-#   - rosmaster_capability (multi-robot coordination)
-#   - yahboomcar_astra (Orbbec Astra Pro camera)
-#   - web_video_server (remote camera viewing on port 8090)
+# WHAT THIS REPLACES
+#   The vendor's start_node_inside_container.sh used to invoke
+#   `ros2 launch yahboomcar_bringup yahboomcar_bringup_X3plus_launch.py`
+#   which brought up the vendor Mcnamu_driver_X3plus + base_node_X3 +
+#   yahboom_joy_X3plus + robot_state_publisher + IMU/EKF stack. D8.3 cuts
+#   the vendor bringup entirely. Per operator decision 2026-05-14: NO
+#   --vendor escape hatch. If rollback is ever needed, `git revert` the
+#   start-script commit; vendor source still lives under
+#   yahboomcar_ws/src/Mcnamu_driver_X3plus/ until the D9 cleanup removes
+#   it.
 #
-
-# CycloneDDS RMW configuration
-export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
-export ROS_DOMAIN_ID=100
+# WHAT THIS LAUNCHES
+#   1. yahboom_ros2_control master.launch.py (PRIMARY) — full ros2_control
+#      stack: controller_manager + JSB + arm_controller + chassis_controller
+#      + joy_node + arm_teleop + teleop_twist_joy + ydlidar driver +
+#      laser TF.
+#   2. rosmaster_capability multi-robot DDS facade (side launch, kept).
+#   3. yahboomcar_astra Astra Pro fixed camera (side launch, kept until
+#      OAK-D Lite arrives).
+#   4. web_video_server on port 8090 (side launch, kept). Runs in a CLEAN
+#      shell that sources ONLY /opt/ros/humble/setup.bash — sourcing
+#      library_ws (which we DO source for the lidar driver in the main
+#      launch) shadows the system OpenCV 4.5 with a broken OpenCV 4.10
+#      overlay that crashes web_video_server with
+#      `libopencv_imgcodecs.so.410: cannot open shared object file`.
+#      (See MEMORY.md → Web Video Streaming.)
+#
+# DDS / RMW
+#   CycloneDDS, ROS_DOMAIN_ID=100 — same as the rest of the fleet.
+#
+# PRE-FLIGHT (verified by run_checks below — fail closed)
+#   - ROS2 Humble installed.
+#   - Main workspace built (yahboomcar_ws/install/setup.bash exists).
+#   - library_ws built (ydlidar_ros2_driver discoverable via ros2 pkg).
+#   - yahboom_ros2_control package discoverable via ros2 pkg.
+#   - /dev/yahboom_stm32 symlink resolves (devpath-pinned udev rule
+#     against the dual-CH340 ambiguity — see project memory
+#     project_yahboom_dual_ch340_devpath.md).
+#   - /dev/ydlidar symlink resolves (vendor's ydlidar.rules).
+#
+# OPTIONS
+#   --check     Run pre-flight only, do not launch.
+#   --no-lidar  Skip YDLidar (bench tests with no lidar plugged in).
+#               Forwarded as enable_lidar:=false to master.launch.py.
+#   -h|--help   Show usage.
 
 set -e
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-# Workspace root: same directory as this script (e.g. .../yahboomcar_ros2_ws)
-WS_ROOT="${SCRIPT_DIR}"
-# Software deps (Rosmaster_Lib, etc.): prefer $HOME/software, fallback to sibling of workspace
-SOFTWARE_ROOT="${HOME}/software"
-[[ -d "${SCRIPT_DIR}/../software" && ! -d "$SOFTWARE_ROOT" ]] && SOFTWARE_ROOT="$(cd "${SCRIPT_DIR}/../software" && pwd)"
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+export ROS_DOMAIN_ID=100
 
-USE_VOICE=false
-USE_RVIZ=false
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+WS_ROOT="${SCRIPT_DIR}"
+# Inside the container the actual layout is:
+#   /root/yahboomcar_ros2_ws            ← bind mount of host's
+#                                         /home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws
+#   /root/yahboomcar_ros2_ws_new/software/library_ws    ← the lidar driver
+#                                         (vendor's prior start script
+#                                          also hardcodes this path).
+# So WS_ROOT and the parent of LIBRARY_WS_ROOT are NOT siblings; we
+# resolve LIBRARY_WS_ROOT explicitly in priority order:
+#   1. $LIBRARY_WS_ROOT env override
+#   2. /root/yahboomcar_ros2_ws_new/software/library_ws (canonical path
+#      inside the container — what vendor's old script also expected)
+#   3. ${HOME}/software/library_ws (legacy fallback)
+SOFTWARE_ROOT="${HOME}/software"
+if [[ -z "${LIBRARY_WS_ROOT:-}" ]]; then
+    if [[ -d "/root/yahboomcar_ros2_ws_new/software/library_ws" ]]; then
+        LIBRARY_WS_ROOT="/root/yahboomcar_ros2_ws_new/software/library_ws"
+    else
+        LIBRARY_WS_ROOT="${SOFTWARE_ROOT}/library_ws"
+    fi
+fi
+
 CHECK_ONLY=false
+NO_LIDAR=false
 
 usage() {
-    echo "Usage: $0 [OPTIONS]"
-    echo ""
-    echo "Start main X3Plus bringup (chassis + arm + joystick + state publisher + EKF)."
-    echo "Also starts Astra camera and web_video_server (port 8090) for remote viewing."
-    echo ""
-    echo "Options:"
-    echo "  --voice      Use voice-control bringup (driver + voice_control node)"
-    echo "  --rviz       Start RViz with the bringup"
-    echo "  --check      Only run pre-flight checks, do not launch"
-    echo "  -h, --help   Show this help"
-    echo ""
-    echo "Paths (detected):"
-    echo "  WS_ROOT=$WS_ROOT"
-    echo "  SOFTWARE_ROOT=$SOFTWARE_ROOT"
-    echo ""
-    echo "Web Video Streams (after startup):"
-    echo "  http://<robot_ip>:8090/                                  - Main topic list"
-    echo "  http://<robot_ip>:8090/stream_viewer?topic=/simpleAR/camera       - Arm camera"
-    echo "  http://<robot_ip>:8090/stream_viewer?topic=/camera/color/image_raw - Astra color"
-    echo ""
-    echo "Examples:"
-    echo "  $0              # Standard bringup (joystick control)"
-    echo "  $0 --check      # Verify environment only"
-    echo "  $0 --voice      # Bringup with voice control"
+    cat <<EOF
+Usage: $0 [OPTIONS]
+
+D8.3 master-launch entry point for the X3PLUS stack inside the
+yahboom_ros2_humble container.
+
+Options:
+  --check      Run pre-flight only, do not launch
+  --no-lidar   Skip YDLidar (forwards enable_lidar:=false)
+  -h|--help    This help
+
+Paths (detected):
+  WS_ROOT          = $WS_ROOT
+  SOFTWARE_ROOT    = $SOFTWARE_ROOT
+  LIBRARY_WS_ROOT  = $LIBRARY_WS_ROOT
+
+Web Video Streams (after startup):
+  http://<robot_ip>:8090/                                    - Topic list
+  http://<robot_ip>:8090/stream_viewer?topic=/camera/color/image_raw
+                                                             - Astra color
+EOF
 }
 
 while [[ $# -gt 0 ]]; do
     case "$1" in
-        --voice)
-            USE_VOICE=true
-            shift
-            ;;
-        --rviz)
-            USE_RVIZ=true
-            shift
-            ;;
-        --check)
-            CHECK_ONLY=true
-            shift
-            ;;
-        -h|--help)
-            usage
-            exit 0
-            ;;
-        *)
-            echo "Unknown option: $1"
-            usage
-            exit 1
-            ;;
+        --check)    CHECK_ONLY=true ; shift ;;
+        --no-lidar) NO_LIDAR=true   ; shift ;;
+        -h|--help)  usage ; exit 0 ;;
+        *) echo "Unknown option: $1" ; usage ; exit 1 ;;
     esac
 done
 
-# -----------------------------------------------------------------------------
-# Kill any existing bringup nodes (by executable name) to avoid port/device conflicts
-# Node names from yahboomcar_bringup_X3plus_launch.py and voice launch
-# -----------------------------------------------------------------------------
-kill_bringup_processes() {
+# ----------------------------------------------------------------------
+# Kill any stale processes from previous bringup runs (vendor or ours).
+# ----------------------------------------------------------------------
+kill_stale_processes() {
     local patterns=(
+        "ros2_control_node"
+        "controller_manager"
+        "ydlidar_ros2_driver_node"
+        "static_transform_publisher"
+        "joy_node"
+        "arm_teleop_node"
+        "teleop_twist_joy"
+        "robot_state_publisher"
+        "web_video_server"
         "Mcnamu_driver_X3plus"
         "base_node_X3"
-        "joy_node"
         "yahboom_joy_X3plus"
-        "robot_state_publisher"
         "imu_filter_madgwick_node"
         "ekf_localization_node"
-        "rviz2"
-        "Voice_Ctrl_Unified_X3plus"
-        "joint_state_publisher"
-        "web_video_server"
     )
     local killed=0
     for pattern in "${patterns[@]}"; do
@@ -118,87 +147,107 @@ kill_bringup_processes() {
     fi
 }
 
-echo "Checking for existing bringup nodes..."
-kill_bringup_processes
+echo "Killing any stale bringup processes..."
+kill_stale_processes
 
-# -----------------------------------------------------------------------------
-# Environment (match TEST_PLAN.md prerequisites)
-# -----------------------------------------------------------------------------
+# ----------------------------------------------------------------------
+# Environment setup. Source order matters:
+#   1. /opt/ros/humble — base.
+#   2. library_ws — provides ydlidar_ros2_driver. NOTE: this overlays
+#      OpenCV 4.10 which breaks web_video_server, so the web_video_server
+#      side launch later sources /opt/ros/humble ONLY.
+#   3. yahboomcar_ws — main workspace (yahboom_ros2_control,
+#      rosmaster_capability, yahboomcar_astra, etc.).
+# ----------------------------------------------------------------------
 export ROBOT_TYPE=x3plus
+export PYTHONPATH="${SOFTWARE_ROOT}/py_install_V3.3.1/build/lib${PYTHONPATH:+:$PYTHONPATH}"
 
-# Driver node needs Rosmaster_Lib; voice bringup also needs Speech_Lib
-if [[ "$USE_VOICE" == true ]]; then
-    export PYTHONPATH="${SOFTWARE_ROOT}/py_install_V3.3.1/build/lib:${SOFTWARE_ROOT}/py_install_V0.0.1/py_install/build/lib${PYTHONPATH:+:$PYTHONPATH}"
-else
-    export PYTHONPATH="${SOFTWARE_ROOT}/py_install_V3.3.1/build/lib${PYTHONPATH:+:$PYTHONPATH}"
-fi
-
-# Source ROS2 and workspace (install must exist)
 if [[ ! -f /opt/ros/humble/setup.bash ]]; then
-    echo "Error: ROS2 Humble not found at /opt/ros/humble. Install or mount it."
+    echo "Error: ROS2 Humble not found at /opt/ros/humble."
     exit 1
 fi
 source /opt/ros/humble/setup.bash
 
+if [[ -f "${LIBRARY_WS_ROOT}/install/setup.bash" ]]; then
+    source "${LIBRARY_WS_ROOT}/install/setup.bash"
+else
+    echo "Error: library_ws not found at ${LIBRARY_WS_ROOT}."
+    echo "       (D8.3 needs ydlidar_ros2_driver from library_ws.)"
+    exit 1
+fi
+
 if [[ ! -f "${WS_ROOT}/install/setup.bash" ]]; then
-    echo "Error: Workspace not built. Run from workspace: colcon build && source install/setup.bash"
+    echo "Error: Workspace not built. Run: cd ${WS_ROOT} && colcon build && source install/setup.bash"
     exit 1
 fi
 source "${WS_ROOT}/install/setup.bash"
 
-# Ensure workspace Python packages (e.g. yahboomcar_msgs) are on PYTHONPATH for launched nodes.
-# rosidl/ament_cmake use local/lib/python3.10/dist-packages; ament_python use lib/python3.10/site-packages.
+# Make workspace Python packages importable by launched nodes (rosidl /
+# ament_cmake use local/lib; ament_python uses lib/python3.10).
 _install="${WS_ROOT}/install"
 for _pkg in "${_install}"/*/; do
-  for _dir in "${_pkg}local/lib/python3.10/dist-packages" "${_pkg}lib/python3.10/site-packages"; do
-    if [[ -d "$_dir" ]]; then
-      export PYTHONPATH="${_dir}${PYTHONPATH:+:$PYTHONPATH}"
-    fi
-  done
+    for _dir in "${_pkg}local/lib/python3.10/dist-packages" \
+                "${_pkg}lib/python3.10/site-packages"; do
+        [[ -d "$_dir" ]] && export PYTHONPATH="${_dir}${PYTHONPATH:+:$PYTHONPATH}"
+    done
 done
 unset _install _pkg _dir
 
-# -----------------------------------------------------------------------------
-# Pre-flight checks
-# -----------------------------------------------------------------------------
+# ----------------------------------------------------------------------
+# Pre-flight checks (fail closed).
+# ----------------------------------------------------------------------
 run_checks() {
     local ok=0
     echo "Pre-flight checks:"
-    echo "  WS_ROOT=$WS_ROOT"
-    echo "  SOFTWARE_ROOT=$SOFTWARE_ROOT"
-
-    if [[ ! -d "$WS_ROOT" ]]; then
-        echo "  [FAIL] WS_ROOT is not a directory: $WS_ROOT"
-        ok=1
-    else
-        echo "  [OK] WS_ROOT exists"
-    fi
+    echo "  WS_ROOT          = $WS_ROOT"
+    echo "  SOFTWARE_ROOT    = $SOFTWARE_ROOT"
+    echo "  LIBRARY_WS_ROOT  = $LIBRARY_WS_ROOT"
 
     if [[ ! -f "${WS_ROOT}/install/setup.bash" ]]; then
-        echo "  [FAIL] install/setup.bash not found. Run: cd $WS_ROOT && colcon build --symlink-install && source install/setup.bash"
+        echo "  [FAIL] install/setup.bash not found"
         ok=1
     else
-        echo "  [OK] install/setup.bash exists"
+        echo "  [OK] yahboomcar_ws install/setup.bash"
     fi
 
-    if [[ ! -d "${SOFTWARE_ROOT}/py_install_V3.3.1/build/lib" ]]; then
-        echo "  [WARN] Rosmaster_Lib not found at ${SOFTWARE_ROOT}/py_install_V3.3.1/build/lib (driver may fail)"
-    else
-        echo "  [OK] Rosmaster_Lib path exists"
-    fi
-
-    if ! python3 -c "import yahboomcar_msgs.msg" 2>/dev/null; then
-        echo "  [FAIL] yahboomcar_msgs not importable. Run: cd $WS_ROOT && source install/setup.bash && colcon build --packages-select yahboomcar_msgs --symlink-install"
+    if [[ ! -f "${LIBRARY_WS_ROOT}/install/setup.bash" ]]; then
+        echo "  [FAIL] library_ws install/setup.bash not found"
         ok=1
     else
-        echo "  [OK] yahboomcar_msgs importable"
+        echo "  [OK] library_ws install/setup.bash"
     fi
 
-    if ! ros2 pkg list 2>/dev/null | grep -q yahboomcar_bringup; then
-        echo "  [FAIL] yahboomcar_bringup not in ROS2 package path. Source workspace: source ${WS_ROOT}/install/setup.bash"
+    if ! ros2 pkg list 2>/dev/null | grep -q '^yahboom_ros2_control$'; then
+        echo "  [FAIL] yahboom_ros2_control not in ROS2 package path"
         ok=1
     else
-        echo "  [OK] yahboomcar_bringup package found"
+        echo "  [OK] yahboom_ros2_control package found"
+    fi
+
+    if ! ros2 pkg list 2>/dev/null | grep -q '^ydlidar_ros2_driver$'; then
+        echo "  [FAIL] ydlidar_ros2_driver not in ROS2 package path (library_ws not sourced?)"
+        ok=1
+    else
+        echo "  [OK] ydlidar_ros2_driver package found"
+    fi
+
+    if [[ ! -e /dev/yahboom_stm32 ]]; then
+        echo "  [WARN] /dev/yahboom_stm32 missing — udev rule deployed?"
+        echo "         (See provision/jetson/99-yahboom-stm32.rules and"
+        echo "          memory project_yahboom_dual_ch340_devpath.md.)"
+    else
+        echo "  [OK] /dev/yahboom_stm32 → $(readlink -f /dev/yahboom_stm32)"
+    fi
+
+    if [[ "$NO_LIDAR" == false ]]; then
+        if [[ ! -e /dev/ydlidar ]]; then
+            echo "  [WARN] /dev/ydlidar missing — vendor ydlidar.rules deployed?"
+            echo "         (Pass --no-lidar to skip lidar bring-up.)"
+        else
+            echo "  [OK] /dev/ydlidar → $(readlink -f /dev/ydlidar)"
+        fi
+    else
+        echo "  [SKIP] lidar checks (--no-lidar)"
     fi
 
     if [[ $ok -ne 0 ]]; then
@@ -216,46 +265,56 @@ if [[ "$CHECK_ONLY" == true ]]; then
     exit 0
 fi
 
-# -----------------------------------------------------------------------------
-# Launch main bringup
-# -----------------------------------------------------------------------------
-if [[ "$USE_VOICE" == true ]]; then
-    echo "Starting X3Plus bringup with VOICE CONTROL..."
-    LAUNCH_ARGS=(ros2 launch yahboomcar_bringup yahboomcar_bringup_X3plus_voice_launch.py)
-else
-    echo "Starting X3Plus bringup (joystick control)..."
-    LAUNCH_ARGS=(ros2 launch yahboomcar_bringup yahboomcar_bringup_X3plus_launch.py)
+# ----------------------------------------------------------------------
+# Launch master.launch.py (primary process).
+# ----------------------------------------------------------------------
+LAUNCH_ARGS=(ros2 launch yahboom_ros2_control master.launch.py)
+if [[ "$NO_LIDAR" == true ]]; then
+    LAUNCH_ARGS+=(enable_lidar:=false)
 fi
 
-if [[ "$USE_RVIZ" == true ]]; then
-    LAUNCH_ARGS+=(use_rviz:=true)
-fi
-
-# Launch main bringup in background
+echo "Starting D8.3 master.launch.py: ${LAUNCH_ARGS[*]}"
 "${LAUNCH_ARGS[@]}" &
-BRINGUP_PID=$!
+MASTER_PID=$!
 
-# Wait for nodes to start before launching capability facade
+# Wait for controller_manager + ydlidar to come up before side launches.
+# Empirically (D8.2) controller_manager takes ~12 s to activate all
+# controllers; lidar lifecycle activation completes within ~3 s after
+# that. 30 s is generous and matches the vendor's prior wait.
 sleep 30
 
-# --- Multi-robot capability facade node ---
-# Advertises Rosmaster capabilities over DDS for agent coordination
+# ----------------------------------------------------------------------
+# Side launches.
+# ----------------------------------------------------------------------
 echo "Starting rosmaster_capability node in background..."
 ros2 launch rosmaster_capability capability.launch.py &
 
 echo "Starting Astra camera node in background..."
 ros2 launch yahboomcar_astra astra.launch.py &
 
-# --- Web Video Server for remote camera viewing ---
-# Source library_ws and start web_video_server on port 8090
-echo "Starting web_video_server for remote camera viewing (port 8090)..."
-LIBRARY_WS_ROOT="/root/yahboomcar_ros2_ws_new/software/library_ws"
-if [[ -f "${LIBRARY_WS_ROOT}/install/setup.bash" ]]; then
-    source "${LIBRARY_WS_ROOT}/install/setup.bash"
-    ros2 run web_video_server web_video_server &
-    echo "  Web streams available at: http://<robot_ip>:8090/"
-else
-    echo "  [WARN] library_ws not found at ${LIBRARY_WS_ROOT}, skipping web_video_server"
-fi
+# web_video_server in a CLEAN shell — must NOT inherit the library_ws
+# environment. Sourcing library_ws/install/setup.bash overlays OpenCV
+# 4.10 over the system OpenCV 4.5 that web_video_server is linked
+# against, causing `libopencv_imgcodecs.so.410: cannot open shared
+# object file` at startup. The clean shell sources /opt/ros/humble +
+# main workspace ONLY (no library_ws).
+echo "Starting web_video_server (clean shell, port 8090)..."
+env -i HOME="$HOME" PATH="/usr/local/bin:/usr/bin:/bin" \
+     CYCLONEDDS_URI="${CYCLONEDDS_URI:-}" \
+    bash -c "
+        source /opt/ros/humble/setup.bash
+        source ${WS_ROOT}/install/setup.bash
+        export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+        export ROS_DOMAIN_ID=100
+        ros2 run web_video_server web_video_server --ros-args -p port:=8090
+    " &
 
-wait $BRINGUP_PID
+echo ""
+echo "─────────────────────────────────────────────────────────────"
+echo "  D8.3 master launch + side launches running."
+echo "  master.launch.py PID: $MASTER_PID"
+echo "  Web streams: http://<robot_ip>:8090/"
+echo "  Ctrl+C to shut everything down."
+echo "─────────────────────────────────────────────────────────────"
+
+wait $MASTER_PID
