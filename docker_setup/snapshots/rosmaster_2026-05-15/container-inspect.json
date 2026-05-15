@@ -1,0 +1,396 @@
+[
+    {
+        "Id": "e6fa831c6459b59ef17d98e59e2dacd7594115d9a8c9c412a777cda9af132697",
+        "Created": "2026-02-01T18:07:19.071203767Z",
+        "Path": "/ros_entrypoint.sh",
+        "Args": [
+            "bash",
+            "-c",
+            "ln -sf /dev/ttyUSB1 /dev/myserial 2>/dev/null || true &&              ln -sf /dev/ttyUSB0 /dev/ydlidar 2>/dev/null || true &&              tail -f /dev/null"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 272941,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-05-14T23:24:05.652579545Z",
+            "FinishedAt": "2026-05-14T23:24:05.564459589Z"
+        },
+        "Image": "sha256:e048e50b6781c44674a53b0b8ccd47534ba763626ac5295789de6fe0ac0b47eb",
+        "ResolvConfPath": "/var/lib/docker/containers/e6fa831c6459b59ef17d98e59e2dacd7594115d9a8c9c412a777cda9af132697/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/e6fa831c6459b59ef17d98e59e2dacd7594115d9a8c9c412a777cda9af132697/hostname",
+        "HostsPath": "/var/lib/docker/containers/e6fa831c6459b59ef17d98e59e2dacd7594115d9a8c9c412a777cda9af132697/hosts",
+        "LogPath": "/var/lib/docker/containers/e6fa831c6459b59ef17d98e59e2dacd7594115d9a8c9c412a777cda9af132697/e6fa831c6459b59ef17d98e59e2dacd7594115d9a8c9c412a777cda9af132697-json.log",
+        "Name": "/yahboom_ros2_humble",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": [
+            "fa5e5353b1c99518869b38c48285e6b979e8757364919f0640f1cc4fca5c2ed8",
+            "0035858e8ed347047b99a093fdab281919f1b6d0ccfb86c997b6a8464ae1a3c2",
+            "0dcd6eb01107724c1a58430a8f176f65274f79648b32c45a81a2bbfe695f7a6f"
+        ],
+        "HostConfig": {
+            "Binds": [
+                "/home/jetson/.Xauthority:/root/.Xauthority:rw",
+                "/home/jetson/ultralytics:/root/ultralytics:rw",
+                "/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws:/root/yahboomcar_ros2_ws:rw",
+                "/dev/bus/usb/001/012:/dev/bus/usb/001/012",
+                "/dev/bus/usb/001/007:/dev/bus/usb/001/007",
+                "/home/jetson/yahboomcar_ros2_ws_new:/root/yahboomcar_ros2_ws_new:rw",
+                "/home/jetson/temp:/root/temp:rw",
+                "/dev/bus/usb:/dev/bus/usb:rw",
+                "/dev/bus/usb/001/009:/dev/bus/usb/001/009",
+                "/tmp/.X11-unix:/tmp/.X11-unix:rw"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "host",
+            "PortBindings": {
+                "6000/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "6000"
+                    }
+                ],
+                "8888/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "8888"
+                    }
+                ],
+                "9090/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "9090"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "unless-stopped",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                61,
+                235
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": true,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": [
+                "label=disable"
+            ],
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "nvidia",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [
+                {
+                    "PathOnHost": "/dev/ttyUSB0",
+                    "PathInContainer": "/dev/ttyUSB0",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/ttyUSB1",
+                    "PathInContainer": "/dev/ttyUSB1",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/ttyUSB2",
+                    "PathInContainer": "/dev/ttyUSB2",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/myserial",
+                    "PathInContainer": "/dev/myserial",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/ydlidar",
+                    "PathInContainer": "/dev/ydlidar",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/astro_pro_plus",
+                    "PathInContainer": "/dev/astro_pro_plus",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/astro_pro_plus_rgb",
+                    "PathInContainer": "/dev/astro_pro_plus_rgb",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/input",
+                    "PathInContainer": "/dev/input",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/video0",
+                    "PathInContainer": "/dev/video0",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/video1",
+                    "PathInContainer": "/dev/video1",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/video2",
+                    "PathInContainer": "/dev/video2",
+                    "CgroupPermissions": "rwm"
+                },
+                {
+                    "PathOnHost": "/dev/video3",
+                    "PathInContainer": "/dev/video3",
+                    "CgroupPermissions": "rwm"
+                }
+            ],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": [
+                {
+                    "Driver": "",
+                    "Count": -1,
+                    "DeviceIDs": null,
+                    "Capabilities": [
+                        [
+                            "gpu"
+                        ]
+                    ],
+                    "Options": {}
+                }
+            ],
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": [],
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": null,
+            "ReadonlyPaths": null
+        },
+        "GraphDriver": {
+            "Data": {
+                "ID": "e6fa831c6459b59ef17d98e59e2dacd7594115d9a8c9c412a777cda9af132697",
+                "LowerDir": "/var/lib/docker/overlay2/48b4bdbf6529b73a6a09bd6a068795097c07c40f8579f15e751f18dcf983895e-init/diff:/var/lib/docker/overlay2/6tri1etaotthmtt7c8k0sg5gf/diff:/var/lib/docker/overlay2/l0s2hudm71d4ukamo8034s4h4/diff:/var/lib/docker/overlay2/jr9ce5aysci04e5uwvwge4nbb/diff:/var/lib/docker/overlay2/s4n2oy9qh57p8mqgj19kgz2vx/diff:/var/lib/docker/overlay2/lrp3a4i91n8xppxcrdszafgz3/diff:/var/lib/docker/overlay2/gbr2yrj10z72zegkh1tepz9wz/diff:/var/lib/docker/overlay2/ycjpx3m5ztc0nj8788jk5a6na/diff:/var/lib/docker/overlay2/tzo8mgu1p64w797lbc6esncsu/diff:/var/lib/docker/overlay2/5md7dwj5jmdyd9pnvzo9sjbzm/diff:/var/lib/docker/overlay2/fwhdh1hy0n8abwwfyxqgh35te/diff:/var/lib/docker/overlay2/kihl7xnhf5y4wrqlw9ay0x19g/diff:/var/lib/docker/overlay2/l5f34ebw2fznk03ww9c2zllw2/diff:/var/lib/docker/overlay2/dl7e2b2iao4hvynl9ffu1r3wb/diff:/var/lib/docker/overlay2/koa8e8lzimtcz755imwvo1w8x/diff:/var/lib/docker/overlay2/ez03dg2ky26wbv70jvbqu1l4b/diff:/var/lib/docker/overlay2/jn72kwmea629extig7enoywma/diff:/var/lib/docker/overlay2/fe4v059nklmt2shg7yf8rlaiu/diff:/var/lib/docker/overlay2/wxplwsor6o5im9ard7z4w5jya/diff:/var/lib/docker/overlay2/b0f0a26f61395bbcf4ed4612d0affde3c360838d1460ccf0a0ad299b6df5bc0f/diff",
+                "MergedDir": "/var/lib/docker/overlay2/48b4bdbf6529b73a6a09bd6a068795097c07c40f8579f15e751f18dcf983895e/merged",
+                "UpperDir": "/var/lib/docker/overlay2/48b4bdbf6529b73a6a09bd6a068795097c07c40f8579f15e751f18dcf983895e/diff",
+                "WorkDir": "/var/lib/docker/overlay2/48b4bdbf6529b73a6a09bd6a068795097c07c40f8579f15e751f18dcf983895e/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/home/jetson/yahboomcar_ros2_ws_new/yahboomcar_ws",
+                "Destination": "/root/yahboomcar_ros2_ws",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/home/jetson/yahboomcar_ros2_ws_new",
+                "Destination": "/root/yahboomcar_ros2_ws_new",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/tmp/.X11-unix",
+                "Destination": "/tmp/.X11-unix",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/dev/bus/usb",
+                "Destination": "/dev/bus/usb",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/dev/bus/usb/001/007",
+                "Destination": "/dev/bus/usb/001/007",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/dev/bus/usb/001/009",
+                "Destination": "/dev/bus/usb/001/009",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/dev/bus/usb/001/012",
+                "Destination": "/dev/bus/usb/001/012",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/home/jetson/.Xauthority",
+                "Destination": "/root/.Xauthority",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/home/jetson/ultralytics",
+                "Destination": "/root/ultralytics",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/home/jetson/temp",
+                "Destination": "/root/temp",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "yahboom",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "6000/tcp": {},
+                "8888/tcp": {},
+                "9090/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "ROS_DOMAIN_ID=28",
+                "DISPLAY=:0",
+                "QT_X11_NO_MITSHM=1",
+                "NO_AT_BRIDGE=1",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "DEBIAN_FRONTEND=noninteractive",
+                "TZ=UTC",
+                "LANG=en_US.UTF-8",
+                "LC_ALL=en_US.UTF-8",
+                "ORB_SLAM2_ROOT_DIR=/root/software/orbslam2/ORB_SLAM2-master",
+                "LD_LIBRARY_PATH=/root/software/orbslam2/Pangolin-0.6/build/src:/root/software/orbslam2/ORB_SLAM2-master/Thirdparty/DBoW2/lib:/root/software/orbslam2/ORB_SLAM2-master/Thirdparty/g2o/lib:/root/software/orbslam2/ORB_SLAM2-master/lib:/root/Pangolin/build/src:/root/ORB_SLAM2/Thirdparty/DBoW2/lib:/root/ORB_SLAM2/Thirdparty/g2o/lib:/root/ORB_SLAM2/lib:"
+            ],
+            "Cmd": [
+                "bash",
+                "-c",
+                "ln -sf /dev/ttyUSB1 /dev/myserial 2>/dev/null || true &&              ln -sf /dev/ttyUSB0 /dev/ydlidar 2>/dev/null || true &&              tail -f /dev/null"
+            ],
+            "Image": "yahboom_ros2_humble:latest",
+            "Volumes": null,
+            "WorkingDir": "/root",
+            "Entrypoint": [
+                "/ros_entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "org.opencontainers.image.ref.name": "ubuntu",
+                "org.opencontainers.image.version": "22.04"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "efbc04eb5cf18f450214baa49c3c7f0727a666a0aa4016c9b952a131322d590c",
+            "SandboxKey": "/var/run/docker/netns/default",
+            "Ports": {},
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "host": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "MacAddress": "",
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "a526fea25d59504a91516db82821f21da6369141d82569d1f27e54b5b45b1880",
+                    "EndpointID": "b8490701f2ef11e1209f73eefda870f5b9c0969c9c96667ad19e0110f5b5e957",
+                    "Gateway": "",
+                    "IPAddress": "",
+                    "IPPrefixLen": 0,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": null
+                }
+            }
+        }
+    }
+]
