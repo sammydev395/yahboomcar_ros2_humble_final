@@ -1,9 +1,15 @@
 cmake_minimum_required(VERSION 3.8)
 project(yahboomcar_astra)
 
-# astra_camera_msgs is built as subdirectory, don't reference it as dependency
-add_subdirectory(astra_camera_msgs)
-
+# PATCHED 2026-05-16 (container rebuild prod strategy): the vendor built
+# astra_camera_msgs via add_subdirectory() with no add_dependencies(),
+# which races on a clean parallel colcon build (msg headers not ready
+# when main.cpp compiles). The interface-identical astra_camera_msgs is
+# built into the baked overlay (/opt/ros/humble_overlays) by the
+# container Dockerfile, and is also provided by library_ws on host
+# rebuilds — so we find_package() it like a normal dependency instead.
+# The in-tree astra_camera_msgs/ subdir is now dead (left in place,
+# unused).
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_components REQUIRED)
@@ -24,7 +30,7 @@ find_package(OpenCV REQUIRED)
 find_package(class_loader REQUIRED)
 find_package(message_filters REQUIRED)
 find_package(ament_index_cpp REQUIRED)
-# astra_camera_msgs is built as subdirectory, don't find_package it
+find_package(astra_camera_msgs REQUIRED)
 
 include_directories(
   include
@@ -92,13 +98,14 @@ ament_target_dependencies(yahboomcar_astra_driver
   class_loader
   message_filters
   ament_index_cpp
-  # astra_camera_msgs  # Built as subdirectory, link directly
+  astra_camera_msgs
 )
 
 target_include_directories(yahboomcar_astra_driver PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/astra_camera_msgs/rosidl_generator_cpp>
+  # astra_camera_msgs headers now come from find_package via
+  # ament_target_dependencies (no more in-tree binary-dir hack).
   ${OpenCV_INCLUDE_DIRS}
   ${EIGEN3_INCLUDE_DIRS}
 )
@@ -115,13 +122,15 @@ target_link_libraries(yahboomcar_astra_driver
 )
 
 add_executable(astra_camera_node src/main.cpp)
-target_link_libraries(astra_camera_node 
-  yahboomcar_astra_driver 
-  ${OpenCV_LIBS} 
+target_link_libraries(astra_camera_node
+  yahboomcar_astra_driver
+  ${OpenCV_LIBS}
   Eigen3::Eigen
-  ${CMAKE_CURRENT_BINARY_DIR}/astra_camera_msgs/libastra_camera_msgs__rosidl_typesupport_cpp.so
 )
-ament_target_dependencies(astra_camera_node rclcpp)
+# astra_camera_msgs typesupport now linked via ament_target_dependencies
+# (resolves the rosidl libs from the found package) instead of a
+# hardcoded in-tree binary-dir .so path.
+ament_target_dependencies(astra_camera_node rclcpp astra_camera_msgs)
 # Set rpath so executable can find the driver library
 set_target_properties(astra_camera_node PROPERTIES
   INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib"

@@ -1,0 +1,15 @@
+# Don't ship build artifacts / git history / log files into the image build context.
+.git/
+.gitignore
+*.log
+*.pyc
+__pycache__/
+.pytest_cache/
+**/build/
+**/install/
+**/log/
+# Keep source trees from build context (these are CHECKED IN to context/)
+# but exclude their incidental build outputs.
+context/**/build/
+context/**/install/
+context/**/log/
