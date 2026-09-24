@@ -60,6 +60,7 @@ def generate_launch_description():
     robot_state_publisher = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
+        namespace='rosmaster',
         output='screen',
         parameters=[{'robot_description': robot_description_content}],
     )
@@ -67,6 +68,7 @@ def generate_launch_description():
     controller_manager = Node(
         package='controller_manager',
         executable='ros2_control_node',
+        namespace='rosmaster',
         output='screen',
         parameters=[
             {'robot_description': robot_description_content},
@@ -77,13 +79,15 @@ def generate_launch_description():
     spawn_jsb = Node(
         package='controller_manager',
         executable='spawner',
-        arguments=['joint_state_broadcaster', '--controller-manager', '/controller_manager'],
+        namespace='rosmaster',
+        arguments=['joint_state_broadcaster', '--controller-manager', '/rosmaster/controller_manager'],
     )
 
     spawn_arm = Node(
         package='controller_manager',
         executable='spawner',
-        arguments=['arm_controller', '--controller-manager', '/controller_manager'],
+        namespace='rosmaster',
+        arguments=['arm_controller', '--controller-manager', '/rosmaster/controller_manager'],
     )
 
     delay_arm_after_jsb = RegisterEventHandler(

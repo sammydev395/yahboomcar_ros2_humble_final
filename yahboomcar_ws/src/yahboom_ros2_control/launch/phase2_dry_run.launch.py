@@ -70,6 +70,7 @@ def generate_launch_description():
     robot_state_publisher = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
+        namespace='rosmaster',
         output='screen',
         parameters=[{'robot_description': robot_description_content}],
     )
@@ -77,6 +78,7 @@ def generate_launch_description():
     controller_manager = Node(
         package='controller_manager',
         executable='ros2_control_node',
+        namespace='rosmaster',
         output='screen',
         parameters=[
             {'robot_description': robot_description_content},
@@ -88,13 +90,15 @@ def generate_launch_description():
     spawn_jsb = Node(
         package='controller_manager',
         executable='spawner',
-        arguments=['joint_state_broadcaster', '--controller-manager', '/controller_manager'],
+        namespace='rosmaster',
+        arguments=['joint_state_broadcaster', '--controller-manager', '/rosmaster/controller_manager'],
     )
 
     # Joy publisher — same config as d5_joy_test.launch.py.
     joy = Node(
         package='joy',
         executable='joy_node',
+        namespace='rosmaster',
         name='joy_node',
         output='screen',
         parameters=[{
@@ -118,6 +122,7 @@ def generate_launch_description():
     teleop_twist = Node(
         package='teleop_twist_joy',
         executable='teleop_node',
+        namespace='rosmaster',
         name='teleop_twist_joy_node',
         output='screen',
         parameters=[{
@@ -144,11 +149,19 @@ def generate_launch_description():
     arm_teleop = Node(
         package='yahboom_ros2_control',
         executable='arm_teleop_node.py',
+        namespace='rosmaster',
         name='arm_teleop',
         output='screen',
         parameters=[{
             'dry_run': True,
         }],
+        remappings=[
+            # arm_teleop_node.py uses ABSOLUTE topic names internally — the
+            # namespace alone doesn't move them (same fix as phase5_combined).
+            ('/joy', '/rosmaster/joy'),
+            ('/joint_states', '/rosmaster/joint_states'),
+            ('/arm_controller/commands', '/rosmaster/arm_controller/commands'),
+        ],
     )
 
     # Twist logger — subscribes /dry_run/twist, prints non-zero Twist
@@ -156,6 +169,7 @@ def generate_launch_description():
     twist_logger = Node(
         package='yahboom_ros2_control',
         executable='twist_logger_node.py',
+        namespace='rosmaster',
         name='twist_logger',
         output='screen',
     )

@@ -37,6 +37,7 @@ def generate_launch_description():
     joy = Node(
         package='joy',
         executable='joy_node',
+        namespace='rosmaster',
         name='joy_node',
         output='screen',
         parameters=[{

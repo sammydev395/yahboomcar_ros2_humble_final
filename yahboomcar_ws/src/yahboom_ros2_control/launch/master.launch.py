@@ -110,8 +110,10 @@ def generate_launch_description():
     ydlidar_params_arg = DeclareLaunchArgument(
         'ydlidar_params',
         default_value=PathJoinSubstitution(
-            [ydlidar_share, 'params', 'ydlidar.yaml']),
-        description='Path to ydlidar_ros2_driver params yaml (defaults to vendor yaml).')
+            [pkg_share, 'config', 'ydlidar_rosmaster.yaml']),
+        description='Path to ydlidar params yaml (default: our namespaced copy — '
+                    'vendor yaml keys on the bare node name and does not match '
+                    'the /rosmaster FQN).')
 
     pre_flight_banner = LogInfo(
         msg=[
@@ -160,11 +162,16 @@ def generate_launch_description():
 
     # YDLidar TG driver — vendor LifecycleNode, named to match the
     # vendor params yaml (which keys on `ydlidar_ros2_driver_node`).
+    # Namespaced under /rosmaster (2026-09-24) so /scan doesn't collide with
+    # Ultra's lidar on shared ROS_DOMAIN_ID=100. Params default to OUR
+    # config/ydlidar_rosmaster.yaml whose node key is wildcarded (/**/) to
+    # match the namespaced FQN — the vendor yaml keys on the bare name and
+    # would silently not apply.
     ydlidar_node = LifecycleNode(
         package='ydlidar_ros2_driver',
         executable='ydlidar_ros2_driver_node',
         name='ydlidar_ros2_driver_node',
-        namespace='/',
+        namespace='/rosmaster',
         output='screen',
         emulate_tty=True,
         parameters=[LaunchConfiguration('ydlidar_params')],
@@ -172,9 +179,11 @@ def generate_launch_description():
     )
 
     # Auto-configure on launch start: UNCONFIGURED → INACTIVE.
+    # Matcher uses endswith(): under a namespace, launch_ros reports the
+    # node_name as the FQN '/rosmaster/ydlidar_ros2_driver_node'.
     configure_ydlidar = EmitEvent(
         event=ChangeState(
-            lifecycle_node_matcher=lambda action: action.node_name == 'ydlidar_ros2_driver_node',
+            lifecycle_node_matcher=lambda action: action.node_name.endswith('ydlidar_ros2_driver_node'),
             transition_id=lifecycle_msgs.msg.Transition.TRANSITION_CONFIGURE,
         ),
         condition=IfCondition(LaunchConfiguration('enable_lidar')),
@@ -191,7 +200,8 @@ def generate_launch_description():
             entities=[
                 LogInfo(msg='[master.launch] ydlidar configured → activating'),
                 EmitEvent(event=ChangeState(
-                    lifecycle_node_matcher=lambda action: action.node_name == 'ydlidar_ros2_driver_node',
+                    lifecycle_node_matcher=lambda action: action.node_name.endswith(
+                        'ydlidar_ros2_driver_node'),
                     transition_id=lifecycle_msgs.msg.Transition.TRANSITION_ACTIVATE,
                 )),
             ],
