@@ -210,9 +210,13 @@ def generate_launch_description():
         ],
     )
 
+    # Everything under /rosmaster: Rosmaster + Ultra share ROS_DOMAIN_ID=100,
+    # and unnamespaced controller topics collide fleet-wide (2026-09-24:
+    # menu arm command moved Ultra's arm; gamepad B did the same on 09-23).
     robot_state_publisher = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
+        namespace='rosmaster',
         output='screen',
         parameters=[{'robot_description': robot_description_content}],
     )
@@ -220,6 +224,7 @@ def generate_launch_description():
     controller_manager = Node(
         package='controller_manager',
         executable='ros2_control_node',
+        namespace='rosmaster',
         output='screen',
         parameters=[
             {'robot_description': robot_description_content},
@@ -230,22 +235,25 @@ def generate_launch_description():
     spawn_jsb = Node(
         package='controller_manager',
         executable='spawner',
+        namespace='rosmaster',
         arguments=['joint_state_broadcaster',
-                   '--controller-manager', '/controller_manager'],
+                   '--controller-manager', '/rosmaster/controller_manager'],
     )
 
     spawn_arm = Node(
         package='controller_manager',
         executable='spawner',
+        namespace='rosmaster',
         arguments=['arm_controller',
-                   '--controller-manager', '/controller_manager'],
+                   '--controller-manager', '/rosmaster/controller_manager'],
     )
 
     spawn_chassis = Node(
         package='controller_manager',
         executable='spawner',
+        namespace='rosmaster',
         arguments=['chassis_controller',
-                   '--controller-manager', '/controller_manager'],
+                   '--controller-manager', '/rosmaster/controller_manager'],
     )
 
     # Spawn arm + chassis controllers AFTER JSB has activated, so
@@ -261,6 +269,7 @@ def generate_launch_description():
         package='joy',
         executable='joy_node',
         name='joy_node',
+        namespace='rosmaster',
         output='screen',
         parameters=[{
             'device_id': LaunchConfiguration('device_id'),
@@ -280,16 +289,24 @@ def generate_launch_description():
         }],
     )
 
+    # arm_teleop_node.py uses ABSOLUTE topic names internally, so the
+    # namespace alone doesn't move them — explicit remaps required.
     arm_teleop = Node(
         package='yahboom_ros2_control',
         executable='arm_teleop_node.py',
         name='arm_teleop',
+        namespace='rosmaster',
         output='screen',
         parameters=[{
             'active_joint': LaunchConfiguration('active_joint'),
             'phase4_jog_rate': LaunchConfiguration('arm_jog_rate'),
             'dry_run': False,
         }],
+        remappings=[
+            ('/joy', '/rosmaster/joy'),
+            ('/joint_states', '/rosmaster/joint_states'),
+            ('/arm_controller/commands', '/rosmaster/arm_controller/commands'),
+        ],
     )
 
     # teleop_twist_joy — gamepad → TwistStamped on /chassis_controller/reference.
@@ -304,6 +321,7 @@ def generate_launch_description():
         package='teleop_twist_joy',
         executable='teleop_node',
         name='teleop_twist_joy_node',
+        namespace='rosmaster',
         output='screen',
         parameters=[{
             'enable_button': 0,            # A = chassis deadman
@@ -318,10 +336,17 @@ def generate_launch_description():
             'scale_linear_turbo.y': LaunchConfiguration('linear_turbo_scale'),
             'scale_angular_turbo.yaw': LaunchConfiguration('angular_turbo_scale'),
             'require_enable_button': True,
-            'publish_stamped_twist': True,
+            # Unstamped path: mecanum yaml sets use_stamped_vel: false
+            # (validated 2026-09-24 — wheels physically confirmed). The old
+            # stamped path (publish_stamped_twist + ~/reference) is dead.
+            'publish_stamped_twist': False,
         }],
         remappings=[
-            ('/cmd_vel', '/chassis_controller/reference'),
+            # RELATIVE key: under the rosmaster namespace teleop's cmd_vel
+            # resolves to /rosmaster/cmd_vel, so an absolute '/cmd_vel' key
+            # never matches (2026-09-24: wheels dead on phase5 while arm
+            # worked — arm_teleop uses absolute names so its remaps hit).
+            ('cmd_vel', '/rosmaster/chassis_controller/reference_unstamped'),
         ],
     )
 
