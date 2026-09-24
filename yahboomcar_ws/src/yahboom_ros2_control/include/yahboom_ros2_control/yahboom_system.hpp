@@ -110,7 +110,7 @@ class YahboomSystem : public hardware_interface::SystemInterface {
       -1.5708, -1.5708, -1.5708, -1.5708, -1.5708, -1.5708,  // -π/2 except joint5/grip already noted below
   };
   static constexpr std::array<double, NUM_ARM_JOINTS> kArmUrdfHi = {
-      +1.5708, +1.5708, +1.5708, +1.5708, +3.1416,  0.0,     // +π/2 for joints 1-4; +π for joint5; 0 for grip
+      +1.5708, +1.5708,   +2.5, +1.5708, +3.1416,  0.0,     // +π/2 for joints 1-4; +π for joint5; 0 for grip
   };
 
   // ── Wheel position → STM32 motor/encoder index mapping ──
