@@ -155,6 +155,13 @@ def generate_launch_description():
                      'PHYSICAL_MAX_RATE_DEFAULT. Set to 0.10 for the '
                      'Phase-4 conservative cap; 0.0 to use JOINT_MAP '
                      'per-joint rates.'))
+    arm_max_rate_arg = DeclareLaunchArgument(
+        'arm_max_rate', default_value='0.80',
+        description=('arm_teleop physical_max_rate (rad/s) — the hard '
+                     'anti-lurch cap on target advance. Must be >= '
+                     '2x arm_jog_rate or X-turbo is clipped to nothing. '
+                     'Vendor-validated 0.80; raised at operator request '
+                     '(servo slew tolerates well above this).'))
     linear_scale_arg = DeclareLaunchArgument(
         'linear_scale', default_value='0.10',
         description=('Chassis linear cap (m/s) for teleop_twist_joy. '
@@ -300,6 +307,10 @@ def generate_launch_description():
         parameters=[{
             'active_joint': LaunchConfiguration('active_joint'),
             'phase4_jog_rate': LaunchConfiguration('arm_jog_rate'),
+            # Hard cap on target advance per tick (anti-lurch). Must be
+            # >= 2x arm_jog_rate or X-turbo gains nothing — turbo doubles
+            # the jog rate and then physical_max_rate clips it.
+            'physical_max_rate': LaunchConfiguration('arm_max_rate'),
             'dry_run': False,
         }],
         remappings=[
@@ -354,6 +365,7 @@ def generate_launch_description():
         urdf_arg,
         controllers_arg,
         arm_jog_rate_arg,
+        arm_max_rate_arg,
         linear_scale_arg,
         linear_turbo_scale_arg,
         angular_scale_arg,

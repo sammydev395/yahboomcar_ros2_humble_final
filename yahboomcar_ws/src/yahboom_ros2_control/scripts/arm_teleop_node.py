@@ -81,7 +81,13 @@ JOINT_MAP = [
 #     grip_joint = 0 maps to vendor 90°. Soft limits keep us inside
 #     a safer sub-range pending D7 calibration.
 SOFT_LIMITS = {
-    "arm_joint1":  (-1.396,  1.396),  # ±π/2 (URDF) with 10° margin
+    # arm_joint1 widened 2026-09-24 (operator request): the 10° margin per
+    # side clipped the base to a 160° span on a servo whose full travel is
+    # 180°. ±1.55 rad = 177.6° span, keeping ~1.2° from the URDF limit so
+    # the soft-limit walk-back still has room to act. NOTE: 270° base is a
+    # HARDWARE change — servo 1 is a 180°-class bus servo (only servo 5 is
+    # 270°-class on this arm).
+    "arm_joint1":  (-1.55,   1.55),
     "arm_joint2":  (-1.396,  1.396),
     "arm_joint3":  (-1.396,  1.396),
     "arm_joint4":  (-1.396,  1.396),
