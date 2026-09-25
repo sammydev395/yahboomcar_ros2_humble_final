@@ -106,11 +106,19 @@ class YahboomSystem : public hardware_interface::SystemInterface {
   // (use `smoke_serial /dev/myserial --torque-off` to disengage). This
   // prevents the "first write commands a state ros2_control thinks is
   // impossible" failure mode.
+  // joint1 (base) widened 2026-09-24 EVE: physically verified the base servo
+  // executes pulses past the vendor 900-3100 window (raw-pulse test reached
+  // 3546; operator watched it sweep past the old end-stop). All six arm
+  // servos are the same family — the vendor software-windows s1-4/s6 to the
+  // middle 180° of a 380-3700 pulse space (same 12.2 pulse/deg slope as the
+  // "270°" s5 mapping). Limits below give vendor-deg -45..222.5 → pulses
+  // 3650..380, inside the servo's real travel. Asymmetric because the pulse
+  // floor is 380 (deg 225 would need pulse 350).
   static constexpr std::array<double, NUM_ARM_JOINTS> kArmUrdfLo = {
-      -1.5708, -1.5708, -1.5708, -1.5708, -1.5708, -1.5708,  // -π/2 except joint5/grip already noted below
+      -2.30,   -1.5708, -1.5708, -1.5708, -1.5708, -1.5708,  // -π/2 except joint1 (base, see above) / joint5 / grip
   };
   static constexpr std::array<double, NUM_ARM_JOINTS> kArmUrdfHi = {
-      +1.5708, +1.5708,   +2.5, +1.5708, +3.1416,  0.0,     // +π/2 for joints 1-4; +π for joint5; 0 for grip
+      +2.35,   +1.5708,   +2.5, +1.5708, +3.1416,  0.0,     // base ±~2.3 (266° span); +2.5 elbow; +π joint5; 0 grip
   };
 
   // ── Wheel position → STM32 motor/encoder index mapping ──

@@ -55,7 +55,7 @@ from geometry_msgs.msg import TwistStamped
 # differentiation on (Ultra's joint2 cap was incident-driven).
 JOINT_MAP = [
     # (joint_name,    axis, jog_rate, urdf_lo, urdf_hi)
-    ("arm_joint1",     0,    0.10,   -1.571,  1.571),  # LS LR (-π/2..+π/2)
+    ("arm_joint1",     0,    0.10,   -2.30,   2.35),  # LS LR — base widened to 266° span 2026-09-24
     ("arm_joint2",     1,    0.10,   -1.571,  1.571),  # LS UD (-π/2..+π/2)
     ("arm_joint3",     3,    0.10,   -1.571,  1.571),  # RS UD (-π/2..+π/2)
     ("arm_joint4",     6,    0.10,   -1.571,  1.571),  # D-pad LR (-π/2..+π/2)
@@ -87,7 +87,7 @@ SOFT_LIMITS = {
     # the soft-limit walk-back still has room to act. NOTE: 270° base is a
     # HARDWARE change — servo 1 is a 180°-class bus servo (only servo 5 is
     # 270°-class on this arm).
-    "arm_joint1":  (-1.55,   1.55),
+    "arm_joint1":  (-2.27,   2.32),  # ~1.7° inside the URDF/pulse limits
     "arm_joint2":  (-1.396,  1.396),
     "arm_joint3":  (-1.396,  1.396),
     "arm_joint4":  (-1.396,  1.396),
