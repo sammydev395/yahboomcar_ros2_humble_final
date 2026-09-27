@@ -317,12 +317,13 @@ def generate_launch_description():
             ('/joy', '/rosmaster/joy'),
             ('/joint_states', '/rosmaster/joint_states'),
             ('/arm_controller/commands', '/rosmaster/arm_controller/commands'),
-            # E-stop chassis-zero publisher (SELECT). Must reach the
-            # controller's real subscription: reference_unstamped, plain
-            # Twist (use_stamped_vel: false). Missing this = SELECT
-            # stops the arm but NOT the wheels.
+            # One-shot chassis-zero from _freeze(): routed into the gate's
+            # INPUT, never straight to the controller. chassis_estop_gate
+            # is the single feeder (a second publisher on the controller
+            # topic races teleop and loses). The latch itself travels on
+            # the relative `estop` topic -> /rosmaster/estop.
             ('/chassis_controller/reference_unstamped',
-             '/rosmaster/chassis_controller/reference_unstamped'),
+             '/rosmaster/teleop/cmd_vel'),
         ],
     )
 
@@ -363,8 +364,23 @@ def generate_launch_description():
             # resolves to /rosmaster/cmd_vel, so an absolute '/cmd_vel' key
             # never matches (2026-09-24: wheels dead on phase5 while arm
             # worked — arm_teleop uses absolute names so its remaps hit).
-            ('cmd_vel', '/rosmaster/chassis_controller/reference_unstamped'),
+            # Into chassis_estop_gate, NOT the controller: the gate is the
+            # only node that may feed chassis_controller (latched E-stop,
+            # fleet standard 2026-09-27).
+            ('cmd_vel', '/rosmaster/teleop/cmd_vel'),
         ],
+    )
+
+    # Latched E-stop enforcement for the wheels. Relative topics in
+    # /rosmaster: teleop/cmd_vel + estop in, chassis_controller/
+    # reference_unstamped out. Pass-through unless latched; zero @100 Hz
+    # while latched.
+    chassis_estop_gate = Node(
+        package='yahboom_ros2_control',
+        executable='chassis_estop_gate.py',
+        name='chassis_estop_gate',
+        namespace='rosmaster',
+        output='screen',
     )
 
     return LaunchDescription([
@@ -385,5 +401,6 @@ def generate_launch_description():
         delay_after_jsb,
         joy_node,
         arm_teleop,
+        chassis_estop_gate,
         teleop_twist,
     ])

@@ -28,6 +28,8 @@ from sensor_msgs.msg import Joy, JointState
 from std_msgs.msg import Float64MultiArray
 from std_srvs.srv import Trigger
 from geometry_msgs.msg import Twist, TwistStamped
+from std_msgs.msg import Bool
+from rclpy.qos import QoSProfile, DurabilityPolicy, ReliabilityPolicy
 
 
 # Joint name → (axis index, jog rate rad/s, URDF lo, URDF hi).
@@ -134,6 +136,12 @@ DISCONTINUITY_THRESHOLD = 0.30
 PHYSICAL_MAX_RATE_DEFAULT = 0.80
 
 DEADMAN_BUTTON = 1   # B / circle face
+# Latched E-stop release gate (fleet standard, mirrors Ultra ad55c16):
+# SELECT only releases when both deadmen are up and both sticks are
+# centred, so a release can never lurch.
+CHASSIS_DEADMAN_BUTTON = 0   # A - teleop_twist_joy enable_button
+ESTOP_RELEASE_STICK_AXES = (0, 1, 2, 3)
+ESTOP_RELEASE_AXIS_MAX = 0.2
 TURBO_BUTTON = 3     # X / square face — arm turbo (chassis turbo is Y=4)
 # Phase 3 — E-stop button, edge-triggered → calls ~/freeze service.
 # Default SELECT (button 10). Override via launch arg.
@@ -245,6 +253,20 @@ class ArmTeleop(Node):
         self._freeze_srv = self.create_service(
             Trigger, "~/freeze", self._on_freeze)
 
+        # Latched E-stop (fleet standard 2026-09-27). The latch lives HERE;
+        # it is enforced for the chassis by chassis_estop_gate, the single
+        # node that feeds chassis_controller. A one-shot zero Twist is
+        # useless: teleop_twist_joy overwrites it within ~50 ms while A is
+        # held (measured on both robots). RELATIVE topic name -> resolves to
+        # /rosmaster/estop. Transient-local so a late-starting gate still
+        # gets the current state; if this node dies while latched, the
+        # gate keeps its last (stopped) state.
+        self._estop_latched = False
+        self.estop_pub = self.create_publisher(Bool, "estop", QoSProfile(
+            depth=1, durability=DurabilityPolicy.TRANSIENT_LOCAL,
+            reliability=ReliabilityPolicy.RELIABLE))
+        self.estop_pub.publish(Bool(data=False))
+
         self.last_joy = None
         # Edge-trigger state for E-stop button so a stuck/bouncing button
         # can't spam ~/freeze at 50 Hz.
@@ -279,7 +301,7 @@ class ArmTeleop(Node):
             f"   (~{MAX_DELTA_PER_TICK * PUBLISH_HZ:.1f} rad/s @ {PUBLISH_HZ:.0f} Hz, math-glitch upper bound)"
         )
         log(f"DISCONTINUITY REJECT: {BOLD}{DISCONTINUITY_THRESHOLD:.3f} rad{OFF}   (tripwire — should NEVER fire in normal ops)")
-        log(f"E-STOP BUTTON:        {BOLD}{self.estop_button} (Select){OFF}   edge-triggered → ~/freeze (stops ARM + CHASSIS)")
+        log(f"E-STOP BUTTON:        {BOLD}{self.estop_button} (Select){OFF}   LATCHED E-stop (arm held + chassis zero until SELECT again, A/B up, sticks centred)")
         log(f"DEADMAN BUTTON:       {DEADMAN_BUTTON} (B)   required for arm motion")
         log(f"TURBO BUTTON:         {TURBO_BUTTON} (X)   {TURBO_FACTOR}× rate when held with deadman")
         log(f"HOME BUTTON:          DISABLED (Phase 6 redesign required — vendor home maps outside soft limits)")
@@ -324,13 +346,31 @@ class ArmTeleop(Node):
         )
         if estop_pressed and not self._estop_was_pressed:
             self._estop_was_pressed = True
-            self.get_logger().warn(
-                f"[E-STOP] gamepad button {self.estop_button} pressed "
-                f"— calling internal freeze")
-            self._freeze()
-            return  # this tick: only the freeze publish, nothing else
+            if not self._estop_latched:
+                self._estop_latched = True
+                self.get_logger().warn(
+                    f"[E-STOP] LATCHED (button {self.estop_button}) — arm held, "
+                    f"chassis forced to zero. Release: A and B up, sticks "
+                    f"centred, press SELECT again.")
+                self._freeze()
+                self.estop_pub.publish(Bool(data=True))
+            else:
+                ok, why = self._estop_release_ok(joy)
+                if ok:
+                    self._estop_latched = False
+                    self.estop_pub.publish(Bool(data=False))
+                    self.get_logger().warn("[E-STOP] RELEASED")
+                else:
+                    self.get_logger().warn(f"[E-STOP] release refused: {why}")
+            return
         if not estop_pressed:
             self._estop_was_pressed = False  # arm for next press
+        if self._estop_latched:
+            # Hold the frozen pose: ignore jog entirely, but KEEP the idle
+            # republish (see the deadman-released note below) so the
+            # forward_command_controller always has a fresh command.
+            self._publish_target(time_from_start_sec=self.dt)
+            return
 
         deadman_held = (
             len(joy.buttons) > DEADMAN_BUTTON
@@ -415,6 +455,18 @@ class ArmTeleop(Node):
             self.target[i] = proposed
 
         self._publish_target(time_from_start_sec=self.dt)
+
+    def _estop_release_ok(self, joy):
+        """Release only with both deadmen up and both sticks centred."""
+        b = joy.buttons
+        if len(b) > CHASSIS_DEADMAN_BUTTON and b[CHASSIS_DEADMAN_BUTTON]:
+            return False, "release A first"
+        if len(b) > DEADMAN_BUTTON and b[DEADMAN_BUTTON]:
+            return False, "release B first"
+        for ax in ESTOP_RELEASE_STICK_AXES:
+            if len(joy.axes) > ax and abs(joy.axes[ax]) > ESTOP_RELEASE_AXIS_MAX:
+                return False, f"centre the sticks (axis {ax} = {joy.axes[ax]:.2f})"
+        return True, ""
 
     def _publish_target(self, time_from_start_sec: float):
         # time_from_start_sec is no longer wire-meaningful (forward_command_

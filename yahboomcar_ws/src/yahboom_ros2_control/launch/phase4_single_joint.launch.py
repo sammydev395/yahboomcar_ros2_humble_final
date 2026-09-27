@@ -280,7 +280,7 @@ def generate_launch_description():
             # Twist (use_stamped_vel: false). Missing this = SELECT
             # stops the arm but NOT the wheels.
             ('/chassis_controller/reference_unstamped',
-             '/rosmaster/chassis_controller/reference_unstamped'),
+             '/rosmaster/teleop/cmd_vel'),  # gate input; no chassis here
         ],
     )
 
