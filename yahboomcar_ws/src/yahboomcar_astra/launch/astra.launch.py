@@ -7,6 +7,13 @@ def generate_launch_description():
             package='yahboomcar_astra',
             executable='astra_camera_node',
             name='astra_camera',
+            # Namespaced 2026-09-26: bare /color, /depth, /ir are
+            # fleet-global on ROS_DOMAIN_ID=100. Topics are now
+            # /rosmaster/{color,depth,ir}/... Vendor demo nodes
+            # (colorTracker, colorHSV, rtabmap, mediapipe, visual) still
+            # subscribe to the bare names; run them in the rosmaster
+            # namespace (--ros-args -r __ns:=/rosmaster) or remap.
+            namespace='rosmaster',
             output='screen',
             parameters=[{
                 "enable_color": True,

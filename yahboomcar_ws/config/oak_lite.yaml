@@ -1,4 +1,4 @@
-/rosmaster_oak:
+/**/rosmaster_oak:   # wildcard: node is /rosmaster/oak/rosmaster_oak since 2026-09-26
   ros__parameters:
     camera:
       i_nn_type: none

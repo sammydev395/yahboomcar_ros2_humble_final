@@ -16,8 +16,8 @@ capabilities:
     type: astra_pro
     resolution: [640, 480]
     topics:
-      rgb: /color/image_raw
-      depth: /depth/image_raw
+      rgb: /rosmaster/color/image_raw
+      depth: /rosmaster/depth/image_raw
       points: /depth/points
   - name: lidar
     type: rplidar

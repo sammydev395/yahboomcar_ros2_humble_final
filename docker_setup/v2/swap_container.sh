@@ -138,9 +138,9 @@ sudo systemctl start $UNITS 2>/dev/null || true
 say "waiting 40s for camera stack, then probing :8090 ..."
 sleep 40
 ASTRA_BYTES=$(curl -s -o /dev/null -w '%{size_download}' --max-time 8 \
-  'http://localhost:8090/stream?topic=/color/image_raw&type=mjpeg&quality=10&width=160&rate=1' 2>/dev/null || echo 0)
+  'http://localhost:8090/stream?topic=/rosmaster/color/image_raw&type=mjpeg&quality=10&width=160&rate=1' 2>/dev/null || echo 0)
 OAK_BYTES=$(curl -s -o /dev/null -w '%{size_download}' --max-time 8 \
-  'http://localhost:8090/stream?topic=/rosmaster_oak/rgb/image_raw&type=mjpeg&quality=10&width=160&rate=1' 2>/dev/null || echo 0)
+  'http://localhost:8090/stream?topic=/rosmaster/oak/rosmaster_oak/rgb/image_raw&type=mjpeg&quality=10&width=160&rate=1' 2>/dev/null || echo 0)
 say "Astra stream: ${ASTRA_BYTES} bytes   OAK stream: ${OAK_BYTES} bytes"
 if [ "${ASTRA_BYTES:-0}" -lt 1000 ] 2>/dev/null; then
     say "WARN: Astra stream looks dead (<1000 bytes). Camera may still be"
