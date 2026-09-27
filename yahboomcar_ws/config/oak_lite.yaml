@@ -15,6 +15,11 @@
       i_publish_topic: true
       i_max_q_size: 1
       i_low_bandwidth: true
+      # Keep q80 = fleet-uniform (Ultra oak_s2.yaml runs identical
+      # 1080P/30/q80). Verified 2026-09-26: the bitrate gap vs Ultra is
+      # SCENE CONTENT, not settings - and image_raw is decoded from this
+      # onboard JPEG, so lowering quality degrades on-robot vision too.
+      # Dashboard bandwidth is handled at the proxy (type=ros_compressed).
       i_low_bandwidth_quality: 80
       i_enable_lazy_publisher: false
       i_synced: false
