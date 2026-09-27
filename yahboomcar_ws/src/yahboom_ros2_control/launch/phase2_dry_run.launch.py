@@ -161,6 +161,12 @@ def generate_launch_description():
             ('/joy', '/rosmaster/joy'),
             ('/joint_states', '/rosmaster/joint_states'),
             ('/arm_controller/commands', '/rosmaster/arm_controller/commands'),
+            # E-stop chassis-zero publisher (SELECT). Must reach the
+            # controller's real subscription: reference_unstamped, plain
+            # Twist (use_stamped_vel: false). Missing this = SELECT
+            # stops the arm but NOT the wheels.
+            ('/chassis_controller/reference_unstamped',
+             '/rosmaster/chassis_controller/reference_unstamped'),
         ],
     )
 

@@ -27,7 +27,7 @@ from rclpy.node import Node
 from sensor_msgs.msg import Joy, JointState
 from std_msgs.msg import Float64MultiArray
 from std_srvs.srv import Trigger
-from geometry_msgs.msg import TwistStamped
+from geometry_msgs.msg import Twist, TwistStamped
 
 
 # Joint name → (axis index, jog rate rad/s, URDF lo, URDF hi).
@@ -225,13 +225,19 @@ class ArmTeleop(Node):
         self.pub = self.create_publisher(
             Float64MultiArray, "/arm_controller/commands", 10)
 
-        # Phase 5+ — chassis E-stop publisher. Mecanum_drive_controller
-        # subscribes to TwistStamped on /chassis_controller/reference
-        # (Humble convention; Iron+ defaults to TwistStamped). When the
-        # operator hits E-stop, we override teleop_twist_joy's current
-        # output by publishing a zero TwistStamped so wheels stop too.
+        # Phase 5+ — chassis E-stop publisher. On E-stop we publish a zero
+        # command to override whatever teleop_twist_joy is asserting.
+        #
+        # MUST match the controller's ACTUAL subscription (2026-09-26 fix):
+        # ros2_controllers.yaml sets use_stamped_vel: false, so
+        # mecanum_drive_controller listens on ~/reference_unstamped for
+        # PLAIN Twist. This previously published TwistStamped to
+        # ~/reference — wrong topic AND wrong type, so SELECT never
+        # stopped the wheels. Absolute name here is remapped to
+        # /rosmaster/... by the launch (this node uses absolute names
+        # throughout; the namespace alone does not move them).
         self.chassis_stop_pub = self.create_publisher(
-            TwistStamped, "/chassis_controller/reference", 10)
+            Twist, "/chassis_controller/reference_unstamped", 10)
 
         # Phase 3 — ~/freeze service: snap target to current state +
         # publish once. The recovery primitive that REPLACES the unsafe
@@ -494,14 +500,11 @@ class ArmTeleop(Node):
         # whatever teleop_twist_joy is currently asserting. Sent
         # regardless of dry_run; in dry-run it's harmless (no controller
         # spawned to receive it), in LIVE it's the actual chassis E-stop.
-        zero_ts = TwistStamped()
-        zero_ts.header.stamp = self.get_clock().now().to_msg()
-        zero_ts.header.frame_id = "base_link"
-        # All linear/angular fields default to 0.0
-        self.chassis_stop_pub.publish(zero_ts)
+        # Plain Twist, all fields default 0.0 (see publisher note above).
+        self.chassis_stop_pub.publish(Twist())
         self.get_logger().warn(
-            "[FREEZE] chassis zero-TwistStamped published to "
-            "/chassis_controller/reference")
+            "[FREEZE] chassis zero-Twist published to "
+            f"{self.chassis_stop_pub.topic_name}")
 
 
 def main():
